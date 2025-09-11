@@ -5,7 +5,7 @@ import React from "react";
 // *** MUI5 imports ***
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 import { styles } from "@/styles/styles";
 

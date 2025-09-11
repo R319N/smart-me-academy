@@ -1,5 +1,5 @@
 import EmailButton from "@/components/contact-components/emailButton";
-import PhoneCallButton from "@/components/contact/phoneButton";
+import PhoneCallButton from "@/components/contact-components/phoneButton";
 import WhatsAppButton from "@/components/contact-components/whatsAppButton";
 import Email from "@mui/icons-material/Email";
 import Phone from "@mui/icons-material/Phone";

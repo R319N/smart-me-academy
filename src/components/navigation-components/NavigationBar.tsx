@@ -9,47 +9,43 @@ import CloseIcon from "@mui/icons-material/Close";
 import { styles } from "@/styles/styles";
 // import Link from 'next/link'
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 import Logo from '../Logo';
 import NavTabs from './NavTabs';
 
 interface Props {
-    window?: () => Window;
-    children?: React.ReactElement<any>;
+  window?: () => Window;
+  children?: React.ReactElement; // ✅ no `any`
 }
 
 interface DashBoardNavigationProps {
-    window?: () => Window;
-    title?: string;
-    children?: React.ReactNode;
+  window?: () => Window;
+  title?: string;
+  children?: React.ReactNode; // ✅ flexible and safe
 }
 
-function ElevationScroll(props: Props) {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 0,
-        target: window ? window() : undefined,
-    });
 
-    return React.cloneElement(children!, {
-        elevation: trigger ? 1 : 0,
-        ...props,
-    });
-}
+// function ElevationScroll(props: Props) {
+//     const { children, window } = props;
+//     const trigger = useScrollTrigger({
+//         disableHysteresis: true,
+//         threshold: 0,
+//         target: window ? window() : undefined,
+//     });
+
+//     return React.cloneElement(children!, {
+//         elevation: trigger ? 1 : 0,
+//         ...props,
+//     });
+// }
 
 const NavigationBar: React.FC<DashBoardNavigationProps> = ({
     window,
-    ...rest
 }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     const trigger = useScrollTrigger({
         disableHysteresis: true,

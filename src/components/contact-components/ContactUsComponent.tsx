@@ -1,12 +1,12 @@
 import React from 'react'
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import { styles } from "@/styles/styles";
-import { TitleText } from "../CustomTexts";
-import HeadingText from '../headerBanner';
+// import HeadingText from '../headerBanner';
 import Box from '@mui/material/Box';
 import ContactForm from './ContactForm';
 import ContactDetails from './ContactDetails';
 import { Container } from '@mui/material';
+import HeadingText from '../headerBanner';
 
 const ContactUsComponent = () => {
   const headerText = "contact me";
