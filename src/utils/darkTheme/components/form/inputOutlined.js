@@ -3,7 +3,7 @@ import colors from '../../base/colors'
 import typography from '../../base/typography'
 import pxToRem from '../../functions/pxToRem'
 
-const { inputBorderColor, info, grey, transparent, text } = colors
+const { inputBorderColor, info, transparent, text } = colors
 const { borderRadius } = borders
 const { size } = typography
 const inputOutlined = {

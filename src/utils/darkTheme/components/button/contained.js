@@ -3,7 +3,7 @@ import colors from "../../base/colors";
 import typography from "../../base/typography";
 import pxToRem from "../../functions/pxToRem";
 
-const { white, secondary, primary, text } = colors;
+const { white, secondary, primary } = colors;
 const { size } = typography;
 
 const contained = {

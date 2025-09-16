@@ -31,6 +31,12 @@ export const styles = {
     backdropFilter: "blur(8px)",
     background: (theme) => theme.palette.background.card, // Adjust transparency as needed
   },
+  glassOutlined: {
+    borderRadius: "8px", // Add border radius for rounded corners
+    backdropFilter: "blur(8px)",
+    background: (theme) => theme.palette.background.card, // Adjust transparency as needed
+    border: "1px solid #dec5e355 ",
+  },  
   center_flex: {
     display: "flex",
     justifyContent: "center",

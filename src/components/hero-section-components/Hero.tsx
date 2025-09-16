@@ -1,6 +1,5 @@
 import React from 'react'
 import { Box, Container, styled } from '@mui/material'
-import Image from 'next/image';
 import HeroDetails from './HeroDetails';
 // import HeroDetails from './HeroDetails';
 // import AnimatedText from './animatedText';
@@ -61,7 +60,7 @@ const Hero = () => {
                             width: "100%",
                             display: "flex",
                             alignItems: "center",
-                            // justifyContent: "center",
+                            justifyContent: { xs: "center", lg: "flex-start" },
                             my: "10vh"
                         }}>
                             <HeroDetails />

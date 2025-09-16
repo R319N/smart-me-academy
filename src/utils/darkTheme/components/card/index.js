@@ -4,7 +4,7 @@ import colors from "../../base/colors";
 import rgba from "../../functions/rgba";
 
 
-const { black, primary, background } = colors;
+const { black, primary } = colors;
 const { borderWidth, borderRadius } = borders;
 const { md } = boxShadows;
 

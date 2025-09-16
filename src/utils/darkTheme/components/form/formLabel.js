@@ -1,8 +1,8 @@
 import colors from '../../base/colors'
-import typography from '../../base/typography'
+// import typography from '../../base/typography'
 
-const { primary, text } = colors
-const { fontWeightLighter } = typography
+const { text } = colors
+// const { fontWeightLighter } = typography
 
 const formLabel = {
   styleOverrides: {

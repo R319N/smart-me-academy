@@ -1,7 +1,7 @@
 import colors from '../../base/colors'
 import pxToRem from '../../functions/pxToRem'
 
-const { text,  transparent, primary } = colors
+const { text, primary } = colors
 
 const tabs = {
   styleOverrides: {

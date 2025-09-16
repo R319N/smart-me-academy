@@ -1,5 +1,5 @@
 "use client";
-import { styles } from "@/styles/styles";
+// import { styles } from "@/styles/styles";
 import { useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 // *** react/next imports ***
@@ -8,8 +8,8 @@ import React, { ReactElement } from "react";
 // *** MUI5 Component imports ***
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import CardHeader from "@mui/material/CardHeader";
-import Divider from "@mui/material/Divider";
+// import CardHeader from "@mui/material/CardHeader";
+// import Divider from "@mui/material/Divider";
 
 // *** motion imports ***
 import { motion } from "framer-motion";

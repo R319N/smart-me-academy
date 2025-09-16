@@ -16,17 +16,6 @@ const ContactUsComponent = () => {
     <Container
       sx={{
         ...styles.container,
-        // flexDirection: "column",
-        // width: "100%",
-        // pt: "5rem",
-        // margin: "0 auto", // Center the component horizontally
-        // px: {
-        //   xs: "1rem", // padding for extra small screens
-        //   sm: "2rem", // padding for small screens
-        //   md: "3rem", // padding for medium screens
-        //   lg: "4rem", // padding for large screens
-        //   xl: "5rem", // padding for extra large screens
-        // },
       }}
     >
       <HeadingText header={headerText} subHeader='get in touch with me, let&apos;s create awesome stuff' />

@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import RotatingCard from "../RotatingCard/RotatingCard";
 import socialMediaRoutes from "@/utils/data/socialMediaRoutes";
-import { grey } from "@mui/material/colors";
 
 export default function SocialContacts() {
   return (

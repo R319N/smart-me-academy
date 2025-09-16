@@ -1,7 +1,7 @@
 import boxShadows from '../base/boxShadows'
 import colors from '../base/colors'
 
-const { text, white } = colors
+const { text } = colors
 
 const iconButton = {
   styleOverrides: {

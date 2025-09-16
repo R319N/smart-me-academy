@@ -1,7 +1,7 @@
 import colors from "../../base/colors";
 import typography from "../../base/typography";
 
-const { white, secondary, text } = colors;
+const { secondary, text } = colors;
 const { size } = typography;
 
 const inputLabel = {

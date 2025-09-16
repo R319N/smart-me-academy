@@ -1,11 +1,9 @@
 'use client'
 // *** MUI5 imports ***
-import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import React from "react";
@@ -22,7 +20,7 @@ const Explore = () => {
       }}
     >
       <Box sx={{align:"left"}}>
-      <Stack my="5px" width="fit-content">
+      {/* <Stack my="5px" width="fit-content">
           <Typography
             variant="subtitle1"
             textTransform="capitalize"
@@ -31,7 +29,7 @@ const Explore = () => {
           >
             Explore
           </Typography>
-        </Stack>
+        </Stack> */}
         <List sx={{ cursor: "pointer", px: { xs: "0.5rem", md: "0.5rem" } }}>
           {exploreItems.map((route, index) => (
             <ListItem key={index}>

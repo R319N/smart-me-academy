@@ -2,20 +2,89 @@ import React from "react";
 
 // *** MUI5 imports ***
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import SocialContacts from "../contact-components/socialContact";
-
-import { Container } from "@mui/material";
-import { styles } from "@/styles/styles";
-import Logo from "../Logo";
+import Image from "next/image";
+import EnrollSection from "@/sections/EnrollSection";
+import FooterComponent from "./FooterComponent";
+// import { styled } from "@mui/material";
 
 const Footer = () => {
+  // const Overlay = styled(Box)(({ theme }) => ({
+  //   position: "absolute",
+  //   bottom: 0,
+  //   left: 0,
+  //   width: "100%",
+  //   height: theme.breakpoints.down('sm') ? "80%" :
+  //     theme.breakpoints.up('lg') ? "40%" : "0",
+  //   backgroundImage: `linear-gradient( to bottom left,rgba(1, 0, 2, 0.91),rgba(22, 2, 48, 0.9))`,
+  //   zIndex: 1,
+  //   // backdropFilter:{xs:"blur(0px)", xl:"blur(10px)"}
+  // }));
+
+  // const BlurOverlay = styled(Box)(({ theme }) => ({
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 0,
+  //   backdropFilter: "blur(1px)",
+  //   width: "100%",
+  //   height: "100vh",
+  //   zIndex: 0,
+  // }));
   return (
-    <Container
-      sx={{ ...styles.container }}
+    <Box
+      sx={{
+        overflow: "hidden",
+        height: "100%",
+        paddingTop: "10vh",
+        display: "flex",
+        justifyContent: "space-between",
+        flexDirection: "column",
+        position: "relative",
+      }}
+      gap={4}
     >
-      <Divider />
+      {/* <Overlay /> */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: { xs: "80%", sm: "60%" },
+          backgroundImage: `linear-gradient( to bottom left,rgba(1, 0, 2, 0.91),rgba(22, 2, 48, 0.9))`,
+          zIndex: 1,
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: { xs: "80%", lg: "60%" },
+          zIndex: 0,
+        }}
+      >
+        <Image
+          src="/footer-bg.jpg"
+          alt="footer image"
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+          priority
+        />
+      </Box>
+      <Box sx={{ zIndex: 2, px: { xs: 2, sm: 4, md: "16rem" } }}>
+        <EnrollSection />
+      </Box>
+      <Box sx={{ zIndex: 2 }}>
+        <FooterComponent />
+      </Box>
+    </Box>
+
+  );
+};
+{/* <Divider />
 
       <Box
         sx={{
@@ -59,10 +128,10 @@ const Footer = () => {
               }}
             >
               reign
-            </Typography> */}
-          </Box>
+            </Typography>  </Box>
 
-          {/* <Box
+
+<Box
             display="flex"
             justifyContent="left"
             alignItems="left"
@@ -72,7 +141,7 @@ const Footer = () => {
           >
             <SocialContacts />
           </Box> */}
-        </Box>
+{/* </Box>
         <Typography
           variant="body2"
           fontSize="small"
@@ -81,9 +150,8 @@ const Footer = () => {
         >
           Copyright © 2023 - 2024 Genexx. All rights reserved.
         </Typography>
-      </Box>
-    </Container>
-  );
-};
+      </Box> */}
+
+
 
 export default Footer;

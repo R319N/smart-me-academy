@@ -3,7 +3,7 @@ import colors from '../../base/colors'
 import typography from '../../base/typography'
 import pxToRem from '../../functions/pxToRem'
 
-const { transparent, text, secondary, white, borderColor } = colors
+const { transparent, text, secondary, white } = colors
 const { size } = typography
 
 const outlined = {

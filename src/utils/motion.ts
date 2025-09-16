@@ -5,16 +5,16 @@ import { Variants } from "framer-motion";
 type Direction = "left" | "right" | "up" | "down";
 type AnimationType = "spring" | "tween";
 
-interface TransitionConfig {
-  type: AnimationType;
-  stiffness?: number;
-  damping?: number;
-  delay?: number;
-  duration?: number;
-  ease?: string;
-  repeat?: number;
-  repeatType?: string;
-}
+// interface TransitionConfig {
+//   type: AnimationType;
+//   stiffness?: number;
+//   damping?: number;
+//   delay?: number;
+//   duration?: number;
+//   ease?: string;
+//   repeat?: number;
+//   repeatType?: string;
+// }
 
 // Variants for nav animations
 export const navVariants: Variants = {

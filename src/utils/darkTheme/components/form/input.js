@@ -1,12 +1,12 @@
-import borders from "../../base/borders";
-import colors from "../../base/colors";
-import typography from "../../base/typography";
+// import borders from "../../base/borders";
+// import colors from "../../base/colors";
+// import typography from "../../base/typography";
 
 // Material Kit 2 React Base Styles
 
-const { info, inputBorderColor, dark, white } = colors;
-const { size } = typography;
-const { borderWidth } = borders;
+// const { info, inputBorderColor, dark, white } = colors;
+// const { size } = typography;
+// const { borderWidth } = borders;
 
 const input = {
   styleOverrides: {

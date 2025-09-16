@@ -1,5 +1,5 @@
-import colors from "../../base/colors";
-import typography from "../../base/typography";
+// import colors from "../../base/colors";
+// import typography from "../../base/typography";
 import pxToRem from "../../functions/pxToRem";
 
 // Material Dashboard 2 React Helper Functions

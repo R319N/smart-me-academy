@@ -6,7 +6,7 @@ import List from "@mui/material/List";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Stack from "@mui/material/Stack";
+// import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import navigation from "@/utils/data/navigation_Links";
 import Link from "next/link";
@@ -22,7 +22,7 @@ const Navigation = () => {
       }}
     >
       <Box sx={{ align: "left" }}>
-        <Stack my="5px" width="fit-content">
+        {/* <Stack my="5px" width="fit-content">
           <Typography
             variant="subtitle1"
             textTransform="capitalize"
@@ -31,7 +31,7 @@ const Navigation = () => {
           >
             Navigation
           </Typography>
-        </Stack>
+        </Stack> */}
         <List sx={{ cursor: "pointer", px: "0.5rem" }}>
           {navigationItems.map((route, index) => (
             <ListItem key={index}>

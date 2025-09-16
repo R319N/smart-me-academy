@@ -2,16 +2,10 @@
 import "./globals.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider, useTheme } from "@mui/material/styles";
-import { Roboto } from "next/font/google";
+import { ThemeProvider } from "@mui/material/styles";
 import React, { useEffect } from "react";
 import gene20DarkTheme from '@/utils/darkTheme/gene20DarkTheme'
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  display: "swap",
-});
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;

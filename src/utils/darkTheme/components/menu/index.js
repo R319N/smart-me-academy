@@ -1,14 +1,14 @@
-import borders from "../../base/borders";
+// import borders from "../../base/borders";
 import boxShadows from "../../base/boxShadows";
 import colors from "../../base/colors";
 import typography from "../../base/typography";
 import pxToRem from "../../functions/pxToRem";
-import rgba from "../../functions/rgba";
+// import rgba from "../../functions/rgba";
 
 const { md } = boxShadows;
 const { size } = typography;
-const { text, transparent } = colors;
-const { borderRadius } = borders;
+const { text } = colors;
+// const { borderRadius } = borders;
 
 const menu = {
   defaultProps: {

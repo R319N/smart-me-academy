@@ -1,15 +1,16 @@
 "use client"
 import { slideIn } from '@/utils/motion'
-import { Box, Button, Divider, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { motion } from 'framer-motion'
 import GlowingButton from '../glowingButton'
 import GlowingButtonOutlined from '../glowingButtonOutlined'
 import ArrowDown from '@mui/icons-material/ArrowDownward'
 import Image from 'next/image'
+// import { styles } from '@/styles/styles'
 
 const HeroDetails = () => {
-    const name = "Smart Me Academy";
+    // const name = "Smart Me Academy";
     const motto = " Smart Me Bright Me Bright Future\nNever Stop Learning";
 
     return (
@@ -17,14 +18,15 @@ const HeroDetails = () => {
             <Box sx={{
                 display: "flex",
                 flexDirection: { xs: "column", lg: "row" },
-                justifySelf: "center",
+                justifyContent: "center",
                 alignItems: "center"
             }}>
                 <Box gap={{ xs: 4, sm: 1, xl: 2 }}
                     sx={{
+                        // ...styles.center_flex,
                         width: "100%",
                         height: "100%",
-                        display: "flex",
+                        display:"flex",
                         flexDirection: "column",
                         marginTop: { xs: "0vh", sm: "20vh", xl: "10vh" }
                     }}>
@@ -34,7 +36,7 @@ const HeroDetails = () => {
                                 variant="h2"
                                 sx={{
                                     textTransform: "capitalize",
-                                    fontSize: { xs: "32px", sm: "24px", xl: "100px" },
+                                    fontSize: { xs: "64px", sm: "64px", xl: "100px" },
                                     letterSpacing: "2px",
                                     fontWeight: (theme) => theme.typography.fontWeightBold,
                                     display: "flex",
@@ -53,7 +55,7 @@ const HeroDetails = () => {
                                 variant="h2"
                                 sx={{
                                     textTransform: "capitalize",
-                                    fontSize: { xs: "32px", sm: "24px", xl: "102px" },
+                                    fontSize: { xs: "64px", sm: "64px", xl: "102px" },
                                     letterSpacing: "2px",
                                     fontWeight: (theme) => theme.typography.fontWeightBold,
                                     display: "flex",
@@ -100,6 +102,7 @@ const HeroDetails = () => {
                             <GlowingButton
                                 variant="outlined"
                                 type="button"
+                                href='/enroll-with-us'
                                 // size="large"
                                 sx={{ width: { xs: "50%", sm: "100px", xl: "20%", fontWeight: "bold" } }}
                             >

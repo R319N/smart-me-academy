@@ -1,16 +1,13 @@
 "use client";
-import Image from "next/image";
-import styles from "./page.module.css";
 import Paper from "@mui/material/Paper";
 import RootLayout from "./layout";
 import HeroSection from "@/sections/HeroSection";
-import OurWork from "@/sections/OurWork";
 import ContactUs from "@/sections/ContactUs";
 import Footer from "@/sections/Footer";
 import AboutUs from "@/sections/AboutUs";
 import Testimonials from "@/sections/Testimonials";
 import NavigationBar from "@/components/navigation-components/NavigationBar";
-import EnrollSection from "@/sections/EnrollSection";
+import InformativeSection from "@/sections/InformativeSection";
 
 export default function Home() {
   return (
@@ -31,10 +28,9 @@ export default function Home() {
         <NavigationBar />
         <HeroSection />
         <AboutUs />
-        <OurWork />
         <Testimonials />
         <ContactUs />
-        <EnrollSection />
+        <InformativeSection />
         <Footer />
       </Paper>
     </RootLayout>

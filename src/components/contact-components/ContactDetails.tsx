@@ -25,36 +25,36 @@ export default function ContactDetails() {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 alignItems: "center",
-                // height: "100%",
+                p: "1rem 2rem"
             }}
             gap={6}
         >
             <Box sx={{ ...styles.between_flex, flexDirection: "column" }} gap={1}>
-                <Box sx={{ position: "relative" }}>
+                <Box sx={{ position: "relative", display: "flex", alignItems: "center" }} gap={2}>
                     <Box
                         component="img"
                         sx={{
-                            width: "100%",
+                            // width: "100%",
                             height: { xs: "100%", md: "14vh" },
-                            maxWidth: { xs: "24vw", md: "28vw" },
+                            width: { xs: "100%", md: "14vh" },
+                            borderRadius: "50px"
                         }}
                         alt="Responsive"
-                        src="/posterLogo.png"
+                        src="/Logo1.jpg"
                     />
+                    <Typography
+                        variant="body2"
+                        textAlign="left"
+                        sx={{
+                            textTransform: "capitalize",
+                            color: '#5C6584',
+                            width: { xs: "90%", lg: "60%" },
+                        }}
+                    >
+                        gene 20 specialises in crafting customised solutions to meet your
+                        unique needs. contact us now on any of our platforms
+                    </Typography>
                 </Box>
-
-                <Typography
-                    variant="body2"
-                    textAlign="center"
-                    sx={{
-                        textTransform: "capitalize",
-                        color: '#5C6584',
-                        width: { xs: "90%", lg: "70%" },
-                    }}
-                >
-                    gene 20 specialises in crafting customised solutions to meet your
-                    unique needs. contact us now on any of our platforms
-                </Typography>
             </Box>
 
             <List
@@ -72,7 +72,7 @@ export default function ContactDetails() {
                         sx={{ ...styles.center_flex, textTransform: "capitalize" }}
                         key={index}
                     >
-                        <MenuItem component={Link} href={item.link} color="secondary" sx={{width:"100%"}}>
+                        <MenuItem component={Link} href={item.link} color="secondary" sx={{ width: "100%" }}>
                             <IconButton sx={{ color: item.color }}>{item.icon}</IconButton>
                             <ListItemText
                                 primary={item.name}

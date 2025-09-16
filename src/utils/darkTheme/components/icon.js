@@ -1,6 +1,6 @@
 import colors from '../base/colors'
 import pxToRem from '../functions/pxToRem'
-const { text } = colors
+// const { text } = colors
 
 const icon = {
   defaultProps: {

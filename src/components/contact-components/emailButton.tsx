@@ -1,7 +1,6 @@
 import Mail from '@mui/icons-material/Mail'
 import React from 'react'
 import RotatingCard from '../RotatingCard/RotatingCard'
-import IconButton from '@mui/material/IconButton';
 
 interface EmailProps {
   emailAddress: string

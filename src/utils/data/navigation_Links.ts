@@ -23,14 +23,14 @@ const navigation: NavigationItem[] = [
     url: "/#curriculum",
     href: "/",
     isTab: true,
-    isNavigation: true,
+    isExplore: true,
   },
   {
     name: "enroll",
     url: "/#enroll",
     href: "/",
     isTab: true,
-    isNavigation: true,
+    isExplore: true,
   },
 
   {
@@ -46,7 +46,7 @@ const navigation: NavigationItem[] = [
     url: "/#documents",
     href: "/",
     isTab: true,
-    isNavigation: true,
+    isExplore: true,
   },
   {
     name: "payment",
@@ -56,21 +56,8 @@ const navigation: NavigationItem[] = [
     isNavigation: true,
   },
   {
-    name: "our projects",
-    url: "/#gallery",
-    href: "/our_projects",
-    isTab: false,
-    isExplore: true,
-  },
-  {
-    name: "gene20 community",
-    url: "/gene20community.com",
-    href: "/",
-    isExplore: true,
-  },
-  {
-    name: "careers",
-    url: "/careers",
+    name: "subjects",
+    url: "/subjects",
     href: "/",
     isExplore: true,
   },
@@ -78,7 +65,7 @@ const navigation: NavigationItem[] = [
     name: "help",
     url: "/help",
     href: "/",
-    isExplore: true,
+    isNavigation: true,
   },
 ];
 export default navigation;

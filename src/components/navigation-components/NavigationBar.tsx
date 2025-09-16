@@ -1,5 +1,5 @@
 "use client"
-import { AppBar, Box, IconButton, Toolbar, useScrollTrigger, Link, Button } from '@mui/material'
+import { AppBar, Box, IconButton, Toolbar, useScrollTrigger, Link, Drawer } from '@mui/material'
 
 // *** MUI5 Icon imports ***
 import MenuIcon from "@mui/icons-material/Menu";
@@ -12,16 +12,14 @@ import React, { useState } from 'react'
 // import { motion } from 'framer-motion'
 import Logo from '../Logo';
 import NavTabs from './NavTabs';
+import NavigationMenu from './NavigationMenu';
+import GlowingButton from '../glowingButton';
 
-interface Props {
-  window?: () => Window;
-  children?: React.ReactElement; // ✅ no `any`
-}
 
 interface DashBoardNavigationProps {
-  window?: () => Window;
-  title?: string;
-  children?: React.ReactNode; // ✅ flexible and safe
+    window?: () => Window;
+    title?: string;
+    children?: React.ReactNode; // ✅ flexible and safe
 }
 
 
@@ -40,17 +38,19 @@ interface DashBoardNavigationProps {
 // }
 
 const NavigationBar: React.FC<DashBoardNavigationProps> = ({
-    window,
+    window, ...rest
 }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
-
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 100,
     });
+    const container = window !== undefined ? () => window().document.body : undefined;
     return (
         <>
             <Box>
@@ -67,8 +67,8 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         position="static"
                         sx={{
                             ...styles.scrolledAppBar,
-                            backgroundColor: trigger ? "#dec5e385" : "transparent",
-                            // backgroundColor: "#040c108a",
+                            backgroundColor: trigger ? "#040c108a" : "transparent",
+                            // backgroundColor: "",
                             backdropFilter: "blur(10px)",
                             boxShadow: "none",
                         }}
@@ -120,9 +120,9 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     <NavTabs />
                                 </Box>
                                 <Box>
-                                    <Button variant='contained' color='primary'>
+                                    <GlowingButton variant='contained' color='primary' type="button">
                                         contact us
-                                    </Button>
+                                    </GlowingButton>
                                     {/* <ContactBar /> */}
                                 </Box>
                                 {/* <Box
@@ -148,7 +148,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                     </AppBar>
                     {/* </ElevationScroll> */}
                 </Box>
-                {/* <Drawer
+                <Drawer
                     {...rest}
                     container={container}
                     variant="temporary"
@@ -172,7 +172,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         setAnchorEl={setAnchorEl}
                         handleDrawerToggle={handleDrawerToggle}
                     />
-                </Drawer> */}
+                </Drawer>
             </Box>
         </>
     )

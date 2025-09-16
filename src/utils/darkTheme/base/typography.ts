@@ -1,7 +1,7 @@
 import pxToRem from "../functions/pxToRem";
 import colors from "./colors";
-import { Poppins, Roboto } from "next/font/google";
-const { text, transparent } = colors;
+import { Roboto } from "next/font/google";
+const { text } = colors;
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],

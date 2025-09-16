@@ -4,7 +4,7 @@ import borders from "./base/borders";
 import boxShadows from "./base/boxShadows";
 import breakpoints from "./base/breakpoints";
 import colors from "./base/colors";
-import globals from "./base/globals";
+// import globals from "./base/globals";
 import typography from "./base/typography";
 import pxToRem from "./functions/pxToRem";
 import linearGradient from "./functions/linearGradient";
@@ -17,7 +17,7 @@ import paper from "./components/paper";
 import appBar from "./components/appBar";
 // import avatar from "./components/avatar";
 import button from "./components/button";
-import container from "./components/container";
+// import container from "./components/container";
 import icon from "./components/icon";
 import list from "./components/list";
 import listItem from "./components/list/listItem";
@@ -31,7 +31,7 @@ import listItemText from "./components/list/listItemText";
 // tabs
 import tabs from "./components/tabs";
 import tab from "./components/tabs/tab";
-import tabPanel from "./components/tabs/tabPanel";
+// import tabPanel from "./components/tabs/tabPanel";
 
 
 
@@ -39,7 +39,7 @@ import divider from "./components/divider";
 import card from "./components/card";
 import cardMedia from "./components/card/cardMedia";
 import cardContent from "./components/card/cardContent";
-import step from "./components/stepper/step";
+// import step from "./components/stepper/step";
 import menu from "./components/menu";
 import menuItem from "./components/menu/menuItem";
 
@@ -47,16 +47,16 @@ import listItemIcon from "./components/list/listItemIcon";
 import cardHeader from "./components/card/cardHeader";
 import iconButton from "./components/iconButton";
 
-import modal from "./components/modal";
+// import modal from "./components/modal";
 import drawer from "./components/drawer";
 
 // //form imports
-// import textField from "./components/form/textField";
+import textField from "./components/form/textField";
 // import inputBase from "./components/form/inputBase";
-// import formLabel from "./components/form/formLabel";
-// import inputLabel from "./components/form/inputLabel";
-// import formHelperText from "./components/form/formHelperText";
-// import formControlLabel from "./components/form/formControlLabel";
+import formLabel from "./components/form/formLabel";
+import inputLabel from "./components/form/inputLabel";
+import formHelperText from "./components/form/formHelperText";
+import formControlLabel from "./components/form/formControlLabel";
 // import inputOutlined from "./components/form/inputOutlined";
 // import input from "./components/form/input";
 // 
@@ -113,11 +113,11 @@ const gene20DarkTheme = createTheme({
 
     //   //forms
     //   MuiOutlinedInput: { ...inputOutlined },
-    //   MuiInputLabel: { ...inputLabel },
-    //   MuiFormHelperText: { ...formHelperText },
-    //   MuiFormLabel: { ...formLabel },
-    //   MuiFormControlLabel: { ...formControlLabel },
-    //   MuiTextField: { ...textField },
+    MuiInputLabel: { ...inputLabel },
+    MuiFormHelperText: { ...formHelperText },
+    MuiFormLabel: { ...formLabel },
+    MuiFormControlLabel: { ...formControlLabel },
+    MuiTextField: { ...textField },
     //   MuiInputBase: { ...inputBase },
     //   MuiInput: { ...input },
   },

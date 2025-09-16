@@ -25,7 +25,7 @@ interface TitleTextProps {
 }
 
 export const TitleText: React.FC<TitleTextProps> = ({ title, textStyles }) => (
-  <motion.h2
+  <motion.span
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
@@ -33,5 +33,5 @@ export const TitleText: React.FC<TitleTextProps> = ({ title, textStyles }) => (
     className={`mt-[8px] font-bold md:text-[64px] text-[40px] text-white ${textStyles || ""}`}
   >
     {title}
-  </motion.h2>
+  </motion.span>
 );
