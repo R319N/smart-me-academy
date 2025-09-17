@@ -1,4 +1,4 @@
-import colors from '../base/colors'
+// import colors from '../base/colors'
 import pxToRem from '../functions/pxToRem'
 // const { text } = colors
 

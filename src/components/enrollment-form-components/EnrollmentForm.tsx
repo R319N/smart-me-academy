@@ -18,6 +18,7 @@ import ConsentAndSubmit from "./ConsentAndSubmit";
 import EnrollmentFormHeading from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
+import { EnrollmentFormData } from "../../../types";
 
 const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
 
@@ -108,14 +109,14 @@ const EnrollmentForm = () => {
     const handleBack = () => setActiveStep((prev) => prev - 1);
 
     // Submit to API
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (e?: React.FormEvent) => {
+        e?.preventDefault(); // only if event exists
         if (!validateStep()) return;
 
         try {
-            const payload: any = { ...formData };
+            const payload: EnrollmentFormData = { ...formData };
 
-            // Upload files first
+            // Upload files...
             if (formData.idImage) {
                 payload.idImage = await uploadToCloudinary(formData.idImage);
             }
@@ -129,7 +130,7 @@ const EnrollmentForm = () => {
                 payload.latestCardReport = await uploadToCloudinary(formData.latestCardReport);
             }
 
-            // ✅ Now send data to MongoDB API
+            // Send to API
             const res = await fetch("/api/students", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -148,13 +149,10 @@ const EnrollmentForm = () => {
             alert("Something went wrong!");
         }
     };
-    ;
-
-
 
     const handleFinalSubmit = () => {
         if (formData.registrationFeeAgreed) {
-            handleSubmit(new Event("submit") as any);
+            handleSubmit(); // ✅ no fake event needed
             setOpenModal(false);
         }
     };

@@ -1,5 +1,6 @@
 import { Grid, Typography, Button } from "@mui/material";
 import React, { useRef } from "react";
+import { EnrollmentFormData } from "../../../types";
 
 interface DocumentInputProps {
   label: string;
@@ -36,8 +37,8 @@ const DocumentInput: React.FC<DocumentInputProps> = ({ label, name, file, onChan
 };
 
 interface Props {
-  formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  formData: EnrollmentFormData;
+  setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
   errors: { [key: string]: string };
 }
 
@@ -45,7 +46,7 @@ const DocumentsUpload: React.FC<Props> = ({ formData, setFormData, errors }) => 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files && files[0]) {
-      setFormData((prev: any) => ({ ...prev, [name]: files[0] }));
+      setFormData((prev: EnrollmentFormData) => ({ ...prev, [name]: files[0] }));
     }
   };
 

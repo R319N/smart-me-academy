@@ -1,23 +1,25 @@
-import { Grid, TextField, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
+import { Grid, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent } from "@mui/material";
 import React from "react";
+import { EnrollmentFormData } from "../../../types";
 
 interface Props {
-  formData: {
-    firstName: string;
-    surname: string;
-    gender: string;
-    dob: string;
-    grade: string;
-    idOrPassport: string;
-  };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  errors: { [key: string]: string };
+  formData: EnrollmentFormData;
+  setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
+  errors: Record<string, string>;
 }
 
 const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | any) => {
-    const { name, value } = e.target;
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
+  ) => {
+    const target = e.target as (HTMLInputElement & { name?: string; value: string }) | { name?: string; value: unknown };
+    if (!target.name) return;
+
+    // Strict type assertion based on EnrollmentFormData
+    setFormData((prev) => ({
+      ...prev,
+      [target.name as string]: target.value,
+    }));
   };
 
   return (
@@ -69,12 +71,16 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           </Select>
         </FormControl>
       </Grid>
-       <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+
+      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
         <FormControl fullWidth error={!!errors.grade}>
-          <InputLabel>Gender</InputLabel>
-          <Select name="gender" value={formData.grade} onChange={handleChange}>
-            <MenuItem value="Male">Male</MenuItem>
-            <MenuItem value="Female">Female</MenuItem>
+          <InputLabel>Grade</InputLabel>
+          <Select name="grade" value={formData.grade} onChange={handleChange}>
+            <MenuItem value="1">Grade 1</MenuItem>
+            <MenuItem value="2">Grade 2</MenuItem>
+            <MenuItem value="3">Grade 3</MenuItem>
+            <MenuItem value="4">Grade 4</MenuItem>
+            {/* Add remaining grades as needed */}
           </Select>
         </FormControl>
       </Grid>

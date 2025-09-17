@@ -1,21 +1,30 @@
-import { Grid, InputLabel, TextField, FormControl, Select, MenuItem } from "@mui/material";
+import { Grid, InputLabel, TextField, FormControl, Select, MenuItem, SelectChangeEvent } from "@mui/material";
 import React from "react";
+import { EnrollmentFormData } from "../../../types";
 
 interface Props {
-  formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
-  errors: { [key: string]: string };
+  formData: EnrollmentFormData;
+  setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
+  errors: Record<string, string>;
 }
 
 const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | any) => {
-    const { name, value } = e.target;
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
+  ) => {
+    // Strictly type the target
+    const target = e.target as HTMLInputElement & { name?: keyof EnrollmentFormData; value: string };
+    if (!target.name) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
   };
 
   return (
     <Grid container spacing={2}>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Full Name</InputLabel>
         <TextField
           fullWidth
@@ -27,7 +36,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Email</InputLabel>
         <TextField
           fullWidth
@@ -40,7 +49,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Phone Number</InputLabel>
         <TextField
           fullWidth
@@ -51,7 +60,8 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           helperText={errors.contactNumber}
         />
       </Grid>
-<Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Whatsapp Number</InputLabel>
         <TextField
           fullWidth
@@ -63,10 +73,14 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <FormControl fullWidth error={!!errors.relationshipToStudent}>
           <InputLabel>Relationship to Student</InputLabel>
-          <Select name="relationshipToStudent" value={formData.relationshipToStudent} onChange={handleChange}>
+          <Select
+            name="relationshipToStudent"
+            value={formData.relationshipToStudent}
+            onChange={handleChange}
+          >
             <MenuItem value="Parent">Parent</MenuItem>
             <MenuItem value="Guardian">Guardian</MenuItem>
             <MenuItem value="Sibling">Sibling</MenuItem>
@@ -75,10 +89,14 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         </FormControl>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <FormControl fullWidth error={!!errors.maritalStatus}>
           <InputLabel>Marital Status</InputLabel>
-          <Select name="maritalStatus" value={formData.maritalStatus} onChange={handleChange}>
+          <Select
+            name="maritalStatus"
+            value={formData.maritalStatus}
+            onChange={handleChange}
+          >
             <MenuItem value="Single">Single</MenuItem>
             <MenuItem value="Married">Married</MenuItem>
             <MenuItem value="Divorced">Divorced</MenuItem>
@@ -87,7 +105,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         </FormControl>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Address</InputLabel>
         <TextField
           fullWidth

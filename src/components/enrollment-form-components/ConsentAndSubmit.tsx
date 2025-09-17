@@ -1,31 +1,22 @@
 import { Grid, Typography } from "@mui/material";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
 import React from "react";
+import { EnrollmentFormData } from "../../../types";
 
-interface Props {
-  formData: {
-    monthlyTuition: string;
-    paymentDay: string;
-    year: string;
-    extraLessons: string;
-    agreeTerms: boolean;
-    agreePayment: boolean;
-  };
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+interface ConsentAndSubmitProps {
+  formData: EnrollmentFormData;
+  setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
   errors: { [key: string]: string };
 }
 
-const ConsentAndSubmit: React.FC<Props> = ({
+const ConsentAndSubmit: React.FC<ConsentAndSubmitProps> = ({
   formData,
   setFormData,
   errors,
 }) => {
   function handleChange(event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>): void {
     const { name, value } = event.target;
-    setFormData((prev: any) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
   return (
@@ -161,7 +152,7 @@ const ConsentAndSubmit: React.FC<Props> = ({
           <BpCheckbox
             checked={formData.agreeTerms}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setFormData((prev: any) => ({
+              setFormData((prev: EnrollmentFormData) => ({
                 ...prev,
                 agreeTerms: e.target.checked,
               }))
@@ -193,7 +184,7 @@ const ConsentAndSubmit: React.FC<Props> = ({
           <BpCheckbox
             checked={formData.agreePayment}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setFormData((prev: any) => ({
+              setFormData((prev: EnrollmentFormData) => ({
                 ...prev,
                 agreePayment: e.target.checked,
               }))

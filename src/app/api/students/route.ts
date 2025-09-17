@@ -12,10 +12,18 @@ export async function POST(req: Request) {
     await student.save();
 
     return NextResponse.json({ success: true, student });
-  } catch (error: any) {
-    console.error("Error saving student:", error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Error saving student:", error.message);
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      );
+    }
+    // Fallback if error is not an instance of Error
+    console.error("Unknown error saving student:", error);
     return NextResponse.json(
-      { success: false, error: error.message },
+      { success: false, error: "Unknown error" },
       { status: 500 }
     );
   }
