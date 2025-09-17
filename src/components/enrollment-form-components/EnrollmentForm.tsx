@@ -17,6 +17,7 @@ import DocumentsUpload from "./DocumentsUpload";
 import ConsentAndSubmit from "./ConsentAndSubmit";
 import EnrollmentFormHeading from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
+import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 
 const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
 
@@ -112,27 +113,44 @@ const EnrollmentForm = () => {
         if (!validateStep()) return;
 
         try {
-            const formPayload = new FormData();
-            for (const key in formData) {
-                if (formData[key as keyof typeof formData] instanceof File) {
-                    formPayload.append(key, formData[key as keyof typeof formData] as File);
-                } else {
-                    formPayload.append(key, formData[key as keyof typeof formData] as string);
-                }
+            const payload: any = { ...formData };
+
+            // Upload files first
+            if (formData.idImage) {
+                payload.idImage = await uploadToCloudinary(formData.idImage);
+            }
+            if (formData.proofOfResidence) {
+                payload.proofOfResidence = await uploadToCloudinary(formData.proofOfResidence);
+            }
+            if (formData.birthCertificate) {
+                payload.birthCertificate = await uploadToCloudinary(formData.birthCertificate);
+            }
+            if (formData.latestCardReport) {
+                payload.latestCardReport = await uploadToCloudinary(formData.latestCardReport);
             }
 
+            // ✅ Now send data to MongoDB API
             const res = await fetch("/api/students", {
                 method: "POST",
-                body: formPayload,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
             });
 
             const data = await res.json();
-            if (data.success) alert("Student saved successfully!");
-            else alert("Error: " + data.error);
+            if (data.success) {
+                alert("Student saved successfully!");
+                console.log("Saved student:", data.student);
+            } else {
+                alert("Error: " + data.error);
+            }
         } catch (err) {
             console.error(err);
+            alert("Something went wrong!");
         }
     };
+    ;
+
+
 
     const handleFinalSubmit = () => {
         if (formData.registrationFeeAgreed) {
