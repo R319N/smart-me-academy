@@ -13,7 +13,7 @@ const Curriculum = () => {
             {/* <Container> */}
                 <CurriculumCarousel />
             {/* </Container> */}
-            <SlidingText />
+            <SlidingText /> 
         </Container>
     )
 }

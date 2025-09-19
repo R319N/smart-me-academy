@@ -17,22 +17,22 @@ const ourSubjects: SubjectProps[] = [
   {
     key: "1",
     name: "Mathematics",
-    imgURL: "/maths.jpg",
+    imgURL: "/maths.png",
   },
   {
     key: "2",
     name: "English",
-    imgURL: "/eng.jpg",
+    imgURL: "/eng.png",
   },
   {
     key: "3",
     name: "Physical Science",
-    imgURL: "/ps.jpg",
+    imgURL: "/ps.png",
   },
   {
     key: "4",
     name: "Math Literacy",
-    imgURL: "/math-lit.jpeg",
+    imgURL: "/math-lit.png",
   },
   {
     key: "5",

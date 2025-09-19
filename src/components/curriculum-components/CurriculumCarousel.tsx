@@ -13,10 +13,10 @@ import HeadingText from "../headerBanner";
 
 import styles from "./MyCarousel.module.css";
 import Image from "next/image";
-import ourServices from "@/utils/data/our_services-data";
+import ourServices from "@/utils/data/ourCurriculum";
 import { TitleText } from "../CustomTexts";
 import { Container } from "@mui/material";
-import ourSubjects from "@/utils/data/our_services-data";
+import ourSubjects from "@/utils/data/ourCurriculum";
 // import { TitleText } from "../CustomTexts";
 // import Image from "next/image";
 
