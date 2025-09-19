@@ -1,4 +1,4 @@
-import { Grid, InputLabel, TextField, FormControl, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import { Grid, InputLabel, TextField, FormControl, Select, MenuItem, SelectChangeEvent, Stack } from "@mui/material";
 import React from "react";
 import { EnrollmentFormData } from "../../../types";
 
@@ -27,8 +27,10 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
       <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Full Name</InputLabel>
         <TextField
+          variant="standard"
           fullWidth
           name="custodianFullName"
+          placeholder="Custodian/Parent Fullname"
           value={formData.custodianFullName}
           onChange={handleChange}
           error={!!errors.custodianFullName}
@@ -39,6 +41,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
       <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Email</InputLabel>
         <TextField
+          variant="standard"
           fullWidth
           type="email"
           name="email"
@@ -52,6 +55,8 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
       <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Phone Number</InputLabel>
         <TextField
+          variant="standard"
+          placeholder="Enter Your Phone Number"
           fullWidth
           name="contactNumber"
           value={formData.contactNumber}
@@ -64,6 +69,8 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
       <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
         <InputLabel>Whatsapp Number</InputLabel>
         <TextField
+          variant="standard"
+          placeholder="Enter Your WhatsApp Number"
           fullWidth
           name="whatsappNumber"
           value={formData.whatsappNumber}
@@ -105,18 +112,22 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         </FormControl>
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Address</InputLabel>
-        <TextField
-          fullWidth
-          multiline
-          rows={3}
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          error={!!errors.address}
-          helperText={errors.address}
-        />
+      <Grid size={12} sx={{ py: "1rem" }}>
+        <Stack gap={1}>
+          <InputLabel>Address</InputLabel>
+          <TextField
+            fullWidth
+            placeholder="Enter Your Address"
+            multiline
+            rows={3}
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            error={!!errors.address}
+            helperText={errors.address}
+          />
+        </Stack>
+
       </Grid>
     </Grid>
   );

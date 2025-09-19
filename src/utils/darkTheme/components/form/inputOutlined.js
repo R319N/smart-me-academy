@@ -3,7 +3,7 @@ import colors from '../../base/colors'
 import typography from '../../base/typography'
 import pxToRem from '../../functions/pxToRem'
 
-const { inputBorderColor, info, transparent, text } = colors
+const { inputBorderColor, info, transparent, text , primary} = colors
 const { borderRadius } = borders
 const { size } = typography
 const inputOutlined = {
@@ -14,20 +14,20 @@ const inputOutlined = {
       borderRadius: borderRadius.md,
 
       '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: inputBorderColor,
+        borderColor: primary.main,
         backgroundColor: "transparent",
       },
 
       '&.Mui-focused': {
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: info.main
+          borderColor: primary.main
         }
       }
       
     },
 
     notchedOutline: {
-      borderColor: inputBorderColor
+      borderColor: primary.main
     },
 
     input: {

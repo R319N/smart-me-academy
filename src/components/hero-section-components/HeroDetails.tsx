@@ -7,6 +7,7 @@ import GlowingButton from '../glowingButton'
 import GlowingButtonOutlined from '../glowingButtonOutlined'
 import ArrowDown from '@mui/icons-material/ArrowDownward'
 import Image from 'next/image'
+import { styles } from '@/styles/styles'
 // import { styles } from '@/styles/styles'
 
 const HeroDetails = () => {
@@ -17,21 +18,31 @@ const HeroDetails = () => {
         <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
             <Box sx={{
                 display: "flex",
-                flexDirection: { xs: "column", lg: "row" },
+                flexDirection: { xs: "column", md: "row" },
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
+                height: "100%",
+                // py: { xs: "24vh", md: "14vh" },
+                zIndex:10
+
             }}>
-                <Box gap={{ xs: 4, sm: 1, xl: 2 }}
+
+
+                <Box
+                gap={7}
                     sx={{
                         // ...styles.center_flex,
                         width: "100%",
                         height: "100%",
-                        display:"flex",
+                        display: "flex",
                         flexDirection: "column",
-                        marginTop: { xs: "0vh", sm: "20vh", xl: "10vh" }
+                        justifyContent: "space-between",
+                        //  my:"10vh"
+                        // marginTop: { xs: "0vh", sm: "20vh", xl: "10vh" }
                     }}>
-                    <Box sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start" }, alignItems: "center" }} gap={1}>
-                        <Stack>
+                    {/* sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start" }, alignItems: "center" }}  */}
+                    <Stack gap={1}>
+                        <Stack gap={1} sx={styles.center_flex}>
                             <Typography
                                 variant="h2"
                                 sx={{
@@ -43,7 +54,7 @@ const HeroDetails = () => {
                                     justifySelf: "center",
                                     color: (theme) => theme.palette.secondary.main,
                                     lineHeight: {
-                                        xs: "24px", sm: "30px", xl: "30px"
+                                        xs: "1.8rem", sm: "30px", xl: "30px"
                                     }
                                 }}>
 
@@ -66,54 +77,50 @@ const HeroDetails = () => {
                                 academy
                             </Typography>
                         </Stack>
-
-                    </Box>
-                    <Stack
-                        gap={{ xs: 4, sm: 2, xl: 4 }}
-                        sx={{
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
-                    >
-                        <Box sx={{ width: { xs: "100%", sm: "60%", xl: "60%" } }}>
+                        <Box
+                            sx={{ px: "3rem" }}
+                        // sx={{ width: { xs: "80%", sm: "60%", xl: "60%" } }}z
+                        >
                             <Typography
                                 variant='h1'
-                                textAlign={{ xs: "center", sm: "left" }}
+                                textAlign="center"
                                 fontWeight="light"
-                                sx={{ fontSize: { xs: "14px", sm: "32px", xl: "28px" } }}>
+                                sx={{ fontSize: { xs: "14px", sm: "32px", xl: "18px" } }}>
                                 {motto}
                             </Typography>
                         </Box>
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
-                            sx={{
-                                width: "100%",
-                                display: "flex",
-                                alignItems: "center"
-                            }}
+                    </Stack>
+
+
+                    <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
+                        sx={{
+                            width: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center"
+                        }}
+                    >
+                        <GlowingButtonOutlined
+                            variant="outlined"
+                            type="button"
+                            size="large"
+                            sx={{ width: { xs: "50%", sm: "100px", xl: "20%" } }}
                         >
-                            <GlowingButtonOutlined
-                                variant="outlined"
-                                type="button"
-                                // size={{xs:"large"}}
-                                sx={{ width: { xs: "50%", sm: "100px", xl: "20%" } }}
-                            >
-                                Contact Us
-                            </GlowingButtonOutlined>
-                            <GlowingButton
-                                variant="outlined"
-                                type="button"
-                                href='/enroll-with-us'
-                                // size="large"
-                                sx={{ width: { xs: "50%", sm: "100px", xl: "20%", fontWeight: "bold" } }}
-                            >
-                                Enroll now
-                            </GlowingButton>
-                            <ArrowDown />
-                        </Stack>
+                            Contact Us
+                        </GlowingButtonOutlined>
+                        <GlowingButton
+                            variant="outlined"
+                            type="button"
+                            href='/enroll-with-us'
+                            size="large"
+                            sx={{ width: { xs: "50%", sm: "100px", xl: "20%", fontWeight: "bold" } }}
+                        >
+                            Enroll now
+                        </GlowingButton>
                     </Stack>
 
                 </Box>
-                <Box
+                {/* <Box
                     sx={{
                         display: "flex",
                         // position: { xs: "relative", xl: "absolute" },
@@ -139,7 +146,7 @@ const HeroDetails = () => {
                         priority
                     />
 
-                </Box>
+                </Box> */}
             </Box>
 
         </motion.div >

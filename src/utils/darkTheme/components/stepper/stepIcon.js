@@ -1,53 +1,43 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// Material Dashboard 2 React base styles
-
+import { color } from 'framer-motion'
 import colors from '../../base/colors'
 import boxShadow from '../../functions/boxShadow'
 import pxToRem from '../../functions/pxToRem'
+import rgba from '../../functions/rgba'
 
-const { white } = colors
+const { white, primary, text } = colors
 
 const stepIcon = {
   styleOverrides: {
     root: {
-      background: '#9fc9ff',
-      fill: '#9fc9ff',
-      stroke: '#9fc9ff',
+     background: text.primary,
+      fill:`${rgba(primary.main, 0.5)}`,
+      // stroke:  text.primary,
       strokeWidth: pxToRem(10),
-      width: pxToRem(13),
-      height: pxToRem(13),
+      width: pxToRem(22),
+      height: pxToRem(22),
       borderRadius: '50%',
       zIndex: 99,
       transition: 'all 200ms linear',
 
       '&.Mui-active': {
-        background: white.main,
-        fill: white.main,
-        stroke: white.main,
-        borderColor: white.main,
-        boxShadow: boxShadow([0, 0], [0, 2], white.main, 1)
+        // color: "white",
+        // textColor:"blue",
+        background: primary.main,
+         
+        fill:primary.main,
+        
+
+        // stroke: "white",
+        // borderColor: white.main,
+        boxShadow: boxShadow([0, 0], [0, 1], text.primary, 1)
       },
 
       '&.Mui-completed': {
-        background: white.main,
-        fill: white.main,
-        stroke: white.main,
-        borderColor: white.main,
-        boxShadow: boxShadow([0, 0], [0, 2], white.main, 1)
+        // background: white.main,
+        fill: primary.main,
+        // stroke: white.main,
+        // borderColor: white.main,
+       
       }
     }
   }

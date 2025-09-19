@@ -1,11 +1,11 @@
 import colors from "../../base/colors";
 
-const { borderColor } = colors;
+const { borderColor, primary } = colors;
 
 const textField = {
   styleOverrides: {
     root: {
-      borderColor: borderColor,
+      borderColor: primary.main,
       "&.textFieldBright": {},
       "& .MuiInputBase-root": {
         backgroundColor: "transparent",

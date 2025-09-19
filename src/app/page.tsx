@@ -8,6 +8,8 @@ import AboutUs from "@/sections/AboutUs";
 import Testimonials from "@/sections/Testimonials";
 import NavigationBar from "@/components/navigation-components/NavigationBar";
 import InformativeSection from "@/sections/InformativeSection";
+import CurriculumSection from "@/sections/CurriculumSection";
+import OurProgramsSection from "@/sections/OurProgramsSection";
 
 export default function Home() {
   return (
@@ -27,10 +29,12 @@ export default function Home() {
       >
         <NavigationBar />
         <HeroSection />
+        <CurriculumSection />
+        <OurProgramsSection />
         <AboutUs />
         <Testimonials />
-        <ContactUs />
         <InformativeSection />
+        <ContactUs />
         <Footer />
       </Paper>
     </RootLayout>

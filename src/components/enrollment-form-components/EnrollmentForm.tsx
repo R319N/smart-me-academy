@@ -19,6 +19,11 @@ import EnrollmentFormHeading from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import { EnrollmentFormData } from "../../../types";
+import CustomizedSteppers from "./CustomizedSteppers";
+import { styles } from "@/styles/styles";
+import GlowingButton from "../glowingButton";
+import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import GlowingButtonOutlined from "../glowingButtonOutlined";
 
 const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
 
@@ -159,37 +164,41 @@ const EnrollmentForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <EnrollmentFormHeading activeStep={activeStep} />
-
-            <Grid container spacing={2}>
-                {activeStep === 0 && (
-                    <StudentDetails formData={formData} setFormData={setFormData} errors={errors} />
-                )}
-                {activeStep === 1 && (
-                    <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} />
-                )}
-                {activeStep === 2 && (
-                    <DocumentsUpload formData={formData} setFormData={setFormData} errors={errors} />
-                )}
-                {activeStep === 3 && (
-                    <ConsentAndSubmit formData={formData} setFormData={setFormData} errors={errors} />
-                )}
+            <EnrollmentFormHeading />
+            <Grid container sx={styles.center_flex}>
+                <Grid size={{ xs: 12, sm: 4 }}>
+                    <CustomizedSteppers activeStep={activeStep} />
+                </Grid>
+                <Grid container spacing={2} size={{ xs: 12, sm: 8 }}>
+                    {activeStep === 0 && (
+                        <StudentDetails formData={formData} setFormData={setFormData} errors={errors} />
+                    )}
+                    {activeStep === 1 && (
+                        <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} />
+                    )}
+                    {activeStep === 2 && (
+                        <DocumentsUpload formData={formData} setFormData={setFormData} errors={errors} />
+                    )}
+                    {activeStep === 3 && (
+                        <ConsentAndSubmit formData={formData} setFormData={setFormData} errors={errors} />
+                    )}
+                </Grid>
             </Grid>
-
-
-            <Box sx={{ mt: 3 }}>
-                <Button disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>
-                    Back
-                </Button>
+            <Box width="100%" display="flex" justifyContent="right" sx={{ mt: 3 }}>
+                {activeStep > 0 && (
+                    <GlowingButtonOutlined variant="outlined" onClick={handleBack} sx={{ mr: 1 }}>
+                        Back
+                    </GlowingButtonOutlined>
+                )}
 
                 {activeStep < steps.length - 1 ? (
-                    <Button variant="contained" onClick={handleNext}>
+                    <GlowingButton endIcon={<NextIcon />} variant="contained" onClick={handleNext}>
                         Next
-                    </Button>
+                    </GlowingButton>
                 ) : (
-                    <Button variant="contained" onClick={() => setOpenModal(true)}>
+                    <GlowingButton variant="contained" onClick={() => setOpenModal(true)}>
                         Submit
-                    </Button>
+                    </GlowingButton>
                 )}
             </Box>
             <Dialog open={openModal} onClose={() => setOpenModal(false)}>

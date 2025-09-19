@@ -13,9 +13,9 @@ const Logo = () => {
             <Box
                 sx={{
                     display: "flex",
-
                     alignItems: "center",
                     cursor: "pointer",
+                    height: "2.4rem", width: "2.4rem", overflow: "hidden",borderRadius: "50px",
                 }}
             >
                 <Image
@@ -23,8 +23,9 @@ const Logo = () => {
                     alt="logo"
                     width={80}
                     height={80}
-                    style={{ borderRadius: "50px", height: "3rem", width: "3rem" }}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
                     priority
+                    // fill
                 />
             </Box>
         </motion.div>

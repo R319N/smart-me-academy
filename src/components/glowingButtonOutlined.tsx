@@ -4,7 +4,6 @@ import Button from '@mui/material/Button'
 
 const GlowingButtonOutlined = styled(Button)`
   color: ${({ theme }) => theme.palette.text.primary};
-  min-height: ${({ theme }) => theme.spacing(5)};
   padding: ${({ theme }) => `${theme.spacing(1.25)} ${theme.spacing(2)}`};
   backdrop-filter:blur(7px);
   font-size: '8px';

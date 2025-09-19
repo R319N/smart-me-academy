@@ -22,10 +22,10 @@ import icon from "./components/icon";
 import list from "./components/list";
 import listItem from "./components/list/listItem";
 import listItemText from "./components/list/listItemText";
-// import stepper from "./components/stepper";
-// import stepConnector from "./components/stepper/stepConnector";
-// import stepIcon from "./components/stepper/stepIcon";
-// import stepLabel from "./components/stepper/stepLabel";
+import stepper from "./components/stepper";
+import stepConnector from "./components/stepper/stepConnector";
+import stepIcon from "./components/stepper/stepIcon";
+import stepLabel from "./components/stepper/stepLabel";
 
 
 // tabs
@@ -39,7 +39,7 @@ import divider from "./components/divider";
 import card from "./components/card";
 import cardMedia from "./components/card/cardMedia";
 import cardContent from "./components/card/cardContent";
-// import step from "./components/stepper/step";
+import step from "./components/stepper/step";
 import menu from "./components/menu";
 import menuItem from "./components/menu/menuItem";
 
@@ -52,13 +52,13 @@ import drawer from "./components/drawer";
 
 // //form imports
 import textField from "./components/form/textField";
-// import inputBase from "./components/form/inputBase";
+import inputBase from "./components/form/inputBase";
 import formLabel from "./components/form/formLabel";
 import inputLabel from "./components/form/inputLabel";
 import formHelperText from "./components/form/formHelperText";
 import formControlLabel from "./components/form/formControlLabel";
-// import inputOutlined from "./components/form/inputOutlined";
-// import input from "./components/form/input";
+import inputOutlined from "./components/form/inputOutlined";
+import input from "./components/form/input";
 // 
 
 const gene20DarkTheme = createTheme({
@@ -92,16 +92,21 @@ const gene20DarkTheme = createTheme({
     MuiTabs: { ...tabs },
     MuiTab: { ...tab },
     //   MuiTabPanel: { ...tabPanel },
-    //   MuiStepper: { ...stepper },
+
+
+    // // stepper
+    // MuiStepper: { ...stepper },
+    MuiStepLabel: { ...stepLabel },
+    MuiStepIcon: { ...stepIcon },
+    // MuiStep: { ...step },
+    MuiStepConnector: { ...stepConnector },
+
+
     MuiCard: { ...card },
     MuiCardContent: { ...cardContent },
     MuiCardMedia: { ...cardMedia },
     MuiCardHeader: { ...cardHeader },
     MuiCardContent: { ...cardContent },
-    //   MuiStep: { ...step },
-    //   MuiStepConnector: { ...stepConnector },
-    //   MuiStepLabel: { ...stepLabel },
-    //   MuiStepIcon: { ...stepIcon },
     MuiButton: { ...button },
     MuiAppBar: { ...appBar },
     //   MuiAvatar: { ...avatar },
@@ -112,14 +117,14 @@ const gene20DarkTheme = createTheme({
     MuiDrawer: { ...drawer },
 
     //   //forms
-    //   MuiOutlinedInput: { ...inputOutlined },
+    MuiOutlinedInput: { ...inputOutlined },
     MuiInputLabel: { ...inputLabel },
     MuiFormHelperText: { ...formHelperText },
     MuiFormLabel: { ...formLabel },
     MuiFormControlLabel: { ...formControlLabel },
     MuiTextField: { ...textField },
-    //   MuiInputBase: { ...inputBase },
-    //   MuiInput: { ...input },
+    MuiInputBase: { ...inputBase },
+    MuiInput: { ...input },
   },
 });
 export default gene20DarkTheme;

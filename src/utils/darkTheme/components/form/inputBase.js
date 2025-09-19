@@ -2,7 +2,7 @@
 import colors from "../../base/colors";
 import typography from "../../base/typography";
 
-const { inputBorderColor, grey, secondary } = colors;
+const { inputBorderColor, grey, primary } = colors;
 const { size } = typography;
 
 const inputBase = {
@@ -11,21 +11,21 @@ const inputBase = {
       backgroundColor: "transparent",
       fontSize: size.sm,
       color: grey.light,
-      borderColor: inputBorderColor,
+      borderColor: primary.main,
       padding: "0.3rem 1rem",
       "&:hover": {},
 
       "& .MuiOutlinedInput-notchedOutline, &:before": {
-        borderColor: secondary.main,
+        borderColor: primary.main,
         color: grey.light,
         backgroundColor: "transparent",
       },
 
       "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: inputBorderColor,
+        borderColor: primary.main,
       },
       "& .MuiNotchedOutline": {
-        borderColor: inputBorderColor,
+        borderColor: primary.main,
       },
       "& .MuiFormLabel-root-MuiInputLabel-root": {
         color: grey.light,

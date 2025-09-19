@@ -3,8 +3,8 @@ import typography from '../../base/typography'
 import pxToRem from '../../functions/pxToRem'
 import rgba from '../../functions/rgba'
 
-const { size, fontWeightRegular } = typography
-const { white } = colors
+const { size, fontWeightRegular, fontWeightBold } = typography
+const { white, primary, text } = colors
 
 const stepLabel = {
   styleOverrides: {
@@ -12,16 +12,16 @@ const stepLabel = {
       marginTop: `${pxToRem(8)} !important`,
       fontWeight: fontWeightRegular,
       fontSize: size.xs,
-      color: '#9fc9ff',
+      color: text.main,
 
       '&.Mui-active': {
-        fontWeight: `${fontWeightRegular} !important`,
-        color: `${rgba(white.main, 0.8)} !important`
+        fontWeight: `${fontWeightBold} !important`,
+        color: `${rgba(primary.main, 0.8)} !important`
       },
 
       '&.Mui-completed': {
         fontWeight: `${fontWeightRegular} !important`,
-        color: `${rgba(white.main, 0.8)} !important`
+        color: `${rgba(primary.main, 0.8)} !important`
       }
     }
   }

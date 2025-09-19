@@ -3,9 +3,8 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import React from 'react'
 import CustomizedSteppers from './CustomizedSteppers';
 import GeneCardHeader from '../Headers/GeneCardHeader';
-interface Props {
-    activeStep: number
-}
+import { styles } from '@/styles/styles';
+
 
 const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/">
@@ -16,9 +15,9 @@ const breadcrumbs = [
     </Typography>,
 ];
 
-const EnrollmentFormHeading: React.FC<Props> = ({ activeStep }) => {
+const EnrollmentFormHeading = () => {
     return (
-        <Stack my="1rem" gap={3}>
+        <Stack my="2rem" padding={"1rem"} gap={3} sx={{...styles.glassOutlined}}>
             <Breadcrumbs
                 separator={<NavigateNextIcon fontSize="small" />}
                 aria-label="breadcrumb"
@@ -30,7 +29,7 @@ const EnrollmentFormHeading: React.FC<Props> = ({ activeStep }) => {
                 subTitle='fill the form to enroll a new student'
 
             />
-            <CustomizedSteppers activeStep={activeStep} />
+            {/* <CustomizedSteppers activeStep={activeStep} /> */}
         </Stack>
     )
 }

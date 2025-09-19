@@ -76,8 +76,8 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         <Toolbar
                             sx={{
                                 ...styles.between_flex,
-                                // border: trigger ? "1px solid #DEC5E350" : "none",
-                                border: "1px solid #DEC5E350",
+                                border: trigger ? "1px solid #DEC5E350" : "none",
+                                // border: "1px solid #DEC5E350",
                                 borderRadius: (theme) => theme.shape.borderRadius,
                                 position: "relative",
                                 maxWidth: "100vw",
@@ -107,7 +107,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     >
                                         {!mobileOpen ? <MenuIcon /> : <CloseIcon />}
                                     </IconButton>
-                                    <Link href="/" sx={{ display: { xs: "none", xl: "flex" }, }}>
+                                    <Link href="/">
                                         <Logo />
                                     </Link>
                                 </Box>
