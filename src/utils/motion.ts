@@ -175,7 +175,7 @@ export const sliderVariantLeft: Variants = {
   animate: {
     x: "-100%",
     transition: {
-      duration: 20,
+      duration: 10,
       ease: "linear",
       repeatType: "mirror",
       repeat: Infinity,

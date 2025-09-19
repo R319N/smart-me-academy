@@ -17,6 +17,7 @@ import ourServices from "@/utils/data/ourCurriculum";
 import { TitleText } from "../CustomTexts";
 import { Container } from "@mui/material";
 import ourSubjects from "@/utils/data/ourCurriculum";
+import SlidingText from "../CustomizedComponents/SlidingText";
 // import { TitleText } from "../CustomTexts";
 // import Image from "next/image";
 
@@ -83,7 +84,7 @@ const CurriculumCarousel = () => {
         centerMode: true,
         centerPadding: "10%",
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 10000,
         dots: false,
         infinite: true,
         speed: 500,
@@ -138,109 +139,62 @@ const CurriculumCarousel = () => {
         //         overflow: "hidden",
         //     }}
         // >
-            <Box width="100%">
+        <Box width="100%">
 
-                <Box
-                    sx={{
-                        px: { xs: "1rem", lg: 0 },
-                    }}
-                >
-                    <Slider {...settings}>
-                        {ourSubjects.map((service, index) => (
+            <Box
+                sx={{
+                    px: { xs: "1rem", lg: 0 },
+                }}
+            >
+                <Slider {...settings}>
+                    {ourSubjects.map((service, index) => (
+                        <Box
+                            key={index}
+                            className={`${styles.cardWrapper} ${activeSlide === index ? styles.activeCard : ""}`}
+                        >
                             <Box
-                                key={index}
-                                className={`${styles.cardWrapper} ${activeSlide === index ? styles.activeCard : ""}`}
+                                className={styles.card}
                             >
-                                <Box
-                                    className={styles.card}
-                                >
-                                    <Box className={styles.cardContent}>
-                                        <Box sx={{
-                                            position: "relative",
-                                            height: "200px",
-                                            width: "100%"
-                                        }}
-                                        >
-                                            <Image
-                                                src={service.imgURL}
-                                                alt={`${service.name}`}
-                                                width={300}
-                                                height={200}
-                                                // fill
-                                                style={{
-                                                    width: "100%",
-                                                    height: "100%",
-                                                    objectFit: "cover",
-                                                    zIndex: "1",
-                                                    borderRadius: "8px"
-                                                }}
-                                            />
-                                            {/* <div style={{
-                                            position: "absolute",
-                                            width: "100%",
-                                            height: "30vh",
-                                            // padding:"1rem 1rem",
-                                            marginTop: "-3rem",
-                                            //  py:"4",
-
-                                            top: "0",
-                                        }}>
-                                            <Box
-                                                sx={{
-                                                    position: "relative",
-                                                    bgcolor: "#00000099",
-                                                    zIndex: "2",
-                                                    width: "100%",
-                                                    height: "80%",
-
-                                                }}
-                                            />
-                                        </div> */}
-
-                                        </Box>
-                                        {/* <Box
-                                        sx={{
-                                            display: "flex",
-                                            margin: "auto",
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                            position: "absolute",
-                                            top: "70%",
-                                            left: "50%",
-                                            transform: "translate(-50%, -50%)",
-                                            zIndex: "3",
-                                        }}
+                                <Box className={styles.cardContent}>
+                                    <Box sx={{
+                                        position: "relative",
+                                        height: "200px",
+                                        width: "100%"
+                                    }}
                                     >
-                                        <Box
-                                            sx={{
-                                                backgroundImage:
-                                                    "linear-gradient(45deg, #449DD130 0%, #9A48D030 100%)",
-                                                minWidth: "100px",
+                                        <Image
+                                            src={service.imgURL}
+                                            alt={`${service.name}`}
+                                            width={300}
+                                            height={200}
+                                            // fill
+                                            style={{
                                                 width: "100%",
-                                                display: "flex",
-                                                flexDirection: "column",
-                                                justifyContent: "center",
-                                                alignItems: "center",
-                                                p: "1rem",
-                                                backdropFilter: "blur(10px)",
-                                                borderRadius: "10px",
-                                                border: "1px solid #dec5e315",
-                                                textRendering: "optimizeLegibility",
-                                                "-webkit-font-smoothing": "antialiased",
-                                                "-moz-osx-font-smoothing": "grayscale",
+                                                height: "100%",
+                                                objectFit: "cover",
+                                                zIndex: "1",
+                                                borderRadius: "8px"
                                             }}
-                                        >
-                                        </Box>
-                                    </Box> */}
+                                        />
+
                                     </Box>
-                                    <Box className={styles.cardBackdrop} />
                                 </Box>
+                                <Box className={styles.cardBackdrop} />
                             </Box>
-                        ))}
-                    </Slider>
+
+                        </Box>
+                    ))}
+
+                </Slider>
+                <Box sx={{ textAlign: "right", my: 0 }}>
+                    <SlidingText
+                        key={activeSlide} // forces re-render when activeSlide changes
+                        title={ourSubjects[activeSlide]?.name}
+                    />
                 </Box>
+
             </Box>
-        // </Container>
+        </Box>
     )
 }
 

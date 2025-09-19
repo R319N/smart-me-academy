@@ -6,14 +6,13 @@ import CurriculumCarousel from './CurriculumCarousel'
 
 const Curriculum = () => {
     return (
-        <Container>
+        <Container maxWidth="lg" sx={{ minHeight: "100vh" }}>
             <Box sx={{ mt: "3rem" }}>
                 <HeadingText header="Our Subjects" subHeader="Explore our comprehensive curriculum" />
             </Box>
             {/* <Container> */}
                 <CurriculumCarousel />
             {/* </Container> */}
-            <SlidingText /> 
         </Container>
     )
 }

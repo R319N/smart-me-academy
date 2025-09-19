@@ -8,7 +8,7 @@ const OurProgramsSection = () => {
             style={{
                 position: "relative",
                 width: "100%",
-                height: "100vh",
+                minHeight: "100vh",
                 flexDirection: "column",
             }}
             id="curriculum"

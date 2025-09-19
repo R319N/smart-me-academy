@@ -4,7 +4,11 @@ import { Box, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 import React from 'react'
 
-const SlidingText = () => {
+interface SlidingTextProps {
+    title: string
+}
+
+const SlidingText: React.FC<SlidingTextProps> = ({ title }) => {
     return (
         <motion.div
             variants={sliderVariantLeft}
@@ -17,7 +21,7 @@ const SlidingText = () => {
                     color="primary"
                     sx={styles.slidingText}
                 >
-                    Mathematics
+                    {title}
                 </Typography>
             </Box>
         </motion.div>
