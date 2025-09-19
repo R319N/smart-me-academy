@@ -107,7 +107,9 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     >
                                         {!mobileOpen ? <MenuIcon /> : <CloseIcon />}
                                     </IconButton>
-                                    <Link href="/">
+                                    <Link href="/" sx={{
+                                        display: { xs: "none", xl: "flex" },
+                                    }}>
                                         <Logo />
                                     </Link>
                                 </Box>
