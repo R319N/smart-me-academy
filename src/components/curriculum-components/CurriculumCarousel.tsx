@@ -143,7 +143,7 @@ const CurriculumCarousel = () => {
 
             <Box
                 sx={{
-                    px: { xs: "1rem", lg: 0 },
+                    // px: { xs: "1, lg: 0 },
                 }}
             >
                 <Slider {...settings}>
