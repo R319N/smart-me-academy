@@ -8,7 +8,7 @@ import ContactUsComponent from '@/components/contact-components/ContactUsCompone
 const ContactUs = () => {
   return (
     <section
-      id="contact"
+      id="contact_us"
     >
       <motion.div
         variants={staggerContainer}

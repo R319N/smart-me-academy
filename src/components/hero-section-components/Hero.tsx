@@ -119,7 +119,7 @@ const Hero = () => {
                     backgroundRepeat: "no-repeat",
                 }}
             >
-                <Container sx={{ ...styles.center_flex, height: "100%" , position:"relative"}}>
+                <Container sx={{ height: "100%" , position:"relative"}}>
                     <HeroDetails />
                 </Container>
             </Box>

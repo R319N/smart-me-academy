@@ -5,131 +5,39 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import GlowingButton from '../glowingButton'
 import GlowingButtonOutlined from '../glowingButtonOutlined'
-import ArrowDown from '@mui/icons-material/ArrowDownward'
 import Image from 'next/image'
 import { styles } from '@/styles/styles'
-// import { styles } from '@/styles/styles'
 
 const HeroDetails = () => {
-    // const name = "Smart Me Academy";
     const motto = " Smart Me Bright Me Bright Future\nNever Stop Learning";
 
     return (
-        <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
-            <Box sx={{
-                display: "flex",
-                flexDirection: { xs: "column", md: "row" },
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
-                // py: { xs: "24vh", md: "14vh" },
-                zIndex:10
 
-            }}>
+        <Box sx={{
+            position: "relative",
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row-reverse" },
+            justifyContent: { xs: "center", md: "space-between" },
+            alignItems: "center",
+            height: "100%",
+            width: "100%",
+            zIndex: 10,
+            // p: "3rem"
 
+        }}>
 
-                <Box
-                gap={7}
-                    sx={{
-                        // ...styles.center_flex,
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        //  my:"10vh"
-                        // marginTop: { xs: "0vh", sm: "20vh", xl: "10vh" }
-                    }}>
-                    {/* sx={{ display: "flex", justifyContent: { xs: "center", sm: "flex-start" }, alignItems: "center" }}  */}
-                    <Stack gap={1}>
-                        <Stack gap={1} sx={styles.center_flex}>
-                            <Typography
-                                variant="h2"
-                                sx={{
-                                    textTransform: "capitalize",
-                                    fontSize: { xs: "64px", sm: "64px", xl: "100px" },
-                                    letterSpacing: "2px",
-                                    fontWeight: (theme) => theme.typography.fontWeightBold,
-                                    display: "flex",
-                                    justifySelf: "center",
-                                    color: (theme) => theme.palette.secondary.main,
-                                    lineHeight: {
-                                        xs: "1.8rem", sm: "30px", xl: "30px"
-                                    }
-                                }}>
+            <Box
+                sx={{
+                    position: { xs: "absolute", md: "relative" },
+                    display: "flex",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    justifyContent: "center",
+                    // height: { xs: "30vh", sm: "50vh" },
+                    // width: { xs: "30vh", sm: "50vh" },
 
-
-
-                                smart me
-                            </Typography>
-                            <Typography
-                                variant="h2"
-                                sx={{
-                                    textTransform: "capitalize",
-                                    fontSize: { xs: "64px", sm: "64px", xl: "102px" },
-                                    letterSpacing: "2px",
-                                    fontWeight: (theme) => theme.typography.fontWeightBold,
-                                    display: "flex",
-                                    justifySelf: "center",
-                                    color: "textPrimary",
-                                }}
-                            >
-                                academy
-                            </Typography>
-                        </Stack>
-                        <Box
-                            sx={{ px: "3rem" }}
-                        // sx={{ width: { xs: "80%", sm: "60%", xl: "60%" } }}z
-                        >
-                            <Typography
-                                variant='h1'
-                                textAlign="center"
-                                fontWeight="light"
-                                sx={{ fontSize: { xs: "14px", sm: "32px", xl: "18px" } }}>
-                                {motto}
-                            </Typography>
-                        </Box>
-                    </Stack>
-
-
-                    <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
-                        sx={{
-                            width: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center"
-                        }}
-                    >
-                        <GlowingButtonOutlined
-                            variant="outlined"
-                            type="button"
-                            size="large"
-                            sx={{ width: { xs: "50%", sm: "100px", xl: "20%" } }}
-                        >
-                            Contact Us
-                        </GlowingButtonOutlined>
-                        <GlowingButton
-                            variant="outlined"
-                            type="button"
-                            href='/enroll-with-us'
-                            size="large"
-                            sx={{ width: { xs: "50%", sm: "100px", xl: "20%", fontWeight: "bold" } }}
-                        >
-                            Enroll now
-                        </GlowingButton>
-                    </Stack>
-
-                </Box>
-                {/* <Box
-                    sx={{
-                        display: "flex",
-                        // position: { xs: "relative", xl: "absolute" },
-                        alignItems: "center",
-                        cursor: "pointer",
-                        bottom: "5vh",
-
-                    }}
-                >
+                }}
+            >   <motion.div variants={slideIn("right", "tween", 0.2, 1)}>
                     <Image
                         src="/logo1.jpg"
                         alt="logo"
@@ -137,7 +45,7 @@ const HeroDetails = () => {
                         height={320}
                         style={{
                             borderRadius: "50%",
-                            opacity: 0.2,
+                            opacity: 0.1,
                             height: "100%",
                             width: "100%",
                             objectFit: "cover"
@@ -145,11 +53,112 @@ const HeroDetails = () => {
                         sizes="(max-width: 600px) 160px, 320px"
                         priority
                     />
-
-                </Box> */}
+                </motion.div >
             </Box>
 
-        </motion.div >
+            <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        display: "flex",
+                        // justifyContent: "center",
+                        flexDirection: "column",
+                        // alignItems: "center"
+                    }}
+                >
+
+                    <Stack gap={3} >
+                        <Box gap={1} sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: { xs: "center", sm: "baseline" },
+                            justifyContent: { xs: "center", sm: "left" }
+
+                        }} >
+                            <Typography
+                                variant="h2"
+                                sx={{
+                                    fontSize: { xs: "64px", sm: "64px", xl: "100px" },
+                                    letterSpacing: "2px",
+                                    textTransform: "capitalize",
+                                    fontWeight: (theme) => theme.typography.fontWeightBold,
+                                    // lineHeight: { xs: "1.8rem", sm: "30px", xl: "30px" },
+
+                                    // Gradient background clipped into the text
+                                    background: "linear-gradient(90deg, #ff88003a, #e52e7154)",
+                                    //  background: "inherit",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+
+                                    backgroundClip: "text",
+                                    color: "transparent",
+                                }}
+                            >
+                                smart me
+                            </Typography>
+                            <Box sx={{ height: { xs: "5rem", md: "7rem" }, }}>
+
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        textTransform: "capitalize",
+                                        fontSize: { xs: "64px", sm: "64px", xl: "102px" },
+                                        letterSpacing: "2px",
+                                        fontWeight: (theme) => theme.typography.fontWeightBold,
+                                        height: "100%",
+                                        lineHeight: 0.6,
+                                        // display: "flex",
+                                        // justifySelf: "center",
+                                        color: "textPrimary",
+                                    }}
+                                >
+                                    academy
+                                </Typography>
+                            </Box>
+                            <Typography
+                                variant='h1'
+                                textAlign="left"
+                                fontWeight="light"
+                                sx={{ fontSize: { xs: "14px", sm: "32px", xl: "18px" } }}>
+                                {motto}
+                            </Typography>
+                        </Box>
+
+                        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
+                            sx={{
+                                width: "100%",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: { xs: "center", sm: "left" }
+                            }}
+                        >
+                            <GlowingButtonOutlined
+                                variant="outlined"
+                                type="button"
+                                href='/enroll-with-us'
+                                size="large"
+                                fullWidth
+                                sx={{ width: { xs: "70%", sm: "100px", xl: "16vw" } }}                         // sx={{ width: { xs: "50%", md: "100%" } }}
+                            >
+                                Re Enroll
+                            </GlowingButtonOutlined>
+                            <GlowingButton
+                                variant="contained"
+                                type="button"
+                                href='/enroll-with-us'
+                                size="large"
+                                fullWidth
+                                sx={{ width: { xs: "70%", sm: "100px", xl: "150px" } }}
+                            >
+                                Enroll Now
+                            </GlowingButton>
+                        </Stack>
+                    </Stack>
+                </Box>
+            </motion.div>
+
+        </Box>
     )
 }
 

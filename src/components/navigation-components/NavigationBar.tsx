@@ -14,6 +14,7 @@ import Logo from '../Logo';
 import NavTabs from './NavTabs';
 import NavigationMenu from './NavigationMenu';
 import GlowingButton from '../glowingButton';
+import GlowingButtonOutlined from '../glowingButtonOutlined';
 
 
 interface DashBoardNavigationProps {
@@ -122,9 +123,9 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     <NavTabs />
                                 </Box>
                                 <Box>
-                                    <GlowingButton variant='contained' color='primary' type="button">
+                                    <GlowingButtonOutlined href='#contact_us'>
                                         contact us
-                                    </GlowingButton>
+                                    </GlowingButtonOutlined>
                                     {/* <ContactBar /> */}
                                 </Box>
                                 {/* <Box

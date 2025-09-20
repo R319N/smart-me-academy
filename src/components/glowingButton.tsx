@@ -3,23 +3,21 @@ import { styled } from '@mui/material'
 import Button from '@mui/material/Button'
 
 const GlowingButton = styled(Button)`
-  color: ${({ theme }) => theme.palette.text.primary};
   background-color: ${({ theme }) => theme.palette.primary.main};
-  min-height: ${({ theme }) => theme.spacing(5)};
   padding: ${({ theme }) => `${theme.spacing(1.25)} ${theme.spacing(2)}`};
-  font-size: '10px';
-  size: 'small';
-  transition: all 0.3s ease;
+  color: ${({ theme }) => theme.palette.text.primary};
+  font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
+  transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.secondary.dark};
-    box-shadow: 0 0 10px ${({ theme }) => theme.palette.secondary.main};
-    color: ${({ theme }) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.palette.primary.dark};
+    box-shadow: 0 0 5px ${({ theme }) => theme.palette.primary.light};
+    border: 1px solid ${({ theme }) => theme.palette.primary.main};
+     color: ${({ theme }) => theme.palette.text.primary};
   }
 
   &:focus {
     outline: none;
-     color: ${({ theme }) => theme.palette.text.primary};
     box-shadow: 0 0 10px ${({ theme }) => theme.palette.secondary.main};
   }
 
