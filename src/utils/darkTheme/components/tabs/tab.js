@@ -35,7 +35,7 @@ const tab = {
         marginRight: pxToRem(6),
       },
       "&:hover": {
-        color: `${primary.main} !important`,
+        color: `${primary.light} !important`,
       },
       "&:focus": {
         color: `${primary.focus} !important`,

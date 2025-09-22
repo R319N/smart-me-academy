@@ -1,6 +1,6 @@
 "use client"
 import { slideIn } from '@/utils/motion'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { motion } from 'framer-motion'
 import GlowingButton from '../glowingButton'
@@ -13,101 +13,69 @@ const HeroDetails = () => {
 
     return (
 
-        <Box sx={{
-            position: "relative",
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row-reverse" },
-            justifyContent: { xs: "center", md: "space-between" },
-            alignItems: "center",
-            height: "100%",
-            width: "100%",
-            zIndex: 10,
-            // p: "3rem"
+        // <Box sx={{
+        //     position: "relative",
+        //     display: "flex",
+        //     flexDirection: { xs: "column", sm: "row-reverse" },
+        //     justifyContent: { xs: "center", md: "space-between" },
+        //     alignItems: "center",
+        //     height: "100vh",
+        //     width: "100%",
+        //     zIndex: 10,
+        // }}>
 
-        }}>
+        <Grid container
+            sx={{
+                position: "relative",
+                height: "100%",
+                width: "100%"
 
-            <Box
+            }}>
+            <Grid size={{ xs: 12, md: 6 }}
                 sx={{
-                    position: { xs: "absolute", md: "relative" },
-                    display: "flex",
-                    alignItems: "center",
-                    cursor: "pointer",
-                    justifyContent: "center",
-                    // height: { xs: "30vh", sm: "50vh" },
-                    // width: { xs: "30vh", sm: "50vh" },
-
+                    display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "left" },
+                    height: "100%"
                 }}
-            >   <motion.div variants={slideIn("right", "tween", 0.2, 1)}>
-                    <Image
-                        src="/logo1.jpg"
-                        alt="logo"
-                        width={320}
-                        height={320}
-                        style={{
-                            borderRadius: "50%",
-                            opacity: 0.1,
-                            height: "100%",
-                            width: "100%",
-                            objectFit: "cover"
-                        }}
-                        sizes="(max-width: 600px) 160px, 320px"
-                        priority
-                    />
-                </motion.div >
-            </Box>
-
-            <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
-                <Box
-                    sx={{
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        // justifyContent: "center",
-                        flexDirection: "column",
-                        // alignItems: "center"
-                    }}
-                >
-
-                    <Stack gap={3} >
-                        <Box gap={1} sx={{
+            >
+                <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
+                    <Stack gap={7}>
+                        <Stack gap={2} sx={{
                             display: "flex",
                             flexDirection: "column",
+                            width: "100%",
                             alignItems: { xs: "center", sm: "baseline" },
                             justifyContent: { xs: "center", sm: "left" }
 
                         }} >
-                            <Typography
-                                variant="h2"
-                                sx={{
-                                    fontSize: { xs: "64px", sm: "64px", xl: "100px" },
-                                    letterSpacing: "2px",
-                                    textTransform: "capitalize",
-                                    fontWeight: (theme) => theme.typography.fontWeightBold,
-                                    // lineHeight: { xs: "1.8rem", sm: "30px", xl: "30px" },
-
-                                    // Gradient background clipped into the text
-                                    background: "linear-gradient(90deg, #ff88003a, #e52e7154)",
-                                    //  background: "inherit",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-
-                                    backgroundClip: "text",
-                                    color: "transparent",
-                                }}
-                            >
-                                smart me
-                            </Typography>
-                            <Box sx={{ height: { xs: "5rem", md: "7rem" }, }}>
-
+                            <Box>
                                 <Typography
                                     variant="h2"
                                     sx={{
+                                        fontSize: { xs: "64px", sm: "100px", xl: "84px" },
+                                        letterSpacing: "2px",
                                         textTransform: "capitalize",
-                                        fontSize: { xs: "64px", sm: "64px", xl: "102px" },
+                                        fontWeight: (theme) => theme.typography.fontWeightBold,
+                                        background: "linear-gradient(90deg, #00c3ffff, #dcc1cb7c)",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        lineHeight: 1,
+                                        backgroundClip: "text",
+                                        color: "transparent",
+                                    }}
+                                >
+                                    smart me
+                                </Typography>
+
+
+                                <Typography
+                                    variant="h6"
+                                    sx={{
+                                        textTransform: "capitalize",
+                                        fontSize: { xs: "64px", sm: "102px", xl: "84px" },
                                         letterSpacing: "2px",
                                         fontWeight: (theme) => theme.typography.fontWeightBold,
                                         height: "100%",
-                                        lineHeight: 0.6,
+                                        lineHeight: 1,
                                         // display: "flex",
                                         // justifySelf: "center",
                                         color: "textPrimary",
@@ -116,50 +84,109 @@ const HeroDetails = () => {
                                     academy
                                 </Typography>
                             </Box>
-                            <Typography
-                                variant='h1'
-                                textAlign="left"
-                                fontWeight="light"
-                                sx={{ fontSize: { xs: "14px", sm: "32px", xl: "18px" } }}>
-                                {motto}
-                            </Typography>
-                        </Box>
+                            <Box sx={{ width: "80%" }}>
+                                <Typography
+                                    variant='h6'
+                                    textAlign={{ xs: "center", md: "left" }}
+                                    fontWeight="regular"
+                                    sx={{
+                                        fontSize: { xs: "14px", sm: "32px", lg: "16px" }, lineHeight: 1,
+                                        color: (theme) => theme.palette.text.secondary
+                                    }}>
+                                    {motto}
+                                </Typography>
 
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
+                            </Box>
+                        </Stack>
+                        <Box
                             sx={{
                                 width: "100%",
                                 display: "flex",
-                                alignItems: "center",
-                                justifyContent: { xs: "center", sm: "left" }
+                                flexDirection: "column",
                             }}
                         >
-                            <GlowingButtonOutlined
-                                variant="outlined"
-                                type="button"
-                                href='/enroll-with-us'
-                                size="large"
-                                fullWidth
-                                sx={{ width: { xs: "70%", sm: "100px", xl: "16vw" } }}                         // sx={{ width: { xs: "50%", md: "100%" } }}
-                            >
-                                Re Enroll
-                            </GlowingButtonOutlined>
-                            <GlowingButton
-                                variant="contained"
-                                type="button"
-                                href='/enroll-with-us'
-                                size="large"
-                                fullWidth
-                                sx={{ width: { xs: "70%", sm: "100px", xl: "150px" } }}
-                            >
-                                Enroll Now
-                            </GlowingButton>
-                        </Stack>
-                    </Stack>
-                </Box>
-            </motion.div>
+                            <Stack spacing="5"
+                                sx={{
+                                    height: "100%",
+                                    display: "flex", flexDirection: "column", justifyContent: "space-between"
+                                }}>
 
-        </Box>
+                                <Stack direction={{ xs: "column", sm: "row" }} spacing={2}
+                                    sx={{
+                                        width: "100%",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: { xs: "center", sm: "left" }
+                                    }}
+                                >
+                                    <GlowingButtonOutlined
+                                        variant="outlined"
+                                        type="button"
+                                        href='/enroll-with-us'
+                                        size="medium"
+                                        fullWidth
+                                        sx={{ width: { xs: "50%", sm: "100px", xl: "16vw" } }}                         // sx={{ width: { xs: "50%", md: "100%" } }}
+                                    >
+                                        Re Enroll
+                                    </GlowingButtonOutlined>
+                                    <GlowingButton
+                                        variant="contained"
+                                        color='primary'
+                                        type="button"
+                                        href='/enroll-with-us'
+                                        size="medium"
+                                        fullWidth
+                                        sx={{ width: { xs: "50%", sm: "100px", xl: "150px" } }}
+                                    >
+                                        Enroll Now
+                                    </GlowingButton>
+                                </Stack>
+                            </Stack>
+                        </Box>
+                    </Stack>
+
+                </motion.div>
+            </Grid>
+            <Grid size={{ xs: 12, md: 6 }}
+                sx={{
+                    display: "flex",
+                    height: "100%",
+                    alignItems: "center", justifyContent: { xs: "center", md: "right" },
+                }}>
+                <Box
+                    sx={{
+                        // position: { xs: "absolute", md: "relative" },
+                        position: "relative",
+                        cursor: "pointer",
+                        // top: { xs: "0vh", md: "0" }
+
+                    }}
+                >   <motion.div variants={slideIn("right", "tween", 0.2, 1)}>
+                        <Image
+                            src="/logo1.jpg"
+                            alt="logo"
+                            width={320}
+                            height={320}
+                            style={{
+                                borderRadius: "50%",
+                                opacity: 0.1,
+                                height: "100%",
+                                width: "100%",
+                                objectFit: "cover"
+                            }}
+                            sizes="(max-width: 600px) 200px, 320px"
+                            priority
+                        />
+                    </motion.div >
+                </Box>
+            </Grid>
+        </Grid>
     )
 }
+{/*
+          
+
+        // </Box> */}
+
 
 export default HeroDetails

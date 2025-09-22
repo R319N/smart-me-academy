@@ -15,6 +15,7 @@ import NavTabs from './NavTabs';
 import NavigationMenu from './NavigationMenu';
 import GlowingButton from '../glowingButton';
 import GlowingButtonOutlined from '../glowingButtonOutlined';
+import GlowingIconButton from '../GlowingIconButton';
 
 
 interface DashBoardNavigationProps {
@@ -95,19 +96,22 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                 }}
                             >
                                 <Box display="flex" alignItems="center" gap={4}>
-                                    <IconButton
+                                    <GlowingIconButton
                                         size="medium"
                                         aria-label="open drawer"
                                         onClick={handleDrawerToggle}
                                         sx={{
-                                            ...styles.iconHover,
-                                            borderRadius: "10px",
-                                            border: "1px solid #D0A5C055",
+                                            // backdropFilter: "blur(7px)"
+                                            // // ...styles.iconHover,
+                                            // borderRadius: "10px",
+                                            // border: "1px solid",
+                                            // borderColor: "textSecondary",
                                             display: { xs: "flex", xl: "none" },
+                                            //  transition:"5s all-ease"
                                         }}
                                     >
                                         {!mobileOpen ? <MenuIcon /> : <CloseIcon />}
-                                    </IconButton>
+                                    </GlowingIconButton>
                                     <Link href="/" sx={{
                                         display: { xs: "none", xl: "flex" },
                                     }}>
@@ -128,24 +132,6 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     </GlowingButtonOutlined>
                                     {/* <ContactBar /> */}
                                 </Box>
-                                {/* <Box
-                    sx={{
-                      display: { xs: "flex", sm: "none" },
-                      alignItems: "center",
-                    }}
-                  >
-                    <Stack gap={0.5} direction="row" alignItems="center">
-                      <a href="/#contact">
-                        <GlowingButtonOutlined
-                          variant="outlined"
-                          type="button"
-                          size="small"
-                        >
-                          contact us
-                        </GlowingButtonOutlined>
-                      </a>
-                    </Stack>
-                  </Box> */}
                             </Box>
                         </Toolbar>
                     </AppBar>

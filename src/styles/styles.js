@@ -136,11 +136,12 @@ export const styles = {
   iconHover: {
     "&:hover": {
       // backgroundColor: (theme) => theme.palette.primary.dark,
-      boxShadow: (theme) => `0 0 10px ${theme.palette.primary.main}`,
-      border: (theme) => `1px solid ${theme.palette.primary.main} `,
+      boxShadow: (theme) => `0 0 10px ${theme.palette.secondary.main}`,
+      border: (theme) => `1px solid ${theme.palette.secondary.main} `,
       color: (theme) => theme.palette.text.primary,
       borderRadius: "8px",
       opacity: "0.8",
+     
     },
   },
 

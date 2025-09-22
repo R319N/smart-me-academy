@@ -12,8 +12,7 @@ const outlined = {
     color: white.main,
     borderColor: secondary.main,
     padding: `${pxToRem(10)} ${pxToRem(24)}`,
-    transition: '0.2s background all ease',
-    backgroundColor: secondary.main,
+    transition: '1s background all ease',
 
     '&:hover': {
       // opacity: 0.75,
@@ -52,8 +51,9 @@ const outlined = {
     borderColor: transparent.main,
 
     '&:hover': {
-      backgroundColor: transparent.main,
+      backgroundColor: transparent.secondary,
       borderColor: secondary.main
+
     }
   },
 

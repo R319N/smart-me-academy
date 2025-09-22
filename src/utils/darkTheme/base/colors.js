@@ -15,7 +15,8 @@ const colors = {
   },
 
   transparent: {
-    main: "#dec5e315",
+    main: "#cad5d32c",
+    secondary: "rgba(202, 213, 211, 0.3)"
   },
 
   white: {
@@ -30,8 +31,8 @@ const colors = {
   },
 
   primary: {
-    main: "#FF7F11",
-    light: "#e2ba09ff",
+    main: "#B85600",
+    light: "#FF7C0A",
     focus: "#B85600",
   },
 
