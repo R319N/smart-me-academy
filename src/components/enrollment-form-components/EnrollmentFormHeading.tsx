@@ -1,4 +1,4 @@
-import { Breadcrumbs, Link, Stack, Typography } from '@mui/material';
+import { Breadcrumbs, Divider, Link, Stack, Typography } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import React from 'react'
 import CustomizedSteppers from './CustomizedSteppers';
@@ -17,7 +17,7 @@ const breadcrumbs = [
 
 const EnrollmentFormHeading = () => {
     return (
-        <Stack my="2rem" padding={"1rem"} gap={3} sx={{...styles.glassOutlined}}>
+        <Stack gap={2} my="2rem">
             <Breadcrumbs
                 separator={<NavigateNextIcon fontSize="small" />}
                 aria-label="breadcrumb"
@@ -29,7 +29,7 @@ const EnrollmentFormHeading = () => {
                 subTitle='fill the form to enroll a new student'
 
             />
-            {/* <CustomizedSteppers activeStep={activeStep} /> */}
+            <Divider/>
         </Stack>
     )
 }

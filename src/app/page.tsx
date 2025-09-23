@@ -10,6 +10,7 @@ import NavigationBar from "@/components/navigation-components/NavigationBar";
 import InformativeSection from "@/sections/InformativeSection";
 import CurriculumSection from "@/sections/CurriculumSection";
 import OurProgramsSection from "@/sections/OurProgramsSection";
+import PromoPopup from "@/components/Pop-Up-Promo";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
         <InformativeSection />
         <ContactUs />
         <Footer />
+        <PromoPopup />
       </Paper>
     </RootLayout>
     // </ServerLayout>

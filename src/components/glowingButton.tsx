@@ -18,7 +18,7 @@ const GlowingButton = styled(Button)`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px ${({ theme }) => theme.palette.secondary.main};
+    box-shadow: 0 0 10px ${({ theme }) => theme.palette.primary.main};
   }
 
   & .material-icon,

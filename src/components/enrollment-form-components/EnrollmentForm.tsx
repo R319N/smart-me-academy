@@ -165,7 +165,7 @@ const EnrollmentForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <EnrollmentFormHeading />
-            <Grid container sx={styles.center_flex}>
+            <Grid container sx={styles.center_flex} spacing={4}>
                 <Grid size={{ xs: 12, sm: 4 }}>
                     <CustomizedSteppers activeStep={activeStep} />
                 </Grid>

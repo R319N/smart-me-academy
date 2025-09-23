@@ -1,45 +1,40 @@
-// import { Step, StepLabel, Stepper } from '@mui/material'
-// import React from 'react'
-
-// interface Props {
-//     activeStep: number
-// }
-// const steps = [
-//     "Student's Details",
-//     'Parent/Guardian Details',
-//     'Documents Upload',
-//     'Consent & Submit',
-// ];
-// const CustomizedSteppers: React.FC<Props> = ({ activeStep }) => {
-//     return (
-//         <Stepper activeStep={activeStep} sx={{ mb: 3 }}>
-//             {steps.map((label) => (
-//                 <Step key={label}>
-//                     <StepLabel>{label}</StepLabel>
-//                 </Step>
-//             ))}
-//         </Stepper>
-//     )
-// }
-
-// export default CustomizedSteppers
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Check from '@mui/icons-material/Check';
-import InfoIcon from '@mui/icons-material/Info';
-import DetailsIcon from '@mui/icons-material/Details';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
-import { StepIconProps } from '@mui/material/StepIcon';
-import { Reviews } from '@mui/icons-material';
-import { grey } from '@mui/material/colors';
-import { StepContent, useMediaQuery } from '@mui/material';
+import { StepContent, Typography, useMediaQuery } from '@mui/material';
+import { formSteps } from '@/utils/data/formSteps';
 interface Props {
     activeStep: number
 }
+
+const QontoConnector = styled(StepConnector)(({ theme }) => ({
+  [`&.${stepConnectorClasses.alternativeLabel}`]: {
+    top: 10,
+    left: 'calc(-50% + 16px)',
+    right: 'calc(50% + 16px)',
+  },
+  [`&.${stepConnectorClasses.active}`]: {
+    [`& .${stepConnectorClasses.line}`]: {
+      borderColor: theme.palette.primary.main,
+    },
+  },
+  [`&.${stepConnectorClasses.completed}`]: {
+    [`& .${stepConnectorClasses.line}`]: {
+      borderColor: theme.palette.primary.main,
+    },
+  },
+  [`& .${stepConnectorClasses.line}`]: {
+    borderColor: 'textSecondary',
+    borderTopWidth: 3,
+    borderRadius: 1,
+    ...theme.applyStyles('dark', {
+      borderColor: theme.palette.grey[800],
+    }),
+  },
+}));
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -48,8 +43,8 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.active}`]: {
         [`& .${stepConnectorClasses.line}`]: {
             backgroundColor: theme.palette.primary.main,
-            // backgroundImage:
-            //     'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+            backgroundImage:
+                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
         },
     },
     [`&.${stepConnectorClasses.completed}`]: {
@@ -72,84 +67,51 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
     },
 }));
 
-const ColorlibStepIconRoot = styled('div')<{
-    ownerState: { completed?: boolean; active?: boolean };
-}>(({ theme }) => ({
-    backgroundColor: theme.palette.primary.light,
-    zIndex: 1,
-    color: "text.primary",
-    width: 50,
-    height: 50,
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...theme.applyStyles('dark', {
-        backgroundColor: theme.palette.grey[300],
-    }),
-    variants: [
-        {
-            props: ({ ownerState }) => ownerState.active,
-            style: {
-                // backgroundImage:
-                //     'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-                background: theme.palette.primary.main,
-                boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
-            },
-        },
-        {
-            props: ({ ownerState }) => ownerState.completed,
-            style: {
-                // backgroundImage:
-                //     'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-                background: theme.palette.primary.main
-            },
-        },
-    ],
-}));
-
-function ColorlibStepIcon(props: StepIconProps) {
-    const { active, completed, className } = props;
-
-    const icons: { [index: string]: React.ReactElement<unknown> } = {
-        1: <InfoIcon />,
-        2: <DetailsIcon />,
-        3: <Reviews />,
-    };
-
-    return (
-        <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
-            {icons[String(props.icon)]}
-        </ColorlibStepIconRoot>
-    );
-}
-
-const steps = [
-    "Student's Details",
-    'Parent/Guardian Details',
-    'Documents Upload',
-    'Consent & Submit',
-];
 
 export default function CustomizedSteppers({ activeStep }: Props) {
-    const theme = useTheme()
+    const theme = useTheme();
+    const phone = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const phone = useMediaQuery(theme.breakpoints.down("sm"))
     return (
+        <>
+            {/* Stepper */}
+            <Stepper
+                orientation={phone ? "horizontal" : "vertical"}
+                alternativeLabel={phone}
+                activeStep={activeStep}
+                connector={<QontoConnector/>}
+            >
+                {formSteps.map((step, index) => (
+                    <Step key={index} >
+                        <StepLabel>{step.title}</StepLabel>
+                        {/* Only show detail inside StepContent on desktop */}
+                        {!phone && (
+                            <StepContent>
+                                <Typography variant="body2" color='textSecondary'>{step.detail}</Typography>
+                            </StepContent>
+                        )}
+                    </Step>
+                ))}
+            </Stepper>
 
-        <Stepper
-            orientation={phone ? "horizontal" : "vertical"}
-            alternativeLabel={phone ? true : false}
-            activeStep={activeStep}
-            connector={<ColorlibConnector />}
-        >
-            {steps.map((label) => (
-                <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                    <StepContent>{label}</StepContent>
-                </Step>
-            ))}
-        </Stepper>
-
+            {/* Detached Subheader for small devices */}
+            {phone && (
+                <Typography
+                    variant="body2"
+                    sx={{
+                        mt: 2,
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        maxWidth: "90%",
+                        mx: "auto",
+                    }}
+                >
+                    {formSteps[activeStep]?.detail}
+                </Typography>
+            )}
+        </>
     );
 }
+
+
