@@ -16,18 +16,17 @@ import xstyles from "./MyCarousel.module.css";
 import Image from "next/image"
 
 type PropType = {
-    // slides: number[]
     options?: EmblaOptionsType
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-    const { options } = props
+    // const { options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
             align: "center", // 👈 keeps active slide centered
             skipSnaps: false,
-            ...options,
+            // ...options,
         },
         [Autoplay()]
     )
