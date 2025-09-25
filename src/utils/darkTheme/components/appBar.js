@@ -1,3 +1,4 @@
+import borders from "../base/borders";
 import colors from "../base/colors";
 // import rgba from "../functions/rgba";
 
@@ -8,6 +9,8 @@ const appBar = {
     root: {
       background: "transparent",
       color: secondary,
+      // borderRadius: borders.borderRadius.xs,
+      // overflow:"hidden"
     },
   },
 };

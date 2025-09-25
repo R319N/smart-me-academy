@@ -207,12 +207,6 @@
     }
   }
 
-.descriptionWrapper {
-  position: relative;
-  /* max-height: 100px; adjust as needed */
-  overflow: hidden;
-}
-
 .fadeOut {
   position: absolute;
   bottom: 0;

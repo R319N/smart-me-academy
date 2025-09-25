@@ -17,13 +17,15 @@ import Explore from "./explore";
 import Navigation from "./navigation";
 import Address from "./address";
 import { Stack, Typography } from "@mui/material";
+import FinalStatement from "./finalStatement";
 
 const FooterComponent = () => {
     return (
-        <div
-            style={{
+        <Box
+            sx={{
                 zIndex: 99,
                 width: "100%",
+                 px: { xs: "1rem", md: "10vw" },
             }}
         >
             <Box
@@ -38,9 +40,9 @@ const FooterComponent = () => {
             >
                 <Grid
                     container
-                    spacing={2}
+                    spacing={4}
                     sx={{
-                        px: { xs: "1rem", md: "10vw" },
+                       
                         // mt: "0.5rem",
                         // mb: "2rem",
                         display: "flex",
@@ -48,77 +50,59 @@ const FooterComponent = () => {
                     }}
                 >
                     <Grid size={{ xs: 12, sm: 4 }}>
-                        <Box
-                            sx={{
-                                ...styles.center_flex,
-                                // ...styles.between_flex,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                width: "100%",
-                                // flexDirection: { xs: "row", md: "column" },
-                            }}
-                        >
-                            <Box position="relative" maxHeight="150px" borderRadius="50px" overflow="hidden">
-                                <Box
-                                    component="img"
-                                    sx={{
-                                         borderRadius:"50px",
-                                        width: "100%",
-                                        height: { xs: "60px", md: "60px" },
-                                        maxWidth: { xs: "20px", md: "60px" },
-                                        my: "0.5rem",
-                                        mx: "4rem",
-                                    }}
-                                    alt="Responsive"
-                                    src="/logo2.jpg"
-                                />
-                            </Box>
-                            <a href="#contact">
-                                <GlowingButton
-                                    type="button"
-                                    size="small"
-                                    sx={{
-                                        width: { xs: "200px", sm: "150px" },
-                                        height: "30px",
-                                        fontSize: "10px",
-                                    }}
-                                >
-                                    enroll now
-                                </GlowingButton>
-                            </a>
-                        </Box>
+                        <FinalStatement />
                     </Grid>
-                    <Grid container size={{ xs: 12, sm: 5 }} >
-                        <Grid size={{ xs: 12, sm: 12 }} >
-                            <Stack width="fit-content">
+                    <Grid container size={{ xs: 12, sm: 8 }} >
+                        <Grid size={{ xs: 6, sm: 3 }}>
+                            <Stack width="fit-content" gap={1}>
                                 <Typography
-                                    variant="subtitle1"
+                                    variant="h6"
                                     textTransform="capitalize"
-                                    fontWeight={(theme) => theme.typography.fontWeightRegular}
-                                    color='#5C6584'
+                                    fontWeight={(theme) => theme.typography.fontWeightMedium}
+                                    color='primary'
                                 >
-                                    Useful Links
+                                    Explore
                                 </Typography>
+                                <Box>
+                                    <Navigation />
+                                </Box>
+                            </Stack>
+
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 5 }} >
+                            <Stack width="fit-content" gap={1}>
+                                <Typography
+                                    variant="h6"
+                                    textTransform="capitalize"
+                                    fontWeight={(theme) => theme.typography.fontWeightMedium}
+                                    color='primary'
+                                >
+                                    Information
+                                </Typography>
+                                <Box mb="0.5rem">
+                                    <Explore />
+                                </Box>
                             </Stack>
                         </Grid>
-                        <Grid size={{ xs: 6, sm: 6 }}>
-                            <Box mb="0.5rem">
-                                <Navigation />
+                        <Grid size={{ xs: 6, sm: 4 }}>
+                            <Stack width="fit-content" gap={1}>
+                                <Typography
+                                    variant="h6"
+                                    textTransform="capitalize"
+                                    fontWeight={(theme) => theme.typography.fontWeightMedium}
+                                    color='primary'
+                                >
+                                    contact us
+                                </Typography>
+                                <Box mb="1rem">
+                                    <Address />
+                                </Box>
+                            </Stack>
 
-                            </Box>
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 6 }} >
-                            <Box mb="0.5rem">
-                                <Explore />
-                            </Box>
                         </Grid>
                     </Grid>
 
-                    <Grid size={{ xs: 6, sm: 3 }}>
-                        <Box mb="1rem">
-                            <Address />
-                        </Box>
-                    </Grid>
+
 
 
                 </Grid>
@@ -134,7 +118,7 @@ const FooterComponent = () => {
                     <DeepFooter />
                 </Box>
             </Box>
-        </div>
+        </Box>
     )
 }
 

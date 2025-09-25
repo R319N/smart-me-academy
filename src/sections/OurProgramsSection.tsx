@@ -14,7 +14,7 @@ const OurProgramsSection = () => {
             id="curriculum"
         >
             <Box sx={{
-                background: `url(/bg.svg)`,
+                // background: `url(/bg.svg)`,
                 width: "100%",
                 height: "100%",
                 backgroundRepeat: "no-repeat",

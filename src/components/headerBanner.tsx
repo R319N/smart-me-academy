@@ -25,20 +25,19 @@ const HeadingText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
   return (
     <Box>
       <Typography
-        variant="h4"
+        variant="h6"
         textTransform="capitalize"
+        color='primary'
         sx={{
           fontWeight: "bold",
-          fontSize: isSmallScreen
-            ? theme.typography.pxToRem(20)
-            : theme.typography.pxToRem(46),
+          fontSize: {xs:"28px"}
         }}
       >
         {header}
       </Typography>
       <Typography
         variant="body2"
-        color='primary'
+        color='textSecondary'
         sx={{
           fontWeight: theme.typography.fontWeightRegular,
           fontSize: { xs: "14px", xl: "16px" },

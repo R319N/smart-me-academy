@@ -10,7 +10,7 @@ export const styles = {
     // filter: "drop-shadow(1px 1px 0 aquamarine) drop-shadow(-1px -1px 0 aqua)",
   },
   scrolledAppBar: {
-    borderRadius: (theme) => theme.shape.borderRadius,
+    borderRadius: (theme) => theme.borders.borderRadius.lg,
     // backgroundColor: "#dec5e3d3", 
     transition: "background-color 0.3s ease-in-out", // Smooth transition
     width: "100%",
@@ -34,9 +34,9 @@ export const styles = {
   glassOutlined: {
     borderRadius: "8px", // Add border radius for rounded corners
     backdropFilter: "blur(8px)",
-    background: (theme) => theme.palette.background.card, // Adjust transparency as needed
-    border: "1px solid #dec5e355 ",
-  },  
+    background: "#cad5d32c", // Adjust transparency as needed
+    border: "1px solid rgba(202, 213, 211, 0.5)",
+  },
   center_flex: {
     display: "flex",
     justifyContent: "center",
@@ -141,7 +141,7 @@ export const styles = {
       color: (theme) => theme.palette.text.primary,
       borderRadius: "8px",
       opacity: "0.8",
-     
+
     },
   },
 
@@ -165,6 +165,11 @@ export const styles = {
 
       color: "black",
     },
+  },
+  textHighlight: {
+    "&:hover": {
+      color: "yellow"
+    }
   },
   scaleHover: {
     "&:hover": {

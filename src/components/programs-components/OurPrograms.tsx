@@ -9,8 +9,9 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '@/utils/motion'
 import { programData } from '@/utils/data/programsData'
 import Image from 'next/image'
-import styles from './OurPrograms.module.css'
+import xstyles from './OurPrograms.module.css'
 import { Info, InfoOutline } from '@mui/icons-material'
+import { styles } from '@/styles/styles'
 
 const OurPrograms = () => {
     return (
@@ -44,77 +45,10 @@ const OurPrograms = () => {
                     >
 
                         <motion.div variants={fadeIn("up", "spring", index * 0.5, 1)}>
-
-
-                            {/* <Card
-                                        sx={{
-                                            ...styles.cardStyle,
-                                            ...styles.borderRadius,
-                                            width: { xs: "82vw", lg: "300px" },
-                                            height: "400px",
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                position: "relative",
-                                                height: "500px",
-                                                width: "100%",
-                                                padding: "1rem"
-                                            }}
-                                        >
-                                            <Image
-                                                // component={Image}
-                                                src={program.imgUrl}
-                                                alt="projects"
-                                                // fill
-                                                height={100}
-                                                width={100}
-                                                // sx={{
-                                                //     opacity: "0.8",
-                                                //     "&:active, &:active:focus, &:hover": {
-                                                //         opacity: "1",
-                                                //     },
-                                                // }}
-                                            />
-                                        </Box>
-                                        <Box my="1rem" padding="0 1rem"
-                                            sx={{
-                                                gap: "10", height: "100%",
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                flexDirection: "column"
-                                            }}
-                                        >
-                                            <Stack mb="2rem" gap={1}>
-                                                <Typography
-                                                    variant="subtitle1"
-
-                                                    sx={{ textTransform: "uppercase", fontWeight: "Regular" }}
-                                                >
-                                                    {program.name}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color='#5C6584'
-                                                    sx={{ textTransform: "capitalize", }}
-                                                >
-                                                    {program.description}
-                                                </Typography>
-                                            </Stack>
-                                            //  {/* <Link href={{ pathname: "/portfolio", query: { id: project.id } }}>  
-                                            <GlowingButtonOutlined
-                                                variant="outlined"
-                                                sx={{ zIndex: 5 }}
-                                            >
-                                                view project
-                                            </GlowingButtonOutlined>
-                                             </Link> 
-                                        </Box>
-                                    </Card> */}
                             <Box
-                                className={styles.card}
+                                sx={{ ...styles.glassOutlined, height: "250px" }}
                             >
-                                <Box className={styles.cardContent}>
+                                <Box>
                                     <Box sx={{
                                         position: "relative"
                                     }}
@@ -133,82 +67,54 @@ const OurPrograms = () => {
                                             }}
                                         />
                                     </Box>
-                                    <Box
-                                        sx={{
-                                            display: "flex",
-                                            margin: "auto",
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                            position: "absolute",
-                                            top: "50%",
-                                            left: "50%",
-                                            transform: "translate(-50%, -50%)",
-                                            zIndex: "3",
-                                        }}
-                                    >
-                                        <Box
+                                </Box>
+                                <Box className={xstyles.cardBackdrop} />
+                                <CardContent>
+                                    <Stack gap={0.5} sx={{
+                                        // display: "flex",
+                                        // flexDirection: "column",
+                                        // justifyContent: "space-between",
+                                        // alignItems:"center",
+                                        // height: "100px"
+                                    }}>
+                                        <Typography
+                                            variant="h6"
                                             sx={{
-                                                // backgroundImage:
-                                                //     "linear-gradient(45deg, #449DD130 0%, #9A48D030 100%)",
-                                                minWidth: "180px",
-                                                width: "100%",
                                                 display: "flex",
-                                                flexDirection: "column",
-                                                justifyContent: "center",
-                                                alignItems: "center",
-                                                p: "1rem",
-                                                backdropFilter: "blur(10px)",
-                                                borderRadius: "10px",
-                                                // border: "1px solid #dec5e315",
-                                                textRendering: "optimizeLegibility",
-                                                // "-webkit-font-smoothing": "antialiased",
-                                                // "-moz-osx-font-smoothing": "grayscale",
+                                                textTransform: "capitalize",
+                                                fontWeight: "bold",
+                                                textAlign: "center",
+                                                fontSmooth: "always",
+                                                // lineHeight: "1.4rem"
                                             }}
                                         >
-                                            {/* <>{service.icon}</> */}
-                                            <Typography
-                                                variant="h5"
-                                                sx={{
-                                                    textTransform: "capitalize",
-                                                    fontWeight: "bold",
-                                                    textAlign: "center",
-                                                    fontSmooth: "always",
-                                                    lineHeight: "1.4rem"
-                                                }}
+                                            <Box
+                                                component="span"
+                                                sx={{ color: "textPrimary", my: "0" }}
                                             >
-                                                <Box
-                                                    component="span"
-                                                    sx={{ color: "#dec5e3", my: "0" }}
-                                                >
-                                                    {program.name.split(" ")[0]}
-                                                </Box>
-                                                <Box
-                                                    component="span"
-                                                    sx={{ color: "#449DD1", display: "block" }}
-                                                >
-                                                    {program.name.split(" ").slice(1).join(" ")}
-                                                </Box>
-                                            </Typography>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                                <Box className={styles.cardBackdrop} />
-                                <CardContent>
-                                    <Stack gap={2}>
-                                        <Box className={styles.descriptionWrapper}>
+                                                {program.name.split(" ")[0]}
+                                            </Box>
+                                            &nbsp;
+                                            <Box
+                                                component="span"
+                                                sx={{ color: "#449DD1", display: "block" }}
+                                            >
+                                                {program.name.split(" ").slice(1).join(" ")}
+                                            </Box>
+                                        </Typography>
+                                        <Box sx={{ height: { xs: "100%", md: "70px" } }}>
                                             <Typography variant="body2">
                                                 {program.description.length > 120
                                                     ? program.description.slice(0, program.description.length / 2.5) + "..."
                                                     : program.description}
                                             </Typography>
-                                            {/* <Box className={styles.fadeOut} /> */}
                                         </Box>
 
                                         <Box sx={{ display: "flex", width: "100%", alignItems: "center", justifyContent: "right" }}>
                                             {/* <Link href={`/programs/${program._id}`} passHref> */}
                                             <GlowingButtonOutlined variant="outlined" size="small"
                                                 endIcon={<InfoOutline />}
-                                                sx={{ height: "8px", padding: "2px 1rem" }}>
+                                                sx={{ padding: "2px 1rem" }}>
                                                 Learn More
                                             </GlowingButtonOutlined>
                                             {/* </Link> */}

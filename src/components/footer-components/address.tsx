@@ -24,16 +24,7 @@ const Address = () => {
       }}
     >
       <Box sx={{ align: "left" }}>
-        <Stack mb="1rem" width="fit-content">
-          <Typography
-            variant="subtitle1"
-            textTransform="capitalize"
-            fontWeight={(theme) => theme.typography.fontWeightRegular}
-            color='#5C6584'
-          >
-            contact us
-          </Typography>
-        </Stack>
+        {/* */}
 
         <Stack gap={1} sx={{ px: "0.5rem" }}>
           <Box display="flex" alignItems="center">
@@ -41,7 +32,7 @@ const Address = () => {
               <LocationCity sx={{ fontSize: "18px" }} />
             </RotatingCard>
             <Typography
-              variant="button"
+              variant="body1"
               textTransform="capitalize"
               px="1rem"
               sx={{
@@ -56,7 +47,7 @@ const Address = () => {
           <Box display="flex" alignItems="center">
             <PhoneCallButton phoneNumber="27612023165" />
             <Typography
-              variant="button"
+              variant="body1"
               px="1rem"
               sx={{
                 color: "textPrimary",
@@ -70,7 +61,7 @@ const Address = () => {
           <Box display="flex" alignItems="center">
             <EmailButton emailAddress="wilfredr319n@gmail.com" />
             <Typography
-              variant="body2"
+              variant="body1"
               textAlign="left"
               textTransform="lowercase"
               px="1rem"

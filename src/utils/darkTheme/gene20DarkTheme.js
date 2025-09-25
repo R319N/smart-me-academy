@@ -11,6 +11,7 @@ import linearGradient from "./functions/linearGradient";
 import rgba from "./functions/rgba";
 import hexToRgb from "./functions/hexToRgb";
 import boxShadow from "./functions/boxShadow";
+import link from "./components/link";
 
 // components
 import paper from "./components/paper";
@@ -83,6 +84,7 @@ const gene20DarkTheme = createTheme({
     //     },
     //   },
     //   MuiModal: { ...modal },
+    MuiLink:{...link},
     MuiIconButton: { ...iconButton },
     MuiPaper: { ...paper },
     MuiList: { ...list },

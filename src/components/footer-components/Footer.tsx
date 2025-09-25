@@ -50,7 +50,7 @@ const Footer = () => {
           left: 0,
           width: "100%",
           height: { xs: "80%", sm: "60%" },
-          backgroundImage: `linear-gradient( to bottom left,rgba(1, 0, 2, 0.91),rgba(22, 2, 48, 0.9))`,
+          background: "#010203fa",
           zIndex: 1,
         }}
       />

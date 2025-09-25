@@ -4,13 +4,14 @@ import RootLayout from "./layout";
 import HeroSection from "@/sections/HeroSection";
 import ContactUs from "@/sections/ContactUs";
 import Footer from "@/sections/Footer";
-import AboutUs from "@/sections/AboutUs";
+import AboutUsSection from "@/sections/AboutUsSection";
 import Testimonials from "@/sections/Testimonials";
 import NavigationBar from "@/components/navigation-components/NavigationBar";
 import InformativeSection from "@/sections/InformativeSection";
 import CurriculumSection from "@/sections/CurriculumSection";
 import OurProgramsSection from "@/sections/OurProgramsSection";
 import PromoPopup from "@/components/Pop-Up-Promo";
+
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
         <HeroSection />
         <CurriculumSection />
         <OurProgramsSection />
-        <AboutUs />
+        <AboutUsSection />
         <Testimonials />
         <InformativeSection />
         <ContactUs />

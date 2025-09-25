@@ -69,18 +69,19 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         position="static"
                         sx={{
                             ...styles.scrolledAppBar,
-                            backgroundColor: trigger ? "#040c108a" : "transparent",
-                            // backgroundColor: "",
-                            backdropFilter: "blur(10px)",
+                            backgroundColor: trigger ? '#cad5d32c' : "transparent",
+                            border: trigger ? "1px solid #DEC5E350" : "none",
+                            backdropFilter: trigger ? "blur(10px)" : 'none',
                             boxShadow: "none",
+                            overflow:"hidden"
                         }}
                     >
                         <Toolbar
                             sx={{
                                 ...styles.between_flex,
-                                border: trigger ? "1px solid #DEC5E350" : "none",
+
                                 // border: "1px solid #DEC5E350",
-                                borderRadius: (theme) => theme.shape.borderRadius,
+                                // borderRadius: (theme) => theme.shape.borderRadius,
                                 position: "relative",
                                 maxWidth: "100vw",
                                 minHeight: "40px",

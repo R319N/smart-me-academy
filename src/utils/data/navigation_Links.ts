@@ -1,11 +1,13 @@
 export interface NavigationItem {
   name: string;
+  displayName?:string;
   url: string;
   href: string;
   isTab?: boolean;
   isFooter?: boolean;
   isNavigation?: boolean;
   isExplore?: boolean;
+  isInfo?:boolean;
   icon?: React.ReactNode; // Correct type for JSX icons
 }
 
@@ -17,6 +19,7 @@ const navigation: NavigationItem[] = [
     isTab: true,
     isFooter: true,
     isNavigation: true,
+  
   },
   {
     name: "curriculum",
@@ -30,7 +33,7 @@ const navigation: NavigationItem[] = [
     url: "/#enroll",
     href: "/",
     isTab: true,
-    isExplore: true,
+    isNavigation: true,
   },
 
   {
@@ -43,17 +46,19 @@ const navigation: NavigationItem[] = [
 
   {
     name: "documents",
+    displayName:"check our documents",
     url: "/#documents",
     href: "/",
     isTab: true,
-    isExplore: true,
+    isInfo: true,
   },
   {
     name: "payment",
+    displayName:"view payment information",
     url: "/#payment",
     href: "/",
     isTab: true,
-    isNavigation: true,
+    isInfo: true,
   },
   {
     name: "subjects",
@@ -63,9 +68,10 @@ const navigation: NavigationItem[] = [
   },
   {
     name: "help",
+    displayName:"Frequently asked questions",
     url: "/help",
     href: "/",
-    isNavigation: true,
+    isInfo: true,
   },
 ];
 export default navigation;

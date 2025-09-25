@@ -13,7 +13,7 @@ const root = {
   fontSize: size.xs,
   textTransform: 'capitalize',
   fontWeight: fontWeightRegular,
-  borderRadius: borderRadius.lg,
+  borderRadius: borderRadius.md,
   padding: `${pxToRem(6.302)} ${pxToRem(16.604)}`,
   lineHeight: 1.4,
   textAlign: 'center',

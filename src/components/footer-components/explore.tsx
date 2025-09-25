@@ -8,9 +8,10 @@ import Typography from "@mui/material/Typography";
 
 import React from "react";
 import navigation from "@/utils/data/navigation_Links";
+import { Link } from "@mui/material";
 
 const Explore = () => {
-  const exploreItems = navigation.filter((item) => item.isExplore);
+  const infoItems = navigation.filter((item) => item.isInfo);
   return (
     <Box
       sx={{
@@ -20,22 +21,12 @@ const Explore = () => {
       }}
     >
       <Box sx={{align:"left"}}>
-      {/* <Stack my="5px" width="fit-content">
-          <Typography
-            variant="subtitle1"
-            textTransform="capitalize"
-            fontWeight={(theme) => theme.typography.fontWeightRegular}
-            color='#5C6584'
-          >
-            Explore
-          </Typography>
-        </Stack> */}
         <List sx={{ cursor: "pointer", px: { xs: "0.5rem", md: "0.5rem" } }}>
-          {exploreItems.map((route, index) => (
+          {infoItems.map((route, index) => (
             <ListItem key={index}>
               <ListItemText>
                 <Typography
-                  variant="body2"
+                  variant="body1"
                   sx={{
                     textTransform: "capitalize",
                     lineHeight: "1.275rem",
@@ -43,7 +34,7 @@ const Explore = () => {
                     "&:hover": { color: (theme) => theme.palette.primary.main },
                   }}
                 >
-                  <a href={route.url}>{route.name}</a>
+                  <Link href={route.url}>{route.displayName}</Link>
                 </Typography>
               </ListItemText>
             </ListItem>
