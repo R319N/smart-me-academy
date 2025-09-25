@@ -46,7 +46,7 @@ const OurPrograms = () => {
 
                         <motion.div variants={fadeIn("up", "spring", index * 0.5, 1)}>
                             <Box
-                                sx={{ ...styles.glassOutlined, height: "250px" }}
+                                sx={{ ...styles.glassOutlined, height: { xs: "100%", sm: "250px" } }}
                             >
                                 <Box>
                                     <Box sx={{

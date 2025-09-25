@@ -14,7 +14,11 @@ const Curriculum = () => {
             <Box sx={{ mt: "3rem" }}>
                 <HeadingText header="Our Subjects" subHeader="Explore our comprehensive curriculum" />
             </Box>
-            <CurriculumCarousel options={OPTIONS} />
+            <Container>
+                <CurriculumCarousel options={OPTIONS} />
+
+            </Container>
+
         </Container>
     )
 }

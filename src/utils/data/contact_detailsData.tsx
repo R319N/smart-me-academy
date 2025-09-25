@@ -19,25 +19,25 @@ interface Contact {
 const contactDetailsdata: Contact[] = [
   {
     name: "cell contact",
-    details: "+27612023165",
+    details: "+27877014003",
     icon: <Phone />,
     color: "blue",
-    component: <PhoneCallButton phoneNumber="+27612023165" />,
+    component: <PhoneCallButton phoneNumber="+27877014003" />,
   },
   {
     name: "email",
-    details: "wilfredr319n@gmail.com",
+    details: "info@smartmeacademy.co.za",
     icon: <Email />,
     color: "red",
-    component: <EmailButton emailAddress="wilfredr319n@gmail.com" />,
+    component: <EmailButton emailAddress="info@smartmeacademy.co.za" />,
   },
   {
     name: "whatsapp",
-    details: "+27 61 202 3165",
+    details: "+27 61 429 9295",
     icon: <WhatsApp />,
     color: "green",
-    link: " https://wa.me/27612023165?text=Hie%20wilfred%20reign",
-    component: <WhatsAppButton phoneNumber={27612023165} />,
+    link: " https://wa.me/27612023165?text=Hie",
+    component: <WhatsAppButton phoneNumber={+27614299295} />,
   },
     {
     name: "address",

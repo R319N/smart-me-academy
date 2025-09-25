@@ -25,7 +25,7 @@ export default function Home() {
           overflow: "hidden",
           borderRadius: "0",
           margin: 0,
-          bgcolor: "#040C10",
+          bgcolor: "#000A14",
           // backgroundImage: `linear-gradient( to bottom left,rgba(95, 171, 233, 1),rgba(25, 1, 67, 1))`,
         }}
       >

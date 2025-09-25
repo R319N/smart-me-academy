@@ -16,6 +16,7 @@ import { styles } from "@/styles/styles";
 import SocialContacts from "./socialContact";
 import contactDetailsdata from "@/utils/data/contact_detailsData";
 import Link from '@mui/material/Link';
+import Image from "next/image";
 
 export default function ContactDetails() {
     return (
@@ -31,17 +32,30 @@ export default function ContactDetails() {
         >
             <Box sx={{ ...styles.between_flex, flexDirection: "column" }} gap={1}>
                 <Box sx={{ position: "relative", display: "flex", alignItems: "center" }} gap={2}>
-                    <Box
-                        component="img"
-                        sx={{
-                            // width: "100%",
-                            height: { xs: "100%", md: "14vh" },
-                            width: { xs: "100%", md: "14vh" },
-                            borderRadius: "50px"
-                        }}
-                        alt="Responsive"
-                        src="/Logo1.jpg"
-                    />
+                    <Box>
+                        <Image
+                            style={{
+                                // width: "100%",
+                                // height: { xs: "100%", md: "14vh" },
+                                // width: { xs: "100%", md: "14vh" },
+                                borderRadius: "50px"
+                            }}
+                            width={100}
+                            height={100}
+                            alt="Responsive"
+                            src="/Logo1.jpg"
+                        />
+                    </Box>
+
+                    {/* //     sx={{
+                    //         // width: "100%",
+                    //         // height: { xs: "100%", md: "14vh" },
+                    //         // width: { xs: "100%", md: "14vh" },
+                    //         borderRadius: "50px"
+                    //     }}
+                    //     alt="Responsive"
+                    //     src="/Logo1.jpg"
+                    // /> */}
                     <Typography
                         variant="body2"
                         textAlign="left"
@@ -51,8 +65,11 @@ export default function ContactDetails() {
                             width: { xs: "90%", lg: "60%" },
                         }}
                     >
-                        gene 20 specialises in crafting customised solutions to meet your
-                        unique needs. contact us now on any of our platforms
+                       Education is more than knowledge; it&apos;s the key to transformation. At Smart Me Academy,
+                        we believe that true training shapes not only minds but perspectives, 
+                        fostering a deeper understanding of the world. Our programs empower students to 
+                        develop critical skills and self-awareness, 
+                       preparing them to make meaningful contributions to society.
                     </Typography>
                 </Box>
             </Box>
@@ -84,9 +101,6 @@ export default function ContactDetails() {
                     </Box>
                 ))}
             </List>
-            <Box>
-                <SocialContacts />
-            </Box>
         </Box>
     );
 }

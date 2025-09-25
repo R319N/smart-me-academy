@@ -3,6 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { staggerContainer } from '@/utils/motion'
 import ContactUsComponent from '@/components/contact-components/ContactUsComponent'
+import { Paper } from '@mui/material'
 // import ContactUsComponent from '@/components/contact/ContactUsComponent'
 
 const ContactUs = () => {
@@ -16,7 +17,10 @@ const ContactUs = () => {
         whileInView='show'
         viewport={{ once: false, amount: 0.25 }}
       >
-        <ContactUsComponent />
+        <Paper sx={{background:"#000A14"}}>
+          <ContactUsComponent />
+        </Paper>
+
       </motion.div>
     </section>
   )

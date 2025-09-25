@@ -10,7 +10,8 @@ import HeadingText from '../headerBanner';
 
 const ContactUsComponent = () => {
   const headerText = "contact me";
-  // const header = <TitleText title={headerText} />;
+  const header = 'If you\'d like to find out more, register your child, or re-enroll, kindly let us know';
+
 
   return (
     <Container
@@ -18,12 +19,13 @@ const ContactUsComponent = () => {
         ...styles.container,
       }}
     >
-      <HeadingText header={headerText} subHeader='get in touch with me, let&apos;s create awesome stuff' />
-      <Box sx={{ ...styles.center_flex }}>
+      <HeadingText header={headerText}
+        subHeader={header} />
+      <Box sx={{ ...styles.center_flex, my: "2rem" }}>
         <Grid
           container
           sx={{
-            ...styles.borderRadius,
+            // ...styles.borderRadius,
             overflow: "hidden",
 
           }}
@@ -34,17 +36,10 @@ const ContactUsComponent = () => {
           <Grid
             size={{ xs: 12, md: 5 }}
             sx={{
-              ...styles.cardStyle,
-              borderRadius: "0",
-              ...styles.center_flex,
+              // background: "#000a14cd",
+              // borderRadius: "0",
+              ...styles.glassOutlined,
               width: "100%",
-              // px: {
-              //   xs: "1rem", // padding for extra small screens
-              //   sm: "2rem", // padding for small screens
-              //   md: "3rem", // padding for medium screens
-              //   lg: "4rem", // padding for large screens
-              //   xl: "5rem", // padding for extra large screens
-              // },
             }}
           >
             <ContactForm />

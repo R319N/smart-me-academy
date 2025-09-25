@@ -37,6 +37,12 @@ export const styles = {
     background: "#cad5d32c", // Adjust transparency as needed
     border: "1px solid rgba(202, 213, 211, 0.5)",
   },
+  glassOutlinedDark: {
+    borderRadius: pxToRem(6), // Add border radius for rounded corners
+    backdropFilter: "blur(8px)",
+    background: "#000a14e7", // Adjust transparency as needed
+    border: "1px solid rgba(202, 213, 211, 0.5)",
+  },
   center_flex: {
     display: "flex",
     justifyContent: "center",

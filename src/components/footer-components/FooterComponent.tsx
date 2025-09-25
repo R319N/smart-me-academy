@@ -101,18 +101,7 @@ const FooterComponent = () => {
 
                         </Grid>
                     </Grid>
-
-
-
-
                 </Grid>
-                {/* <Box
-                    my="1rem"
-                    sx={{ ...styles.center_flex, flexDirection: "column" }}
-                    gap={2}
-                >
-                    <SocialContacts />
-                </Box> */}
                 <Divider />
                 <Box>
                     <DeepFooter />

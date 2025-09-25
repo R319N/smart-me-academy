@@ -10,7 +10,7 @@ const Hero = () => {
         left: 0,
         width: "100%",
         height: "100vh",
-        backgroundImage: `linear-gradient( to bottom left,rgba(1, 0, 2, 0.8),rgba(22, 2, 48, 0.9))`,
+        background: "#000a14e7",
         zIndex: 0,
         // backdropFilter:{xs:"blur(0px)", xl:"blur(10px)"}
     });
@@ -26,9 +26,9 @@ const Hero = () => {
     })
     return (
         <Box sx={{ height: "100vh", position: "relative", overflow: "hidden" }}>
-         {/* <BlurOverlay />     */}
-         <Overlay />
-           
+            {/* <BlurOverlay />     */}
+            <Overlay />
+
             <Box
                 sx={{
                     padding: 0,

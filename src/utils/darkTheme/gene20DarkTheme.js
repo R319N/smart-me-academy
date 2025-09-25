@@ -4,7 +4,7 @@ import borders from "./base/borders";
 import boxShadows from "./base/boxShadows";
 import breakpoints from "./base/breakpoints";
 import colors from "./base/colors";
-// import globals from "./base/globals";
+import globals from "./base/globals";
 import typography from "./base/typography";
 import pxToRem from "./functions/pxToRem";
 import linearGradient from "./functions/linearGradient";
@@ -18,7 +18,7 @@ import paper from "./components/paper";
 import appBar from "./components/appBar";
 // import avatar from "./components/avatar";
 import button from "./components/button";
-// import container from "./components/container";
+import container from "./components/container";
 import icon from "./components/icon";
 import list from "./components/list";
 import listItem from "./components/list/listItem";
@@ -48,7 +48,7 @@ import listItemIcon from "./components/list/listItemIcon";
 import cardHeader from "./components/card/cardHeader";
 import iconButton from "./components/iconButton";
 
-// import modal from "./components/modal";
+import modal from "./components/modal";
 import drawer from "./components/drawer";
 
 // //form imports
@@ -77,13 +77,13 @@ const gene20DarkTheme = createTheme({
   },
 
   components: {
-    //   MuiCssBaseline: {
-    //     styleOverrides: {
-    //       ...globals,
-    //       ...container,
-    //     },
-    //   },
-    //   MuiModal: { ...modal },
+      MuiCssBaseline: {
+        styleOverrides: {
+          ...globals,
+          // ...container,
+        },
+      },
+      MuiModal: { ...modal },
     MuiLink:{...link},
     MuiIconButton: { ...iconButton },
     MuiPaper: { ...paper },

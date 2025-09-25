@@ -20,30 +20,44 @@ type PropType = {
 }
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-    // const { options } = props
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
             align: "center", // 👈 keeps active slide centered
             skipSnaps: false,
-            // ...options,
         },
         [Autoplay()]
     )
-
     const [activeIndex, setActiveIndex] = useState(0)
 
-    // 🔑 Track the centered active slide
-    useEffect(() => {
-        if (!emblaApi) return
+useEffect(() => {
+  if (!emblaApi) return
 
-        const onSelect = () => {
-            setActiveIndex(emblaApi.selectedScrollSnap())
-        }
+  const onSelect = () => {
+    const snapIndex = emblaApi.selectedScrollSnap()
+    const realIndex = emblaApi.scrollSnapList().indexOf(snapIndex)
+    setActiveIndex(realIndex)
+  }
 
-        emblaApi.on("select", onSelect)
-        onSelect() // run once on mount
-    }, [emblaApi])
+  emblaApi.on("select", onSelect)
+  onSelect()
+}, [emblaApi])
+
+
+    // const [activeIndex, setActiveIndex] = useState(0)
+
+    // // 🔑 Track the centered active slide
+    // useEffect(() => {
+    //     if (!emblaApi) return
+
+    //     const onSelect = () => {
+    //         setActiveIndex(emblaApi.selectedScrollSnap())
+    //     }
+
+    //     emblaApi.on("select", onSelect)
+    //     onSelect() // run once on mount
+    // }, [emblaApi])
+    
 
     const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
         const autoplay = emblaApi?.plugins()?.autoplay
@@ -75,93 +89,85 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 className="embla__viewport"
                 ref={emblaRef}
                 style={{
-                    overflow: "hidden",
-                    padding: "0 12px", // 👈 spacing on edges
+                    overflow: "visible", // allow slides to pop out
+                    padding: "0 12px",
                 }}
             >
                 <div
                     className="embla__container"
                     style={{
                         display: "flex",
+                        overflow: "visible",
                     }}
                 >
-                    {ourSubjects.map((service, index) => (
-                        <Box
-                            key={index}
-                            className="embla__slide"
-                            sx={{
-                                flex: {
-                                    xs: "0 0 70%", // mobile: 70% width
-                                    sm: "0 0 50%", // tablet: 50% width
-                                    md: "0 0 40%", // desktop: 30% width
-                                },
-                                padding: "0 8px", // spacing between slides
-                                boxSizing: "border-box",
-                            }}
-                        >
+                    {ourSubjects.map((service, index) => {
+                      const isActive = index === activeIndex
+
+
+                        // Amount to translate the active slide left/right based on scale
+                        const scaleFactor = isActive ? 1.1 : 0.95
+                        return (
+
+
                             <Box
+                                key={index}
+                                className="embla__slide"
                                 sx={{
-                                    // ...styles.out,
-                                    overflow: "hidden",
-                                    borderRadius: "12px",
-                                    backgroundColor:
-                                        index === activeIndex
-                                            ? "#1976d2"
-                                            : "rgba(255,255,255,0.08)",
-                                    backdropFilter: index === activeIndex
-                                        ? "blur(0px)"
-                                        : "blur(8px)",
-                                    height: "240px", // example height
+                                    flex: { xs: "0 0 70%", sm: "0 0 50%", md: "0 0 40%" },
+                                    padding: "0 8px",
+                                    boxSizing: "border-box",
+                                    position: "relative",
+                                    zIndex: isActive ? 2 : 1,
+                                    transform: `scale(${scaleFactor})`,
+                                    transition: "transform 0.5s ease, z-index 0.5s ease",
                                 }}
                             >
-                                <Box className={xstyles.cardContent}>
+
+                                <Box
+                                    sx={{
+                                        overflow: 'hidden',
+                                        borderRadius: '12px',
+                                        backgroundColor: isActive ? '#1976d2' : 'rgba(255,255,255,0.08)',
+                                        height: '240px',
+                                        transition: 'background-color 0.5s ease',
+                                    }}
+                                >
                                     <Box
                                         sx={{
-                                            position: "relative",
-                                            height: "100%",
-                                            width: "100%",
-                                            borderRadius: "8px",
-                                            overflow: "hidden", // keep overlay clipped inside the card
+                                            position: 'relative',
+                                            width: '100%',
+                                            height: '100%',
+                                            overflow: 'hidden',
                                         }}
                                     >
-                                        {/* Image */}
-                                        <Box
-                                            height="240px"
-                                            width="100%"
-
-                                        >
-                                            <Image
-                                                src={service.imgURL}
-                                                alt={service.name}
-                                                fill
-                                                style={{
-                                                    width: "100%",
-                                                    height: "100%",
-                                                    objectFit: "cover",
-                                                }}
-                                            />
-
-                                        </Box>
-
+                                        <Image
+                                            src={service.imgURL}
+                                            alt={service.name}
+                                            fill
+                                            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                        />
 
                                         {/* Overlay */}
                                         <Box
                                             sx={{
-                                                position: "absolute",
+                                                position: 'absolute',
                                                 top: 0,
                                                 left: 0,
-                                                width: "100%",
-                                                height: "100%",
-                                                backgroundColor: index === activeIndex ? "transparent" : "rgba(0, 10, 20, 0.77)", // 👈 semi-transparent overlay
+                                                width: '100%',
+                                                height: '100%',
+                                                backgroundColor: isActive
+                                                    ? 'transparent'
+                                                    : 'rgba(0, 10, 20, 0.77)',
                                                 zIndex: 1,
+                                                transition: 'background-color 0.5s ease',
                                             }}
                                         />
                                     </Box>
-
                                 </Box>
                             </Box>
-                        </Box>
-                    ))}
+                        )
+                    })}
+
                 </div>
             </div>
             <div className="embla__controls">
