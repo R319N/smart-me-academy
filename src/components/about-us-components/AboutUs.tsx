@@ -1,11 +1,50 @@
-import { Box, Container, Stack, Typography } from '@mui/material'
+import { Box, Card, CardContent, CardHeader, Collapse, Container, IconButton, IconButtonProps, Stack, styled, Typography } from '@mui/material'
 import React from 'react'
 import HeadingText from '../headerBanner'
 import MasonryImageList from './MasonryImageList'
 import { styles } from '@/styles/styles'
 import GlowingButton from '../glowingButton'
+import Image from 'next/image'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
+interface ExpandMoreProps extends IconButtonProps {
+    expand: boolean;
+}
+
+const ExpandMore = styled((props: ExpandMoreProps) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+})(({ theme }) => ({
+    marginLeft: 'auto',
+    borderRadius: "50px",
+    transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+    }),
+    variants: [
+        {
+            props: ({ expand }) => !expand,
+            style: {
+                transform: 'rotate(0deg)',
+            },
+        },
+        {
+            props: ({ expand }) => !!expand,
+            style: {
+                transform: 'rotate(180deg)',
+            },
+        },
+    ],
+}));
 
 const AboutUs = () => {
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+
     return (
         <Container>
             <Box gap={2}>
@@ -13,29 +52,79 @@ const AboutUs = () => {
                     <HeadingText header="about us" subHeader='learn more about us' />
                 </Box>
                 <Stack gap={5}>
-                    <Box sx={styles.center_flex} >
-                        <Typography variant='body2' width="70%" textAlign="center">
-                            Education is more than knowledge; it&apos;s the key to transformation. At Smart Me Academy,
-                            we believe that true training shapes not only minds but perspectives,
-                            fostering a deeper understanding of the world. Our programs empower students to develop critical skills
-                            and self-awareness, preparing them to make meaningful contributions to society.
-                        </Typography>
-                    </Box>
                     <MasonryImageList />
-                    <Stack gap={2} sx={{ ...styles.center_flex, flexDirection: "column", height:"100%" }} >
-                        <Typography variant='body1' width="70%" textAlign="center">
+                    <Stack gap={2} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
+                        <Typography variant='body1' width="100%" >
                             Every learner has the potential to succeed, and at Smart Me Academy, we provide the tools and support to unlock that potential.
                             With a strong foundation and a passion for learning, our students are equipped to achieve their dreams.
                         </Typography>
+                        <Card sx={{ ...styles.glassOutlined, width: "100%", p: 2 }}>
+                            <Box sx={{ ...styles.between_flex, width: "100%", mb: "1rem" }}>
+                                <Box
+                                >
+                                    <Image
+                                        alt="Responsive"
+                                        src="/principal.jpg"
+                                        width={100}
+                                        height={100}
+                                        style={{
+                                            borderRadius: "50px"
+                                        }}
+
+                                    />
+                                </Box>
+                                <Stack>
+                                    <Typography variant='h6' fontWeight={(theme) => theme.typography.fontWeightRegular}>
+                                        Melissa Nhlapho
+                                    </Typography >
+                                    <Typography variant="body2" textAlign={"right"} color='textSecondary' textTransform={"capitalize"}>
+                                        principal
+                                    </Typography>
+                                </Stack>
+                            </Box>
+                            <CardContent sx={{ p: 0 }}>
+                                <Typography variant="body2" sx={{ marginBottom: 2 }}>
+                                    The Smart Me Academy Method of Learning was born from one mother’s love for her child in 2019 Melisa Nhlapho;
+                                    who saw a gap in her child’s academics because of COVID 19.
+
+                                </Typography>
+                            </CardContent>
+                            <ExpandMore
+                                expand={expanded}
+                                onClick={handleExpandClick}
+                                aria-expanded={expanded}
+                                aria-label="show more"
+                            >
+                                <ExpandMoreIcon />
+                            </ExpandMore>
+
+
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                                <CardContent sx={{ p: 0 }}>
+                                    <Typography variant="body2" sx={{ marginBottom: 2 }}>
+                                        To help her son improve she staring downloading online
+                                        worksheets and workbooks for her son to complete daily.
+                                        Melisa also believed that educators have a responsibility to foster
+                                        a mindset of self-learning in children. To cover this gap
+                                        on other children Melisa began to invest her time
+                                        on her friend’s children.All the children abilities started to improve significantly.
+                                        Melisa’s desire developed the potential to help as many children as possible,
+                                        that prompted a significant growth in 2020.
+                                    </Typography>
+                                </CardContent>
+                            </Collapse>
+                        </Card>
+                    </Stack>
+                    <Box sx={{ width: "100%", display: "flex", justifyContent: "right" }}>
                         <GlowingButton>
                             More About Us
                         </GlowingButton>
-                    </Stack>
-                </Stack>
+                    </Box>
 
+                </Stack>
             </Box>
 
-        </Container>
+        </Container >
     )
 }
 

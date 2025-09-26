@@ -5,7 +5,7 @@ import { styles } from "@/styles/styles";
 import Box from '@mui/material/Box';
 import ContactForm from './ContactForm';
 import ContactDetails from './ContactDetails';
-import { Container } from '@mui/material';
+import { Container, Divider } from '@mui/material';
 import HeadingText from '../headerBanner';
 
 const ContactUsComponent = () => {
@@ -19,9 +19,14 @@ const ContactUsComponent = () => {
         ...styles.container,
       }}
     >
-      <HeadingText header={headerText}
-        subHeader={header} />
-      <Box sx={{ ...styles.center_flex, my: "2rem" }}>
+      <Box mb="2">
+        <HeadingText
+          header={headerText}
+          subHeader={header}
+        />
+      </Box>
+
+      <Box sx={{ my: "3rem" }}>
         <Grid
           container
           sx={{
@@ -29,6 +34,7 @@ const ContactUsComponent = () => {
             overflow: "hidden",
 
           }}
+          spacing={4}
         >
           <Grid size={{ xs: 12, md: 7 }}>
             <ContactDetails />
@@ -36,8 +42,6 @@ const ContactUsComponent = () => {
           <Grid
             size={{ xs: 12, md: 5 }}
             sx={{
-              // background: "#000a14cd",
-              // borderRadius: "0",
               ...styles.glassOutlined,
               width: "100%",
             }}
@@ -46,6 +50,7 @@ const ContactUsComponent = () => {
           </Grid>
         </Grid>
       </Box>
+      <Divider />
     </Container>
   )
 }

@@ -34,7 +34,7 @@ const Footer = () => {
       sx={{
         overflow: "hidden",
         height: "100%",
-        paddingTop: "10vh",
+        paddingTop: "0vh",
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "column",

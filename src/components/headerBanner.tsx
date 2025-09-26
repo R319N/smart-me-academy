@@ -23,14 +23,14 @@ const HeadingText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
   return (
-    <Box>
+    <Box >
       <Typography
         variant="h6"
         textTransform="capitalize"
         color='primary'
         sx={{
           fontWeight: "bold",
-          fontSize: {xs:"28px"}
+          fontSize: { xs: "28px" }
         }}
       >
         {header}
