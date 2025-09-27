@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardHeader, Collapse, Container, IconButton, IconButtonProps, Stack, styled, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, CardHeader, Collapse, Container, IconButton, IconButtonProps, Stack, styled, Typography } from '@mui/material'
 import React from 'react'
 import HeadingText from '../headerBanner'
 import MasonryImageList from './MasonryImageList'
@@ -21,6 +21,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
+    // p: "1rem",
     variants: [
         {
             props: ({ expand }) => !expand,
@@ -53,55 +54,92 @@ const AboutUs = () => {
                 </Box>
                 <Stack gap={5}>
                     <MasonryImageList />
-                    <Stack gap={2} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
-                        <Typography variant='body1' width="100%" >
+                    <Stack gap={3} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
+
+                        <Typography variant='body1' width="100%" textAlign='center' maxWidth={{ xs: "100%", md: "70%" }}>
                             Every learner has the potential to succeed, and at Smart Me Academy, we provide the tools and support to unlock that potential.
                             With a strong foundation and a passion for learning, our students are equipped to achieve their dreams.
                         </Typography>
-                        <Card sx={{ ...styles.glassOutlined, width: "100%", p: 2 }}>
-                            <Box sx={{ ...styles.between_flex, width: "100%", mb: "1rem" }}>
-                                <Box
-                                >
-                                    <Image
-                                        alt="Responsive"
-                                        src="/principal.jpg"
-                                        width={100}
-                                        height={100}
-                                        style={{
-                                            borderRadius: "50px"
-                                        }}
+                        <Card sx={{ ...styles.glassOutlined, width: "100%" }}>
+                            <Box sx={{
+                                display: "flex",
+                                flexDirection: { xs: "column", md: "row" }
 
-                                    />
-                                </Box>
-                                <Stack>
-                                    <Typography variant='h6' fontWeight={(theme) => theme.typography.fontWeightRegular}>
-                                        Melissa Nhlapho
-                                    </Typography >
-                                    <Typography variant="body2" textAlign={"right"} color='textSecondary' textTransform={"capitalize"}>
-                                        principal
-                                    </Typography>
-                                </Stack>
-                            </Box>
-                            <CardContent sx={{ p: 0 }}>
-                                <Typography variant="body2" sx={{ marginBottom: 2 }}>
-                                    The Smart Me Academy Method of Learning was born from one mother’s love for her child in 2019 Melisa Nhlapho;
-                                    who saw a gap in her child’s academics because of COVID 19.
-
-                                </Typography>
-                            </CardContent>
-                            <ExpandMore
-                                expand={expanded}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more"
+                            }}
+                                gap={2}
                             >
-                                <ExpandMoreIcon />
-                            </ExpandMore>
+                                <Box sx={{
+                                    ...styles.between_flex,
+                                    background: "#000a14e7",
+                                    width: "100%", p: "1rem", height: "auto"
+                                }}>
+                                    <Box >
+                                        <Image
+                                            alt="Responsive"
+                                            src="/principal.jpg"
+                                            width={100}
+                                            height={100}
+                                            style={{
+                                                borderRadius: "50px"
+                                            }}
+
+                                        />
+                                    </Box>
+                                    <Stack>
+                                        <Typography variant='h6' fontWeight={(theme) => theme.typography.fontWeightRegular}>
+                                            Melissa Nhlapho
+                                        </Typography >
+                                        <Typography variant="body2" textAlign={"right"} color='textSecondary' textTransform={"capitalize"}>
+                                            principal
+                                        </Typography>
+                                    </Stack>
+                                </Box>
+                                <Box sx={{ width: "100%" }}>
+                                    <CardContent sx={{ p: "1rem", }}>
+                                        {/* <Stack gap={1} > */}
+                                        <Typography variant='h6'
+                                            width="100%" color='secondary' textTransform={"capitalize"}
+                                            fontWeight={(theme) => theme.typography.fontWeightMedium} >
+                                            A Story of our journey
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ marginBottom: 2 }}>
+                                            The Smart Me Academy Method of Learning was born from one mother’s love for her child in 2019 Melisa Nhlapho;
+                                            who saw a gap in her child’s academics because of COVID 19.
+
+                                        </Typography>
+                                        {/* </Stack> */}
+                                    </CardContent>
+                                    <Box sx={{ width: "100%", display: "flex", justifyContent: "right", p: "0 1rem 1rem" }}>
+                                        <Box
+                                            sx={{ ...styles.center_flex }}
+                                            onClick={handleExpandClick}
+                                            gap={1}
+                                        >
+                                            <Typography
+                                                variant='body1'
+                                                textTransform={"capitalize"}
+                                            >
+                                                {expanded ? "read less" : "read more"}
+                                            </Typography>
+                                            <ExpandMore
+                                                expand={expanded}
+
+                                                aria-expanded={expanded}
+                                                aria-label="show more"
+                                            >
+                                                <ExpandMoreIcon />
+                                            </ExpandMore>
+
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+
 
 
                             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                                <CardContent sx={{ p: 0 }}>
-                                    <Typography variant="body2" sx={{ marginBottom: 2 }}>
+                                <CardContent sx={{ p: "1rem" }}>
+                                    <Typography variant="body1" sx={{ marginBottom: 2 }}>
                                         To help her son improve she staring downloading online
                                         worksheets and workbooks for her son to complete daily.
                                         Melisa also believed that educators have a responsibility to foster

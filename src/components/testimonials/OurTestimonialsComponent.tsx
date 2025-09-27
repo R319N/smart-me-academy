@@ -1,133 +1,143 @@
-"use client";
-import React, { useState } from "react";
-import Slider from "react-slick";
-import { useTheme } from '@mui/material';
-// import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styles from "./MyCarousel.module.css";
-import testimonialReviewData from "@/utils/data/testimonial_reviewData";
-import Review from "./reviews";
-import { TitleText } from "../CustomTexts";
-import HeadingText from '../headerBanner'
-interface ArrowProps {
-    onClick?: () => void; // Make onClick optional since react-slick will assign it automatically
+import React, { useCallback, useEffect, useState } from "react"
+import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel"
+import { DotButton, useDotButton } from "../curriculum-components/EmblaCarouselDotButton"
+import Autoplay from "embla-carousel-autoplay"
+import useEmblaCarousel from "embla-carousel-react"
+import {
+    usePrevNextButtons,
+    PrevButton,
+    NextButton,
+} from "../curriculum-components/EmblaCarouselArrowButtons"
+import testimonialReviewData from "@/utils/data/testimonial_reviewData"
+import { Box, Card, Container, Typography } from "@mui/material"
+
+type PropType = {
+    options?: EmblaOptionsType
 }
 
-const NextArrow: React.FC<ArrowProps> = ({ onClick }) => {
+const OurTestimonials: React.FC<PropType> = ({ options }) => {
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        {
+            loop: true,          // infinite loop
+            align: "center",     // keep active slide centered
+            skipSnaps: false,
+            containScroll: "trimSnaps", // 👈 keeps things aligned
+            ...options,
+        },
+        [Autoplay({ delay: 4000, stopOnInteraction: false })]
+    )
+
+
+    const [activeIndex, setActiveIndex] = useState(0)
+
+    // Track active slide
+    useEffect(() => {
+        if (!emblaApi) return
+
+        const onSelect = () => {
+            setActiveIndex(emblaApi.selectedScrollSnap())
+        }
+
+        emblaApi.on("select", onSelect)
+        onSelect()
+
+        return () => {
+            emblaApi.off("select", onSelect)
+        }
+    }, [emblaApi])
+
+    const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
+        const autoplay = emblaApi?.plugins()?.autoplay
+        if (!autoplay) return
+
+        const resetOrStop =
+            autoplay.options.stopOnInteraction === false ? autoplay.reset : autoplay.stop
+
+        resetOrStop()
+    }, [])
+
+    const { scrollSnaps, onDotButtonClick } = useDotButton(emblaApi, onNavButtonClick)
+    const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
+        usePrevNextButtons(emblaApi, onNavButtonClick)
+
     return (
-        <Box
-            className={styles.nextArrow}
-            onClick={onClick}
-            sx={{
-                background: "#00000055",
-                padding: "0.2rem",
-                borderRadius: "50%",
-                height: "2rem",
-                width: "2rem",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                "&:hover": {
-                    background: "#000000",
-                },
-            }}
-        >
-            <ArrowForwardIosIcon
-                sx={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bolder",
-                    color: "#dec5e3",
+        <Container className="embla" sx={{ py: 6 }}>
+            {/* Viewport */}
+            <div
+                className="embla__viewport"
+                ref={emblaRef}
+                style={{
+                    overflow: "hidden",
+                    padding: "0 10%", // 👈 centers better on desktop
                 }}
-            />
-        </Box>
-    );
-};
+            >
 
-const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => {
-    return (
-        <Box
-            className={styles.prevArrow}
-            onClick={onClick}
-            sx={{
-                background: "#00000055",
-                paddingLeft: "0.55rem",
-                borderRadius: "50%",
-                height: "2rem",
-                width: "2rem",
-                m: "0",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <ArrowBackIosIcon sx={{ fontSize: "1.5rem", color: "#dec5e3" }} />
-        </Box>
-    );
-};
-
-const OurTestimonialsComponent = () => {
-    const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-    const [activeSlide, setActiveSlide] = useState(0);
-    const headerText = "reviews from\nour clients";
-    const header = <TitleText title={headerText} />;
-    const settings = {
-        centerMode: true,
-        centerPadding: isSmallScreen ? "0px" : "284px", // Increased centerPadding
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        beforeChange: (current: number, next: number) => setActiveSlide(next),
-    };
-    return (
-        <Box
-            sx={{ maxWidth: { xs: "85vw", md: "65vw" }, width: "100%", mt: "5rem" }}
-        >
-            <HeadingText
-                header={header}
-                subHeader="check out some of the reviews and comments we got from our clients"
-            />
-            <Box sx={{ maxWidth: "90vw", m: "4rem auto" }}>
-                <Slider {...settings}>
-                    {testimonialReviewData.map((review, index) => (
-                        <Box
-                            key={index}
-                            sx={{
-                                padding: { xs: "0", md: "0 0.5rem" },
-                                boxSizing: "border-box",
-                            }}
-                        >
+                <div className="embla__container" style={{ display: "flex" }}>
+                    {testimonialReviewData.map((review, index) => {
+                        const isActive = index === activeIndex
+                        return (
                             <Box
-                                sx={{ borderRadius: "1px solid red" }}
-                                className={`${styles.card} ${activeSlide === index ? styles.activeCard : ""}`}
+                                key={index}
+                                className="embla__slide"
+                                sx={{
+                                    flex: { xs: "0 0 90%", sm: "0 0 70%", md: "0 0 33%" }, // balanced sizing
+                                    px: 1,
+                                    cursor: "pointer",
+                                    position: "relative",
+                                    zIndex: isActive ? 2 : 1,
+                                    transition: "transform 0.4s ease, z-index 0.4s ease",
+                                }}
+
                             >
-                                <Box className={styles.cardContent}>
-                                    <Review
-                                        author={review.author}
-                                        testimonial={review.testimonial}
-                                        company={review.company}
-                                        position={review.position}
-                                        rating={review.rating}
-                                        image={review.image}
-                                    />
-                                </Box>
+                                <Card
+                                    sx={{
+                                        p: 3,
+                                        height: "100%",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        textAlign: "center",
+                                        borderRadius: 3,
+                                        backgroundColor: isActive ? "#1976d2" : "rgba(255,255,255,0.08)",
+                                        color: isActive ? "#fff" : "inherit",
+                                        transition: "background-color 0.4s ease, color 0.4s ease",
+                                    }}
+                                >
+                                    <Typography variant="h6" fontWeight="bold" gutterBottom>
+                                        {review.author}
+                                    </Typography>
+                                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                                        {review.relationship}
+                                    </Typography>
+                                    <Typography variant="body1">{review.testimonial}</Typography>
+                                </Card>
                             </Box>
-                        </Box>
+                        )
+                    })}
+                </div>
+            </div>
+
+            {/* Controls */}
+            <div className="embla__controls">
+                <div className="embla__buttons">
+                    <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+                    <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+                </div>
+
+                <div className="embla__dots">
+                    {scrollSnaps.map((_, index) => (
+                        <DotButton
+                            key={index}
+                            onClick={() => onDotButtonClick(index)}
+                            className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""
+                                }`}
+                        />
                     ))}
-                </Slider>
-            </Box>
-        </Box>
+                </div>
+            </div>
+        </Container>
     )
 }
 
-export default OurTestimonialsComponent
-
+export default OurTestimonials

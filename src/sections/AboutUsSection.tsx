@@ -14,7 +14,7 @@ const AboutUsSection = () => {
             id="about-us"
         >
             <Paper sx={{
-                background: "#496A81",
+                background: "#001429",
                 width: "100%",
                 height: "100%",
                 backgroundRepeat: "no-repeat",

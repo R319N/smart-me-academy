@@ -41,7 +41,7 @@ export default function PromoPopup() {
             fullWidth
             maxWidth="sm"
             sx={{
-                width:"100vw",
+                width: "100vw",
                 "& .MuiDialog-paper": {
                     ...styles.glassOutlinedDark,
                     p: 1,
@@ -71,17 +71,17 @@ export default function PromoPopup() {
                         <CloseIcon />
                     </GlowingIconButton>
                 </Box>
-                <Stack mt={"1.25rem"}>
-                    <DialogTitle
+                <Stack mt={"1.25rem"} sx={{ textAlign: "center", fontWeight: "bold", fontSize: "1.25rem" }}>
+                    {/* <DialogTitle
                         sx={{ textAlign: "center", fontWeight: "bold", fontSize: "1.25rem" }}
-                    >
-                        <Typography variant="h6" color="textPrimary">
-                            Welcome to Our School!
-                        </Typography>
-                        <Typography variant="h2" color="secondary" fontWeight="bold">
-                            Smart Me Academy
-                        </Typography>
-                    </DialogTitle>
+                    > */}
+                    <Typography variant="h6" color="textPrimary">
+                        Welcome to Our School!
+                    </Typography>
+                    <Typography variant="h2" color="secondary" fontWeight="bold">
+                        Smart Me Academy
+                    </Typography>
+                    {/* </DialogTitle> */}
                     {/* <DialogContent hidden> */}
                     <Box position={"relative"}>
                         <Box
@@ -104,7 +104,7 @@ export default function PromoPopup() {
                                 height={200}
                                 style={{
                                     borderRadius: "50%",
-                                    overflow:"hidden",
+                                    overflow: "hidden",
                                     opacity: "0.1",
                                     zIndex: -1
                                 }}

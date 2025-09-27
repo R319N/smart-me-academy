@@ -5,19 +5,19 @@ import pxToRem from '../../functions/pxToRem'
 
 // Material Dashboard 2 React Base Styles
 
-const { text, info, secondary, transparent } = colors
+const { text, primary, secondary, transparent } = colors
 const { size } = typography
 
 const buttonText = {
   base: {
-    backgroundColor: transparent.main,
+    backgroundColor: "transparent",
     minHeight: pxToRem(40),
     color: text.primary,
     boxShadow: 'none',
     padding: `${pxToRem(10)} ${pxToRem(24)}`,
 
     '&:hover': {
-      backgroundColor: transparent.main,
+      backgroundColor: "transparent",
       boxShadow: 'none'
     },
 
@@ -60,14 +60,14 @@ const buttonText = {
   },
 
   primary: {
-    color: info.main,
+    color: text.primary,
 
     '&:hover': {
-      color: info.main
+      color: text.secondary,
     },
 
     '&:focus:not(:hover)': {
-      color: info.focus,
+      color: text.secondary,
       boxShadow: 'none'
     }
   },
