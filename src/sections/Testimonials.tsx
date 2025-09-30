@@ -3,6 +3,7 @@ import React from "react";
 import { styles } from "@/styles/styles";
 import Box from '@mui/material/Box';
 import OurTestimonialsComponent from "@/components/testimonials/OurTestimonialsComponent";
+import { Container } from "@mui/material";
 
 const Testimonials = () => {
   return (
@@ -15,10 +16,9 @@ const Testimonials = () => {
       }}
       id="testimonials"
     >
-      <Box sx={{ ...styles.center_flex }}>
+      <Container sx={{ ...styles.container }}>
         <OurTestimonialsComponent />
-        {/* testimonials */}
-      </Box>
+      </Container>
     </section>
   );
 };

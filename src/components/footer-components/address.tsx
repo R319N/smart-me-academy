@@ -11,6 +11,7 @@ import LocationCity from "@mui/icons-material/LocationCity";
 import PhoneCallButton from "../contact-components/phoneButton";
 import EmailButton from "../contact-components/emailButton";
 import RotatingCard from "../RotatingCard/RotatingCard";
+import { GpsFixed, LocationPin } from "@mui/icons-material";
 
 
 
@@ -29,7 +30,7 @@ const Address = () => {
         <Stack gap={1} sx={{ px: "0.5rem" }}>
           <Box display="flex" alignItems="center">
             <RotatingCard>
-              <LocationCity sx={{ fontSize: "18px" }} />
+              <LocationPin sx={{ fontSize: "18px" }} />
             </RotatingCard>
             <Typography
               variant="body1"
@@ -41,7 +42,7 @@ const Address = () => {
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
             >
-              johanesburg
+              84 Gourlay Street, Meyerton 1961
             </Typography>
           </Box>
           <Box display="flex" alignItems="center">
@@ -55,11 +56,11 @@ const Address = () => {
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
             >
-              +27612023165
+              +27 61 429 9295
             </Typography>
           </Box>
           <Box display="flex" alignItems="center">
-            <EmailButton emailAddress="wilfredr319n@gmail.com" />
+            <EmailButton emailAddress="info@smartmeacademy.co.za" />
             <Typography
               variant="body1"
               textAlign="left"
@@ -71,7 +72,7 @@ const Address = () => {
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
             >
-              wilfredr319n@gmail.com
+              info@smartmeacademy.co.za
             </Typography>
           </Box>
         </Stack>

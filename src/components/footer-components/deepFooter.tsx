@@ -2,10 +2,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-// *** style imports ***
 import CreatorStamp from "./creatorStamp";
 
-const DeepFooter = () => {
+const FooterCopyright = () => {
+  const endYear = 2026;
+  const currentYear = new Date().getFullYear();
   return (
     <Box display={{ sm: "flex", m: "0rem" }} justifyContent="space-between">
       <CreatorStamp />
@@ -20,13 +21,14 @@ const DeepFooter = () => {
         <Typography
           variant="caption"
           textTransform="capitalize"
-          color='#5C6584'
+          color="#5C6584"
         >
-          copyright &copy; 2022 - 2023 gene-20. All rights reserved.
+          copyright &copy; {currentYear}
+          {currentYear < endYear ? ` - ${endYear}` : ""} smart me academy. All rights reserved.
         </Typography>
       </Box>
     </Box>
   );
 };
 
-export default DeepFooter;
+export default FooterCopyright;

@@ -1,7 +1,9 @@
 import Curriculum from '@/components/curriculum-components/Curriculum'
 import { styles } from '@/styles/styles'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import React from 'react'
+import { motion } from "framer-motion";
+import { staggerContainer } from '@/utils/motion';
 
 const CurriculumSection = () => {
     return (
@@ -14,16 +16,19 @@ const CurriculumSection = () => {
             }}
             id="curriculum"
         >
-            <Box sx={{
-                background: `url(/bg.svg)`,
-                width: "100%",
-                height: "100%",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                pt: "3rem"
+            <Container sx={{
+                ...styles.container
             }}>
-                <Curriculum />
-            </Box>
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.25 }}
+                    style={{ margin: "auto", flexDirection: "column" }}
+                >
+                    <Curriculum />
+                </motion.div>
+            </Container>
         </section>
     )
 }

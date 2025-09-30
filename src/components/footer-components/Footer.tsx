@@ -8,27 +8,6 @@ import FooterComponent from "./FooterComponent";
 // import { styled } from "@mui/material";
 
 const Footer = () => {
-  // const Overlay = styled(Box)(({ theme }) => ({
-  //   position: "absolute",
-  //   bottom: 0,
-  //   left: 0,
-  //   width: "100%",
-  //   height: theme.breakpoints.down('sm') ? "80%" :
-  //     theme.breakpoints.up('lg') ? "40%" : "0",
-  //   backgroundImage: `linear-gradient( to bottom left,rgba(1, 0, 2, 0.91),rgba(22, 2, 48, 0.9))`,
-  //   zIndex: 1,
-  //   // backdropFilter:{xs:"blur(0px)", xl:"blur(10px)"}
-  // }));
-
-  // const BlurOverlay = styled(Box)(({ theme }) => ({
-  //   position: "absolute",
-  //   top: 0,
-  //   left: 0,
-  //   backdropFilter: "blur(1px)",
-  //   width: "100%",
-  //   height: "100vh",
-  //   zIndex: 0,
-  // }));
   return (
     <Box
       sx={{
@@ -49,7 +28,7 @@ const Footer = () => {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: { xs: "80%", sm: "60%" },
+          height: { xs: "90%", md: "75%" },
           background: "#010203fa",
           zIndex: 1,
         }}
@@ -60,7 +39,7 @@ const Footer = () => {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: { xs: "80%", lg: "60%" },
+          height: { xs: "80%", lg: "75%" },
           zIndex: 0,
         }}
       >

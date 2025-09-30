@@ -1,5 +1,5 @@
 "use client"
-import { AppBar, Box, IconButton, Toolbar, useScrollTrigger, Link, Drawer } from '@mui/material'
+import { AppBar, Box, IconButton, Toolbar, useScrollTrigger, Link, Drawer, Divider } from '@mui/material'
 
 // *** MUI5 Icon imports ***
 import MenuIcon from "@mui/icons-material/Menu";
@@ -61,7 +61,10 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                     sx={{
                         zIndex: 99,
                         width: "100%",
-                        p: { xs: "0.5rem", lg: "1rem 4rem" },
+                        p: {
+                            xs: trigger ? "0.5rem" : 0,
+                            lg: trigger ? "1rem 4rem" : "0 4rem"
+                        },
                     }}
                 >
                     {/* <ElevationScroll> */}
@@ -69,19 +72,18 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         position="static"
                         sx={{
                             ...styles.scrolledAppBar,
-                            backgroundColor: trigger ? '#cad5d32c' : "transparent",
-                            border: trigger ? "1px solid #DEC5E350" : "none",
-                            backdropFilter: trigger ? "blur(10px)" : 'none',
-                            boxShadow: "none",
-                            overflow:"hidden"
+                            backgroundColor: trigger ? "#cad5d350" : "none",
+                            border: trigger ? "1px solid #cad5d36e" : "none",
+                            // boxShadow: "0 px 1px #cad5d36e",
+                            backdropFilter: trigger ? "blur(10px)" : "none",
+                            overflow: "hidden",
+                            boxShadow: "none"
+                            // transition:"1s all-ease"
                         }}
                     >
                         <Toolbar
                             sx={{
                                 ...styles.between_flex,
-
-                                // border: "1px solid #DEC5E350",
-                                // borderRadius: (theme) => theme.shape.borderRadius,
                                 position: "relative",
                                 maxWidth: "100vw",
                                 minHeight: "40px",
@@ -127,16 +129,20 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                 >
                                     <NavTabs />
                                 </Box>
-                                <Box>
-                                    <GlowingButtonOutlined href='#contact_us'>
+                                <Box gap={2} display="flex" alignItems="center">
+                                    <GlowingButtonOutlined href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
                                         contact us
                                     </GlowingButtonOutlined>
+                                    <GlowingButton href='#contact_us'>
+                                        enroll now
+                                    </GlowingButton>
                                     {/* <ContactBar /> */}
                                 </Box>
                             </Box>
                         </Toolbar>
+                        <Divider sx={{ display: trigger ? "none" : "flex", margin: 0 }} />
                     </AppBar>
-                    {/* </ElevationScroll> */}
+
                 </Box>
                 <Drawer
                     {...rest}

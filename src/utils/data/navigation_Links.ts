@@ -28,13 +28,6 @@ const navigation: NavigationItem[] = [
     isTab: true,
     isExplore: true,
   },
-  {
-    name: "enroll",
-    url: "/#enroll",
-    href: "/",
-    isTab: true,
-    isNavigation: true,
-  },
 
   {
     name: "about us",

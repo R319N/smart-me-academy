@@ -58,7 +58,7 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
     usePrevNextButtons(emblaApi, onNavButtonClick)
 
   return (
-    <Box my="2rem" className="embla">
+    <Box className="embla">
       <div
         className="embla__viewport"
         ref={emblaRef}

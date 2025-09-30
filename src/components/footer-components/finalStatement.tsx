@@ -19,11 +19,12 @@ const FinalStatement = () => {
                     display: "flex", width: "100%", flexDirection: { xs: "column", md: "row" },
                     alignItems: { xs: "center", md: "left" }, justifyContent: "center"
                 }}
-                gap={1}
+                gap={3}
             >
                 <Box
                     sx={{
-                        display: "flex", width: "100%",
+                        display: "flex",
+                        //  width: "100%",
                         alignItems: { xs: "center", md: "left" },
                         justifyContent: { xs: "center", md: "left" }
                     }}

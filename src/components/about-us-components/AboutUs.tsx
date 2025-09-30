@@ -47,9 +47,9 @@ const AboutUs = () => {
 
 
     return (
-        <Container>
+        <Container sx={{ ...styles.container }}>
             <Box gap={2}>
-                <Box sx={{ p: "3rem 0 2rem 0 " }}>
+                <Box pb={3}>
                     <HeadingText header="about us" subHeader='learn more about us' />
                 </Box>
                 <Stack gap={5}>
@@ -111,13 +111,14 @@ const AboutUs = () => {
                                     </CardContent>
                                     <Box sx={{ width: "100%", display: "flex", justifyContent: "right", p: "0 1rem 1rem" }}>
                                         <Box
-                                            sx={{ ...styles.center_flex }}
+                                            sx={{ ...styles.center_flex , cursor: "pointer" }}
                                             onClick={handleExpandClick}
                                             gap={1}
                                         >
                                             <Typography
                                                 variant='body1'
                                                 textTransform={"capitalize"}
+                                                sx={{...styles.textHover}}
                                             >
                                                 {expanded ? "read less" : "read more"}
                                             </Typography>

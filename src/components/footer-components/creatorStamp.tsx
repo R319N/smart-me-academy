@@ -40,8 +40,8 @@ const CreatorStamp = () => {
         </Typography>
         <Link href="https://wilfredreign.netlify.app" target="_blank">
           <Typography
-            variant="body1"
-            fontWeight="medium"
+            variant="body2"
+            fontWeight="regular"
             textTransform="uppercase"
           >
             &nbsp;<span style={{ color: "#449DD1" }}>gene</span>

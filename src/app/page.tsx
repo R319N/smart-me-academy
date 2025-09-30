@@ -11,6 +11,7 @@ import InformativeSection from "@/sections/InformativeSection";
 import CurriculumSection from "@/sections/CurriculumSection";
 import OurProgramsSection from "@/sections/OurProgramsSection";
 import PromoPopup from "@/components/Pop-Up-Promo";
+import ContactIcon from "@/components/UI/ContactIcon";
 
 
 export default function Home() {
@@ -38,9 +39,10 @@ export default function Home() {
         <InformativeSection />
         <ContactUs />
         <Footer />
+        <ContactIcon />
         <PromoPopup />
       </Paper>
     </RootLayout>
     // </ServerLayout>
   );
-}
+}    

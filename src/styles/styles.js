@@ -12,7 +12,7 @@ export const styles = {
   scrolledAppBar: {
     borderRadius: (theme) => theme.borders.borderRadius.lg,
     // backgroundColor: "#dec5e3d3", 
-    transition: "background-color 0.3s ease-in-out", // Smooth transition
+    transition: "background-color padding 3s ease-in-out", // Smooth transition
     width: "100%",
     display: "flex",
   },
@@ -24,7 +24,7 @@ export const styles = {
     width: "100%",
     height: "100%",
     overflow: "hidden",
-    paddingTop: "5rem",
+    paddingTop: "16vh",
   },
   cardStyle: {
     borderRadius: "8px", // Add border radius for rounded corners
@@ -186,14 +186,14 @@ export const styles = {
   glow: {
     "&:hover": {
       position: "absolute",
-      // top: "-4px",
-      // left: "-4px",
-      // height: "68px",
-      // width: "68px",
-      // borderRadius: "50%",
       background:
         "radial-gradient(circle, rgba(255,255,255,0) 50%, rgba(255,255,255,0.3) 100%)",
       zIndex: 0,
+    },
+  },
+  textHover: {
+    "&:hover": {
+      color: (theme) => theme.palette.primary.main,
     },
   },
 };

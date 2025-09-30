@@ -19,14 +19,13 @@ const ContactUsComponent = () => {
         ...styles.container,
       }}
     >
-      <Box mb="2">
-        <HeadingText
-          header={headerText}
-          subHeader={header}
-        />
-      </Box>
-
       <Box sx={{ my: "3rem" }}>
+        <Box pb={5}>
+          <HeadingText
+            header={headerText}
+            subHeader={header}
+          />
+        </Box>
         <Grid
           container
           sx={{

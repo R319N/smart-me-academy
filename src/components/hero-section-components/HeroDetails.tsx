@@ -7,23 +7,12 @@ import GlowingButton from '../glowingButton'
 import GlowingButtonOutlined from '../glowingButtonOutlined'
 import Image from 'next/image'
 import { styles } from '@/styles/styles'
+import ScrollIndicator from '../ScrollIndicator'
 
 const HeroDetails = () => {
     const motto = " Smart Me Bright Me Bright Future\nNever Stop Learning";
 
     return (
-
-        // <Box sx={{
-        //     position: "relative",
-        //     display: "flex",
-        //     flexDirection: { xs: "column", sm: "row-reverse" },
-        //     justifyContent: { xs: "center", md: "space-between" },
-        //     alignItems: "center",
-        //     height: "100vh",
-        //     width: "100%",
-        //     zIndex: 10,
-        // }}>
-
         <Grid container
             sx={{
                 position: "relative",
@@ -143,6 +132,7 @@ const HeroDetails = () => {
                                 </Stack>
                             </Stack>
                         </Box>
+                        <ScrollIndicator />
                     </Stack>
 
                 </motion.div>
@@ -155,11 +145,9 @@ const HeroDetails = () => {
                 }}>
                 <Box
                     sx={{
-                        // position: { xs: "absolute", md: "relative" },
+                        display:"none",
                         position: "relative",
                         cursor: "pointer",
-                        // top: { xs: "0vh", md: "0" }
-
                     }}
                 >   <motion.div variants={slideIn("right", "tween", 0.2, 1)}>
                         <Image
@@ -183,10 +171,4 @@ const HeroDetails = () => {
         </Grid>
     )
 }
-{/*
-          
-
-        // </Box> */}
-
-
 export default HeroDetails

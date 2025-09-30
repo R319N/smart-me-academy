@@ -15,6 +15,7 @@ const buttonText = {
     color: text.primary,
     boxShadow: 'none',
     padding: `${pxToRem(10)} ${pxToRem(24)}`,
+    cursor: 'pointer',
 
     '&:hover': {
       backgroundColor: "transparent",

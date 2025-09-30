@@ -23,36 +23,33 @@ export default function MasonryImageList() {
 }
 
 const itemData = [
-    // {
-    //     img: '/hero.jpg',
-    //     title: 'Bed',
-    // },
+   
     {
-        img: '/gradeR.jpg',
+        img: '/gallery/gallery1.jpg',
         title: 'Books',
     },
     {
-        img: '/teachers.jpg',
+       img: '/gallery/gallery2.jpg',
         title: 'Kitchen',
     },
     {
-        img: '/books.jpg',
+       img: '/gallery/gallery3.jpg',
         title: 'Blinds',
     },
     {
-        img: '/classroom.jpg',
+      img: '/gallery/gallery4.jpg',
         title: 'Chairs',
     },
-    // {
-    //     img: '/energy.jpg',
-    //     title: 'Laptop',
-    // },
-    // {
-    //     img: '/registration.jpg',
-    //     title: 'Doors',
-    // },
     {
-        img: '/desk.jpg',
+       img: '/gallery/gallery5.jpg',
+        title: 'Laptop',
+    },
+    {
+       img: '/gallery/gallery6.jpg',
+        title: 'Doors',
+    },
+    {
+      img: '/gallery/gallery7.jpg',
         title: 'Coffee',
     },
 ];
