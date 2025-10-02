@@ -16,9 +16,9 @@ const Testimonials = () => {
       }}
       id="testimonials"
     >
-      <Container sx={{ ...styles.container }}>
+      <Box sx={{ ...styles.container }}>
         <OurTestimonialsComponent />
-      </Container>
+      </Box>
     </section>
   );
 };

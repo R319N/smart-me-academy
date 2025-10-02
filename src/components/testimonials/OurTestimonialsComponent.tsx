@@ -83,7 +83,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                     key={index}
                                     className="embla__slide"
                                     sx={{
-                                        flex: { xs: "0 0 95%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
+                                        flex: { xs: "0 0 70%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
                                         px: 1,
                                         cursor: "pointer",
                                         position: "relative",
@@ -96,7 +96,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                     <Card
                                         sx={{
                                             p: "1rem",
-                                            minHeight: "256px",
+                                            minHeight: {xs:"328px", md:"256px"},
                                             display: "flex",
                                             flexDirection: "column",
                                             justifyContent: "center",
@@ -194,7 +194,9 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                             )
                         })}
                     </div>
-                </div>
+                </div> 
+                {/* Controls */}
+
                 <Box sx={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%" }}>
                     <div style={{
                         width: "95%",
@@ -207,9 +209,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
                         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
                     </div>
-                </Box>
-
-                {/* Controls */}
+                </Box>             
                 <Box
                     sx={{
                         width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%", my: "2rem"
