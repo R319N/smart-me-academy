@@ -9,8 +9,8 @@ import { Container, Divider } from '@mui/material';
 import HeadingText from '../headerBanner';
 
 const ContactUsComponent = () => {
-  const headerText = "contact me";
-  const header = 'If you\'d like to find out more, register your child, or re-enroll, kindly let us know';
+  const headerText = "get in touch";
+  const header = 'contact us';
 
 
   return (

@@ -61,10 +61,11 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                     sx={{
                         zIndex: 99,
                         width: "100%",
-                        p: {
-                            xs: trigger ? "0.5rem" : 0,
-                            lg: trigger ? "1rem 4rem" : "0 4rem"
-                        },
+                        // p: {
+                        //     xs: trigger ? "0.5rem" : 0,
+                        //     lg: trigger ? "1rem 4rem" : "0 4rem"
+                        // },
+                        p: { xs: "0.5rem", lg: "1rem 4rem" },
                     }}
                 >
                     {/* <ElevationScroll> */}
@@ -73,7 +74,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         sx={{
                             ...styles.scrolledAppBar,
                             backgroundColor: trigger ? "#cad5d350" : "none",
-                            border: trigger ? "1px solid #cad5d36e" : "none",
+                            border: trigger ? "1px solid #cad5d377" : "none",
                             // boxShadow: "0 px 1px #cad5d36e",
                             backdropFilter: trigger ? "blur(10px)" : "none",
                             overflow: "hidden",
@@ -86,9 +87,9 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                 ...styles.between_flex,
                                 position: "relative",
                                 maxWidth: "100vw",
-                                minHeight: "40px",
+                                // minHeight: "40px",
                                 width: "100%",
-                                p: "0.5rem",
+                                // p: "0.5rem",
                                 m: 0,
                             }}
                         >
@@ -130,10 +131,10 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     <NavTabs />
                                 </Box>
                                 <Box gap={2} display="flex" alignItems="center">
-                                    <GlowingButtonOutlined href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
+                                    <GlowingButtonOutlined size='small' href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
                                         contact us
                                     </GlowingButtonOutlined>
-                                    <GlowingButton href='#contact_us'>
+                                    <GlowingButton href='#contact_us' size='small'>
                                         enroll now
                                     </GlowingButton>
                                     {/* <ContactBar /> */}

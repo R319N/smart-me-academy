@@ -74,12 +74,12 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
                 key={index}
                 className="embla__slide"
                 sx={{
-                  flex: { xs: "0 0 70%", sm: "0 0 50%", md: "0 0 40%" },
+                  flex: { xs: "0 0 95%", sm: "0 0 50%", md: "0 0 33%" },
                   padding: "0 8px",
                   boxSizing: "border-box",
                   position: "relative",
                   zIndex: isActive ? 2 : 1,
-                  transform: `scale(${scaleFactor})`,
+                  // transform: `scale(${scaleFactor})`,
                   transition: "transform 0.5s ease, z-index 0.5s ease",
                 }}
               >

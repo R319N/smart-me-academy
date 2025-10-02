@@ -57,7 +57,7 @@
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
 // import pxToRem from '@/theme/typography/pxToRem';
 import { Box, Divider, Typography } from '@mui/material';
-import { Caveat_Brush, Island_Moments } from 'next/font/google';
+import { Caveat_Brush, Edu_SA_Hand, Island_Moments } from 'next/font/google';
 
 interface HeaderBannerProps {
   header: string;
@@ -65,6 +65,10 @@ interface HeaderBannerProps {
 }
 
 const caveatBrush = Caveat_Brush({
+  weight: '400',
+  subsets: ['latin'],
+});
+const eduSAHand = Edu_SA_Hand({
   weight: '400',
   subsets: ['latin'],
 });
@@ -101,10 +105,10 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
             lineHeight: 1,
           }}
         >
-          <Box component="span" sx={{ color: (theme)=> theme.palette.text.primary }}>
+          <Box component="span" sx={{ color: (theme) => theme.palette.text.primary }}>
             {firstWord}
           </Box>{' '}
-          <Box component="span" sx={{ color: (theme)=> theme.palette.primary.main }}>
+          <Box component="span" sx={{ color: (theme) => theme.palette.primary.main }}>
             {remaining}
           </Box>
         </Typography>
@@ -116,7 +120,9 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
         {subHeader && (
           <Typography
             variant="body2"
+            className={caveatBrush.className}
             sx={{
+              ...caveatBrush.style,
               whiteSpace: 'pre-line',
               fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
               textTransform: 'capitalize',

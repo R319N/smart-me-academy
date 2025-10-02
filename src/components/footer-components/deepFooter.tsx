@@ -7,9 +7,9 @@ import CreatorStamp from "./creatorStamp";
 const FooterCopyright = () => {
   const endYear = 2026;
   const currentYear = new Date().getFullYear();
+  
   return (
     <Box display={{ sm: "flex", m: "0rem" }} justifyContent="space-between">
-      <CreatorStamp />
       <Box
         sx={{
           display: "flex",
@@ -27,6 +27,7 @@ const FooterCopyright = () => {
           {currentYear < endYear ? ` - ${endYear}` : ""} smart me academy. All rights reserved.
         </Typography>
       </Box>
+      <CreatorStamp />
     </Box>
   );
 };
