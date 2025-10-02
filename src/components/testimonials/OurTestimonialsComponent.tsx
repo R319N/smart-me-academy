@@ -62,16 +62,16 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
         usePrevNextButtons(emblaApi, onNavButtonClick)
 
     return (
-        <Stack gap={4} width="100%">
+        <Stack gap={4} width="100%" sx={{ px: { xs: "0", md: "10rem" },  }}>
             <HeaderText header="What People Say" subHeader="Testimonials" />
             <div className="embla">
                 {/* Viewport */}
-                <div
+                <Box
                     className="embla__viewport"
                     ref={emblaRef}
-                    style={{
+                    sx={{
                         overflow: "hidden",
-                        padding: "0 10%", // 👈 centers better on desktop
+                        padding: { xs: "0 10%", md: "0 10%" }, // 👈 centers better on desktop
                     }}
                 >
 
@@ -81,10 +81,11 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                             return (
                                 <Box
                                     key={index}
-                                    className="embla__slide"
+                                    // className="embla__slide"
                                     sx={{
                                         flex: { xs: "0 0 70%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
-                                        px: 1,
+                                        pr: "1rem",
+                                        py: "2rem",
                                         cursor: "pointer",
                                         position: "relative",
                                         zIndex: isActive ? 2 : 1,
@@ -94,9 +95,15 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
 
                                 >
                                     <Card
+                                        // key={index}
+                                        className="embla__slide"
                                         sx={{
-                                            p: "1rem",
-                                            minHeight: {xs:"328px", md:"256px"},
+                                            // p: "1rem",
+                                            // px: 1,
+
+                                            // minWidth: "300px",
+                                            minHeight: { xs: "364px", md: "256px" },
+                                            height: "100%",
                                             display: "flex",
                                             flexDirection: "column",
                                             justifyContent: "center",
@@ -113,10 +120,11 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                             display: "flex", flexDirection: "column",
                                             alignItems: "center", height: "100%",
                                             textTransform: "capitalize",
-                                            justifyContent: "space-between"
+                                            justifyContent: "space-between",
+                                            p: "2"
                                         }}>
 
-                                            <CardContent sx={{ p: 0 }}>
+                                            <CardContent sx={{ p: 2 }}>
                                                 <Box
                                                     sx={{
                                                         position: "relative",
@@ -125,7 +133,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                         alignItems: "center",
                                                         textAlign: "center",
                                                         px: 1,
-                                                        // py: 2,
+
                                                     }}
                                                 >
                                                     {/* Opening quote */}
@@ -149,11 +157,11 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                             maxWidth: 600,
                                                             lineHeight: 1.6,
                                                             p: 2,
-                                                            display: "-webkit-box",
-                                                            WebkitLineClamp: 5,       // 👈 limit lines
-                                                            WebkitBoxOrient: "vertical",
+                                                            // display: "-webkit-box",
+                                                            // WebkitLineClamp: 5,       // 👈 limit lines
+                                                            // WebkitBoxOrient: "vertical",
                                                             overflow: "hidden",
-                                                            textOverflow: "ellipsis",
+                                                            // textOverflow: "ellipsis",
                                                         }}
                                                     >
                                                         {review.testimonial}
@@ -178,7 +186,8 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                 width: "100%",
                                                 display: "flex",
                                                 flexDirection: "column",
-                                                alignItems: "right"
+                                                alignItems: "flex-end",
+                                                pr: "2rem"
                                             }}
                                                 alignItems="right">
                                                 <Typography variant="h6" textAlign="right" fontWeight="bold" gutterBottom lineHeight={1}>
@@ -194,39 +203,48 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                             )
                         })}
                     </div>
-                </div> 
+                </Box>
                 {/* Controls */}
 
-                <Box sx={{ width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%" }}>
-                    <div style={{
-                        width: "95%",
-                        display: "flex", justifyContent: "space-between", alignItems: "center",
-                        position: "absolute",
-                        bottom: 100,
-                        zIndex: 99
-                    }}
-                    >
-                        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-                        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-                    </div>
-                </Box>             
-                <Box
-                    sx={{
-                        width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%", my: "2rem"
-                    }}>
-                    <Box className="embla__dots" gap={0.5}>
-                        {scrollSnaps.map((_, index) => (
-                            <DotButton
-                                key={index}
-                                onClick={() => onDotButtonClick(index)}
-                                className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""
-                                    }`}
-                            />
-                        ))}
-                    </Box>
-                </Box>
+
 
             </div>
+            <Box sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                // position: "relative",
+                height: "100%"
+            }}>
+                <div style={{
+                    width: "95%",
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    position: "absolute",
+                    bottom: "40vh",
+                    // transform: "translateY(-50%, 50%)",
+                    zIndex: 99
+                }}
+                >
+                    <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+                    <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+                </div>
+            </Box>
+            <Box
+                sx={{
+                    width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%", my: "2rem"
+                }}>
+                <Box className="embla__dots" gap={0.5}>
+                    {scrollSnaps.map((_, index) => (
+                        <DotButton
+                            key={index}
+                            onClick={() => onDotButtonClick(index)}
+                            className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""
+                                }`}
+                        />
+                    ))}
+                </Box>
+            </Box>
         </Stack>
     )
 }
