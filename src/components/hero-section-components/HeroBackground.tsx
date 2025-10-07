@@ -38,7 +38,7 @@ const HeroBackground = () => {
                         top: 0,
                         right: "14rem",
                         height: "280px",
-                        width: "500px",
+                        width: "50vw",
                         backgroundImage: "url(/gallery/gallery3.jpg)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
@@ -54,10 +54,10 @@ const HeroBackground = () => {
 
                     position: "absolute",
                     top: 0,
-                    right: "2rem",
-                    height: "200px",
-                    width: "160px",
-                    backgroundImage: "linear-gradient(to bottom right, #ff006aff, #061024)",
+                    right: "1rem",
+                    height: "280px",
+                    width: "190px",
+                    backgroundImage: "linear-gradient(to bottom right, #1a8ef4ff, #061024)",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     opacity: 0.3,
@@ -70,10 +70,10 @@ const HeroBackground = () => {
             <Box sx={{ flexGrow: 1 }} > {/* Spacer to push bottom image down */}
                 <Box
                     sx={{
-                        height: "320px",
-                        width: "220px",
+                        height: "45vh",
+                        width: "35vw",
                         position: "absolute",
-                        bottom: "2rem",
+                        bottom: "0rem",
                         right: 0,
                         backgroundImage: "url(/gallery/gallery4.jpg)",
                         backgroundSize: "cover",
@@ -88,11 +88,11 @@ const HeroBackground = () => {
                 <Box
                     sx={{
                         height: "220px",
-                        width: "160px",
+                        width: "200px",
                         position: "absolute",
-                        bottom: 70,
+                        bottom: 40,
                         right: "32rem",
-                        backgroundImage: "linear-gradient(to bottom right, #ff006aff, #061024)",
+                        backgroundImage: "linear-gradient(to bottom right, #130c29ff, #0d4870ff)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         opacity: 0.3,
@@ -101,7 +101,7 @@ const HeroBackground = () => {
                     }}
                 />
             </Box>
-            <Box sx={{ flexGrow: 1 }} > {/* Spacer to push bottom image down */}
+            {/* <Box sx={{ flexGrow: 1 }} >
                 <Box
                     sx={{
                         height: "220px",
@@ -117,7 +117,7 @@ const HeroBackground = () => {
                         overflow: "hidden",
                     }}
                 />
-            </Box>
+            </Box> */}
         </Box>
     )
 }

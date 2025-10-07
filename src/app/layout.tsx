@@ -20,19 +20,11 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <html lang="en">
-      <head>
-        <link href="https://fonts.cdnfonts.com/css/blanka" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
-        <AppRouterCacheProvider options={{ key: "css" }} {...props}>
-          <ThemeProvider theme={gene20DarkTheme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider options={{ key: "css" }} {...props}>
+      <ThemeProvider theme={gene20DarkTheme}>
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

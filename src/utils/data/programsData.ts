@@ -12,7 +12,7 @@ export const programData = [
     {
         name: "personalized tutoring",
         description: "Our personalized tutoring helps bridge gaps in grade repeats and dropouts, specializing in Mathematics and English. With individual assessments and flexible schedules, we address challenges beyond the classroom with tailored solutions, focusing on Study Times ⏰, Reading 📚, Homework ✏️, Projects 🛠️, and more.",
-        imgUrl: "/maths.jpg"
+        imgUrl: "/maths.png"
     }
 
 

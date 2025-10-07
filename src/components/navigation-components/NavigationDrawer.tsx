@@ -26,7 +26,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
         p: "0.5rem",
         position: "relative",
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
       }}>
       <List>
         <ListItem

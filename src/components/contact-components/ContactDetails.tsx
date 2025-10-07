@@ -13,11 +13,11 @@ import MenuItem from "@mui/material/MenuItem";
 import React from "react";
 import Typography from "@mui/material/Typography";
 import { styles } from "@/styles/styles";
-import SocialContacts from "./socialContact";
 import contactDetailsdata from "@/utils/data/contact_detailsData";
 import Link from '@mui/material/Link';
 import Image from "next/image";
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
+import BusinessMap from "./OurMapLocation";
 
 export default function ContactDetails() {
     return (
@@ -49,15 +49,13 @@ export default function ContactDetails() {
                     }}>
                         <Image
                             style={{
-                                // width: "100%",
-                                // height: { xs: "100%", md: "14vh" },
-                                // width: { xs: "100%", md: "14vh" },
+
                                 borderRadius: "50px"
                             }}
                             width={100}
                             height={100}
                             alt="Responsive"
-                            src="/Logo1.jpg"
+                            src="/logo1.jpg"
                         />
                     </Box>
                     <Typography
@@ -81,70 +79,42 @@ export default function ContactDetails() {
                     </Typography>
                 </Box>
 
-                <Box>
-                    <List
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "left",
-                            width: "100",
-                            p: "0",
-                            m: "0",
-                        }}
-                    >
-                        {contactDetailsdata.map((item, index) => (
-                            <Box
-                                sx={{ ...styles.center_flex, textTransform: "capitalize" }}
-                                key={index}
-                            >
-                                <MenuItem component={Link} href={item.link} color="secondary" sx={{ width: "100%" }}>
-                                    <IconButton sx={{ color: item.color }}>{item.icon}</IconButton>
-                                    <ListItemText
-                                        primary={item.name}
-                                        secondary={item.details}
-                                        color="secondary"
-                                        sx={{ mx: "2rem", align: "left" }}
-                                    />
-                                </MenuItem>
-                            </Box>
-                        ))}
-                    </List>
-                </Box>
-            </Stack>
-
-            {/* <Box sx={{ ...styles.between_flex, flexDirection: "column" }} gap={1}>
-                <Box sx={{ position: "relative", display: "flex", alignItems: "center", flexDirection: { xs: "column", md: "row" } }} gap={2}>
-                    
-
-                    {/* //     sx={{
-                    //         // width: "100%",
-                    //         // height: { xs: "100%", md: "14vh" },
-                    //         // width: { xs: "100%", md: "14vh" },
-                    //         borderRadius: "50px"
-                    //     }}
-                    //     alt="Responsive"
-                    //     src="/Logo1.jpg"
-                    // />
-                    <Typography
-                        variant="body2"
-                        textAlign="center"
-                        sx={{
-                            textTransform: "capitalize",
-                            color: '#5C6584',
-                            width: { xs: "90%", lg: "60%" },
-                        }}
-                    >
-                        Education is more than knowledge; it&apos;s the key to transformation. At Smart Me Academy,
-                        we believe that true training shapes not only minds but perspectives,
-                        fostering a deeper understanding of the world. Our programs empower students to
-                        develop critical skills and self-awareness,
-                        preparing them to make meaningful contributions to society.
-                    </Typography>
-                </Box>
-            </Box>*/}
-
-
-        </Box>
+                <Grid container spacing={4}>
+                    <Grid size={{ xs: 12, md: 7 }}>
+                        <List
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "left",
+                                width: "100%",
+                                p: "0",
+                                m: "0",
+                            }}
+                        >
+                            {contactDetailsdata.map((item, index) => (
+                                <Box
+                                    sx={{ ...styles.center_flex, textTransform: "capitalize" }}
+                                    key={index}
+                                >
+                                    <MenuItem component={Link} href={item.link} color="secondary" sx={{ width: "100%" }}>
+                                        <IconButton sx={{ color: item.color }}>{item.icon}</IconButton>
+                                        <ListItemText
+                                            primary={item.name}
+                                            secondary={item.details}
+                                            color="secondary"
+                                            sx={{ mx: "2rem", align: "left" }}
+                                        />
+                                    </MenuItem>
+                                </Box>
+                            ))}
+                        </List>
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 5 }}>
+                        <BusinessMap />
+                    </Grid>
+                </Grid>
+            </Stack >
+        </Box >
     );
 }
 

@@ -49,7 +49,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
       </Box>
 
       {/* Social Contacts Section */}
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -58,7 +58,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
         }}
       >
         <SocialContacts />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

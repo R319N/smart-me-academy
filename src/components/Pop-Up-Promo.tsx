@@ -11,6 +11,7 @@ import {
     IconButton,
     Stack,
     Box,
+    Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { styles } from "@/styles/styles";
@@ -39,12 +40,13 @@ export default function PromoPopup() {
             open={open}
             onClose={handleClose}
             fullWidth
-            maxWidth="sm"
+            maxWidth="xl"
             sx={{
-                width: "100vw",
+
                 "& .MuiDialog-paper": {
                     ...styles.glassOutlinedDark,
-                    p: 1,
+                    width: "100vw",
+                    // p: 1,
                     // height: "100% "
                 },
             }}
@@ -71,14 +73,26 @@ export default function PromoPopup() {
                         <CloseIcon />
                     </GlowingIconButton>
                 </Box>
-                <Stack mt={"1.25rem"} sx={{ textAlign: "center", fontWeight: "bold", fontSize: "1.25rem" }}>
+                <Stack gap={1} mt={"1.25rem"} sx={{ textAlign: "center", fontWeight: "bold", fontSize: "1.25rem" }}>
                     {/* <DialogTitle
                         sx={{ textAlign: "center", fontWeight: "bold", fontSize: "1.25rem" }}
                     > */}
-                    <Typography variant="h6" color="textPrimary">
-                        Welcome to Our School!
-                    </Typography>
-                    <Typography variant="h2" color="secondary" fontWeight="bold">
+                    <Box sx={{
+                        width: "100%", flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center"
+
+                    }} >
+                        <Typography variant="body1" fontWeight={"bold"} sx={{ fontVariant: "all-small-caps" }} >
+                            Welcome to Our School!
+                        </Typography>
+                        <Box width={"50%"}>
+                            <Divider />
+                        </Box>
+
+                    </Box>
+                    <Typography variant="h4" color="secondary" fontWeight="bold">
                         Smart Me Academy
                     </Typography>
                     {/* </DialogTitle> */}
@@ -114,12 +128,19 @@ export default function PromoPopup() {
                     </Box>
 
 
-                    <Typography variant="body1" align="center" sx={{ mt: 1 }}>
+                    <Typography variant="body2" align="center">
                         Enroll now for the new academic year and secure your child’s place.
                         Limited spaces available — apply today!
-                        New Registration R500
                     </Typography>
-                    {/* </DialogContent> */}
+                    <Stack>
+                        <Typography variant="body1" sx={{ fontVariant: "all-small-caps" }} >
+                            NEW Registrations
+                        </Typography>
+                        <Typography variant="h2" color="secondary" sx={{ fontVariant: "all-small-caps" }} >
+                            R500
+                        </Typography>
+                    </Stack>
+
                 </Stack>
                 <DialogActions sx={{ justifyContent: "center", my: 2 }}>
                     <GlowingButton size="small" onClick={handleClose} color="primary" variant="contained" href="/enroll-with-us">

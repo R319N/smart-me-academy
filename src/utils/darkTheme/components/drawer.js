@@ -8,6 +8,11 @@ const drawer = {
     root: {
       boxShadow: boxShadows.lg,
       backgroundColor: transparent.main,
+        paper: {
+
+      backgroundColor: "red",
+      backdropFilter: 'blur(3px)'
+        },
 
       '&:hover': {
         boxShadow: boxShadows.lg

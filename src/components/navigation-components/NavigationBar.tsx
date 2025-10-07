@@ -160,6 +160,10 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                             boxSizing: "border-box",
                             width: 260,
                             pt: "1rem",
+                            backgroundColor: ("#0A1929E6"),
+                            borderRight: "1px solid #CAD5D377",
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: "0 0 3px #CAD5D377"
                         },
                     }}
                 >

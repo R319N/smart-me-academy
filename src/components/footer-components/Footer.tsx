@@ -3,8 +3,9 @@ import React from "react";
 // *** MUI5 imports ***
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import EnrollSection from "@/sections/EnrollSection";
+import EnrollSection from "@/sections/SubscribeToUs";
 import FooterComponent from "./FooterComponent";
+import SubscribeComponent from "../SubscribeToUs/SubscribeComponent";
 // import { styled } from "@mui/material";
 
 const Footer = () => {
@@ -54,7 +55,7 @@ const Footer = () => {
         />
       </Box>
       <Box sx={{ zIndex: 2, px: { xs: 2, sm: 4, md: "16rem" } }}>
-        <EnrollSection />
+        <SubscribeComponent />
       </Box>
       <Box sx={{ zIndex: 2 }}>
         <FooterComponent />

@@ -62,10 +62,9 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
         usePrevNextButtons(emblaApi, onNavButtonClick)
 
     return (
-        <Stack gap={4} width="100%" sx={{ px: { xs: "0", md: "10rem" },  }}>
+        <Stack gap={3} width="100%" sx={{ px: { xs: "0", md: "10rem" }, }}>
             <HeaderText header="What People Say" subHeader="Testimonials" />
             <div className="embla">
-                {/* Viewport */}
                 <Box
                     className="embla__viewport"
                     ref={emblaRef}
@@ -102,7 +101,8 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                             // px: 1,
 
                                             // minWidth: "300px",
-                                            minHeight: { xs: "364px", md: "256px" },
+                                            minHeight: { xs: "320px", md: "100px" },
+                                            boxShadow: (theme) => `0 0 3px ${theme.palette.secondary.main}`,
                                             height: "100%",
                                             display: "flex",
                                             flexDirection: "column",
@@ -121,7 +121,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                             alignItems: "center", height: "100%",
                                             textTransform: "capitalize",
                                             justifyContent: "space-between",
-                                            p: "2"
+                                            p: 0
                                         }}>
 
                                             <CardContent sx={{ p: 2 }}>
@@ -157,11 +157,8 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                             maxWidth: 600,
                                                             lineHeight: 1.6,
                                                             p: 2,
-                                                            // display: "-webkit-box",
-                                                            // WebkitLineClamp: 5,       // 👈 limit lines
-                                                            // WebkitBoxOrient: "vertical",
+                                                            fontStyle: "italic",
                                                             overflow: "hidden",
-                                                            // textOverflow: "ellipsis",
                                                         }}
                                                     >
                                                         {review.testimonial}
@@ -232,7 +229,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
             </Box>
             <Box
                 sx={{
-                    width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%", my: "2rem"
+                    width: "100%", display: "flex", justifyContent: "center", position: "relative", height: "100%",
                 }}>
                 <Box className="embla__dots" gap={0.5}>
                     {scrollSnaps.map((_, index) => (

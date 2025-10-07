@@ -165,11 +165,11 @@ const EnrollmentForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <EnrollmentFormHeading />
-            <Grid container sx={styles.center_flex} spacing={4}>
+            <Grid container sx={styles.center_flex} spacing={2}>
                 <Grid size={{ xs: 12, sm: 4 }}>
                     <CustomizedSteppers activeStep={activeStep} />
                 </Grid>
-                <Grid container spacing={2} size={{ xs: 12, sm: 8 }}>
+                <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p:"2rem" }}>
                     {activeStep === 0 && (
                         <StudentDetails formData={formData} setFormData={setFormData} errors={errors} />
                     )}

@@ -26,7 +26,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
 
   return (
     <Grid container spacing={2}>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <InputLabel>First Name</InputLabel>
         <TextField
           variant="standard"
@@ -39,7 +39,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           helperText={errors.firstName}
         />
       </Grid>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <InputLabel>Surname</InputLabel>
         <TextField
           variant="standard"
@@ -53,7 +53,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <InputLabel>Date of Birth</InputLabel>
         <TextField
           variant="standard"
@@ -67,7 +67,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           InputLabelProps={{ shrink: true }}
         />
       </Grid>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <InputLabel>ID / Passport</InputLabel>
         <TextField
           variant="standard"
@@ -81,18 +81,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        {/* <CustomSelect
-          variant="standard"
-          label="Gender"
-          value={formData.gender}
-          // placeholder="male"
-           setValue={(val) => handleChange(formData.gender)}
-          options={["male", "Female"]}
-          error={!!errors.gender}  // Pass error status
-          helperText={errors.gender}  // Pass the error message
-
-        /> */}
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <FormControl fullWidth error={!!errors.gender}>
           <InputLabel>Gender</InputLabel>
           <Select variant="standard" name="gender" value={formData.gender} onChange={handleChange}>
@@ -102,7 +91,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         </FormControl>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, md: 6 }} sx={{ p: "1rem" }}>
         <FormControl fullWidth error={!!errors.grade}>
           <InputLabel>Grade</InputLabel>
           <Select name="grade" value={formData.grade} onChange={handleChange}>
@@ -112,8 +101,6 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
                 {num}
               </MenuItem>
             ))}
-
-            {/* Add remaining grades as needed  */}
           </Select>
         </FormControl>
       </Grid>

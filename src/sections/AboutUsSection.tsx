@@ -16,6 +16,7 @@ const AboutUsSection = () => {
             }}
             id="about-us"
         >
+            <div className="gradient-01" />
             <Container sx={{
 
                 width: "100%",

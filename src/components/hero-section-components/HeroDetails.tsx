@@ -8,6 +8,13 @@ import GlowingButtonOutlined from '../glowingButtonOutlined'
 import Image from 'next/image'
 import { styles } from '@/styles/styles'
 import ScrollIndicator from '../ScrollIndicator'
+import { Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+});
 
 const HeroDetails = () => {
     const motto = " Smart Me Bright Me Bright Future\nNever Stop Learning";
@@ -23,7 +30,8 @@ const HeroDetails = () => {
             <Grid size={{ xs: 12, md: 6 }}
                 sx={{
                     display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "left" },
-                    height: "100%"
+                    height: "100%",
+
                 }}
             >
                 <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
@@ -37,28 +45,39 @@ const HeroDetails = () => {
 
                         }} >
                             <Box>
+
                                 <Typography
-                                    variant="h2"
+                                    className={poppins.className}
+                                    color='secondary'
                                     sx={{
-                                        fontSize: { xs: "64px", sm: "100px", xl: "84px" },
+                                        ...poppins.style,
+                                        fontSize: { xs: "64px", sm: "100px", xl: "104px" },
                                         letterSpacing: "2px",
                                         textTransform: "capitalize",
                                         fontWeight: (theme) => theme.typography.fontWeightBold,
-                                        background: "linear-gradient(90deg, #00c3ffff, #dcc1cb7c)",
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
                                         lineHeight: 1,
                                         backgroundClip: "text",
                                         color: "transparent",
+                                        textWrap: "nowrap",
+                                        textOverflow: "ellipsis"
                                     }}
                                 >
-                                    smart me
+                                    <span>smart</span>
+                                    <span
+                                        style={{
+                                            WebkitBackgroundClip: "text",
+                                            WebkitTextFillColor: "transparent",
+                                            WebkitTextStroke: "1px #97f0db73",
+
+                                        }}
+
+                                    >me</span>
                                 </Typography>
-
-
                                 <Typography
                                     variant="h6"
+                                     className={poppins.className}
                                     sx={{
+                                        ...poppins.style,
                                         textTransform: "capitalize",
                                         fontSize: { xs: "64px", sm: "102px", xl: "84px" },
                                         letterSpacing: "2px",
@@ -145,7 +164,7 @@ const HeroDetails = () => {
                 }}>
                 <Box
                     sx={{
-                        display:"none",
+                        display: "none",
                         position: "relative",
                         cursor: "pointer",
                     }}
@@ -168,7 +187,7 @@ const HeroDetails = () => {
                     </motion.div >
                 </Box>
             </Grid>
-        </Grid>
+        </Grid >
     )
 }
 export default HeroDetails

@@ -12,37 +12,46 @@ import CurriculumSection from "@/sections/CurriculumSection";
 import OurProgramsSection from "@/sections/OurProgramsSection";
 import PromoPopup from "@/components/Pop-Up-Promo";
 import ContactIcon from "@/components/UI/ContactIcon";
+import ServerLayout from "./serverLayout";
+import { Box } from "@mui/material";
 
 
 export default function Home() {
   return (
-    // <ServerLayout>
-    <RootLayout>
-      <Paper
-        sx={{
-          minHeight: "100vh",
-          height: "100%",
-          width: "100%",
-          overflow: "hidden",
-          borderRadius: "0",
-          margin: 0,
-          bgcolor: "#000A14",
-          // backgroundImage: `linear-gradient( to bottom left,rgba(95, 171, 233, 1),rgba(25, 1, 67, 1))`,
-        }}
-      >
-        <NavigationBar />
-        <HeroSection />
-        <CurriculumSection />
-        <OurProgramsSection />
-        <AboutUsSection />
-        <Testimonials />
-        <InformativeSection />
-        <ContactUs />
-        <Footer />
-        <ContactIcon />
-        <PromoPopup />
-      </Paper>
-    </RootLayout>
-    // </ServerLayout>
+    <ServerLayout>
+      <RootLayout>
+        <Paper
+          sx={{
+            minHeight: "100vh",
+            height: "100%",
+            width: "100%",
+            overflow: "hidden",
+            borderRadius: "0",
+            margin: 0,
+            bgcolor: "#000A14",
+            // backgroundImage: `linear-gradient( to bottom left,rgba(95, 171, 233, 1),rgba(25, 1, 67, 1))`,
+          }}
+        >
+          <NavigationBar />
+          <HeroSection />
+          <div className="gradient-03" />
+          <CurriculumSection />
+          <Box sx={{
+            position: "relative",
+          }}>
+
+            <div className="gradient-04" />
+            <OurProgramsSection />
+          </Box>
+          <AboutUsSection />
+          <Testimonials />
+          <InformativeSection />
+          <ContactUs />
+          <Footer />
+          <ContactIcon />
+          <PromoPopup />
+        </Paper>
+      </RootLayout>
+    </ServerLayout>
   );
 }    

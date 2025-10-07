@@ -10,7 +10,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: {
-    template: "gene 20",
+    template: "Smart Me Academy",
     default: "Gene 20 - Crafting Exceptional Digital Experiences",
   },
 };
@@ -23,7 +23,8 @@ export default function ServerLayout({
   return (
     <html>
       <head>
-        <title>Crafting Exceptional Digital Experiences with Wilfred Reign</title>
+        <title>Smart Me Academy</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style jsx global>{`
           @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
         `}</style>

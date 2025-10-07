@@ -1,33 +1,44 @@
-"use client"
-
+import HeadingText from '../headerBanner'
+import SlidingText from '../CustomizedComponents/SlidingText'
+import { styles } from '@/styles/styles'
+import CurriculumCarousel from './CurriculumCarousel'
 import React, { useCallback, useEffect, useState } from "react"
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel"
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton"
-import { PrevButton, NextButton, usePrevNextButtons } from "./EmblaCarouselArrowButtons"
+import { DotButton, useDotButton } from "../curriculum-components/EmblaCarouselDotButton"
 import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
-import ourSubjects from "@/utils/data/ourCurriculum"
-import { Box } from "@mui/material"
-import Image from "next/image"
+import {
+  usePrevNextButtons,
+  PrevButton,
+  NextButton,
+} from "../curriculum-components/EmblaCarouselArrowButtons"
+import testimonialReviewData from "@/utils/data/testimonial_reviewData"
+import { Box, Card, CardContent, Container, Stack, Typography } from "@mui/material"
+import HeaderText from "../headerBanner"
+import ourSubjects from '@/utils/data/ourCurriculum'
+import Image from 'next/image'
+import { Edu_SA_Hand } from 'next/font/google'
+import pxToRem from '@/utils/darkTheme/functions/pxToRem'
 
 type PropType = {
   options?: EmblaOptionsType
 }
-
-const EmblaCarousel: React.FC<PropType> = ({ options }) => {
+const eduSAHand = Edu_SA_Hand({
+  weight: '400',
+  subsets: ['latin'],
+});
+const Curriculum: React.FC<PropType> = ({ options }) => {
+  const [activeIndex, setActiveIndex] = useState(0)
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      loop: true,
-      align: "center", // keeps active slide centered
+      loop: true,          // infinite loop
+      align: "center",     // keep active slide centered
       skipSnaps: false,
+      containScroll: "trimSnaps", // 👈 keeps things aligned
       ...options,
     },
-    [Autoplay()]
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
   )
-
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  // Track active slide
   useEffect(() => {
     if (!emblaApi) return
 
@@ -58,56 +69,76 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
     usePrevNextButtons(emblaApi, onNavButtonClick)
 
   return (
-    <Box className="embla">
-      <div
-        className="embla__viewport"
-        ref={emblaRef}
-        style={{ overflow: "visible", padding: "0 12px" }}
-      >
-        <div className="embla__container" style={{ display: "flex", overflow: "visible" }}>
-          {ourSubjects.map((service, index) => {
-            const isActive = index === activeIndex
-            const scaleFactor = isActive ? 1.1 : 0.95
-
-            return (
-              <Box
-                key={index}
-                className="embla__slide"
-                sx={{
-                  flex: { xs: "0 0 95%", sm: "0 0 50%", md: "0 0 33%" },
-                  padding: "0 8px",
-                  boxSizing: "border-box",
-                  position: "relative",
-                  zIndex: isActive ? 2 : 1,
-                  // transform: `scale(${scaleFactor})`,
-                  transition: "transform 0.5s ease, z-index 0.5s ease",
-                }}
-              >
+    <Box>
+      <div className="embla">
+        <Box
+          className="embla__viewport"
+          ref={emblaRef}
+          sx={{
+            // overflow: "hidden",
+            padding: { xs: "0 0%", md: "0 10%" },
+            // height // 👈 centers better on desktop
+          }}
+        >
+          <div className="embla__container" style={{ display: "flex" }}>
+            {ourSubjects.map((service, index) => {
+              const isActive = index === activeIndex
+              return (
                 <Box
+                  key={index}
                   sx={{
-                    overflow: "hidden",
-                    borderRadius: "12px",
-                    backgroundColor: isActive ? "#1976d2" : "rgba(255,255,255,0.08)",
-                    height: "240px",
-                    transition: "background-color 0.5s ease",
+                    flex: { xs: "0 0 100%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
+                    pr: { xs: 0, sm: "1rem" },//slide spacing
+                    mb: "2rem",
+                    cursor: "pointer",
+                    position: "relative",
+                    zIndex: isActive ? 2 : 1,
+                    width: { xs: "55px", sm: "100%" },
+                    // height: "364px",
+                    transition: "transform 0.4s ease, z-index 0.4s ease",
+                    overflow: "visible",
+                      // display: "flex",
+                      // flexDirection: "column",
+                      // justifyContent: "center",
+                      // alignItems: "center",
+
                   }}
+
                 >
                   <Box
+                    // key={index}
+                    className="embla__slide"
                     sx={{
-                      position: "relative",
-                      width: "100%",
-                      height: "100%",
+                      minWidth: { xs: "100%", md: isActive ? "400px" : "120px" },
                       overflow: "hidden",
+                      width: "100%",
+                      // minHeight: { xs: "364px", md: isActive ? "100px" : "150px" },
+                      height: { xs: "364px", md: isActive ? "224px" : "200px" },
+                    
+                      borderRadius: "8px",
+                      backgroundColor: isActive ? "#1976d2" : "rgba(255,255,255,0.08)",
+                      opacity: isActive ? 1 : 0.3,
+                      backdropFilter: "blur(10px)",
+                      color: isActive ? "#fff" : "inherit",
+                      transition: "background-color 0.4s ease, color 0.4s ease",
+                       display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
                     <Image
                       src={service.imgURL}
                       alt={service.name}
                       fill
-                      style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                      // width={100}
+                      // height={100}
+                      style={{
+                        objectFit: "cover",
+                        // width: "100%",
+                        // height: "100%"
+                      }}
                     />
-
-                    {/* Overlay */}
                     <Box
                       sx={{
                         position: "absolute",
@@ -121,31 +152,86 @@ const EmblaCarousel: React.FC<PropType> = ({ options }) => {
                       }}
                     />
                   </Box>
-                </Box>
-              </Box>
-            )
-          })}
-        </div>
-      </div>
+                  <Box position="relative" py="1.5rem" >
+                    <Box
+                      sx={{
+                        // position: "absolute",
+                        // bottom: "-10vh",
+                        // right: "-200px",
 
-      <div className="embla__controls">
-        <div className="embla__buttons">
+                        // width: "800px",
+                        // display: "flex",
+                        // alignItems: "flex-start"
+                      }}
+
+                    >
+                      {
+                        isActive ?
+                          <Typography
+                            variant='h6'
+                            className={eduSAHand.className}
+                            color='secondary'
+                            sx={{
+                              ...eduSAHand.style,
+                              fontSize: { xs: pxToRem(38), lg: pxToRem(64) },
+                              textAlign: "right",
+                              // textWrap:"nowrap",
+                              whiteSpace:"nowrap"
+
+                            }}
+                          >
+                            {service.name}
+                          </Typography>
+                          :
+                          ""
+                      }
+                    </Box>
+                  </Box>
+                </Box>
+              );
+            })}
+          </div>
+        </Box>
+      </div >
+      <Box sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        // position: "relative",
+        height: "100%"
+      }}>
+        <Box
+          sx={{
+            width: { xs: "95%", sm: "75%" },
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            position: "absolute",
+            bottom: "45vh",
+            // transform: "translateY(-50%, 50%)",
+            zIndex: 99
+          }}
+        >
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-
-        <div className="embla__dots">
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100%", display: "flex", justifyContent: "center", position: "relative"
+        }}>
+        <Box className="embla__dots" gap={0.5}>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""}`}
+              className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""
+                }`}
             />
           ))}
-        </div>
-      </div>
-    </Box>
+        </Box>
+      </Box>
+    </Box >
   )
 }
 
-export default EmblaCarousel
+export default Curriculum

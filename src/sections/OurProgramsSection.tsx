@@ -12,7 +12,6 @@ const OurProgramsSection = () => {
                 width: "100%",
                 minHeight: "100vh",
                 flexDirection: "column",
-                backgroundImage: `linear-gradient(to bottom, #487ed076 0%, transparent 100%)`,
                 backgroundSize: "cover"
             }}
             id="programs"

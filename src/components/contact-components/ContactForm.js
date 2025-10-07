@@ -59,7 +59,7 @@ const ContactForm = () => {
                 flexDirection: "column",
                 p: "2rem 0rem",
                 height: "100%",
-                px: "2rem",
+                width:"100%"
             }}
         >
             {loading ? (
@@ -102,7 +102,7 @@ const ContactForm = () => {
                             id="name"
                             required
                             fullWidth
-                            sx={{ width: "280px" }}
+                            sx={{ width: "300px" }}
                         />
                     </Box>
                     <Box sx={{ py: "1rem" }}>
@@ -115,7 +115,7 @@ const ContactForm = () => {
                             placeholder="yourname/company name/ brand name ..."
                             id="company"
                             required
-                            sx={{ width: "280px", pt: "1px" }}
+                            sx={{ width: "300px", pt: "1px" }}
                         />
                     </Box>
                     <Box sx={{ py: "1rem" }}>
@@ -127,7 +127,7 @@ const ContactForm = () => {
                             id="email"
                             placeholder="email address or phone number"
                             required
-                            sx={{ width: "280px" }}
+                            sx={{ width: "300px" }}
                         />
                     </Box>
                     <Box sx={{ py: "1rem" }}>
@@ -140,7 +140,7 @@ const ContactForm = () => {
                             placeholder="write your message here"
                             multiline
                             rows={3}
-                            sx={{ width: "280px", pt: "0.5rem" }}
+                            sx={{ width: "300px", pt: "0.5rem" }}
                             required
                         />
                     </Box>

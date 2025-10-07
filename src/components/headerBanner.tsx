@@ -1,63 +1,7 @@
-// "use client";
-// // import { styles } from "@/styles/styles";
-// import { useTheme } from '@mui/material';
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// // *** react/next imports ***
-// import React, { ReactElement } from "react";
-
-// // *** MUI5 Component imports ***
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-// // import CardHeader from "@mui/material/CardHeader";
-// // import Divider from "@mui/material/Divider";
-
-// // *** motion imports ***
-// import { motion } from "framer-motion";
-// import { slideIn } from "@/utils/motion";
-
-// interface HeaderBannerProps {
-//   header: string | ReactElement;
-//   subHeader?: string;
-// }
-// const HeadingText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
-//   const theme = useTheme();
-//   const isSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
-//   return (
-//     <Box py={"2rem"} >
-//       <Typography
-//         textTransform="capitalize"
-//         color='textSecondary'
-//         sx={{
-//           fontWeight: "bold",
-//           fontSize: { xs: "28px", md: "42px" }
-//         }}
-//       >
-//         {header}
-//       </Typography>
-//       <Typography
-//         variant="body2"
-//         // color='secondary'
-//         sx={{
-//           fontWeight: theme.typography.fontWeightRegular,
-//           fontSize: { xs: "14px", xl: "16px" },
-//           textTransform: "capitalize",
-//           color: theme.palette.primary.light,
-//         }}
-//       >
-//         |&nbsp;{subHeader}
-//       </Typography>
-//     </Box >
-
-//   );
-// };
-
-// export default HeadingText;
 'use client';
-
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
-// import pxToRem from '@/theme/typography/pxToRem';
 import { Box, Divider, Typography } from '@mui/material';
-import { Caveat_Brush, Edu_SA_Hand, Island_Moments } from 'next/font/google';
+import { Caveat_Brush, Edu_SA_Hand } from 'next/font/google';
 
 interface HeaderBannerProps {
   header: string;
@@ -120,9 +64,9 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
         {subHeader && (
           <Typography
             variant="body2"
-            className={caveatBrush.className}
+            className={eduSAHand.className}
             sx={{
-              ...caveatBrush.style,
+              ...eduSAHand.style,
               whiteSpace: 'pre-line',
               fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
               textTransform: 'capitalize',
