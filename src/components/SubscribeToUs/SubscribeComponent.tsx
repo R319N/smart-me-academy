@@ -7,14 +7,16 @@ import { styles } from '@/styles/styles';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import SubscribeForm from './SubscribeForm';
-// import { Poppins } from 'next/font/google';
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
 import { Poppins } from 'next/font/google';
+import Heading4 from '../UI/Heading4';
+import Subtitle1 from '../UI/TitleText1';
+import TitleText1 from '../UI/TitleText1';
 
 
 const poppins = Poppins({
     subsets: ['latin'],
-    weight: '900', // Set the font weight to the boldest available
+    weight: '300', // Set the font weight to the boldest available
 });
 
 const SubscribeComponent: React.FC = () => {
@@ -31,11 +33,11 @@ const SubscribeComponent: React.FC = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            p: "1rem"
+            p: "2rem 1rem"
         }}>
             <Grid container spacing={4}>
-                <Grid size={{ xs: 12, md: 6 }} >
-                    <Typography
+                <Grid size={{ xs: 12, md: 6 }} sx={styles.center_flex} >
+                    {/* <Typography
                         color="primary"
                         textTransform="uppercase"
                         whiteSpace="pre-line"
@@ -56,7 +58,8 @@ const SubscribeComponent: React.FC = () => {
                         }}
                     >
                         subscribe to our newsletter
-                    </Typography>
+                    </Typography> */}
+                    <TitleText1 title='subscribe to our newsletter' />
                 </Grid>
                 <Grid size={{ xs: 12, md: 6 }}>
                     <SubscribeForm />

@@ -3,10 +3,10 @@ import React from "react";
 // *** MUI5 imports ***
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import EnrollSection from "@/sections/SubscribeToUs";
+
+
 import FooterComponent from "./FooterComponent";
 import SubscribeComponent from "../SubscribeToUs/SubscribeComponent";
-// import { styled } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
       sx={{
         overflow: "hidden",
         height: "100%",
-        paddingTop: "0vh",
+        marginTop: "10vh",
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "column",
@@ -22,7 +22,6 @@ const Footer = () => {
       }}
       gap={4}
     >
-      {/* <Overlay /> */}
       <Box
         sx={{
           position: "absolute",
@@ -64,74 +63,5 @@ const Footer = () => {
 
   );
 };
-{/* <Divider />
-
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "2vh",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-            }}
-          >
-            <Logo />
-            {/* <Typography
-              variant="body1"
-              sx={{
-                textTransform: "uppercase",
-                display: "flex",
-                justifySelf: "center",
-                color: (theme) => theme.palette.primary.main,
-              }}
-            >
-              wilfred&nbsp;
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                textTransform: "uppercase",
-                display: "flex",
-                justifySelf: "center",
-                color: (theme) => theme.palette.secondary.main,
-              }}
-            >
-              reign
-            </Typography>  </Box>
-
-
-<Box
-            display="flex"
-            justifyContent="left"
-            alignItems="left"
-            flexWrap="wrap"
-            fontSize="small"
-            px={1.5}
-          >
-            <SocialContacts />
-          </Box> */}
-{/* </Box>
-        <Typography
-          variant="body2"
-          fontSize="small"
-          fontWeight="light"
-          padding="0 1rem"
-        >
-          Copyright © 2023 - 2024 Genexx. All rights reserved.
-        </Typography>
-      </Box> */}
-
-
 
 export default Footer;

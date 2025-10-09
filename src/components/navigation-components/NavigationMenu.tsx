@@ -47,18 +47,6 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
           />
         ))}
       </Box>
-
-      {/* Social Contacts Section */}
-      {/* <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          mt: "auto", // Push to the bottom
-        }}
-      >
-        <SocialContacts />
-      </Box> */}
     </Box>
   );
 };

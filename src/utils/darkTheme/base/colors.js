@@ -11,7 +11,7 @@ const colors = {
 
   text: {
     primary: "#CAD5D3",
-    secondary: "#AFC0BD",
+    secondary: "#6b7775ff",
   },
 
   transparent: {

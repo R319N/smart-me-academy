@@ -29,56 +29,8 @@ export default function ContactDetails() {
                 alignItems: "center",
                 p: "0"
             }}
-
         >
             <Stack gap={6} width={"100%"}>
-                <Box sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    alignItems: { xs: "center", md: "flex-start" },
-
-                }}
-                    gap={2}>
-                    <Box sx={{
-                        width: "100%",
-                        display: "flex",
-                        alignItems: { xs: "center", md: "flex-start" },
-                        justifyContent: { xs: "center", md: "left" },
-                    }}>
-                        <Image
-                            style={{
-
-                                borderRadius: "50px"
-                            }}
-                            width={100}
-                            height={100}
-                            alt="Responsive"
-                            src="/logo1.jpg"
-                        />
-                    </Box>
-                    <Typography
-                        variant="body2"
-
-                        sx={{
-                            textTransform: "capitalize",
-                            color: '#5C6584',
-                            width: { xs: "100%", lg: "80%" },
-                            // width: "100%",
-                            textAlign: { xs: "center", md: "left" },
-                            display: "flex",
-                            alignItems: "flex-start"
-                        }}
-                    >
-                        Education is more than knowledge; it&apos;s the key to transformation. At Smart Me Academy,
-                        we believe that true training shapes not only minds but perspectives,
-                        fostering a deeper understanding of the world. Our programs empower students to
-                        develop critical skills and self-awareness,
-                        preparing them to make meaningful contributions to society.
-                    </Typography>
-                </Box>
-
                 <Grid container spacing={4}>
                     <Grid size={{ xs: 12, md: 7 }}>
                         <List
@@ -109,7 +61,7 @@ export default function ContactDetails() {
                             ))}
                         </List>
                     </Grid>
-                    <Grid size={{ xs: 12, md: 5 }}>
+                    <Grid size={{ xs: 12, md: 12 }}>
                         <BusinessMap />
                     </Grid>
                 </Grid>

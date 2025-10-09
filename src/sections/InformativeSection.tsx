@@ -1,4 +1,3 @@
-
 import Documents from '@/components/informative-section-components/Documents'
 import { styles } from '@/styles/styles'
 import { Box } from '@mui/material'
@@ -8,13 +7,14 @@ const InformativeSection = () => {
   return (
     <section style={{
       position: "relative",
-      ...styles.center_flex,
       width: "100%",
+      height: "100%",
       flexDirection: "column",
     }}
-      id="informative"
+      id="documents"
     >
-      <Box sx={{ ...styles.center_flex }}>
+      <div className="gradient-01" />
+      <Box >
         <Documents />
       </Box>
     </section>

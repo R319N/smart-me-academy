@@ -16,9 +16,8 @@ const AboutUsSection = () => {
             }}
             id="about-us"
         >
-            <div className="gradient-01" />
+            {/* <div className="gradient-01" /> */}
             <Container sx={{
-
                 width: "100%",
                 height: "100%",
                 backgroundRepeat: "no-repeat",
@@ -31,7 +30,6 @@ const AboutUsSection = () => {
                     style={{ margin: "auto", flexDirection: "column" }}
                 >
                     <AboutUs />
-
                 </motion.div>
             </Container>
         </section>
