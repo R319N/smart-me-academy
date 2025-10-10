@@ -1,6 +1,6 @@
 const colors = {
   background: {
-    default: "#090909",
+    default: "#000A14",
     sidenav: "#1f283e",
     card: "#0c0910cc",
     cardHeader: "#09090f",

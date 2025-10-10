@@ -1,12 +1,12 @@
 import * as React from "react";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+// import { Roboto } from "next/font/google";
 
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
+// const roboto = Roboto({
+//   weight: ["300", "400", "500", "700"],
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: {
@@ -24,12 +24,11 @@ export default function ServerLayout({
     <html>
       <head>
         <title>Smart Me Academy</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style jsx global>{`
-          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-        `}</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={roboto.className}>{children}</body>
+      <body
+      // className={roboto.className}
+      >{children}</body>
     </html>
   );
 }

@@ -11,6 +11,8 @@ interface HeaderBannerProps {
 const caveatBrush = Caveat_Brush({
   weight: '400',
   subsets: ['latin'],
+  display: 'swap',
+
 });
 const eduSAHand = Edu_SA_Hand({
   weight: '400',

@@ -68,7 +68,7 @@ const AboutUs = () => {
                     >
                         <Box sx={{
                             ...styles.between_flex,
-                            background: "#000a14e7",
+                            // background: "#000a14e7",
                             width: "100%", p: "1rem", height: "auto"
                         }}>
                             <Box >

@@ -1,18 +1,10 @@
 import pxToRem from "../functions/pxToRem";
 import colors from "./colors";
-import { Roboto } from "next/font/google";
 const { text } = colors;
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-// const poppins = Poppins({
-//   subsets: ['latin'],
-//   weight: '900', // Set the font weight to the boldest available
-// });
+
+
 const baseProperties = {
-  fontFamily: `${roboto.style.fontFamily}, sans-serif`,
+  fontFamily: "Roboto, sans-serif",
   fontWeightLighter: 100,
   fontWeightLight: 300,
   fontWeightRegular: 400,
