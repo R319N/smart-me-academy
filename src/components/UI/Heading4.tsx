@@ -26,7 +26,7 @@ const Heading4: React.FC<HeaderBannerProps> = ({ title, subTitle }) => {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: pxToRem(18), lg: pxToRem(32) },
+            fontSize: { xs: pxToRem(16), lg: pxToRem(32) },
             textTransform: 'uppercase',
             fontWeight: 'bold',
             lineHeight: 1,

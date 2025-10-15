@@ -11,9 +11,14 @@ const Hero = () => {
         left: 0,
         width: "100%",
         height: "100%",
-        background: "red",
+        // backgroundImage:
+        //     "linear-gradient(ellipse farthest-corner at 0 140% ,#000A14 40%,#0b05c146 60%)",
         zIndex: 0,
-        // backdropFilter:{xs:"blur(0px)", xl:"blur(10px)"}
+        background:
+         "radial-gradient(ellipse 100% 900% at 0% 80%, #000a14e4 20%, #000a14c8 40%, #000a14e8 100%),  radial-gradient(ellipse 100% 200% at 25% 80%,  #17ade8ff, transparent 70%)" ,
+        backgroundBlendMode: "multiply",
+        // transform:"rotate(40deg)"
+        // backdropFilter:{xs:"blur(0px)", xl:"blur(10px)"}  {/*radial-gradient(ellipse 50%, 70% at 25% 80%, #f0f, transparent 70%)*/}
     });
     const BlurOverlay = styled(Box)({
         position: "absolute",
@@ -27,17 +32,18 @@ const Hero = () => {
     })
     return (
         <Box sx={{ height: "100vh", position: "relative", overflow: "hidden" }}>
+            <Overlay />
             <Box
                 sx={{
                     padding: 0,
-                    // backgroundImage: `url('/hero.jpg')`,
+                    backgroundImage: `url('gallery/hero.jpg')`,
                     height: "100%",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                 }}
             >
-                <HeroBackground />
+                {/* <HeroBackground /> */}
                 <Container sx={{ height: "100%" }}>
                     <HeroDetails />
                 </Container>

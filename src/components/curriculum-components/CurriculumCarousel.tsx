@@ -17,16 +17,12 @@ import { Box, Card, CardContent, Container, Stack, Typography } from "@mui/mater
 import HeaderText from "../headerBanner"
 import ourSubjects from '@/utils/data/ourCurriculum'
 import Image from 'next/image'
-import { Edu_SA_Hand } from 'next/font/google'
 import pxToRem from '@/utils/darkTheme/functions/pxToRem'
+import EduSaHandFontWrapper from '@/layouts/wrappers/EduSAHandWrapper'
 
 type PropType = {
   options?: EmblaOptionsType
 }
-const eduSAHand = Edu_SA_Hand({
-  weight: '400',
-  subsets: ['latin'],
-});
 const Curriculum: React.FC<PropType> = ({ options }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -97,10 +93,10 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                     // height: "364px",
                     transition: "transform 0.4s ease, z-index 0.4s ease",
                     overflow: "visible",
-                      // display: "flex",
-                      // flexDirection: "column",
-                      // justifyContent: "center",
-                      // alignItems: "center",
+                    // display: "flex",
+                    // flexDirection: "column",
+                    // justifyContent: "center",
+                    // alignItems: "center",
 
                   }}
 
@@ -114,14 +110,14 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                       width: "100%",
                       // minHeight: { xs: "364px", md: isActive ? "100px" : "150px" },
                       height: { xs: "364px", md: isActive ? "224px" : "200px" },
-                    
+
                       borderRadius: "8px",
                       backgroundColor: isActive ? "#1976d2" : "rgba(255,255,255,0.08)",
                       opacity: isActive ? 1 : 0.3,
                       backdropFilter: "blur(10px)",
                       color: isActive ? "#fff" : "inherit",
                       transition: "background-color 0.4s ease, color 0.4s ease",
-                       display: "flex",
+                      display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
                       alignItems: "center",
@@ -167,21 +163,23 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                     >
                       {
                         isActive ?
-                          <Typography
-                            variant='h6'
-                            className={eduSAHand.className}
-                            color='secondary'
-                            sx={{
-                              ...eduSAHand.style,
-                              fontSize: { xs: pxToRem(38), lg: pxToRem(64) },
-                              textAlign: "right",
-                              // textWrap:"nowrap",
-                              whiteSpace:"nowrap"
+                          <EduSaHandFontWrapper>
+                            <Typography
+                              variant='h6'
+                              // className={eduSAHand.className}
+                              color='secondary'
+                              sx={{
+                                // ...eduSAHand.style,
+                                fontSize: { xs: pxToRem(38), lg: pxToRem(64) },
+                                textAlign: "right",
+                                // textWrap:"nowrap",
+                                whiteSpace: "nowrap"
 
-                            }}
-                          >
-                            {service.name}
-                          </Typography>
+                              }}
+                            >
+                              {service.name}
+                            </Typography>
+                          </EduSaHandFontWrapper>
                           :
                           ""
                       }

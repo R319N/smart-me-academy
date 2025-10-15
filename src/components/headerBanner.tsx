@@ -1,7 +1,8 @@
 'use client';
+import EduSaHandFontWrapper from '@/layouts/wrappers/EduSAHandWrapper';
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
 import { Box, Divider, Typography } from '@mui/material';
-import { Caveat_Brush, Edu_SA_Hand } from 'next/font/google';
+import { Caveat_Brush } from 'next/font/google';
 
 interface HeaderBannerProps {
   header: string;
@@ -14,10 +15,12 @@ const caveatBrush = Caveat_Brush({
   display: 'swap',
 
 });
-const eduSAHand = Edu_SA_Hand({
-  weight: '400',
-  subsets: ['latin'],
-});
+// const eduSAHand = Edu_SA_Hand({
+//   weight: '400',
+//   subsets: ['latin'],
+//     display: 'swap',
+//     // fallback:'roboto',
+// });
 
 const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
   const words = header.trim().split(' ');
@@ -64,20 +67,22 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
 
 
         {subHeader && (
-          <Typography
-            variant="body2"
-            className={eduSAHand.className}
-            sx={{
-              ...eduSAHand.style,
-              whiteSpace: 'pre-line',
-              fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
-              textTransform: 'capitalize',
-              maxWidth: '600px',
-              color: 'text.secondary',
-            }}
-          >
-            {subHeader}
-          </Typography>
+          <EduSaHandFontWrapper>
+            <Typography
+              variant="body2"
+              // className={eduSAHand.className}
+              sx={{
+                // ...eduSAHand.style,
+                whiteSpace: 'pre-line',
+                fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
+                textTransform: 'capitalize',
+                maxWidth: '600px',
+                color: 'text.secondary',
+              }}
+            >
+              {subHeader}
+            </Typography>
+          </EduSaHandFontWrapper>
         )}
       </Box>
     </Box>

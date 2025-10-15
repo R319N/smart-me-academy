@@ -13,7 +13,7 @@ const listItemtext = {
       fontSize: size.sm
     },
     secondary: {
-      color: grey.main,
+      color: text.secondary,
       fontWeight: fontWeightLighter,
       textTransform: 'lowercase',
       fontSize: size.sm

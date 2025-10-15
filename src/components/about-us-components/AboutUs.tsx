@@ -71,14 +71,18 @@ const AboutUs = () => {
                             // background: "#000a14e7",
                             width: "100%", p: "1rem", height: "auto"
                         }}>
-                            <Box >
+                            <Box position="relative" height="160px" width="160px" borderRadius="50%" overflow="hidden">
                                 <Image
                                     alt="Responsive"
                                     src="/gallery/principal.jpg"
-                                    width={100}
-                                    height={100}
+                                    // width={100}
+                                    // height={100}
+                                    fill
                                     style={{
-                                        borderRadius: "50px"
+                                        borderRadius: "50px",
+                                        objectFit: "cover",
+                                        width: "100%",
+                                        height: "100%"
                                     }}
 
                                 />

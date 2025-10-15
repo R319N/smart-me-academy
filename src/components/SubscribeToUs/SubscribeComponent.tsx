@@ -8,16 +8,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import SubscribeForm from './SubscribeForm';
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
-import { Poppins } from 'next/font/google';
 import Heading4 from '../UI/Heading4';
 import Subtitle1 from '../UI/TitleText1';
 import TitleText1 from '../UI/TitleText1';
-
-
-const poppins = Poppins({
-    subsets: ['latin'],
-    weight: '300', // Set the font weight to the boldest available
-});
 
 const SubscribeComponent: React.FC = () => {
     return (

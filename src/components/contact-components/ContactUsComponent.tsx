@@ -1,11 +1,10 @@
 import React from 'react'
 import Grid from "@mui/material/Grid";
 import { styles } from "@/styles/styles";
-// import HeadingText from '../headerBanner';
 import Box from '@mui/material/Box';
 import ContactForm from './ContactForm';
 import ContactDetails from './ContactDetails';
-import { Container, Divider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import HeadingText from '../headerBanner';
 import Image from 'next/image';
 
@@ -58,7 +57,7 @@ const ContactUsComponent = () => {
               variant="body2"
               sx={{
                 textTransform: "capitalize",
-                color: '#5C6584',
+                color: "text.secondary",
                 width: { xs: "100%", lg: "80%" },
                 textAlign: "center",
 
@@ -89,36 +88,5 @@ const ContactUsComponent = () => {
     </Grid>
   )
 }
-
-{/* //   }}
-    // >
-    //   <Box sx={{ my: "3rem" }}>
-    //     <Box pb={5}>
-    //       
-    //     </Box> */}
-{/* */ }
-{/* //     <Grid */ }
-{/* //       container
-    //       sx={{ */}
-//         // ...styles.borderRadius,
-//         overflow: "hidden",
-
-{/* //       }}
-    //       spacing={4}
-    //     >
-    //       <Grid size={{ xs: 12, md: 7 }}>
-    //         <ContactDetails />
-    //       </Grid>
-    //       <Grid */}
-{/* //         size={{ xs: 12, md: 5 }}
-    //        
-    //       >
-    //         <ContactForm />
-    //       </Grid> */}
-{/* //     */ }
-{/* //   </Box> */ }
-{/* //   <Divider />
-    // </Container> */}
-
 
 export default ContactUsComponent

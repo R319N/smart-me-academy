@@ -8,12 +8,8 @@ import GlowingButtonOutlined from '../glowingButtonOutlined'
 import Image from 'next/image'
 import { styles } from '@/styles/styles'
 import ScrollIndicator from '../ScrollIndicator'
-import { Poppins } from 'next/font/google'
+import PoppinsFontWrapper from "@/layouts/wrappers/PoppinsWrapper";
 
-const poppins = Poppins({
-    weight: ["300","400", "500", "600", "700"],
-    subsets: ["latin"],
-});
 
 const HeroDetails = () => {
     const motto = " Smart Me Bright Me Bright Future\nNever Stop Learning";
@@ -44,52 +40,54 @@ const HeroDetails = () => {
 
                         }} >
                             <Box>
-
-                                <Typography
-                                    className={poppins.className}
-                                    color='secondary'
-                                    sx={{
-                                        ...poppins.style,
-                                        fontSize: { xs: "64px", sm: "100px", xl: "104px" },
-                                        letterSpacing: "2px",
-                                        textTransform: "capitalize",
-                                        fontWeight: (theme) => theme.typography.fontWeightBold,
-                                        lineHeight: 1,
-                                        backgroundClip: "text",
-                                        color: "transparent",
-                                        textWrap: "nowrap",
-                                        textOverflow: "ellipsis"
-                                    }}
-                                >
-                                    <span>smart</span>
-                                    <span
-                                        style={{
-                                            WebkitBackgroundClip: "text",
-                                            WebkitTextFillColor: "transparent",
-                                            WebkitTextStroke: "1px #97f0db73",
-
+                                <PoppinsFontWrapper>
+                                    <Typography
+                                        // className={poppins.className}
+                                        color='secondary'
+                                        sx={{
+                                            // ...poppins.style,
+                                            fontSize: { xs: "64px", sm: "100px", xl: "104px" },
+                                            letterSpacing: "2px",
+                                            textTransform: "capitalize",
+                                            fontWeight: (theme) => theme.typography.fontWeightBold,
+                                            lineHeight: 1,
+                                            backgroundClip: "text",
+                                            color: "transparent",
+                                            textWrap: "nowrap",
+                                            textOverflow: "ellipsis"
                                         }}
+                                    >
+                                        <span>smart</span>
+                                        &nbsp;
+                                        <span
+                                            style={{
+                                                WebkitBackgroundClip: "text",
+                                                WebkitTextFillColor: "transparent",
+                                                WebkitTextStroke: "1px #97f0db73",
 
-                                    >me</span>
-                                </Typography>
-                                <Typography
-                                    variant="h6"
-                                     className={poppins.className}
-                                    sx={{
-                                        ...poppins.style,
-                                        textTransform: "capitalize",
-                                        fontSize: { xs: "64px", sm: "102px", xl: "84px" },
-                                        letterSpacing: "2px",
-                                        fontWeight: (theme) => theme.typography.fontWeightBold,
-                                        height: "100%",
-                                        lineHeight: 1,
-                                        // display: "flex",
-                                        // justifySelf: "center",
-                                        color: "textPrimary",
-                                    }}
-                                >
-                                    academy
-                                </Typography>
+                                            }}
+
+                                        >Me</span>
+                                    </Typography>
+                                    <Typography
+                                        variant="h6"
+                                        //  className={poppins.className}
+                                        sx={{
+                                            // ...poppins.style,
+                                            textTransform: "capitalize",
+                                            fontSize: { xs: "64px", sm: "102px", xl: "84px" },
+                                            letterSpacing: "2px",
+                                            fontWeight: (theme) => theme.typography.fontWeightBold,
+                                            height: "100%",
+                                            lineHeight: 1,
+                                            // display: "flex",
+                                            // justifySelf: "center",
+                                            color: "textPrimary",
+                                        }}
+                                    >
+                                        academy
+                                    </Typography>
+                                </PoppinsFontWrapper>
                             </Box>
                             <Box sx={{ width: "80%" }}>
                                 <Typography
