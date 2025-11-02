@@ -69,8 +69,9 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                     className="embla__viewport"
                     ref={emblaRef}
                     sx={{
-                        overflow: "hidden",
-                        padding: { xs: "0 15%", md: "0 8%" }, // 👈 centers better on desktop
+                        // overflow: "hidden",
+                        // width: "100vw",
+                      padding: { xs: "10% 20% 10% 0", sm: "0 10%", md: "0 8%" }, // 👈 centers better on desktop
                     }}
                 >
 
@@ -82,7 +83,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                     key={index}
                                     // className="embla__slide"
                                     sx={{
-                                        flex: { xs: "0 0 70%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
+                                        flex: { xs: "0 0 80%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
                                         pr: "1rem",
                                         py: "1rem",
                                         cursor: "pointer",
@@ -101,6 +102,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                             // px: 1,
 
                                             // minWidth: "300px",
+                                            
                                             minHeight: { xs: "320px", md: "100px" },
                                             boxShadow: (theme) => `0 0 3px ${theme.palette.secondary.main}`,
                                             height: "100%",

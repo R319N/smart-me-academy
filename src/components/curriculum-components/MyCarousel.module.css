@@ -227,6 +227,7 @@
 
 .embla__viewport {
   overflow: visible;
+  width:"100%";
 }
 
 .embla__container {
