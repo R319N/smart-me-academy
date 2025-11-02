@@ -7,7 +7,7 @@ import { Caveat_Brush } from 'next/font/google';
 interface HeaderBannerProps {
   header: string;
   subHeader?: string;
-  color1: string;
+  color1?: string;
 }
 
 const caveatBrush = Caveat_Brush({
