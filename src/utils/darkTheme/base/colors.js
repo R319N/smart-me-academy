@@ -10,8 +10,8 @@ const colors = {
   },
 
   text: {
-    primary: "#CAD5D3",
-    secondary: "#6b7775ff",
+    primary: "#010B13",
+    secondary: "#E6E4CE",
   },
 
   transparent: {
@@ -31,9 +31,9 @@ const colors = {
   },
 
   primary: {
-    main: "#B85600",
-    light: "#FF7C0A",
-    focus: "#B85600",
+    main: "#73C0F7",
+    light: "#8BCBF8",
+    focus: "#0C81D4",
   },
 
   secondary: {
@@ -68,7 +68,7 @@ const colors = {
   },
 
   dark: {
-    main: "#0b0b0b",
+    main: "#010b13",
     focus: "#2c3c58",
   },
 

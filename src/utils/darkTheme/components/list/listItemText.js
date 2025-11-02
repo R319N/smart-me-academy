@@ -8,7 +8,7 @@ const listItemtext = {
     root: {
       marginTop: 0,
       marginBottom: 0,
-      color: text.primary,
+      color: text.secondary,
       fontWeight: fontWeightLight,
       fontSize: size.sm
     },

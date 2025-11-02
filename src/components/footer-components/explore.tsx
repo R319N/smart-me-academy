@@ -30,7 +30,7 @@ const Explore = () => {
                   sx={{
                     textTransform: "capitalize",
                     lineHeight: "1.275rem",
-                    color: "textPrimary",
+                    color: "text.primary",
                     "&:hover": { color: (theme) => theme.palette.primary.main },
                   }}
                 >

@@ -8,16 +8,23 @@ import SaveIcon from '@mui/icons-material/Save';
 import WhatsappIcon from '@mui/icons-material/WhatsApp';
 import EmailIcon from '@mui/icons-material/Email';
 import { styles } from '@/styles/styles';
+import { emailAddress, whatsappNumber } from '@/utils/data/constants';
+import Link from 'next/link';
+// import { Link } from 'next/';
 
 const actions = [
-    { icon: <WhatsappIcon sx={{ color: "green" }} />, name: 'chat with whatsapp' },
-    { icon: <EmailIcon sx={{ color: "red" }} />, name: 'chat with Email' },
+    { icon: <WhatsappIcon sx={{ color: "green" }} />, name: 'chat with whatsapp', href: `https://wa.me/${whatsappNumber}?text=Hello%20` },
+    { icon: <EmailIcon sx={{ color: "red" }} />, name: 'chat with Email', href: `mailto:${emailAddress}` }
 ];
 
 export default function ContactIcon() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClose = (url: string) => {
+        setOpen(false)
+        window.location.href = url
+    };
+
 
     return (
         <Box sx={{
@@ -28,25 +35,33 @@ export default function ContactIcon() {
             zIndex: 99
         }}>
             <SpeedDial
-                ariaLabel="SpeedDial controlled open example"
-                sx={{ position: 'absolute', bottom: 16, right: 16, p: "0", }}
-                icon={<SpeedDialIcon sx={{ height: "20px", width: "20px", }} />}
-                onClose={handleClose}
-                onOpen={handleOpen}
-                open={open}
+                ariaLabel="Contact Hot Links"
+                sx={{
+                    position: 'absolute',
+                    bottom: 16, right: 16, p: "3", width: "32px", 
+                }}
+                icon={<SpeedDialIcon sx={{ height: "18px", width: "18px", }} />}
+            // onClose={() => handleClose}
+            // onOpen={handleOpen}
+            // open={open}
             >
                 {actions.map((action) => (
+
                     <SpeedDialAction
                         key={action.name}
                         icon={action.icon}
+                        // component="a"
+
                         sx={{ ...styles.glassOutlined, borderRadius: "50%" }}
                         slotProps={{
                             tooltip: {
                                 title: action.name,
                             },
                         }}
-                        onClick={handleClose}
+                        onClick={() => handleClose(action.href)}
+
                     />
+
                 ))}
             </SpeedDial>
         </Box>

@@ -1,7 +1,7 @@
 import colors from '../../base/colors'
 import pxToRem from '../../functions/pxToRem'
 
-const { text, primary } = colors
+const { text, primary, white } = colors
 
 const tabs = {
   styleOverrides: {
@@ -9,7 +9,7 @@ const tabs = {
       position: 'relative',
       minHeight: 'unset',
       padding: pxToRem(1),
-      textColor: text.primary,
+      textColor: white.main,
       m: '1rem'
     },
     flexContainer: {

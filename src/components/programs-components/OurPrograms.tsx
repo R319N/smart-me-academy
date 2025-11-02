@@ -46,7 +46,7 @@ const OurPrograms = () => {
 
                         <motion.div variants={fadeIn("up", "spring", index * 0.5, 1)}>
                             <Box
-                                sx={{ ...styles.glassOutlined, height: { xs: "100%", sm: "250px" } }}
+                                sx={{ ...styles.glassOutlinedDark, height: { xs: "100%", sm: "250px" } }}
                             >
                                 <Box>
                                     <Box sx={{
@@ -79,6 +79,7 @@ const OurPrograms = () => {
                                     }}>
                                         <Typography
                                             variant="h6"
+                                            color='primary'
                                             sx={{
                                                 display: "flex",
                                                 textTransform: "capitalize",
@@ -90,20 +91,20 @@ const OurPrograms = () => {
                                         >
                                             <Box
                                                 component="span"
-                                                sx={{ color: "textPrimary", my: "0" }}
+                                                // sx={{ color: "primary.main", my: "0" }}
                                             >
                                                 {program.name.split(" ")[0]}
                                             </Box>
                                             &nbsp;
                                             <Box
                                                 component="span"
-                                                sx={{ color: "#449DD1", display: "block" }}
+                                                // sx={{ color: "#449DD1", display: "block" }}
                                             >
                                                 {program.name.split(" ").slice(1).join(" ")}
                                             </Box>
                                         </Typography>
                                         <Box sx={{ height: { xs: "100%", md: "70px" } }}>
-                                            <Typography variant="body2">
+                                            <Typography color='textSecondary' variant="body2">
                                                 {program.description.length > 120
                                                     ? program.description.slice(0, program.description.length / 2.5) + "..."
                                                     : program.description}

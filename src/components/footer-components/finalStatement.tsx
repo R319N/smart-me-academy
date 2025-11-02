@@ -61,10 +61,10 @@ const FinalStatement = () => {
                     >
                         Smart Me Academy
                     </Typography>
-                    <Typography variant='body2' sx={{ textAlign: { xs: "center", md: "left" } }} >
-                        &apos; Smart Me Academy empowers students with quality
+                    <Typography variant='body2' color='text.secondary' sx={{ textAlign: { xs: "center", md: "left" } }} >
+                        &ldquo; Smart Me Academy empowers students with quality
                         education and skills for a brighter future, fostering growth,
-                        creativity and excellence &apos;
+                        creativity and excellence &rdquo;
                     </Typography>
                 </Stack>
             </Box>

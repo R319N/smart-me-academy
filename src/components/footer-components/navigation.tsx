@@ -11,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import navigation from "@/utils/data/navigation_Links";
 import { styles } from "@/styles/styles";
 import { Link } from "@mui/material";
+// import Link from "next/link";
+// import { Link } from "@mui/material";
 
 const Navigation = () => {
   const navigationItems = navigation.filter((item) => item.isNavigation);
@@ -25,17 +27,25 @@ const Navigation = () => {
       <Box sx={{ align: "left" }}>
         <List sx={{ cursor: "pointer", px: "0.5rem" }}>
           {navigationItems.map((route, index) => (
-            <ListItem key={index} sx={{...styles.textHighlight}}>
-              <ListItemText >
-                <Typography
-                  variant="body1"
-                  sx={{
+            <ListItem key={index} sx={{ ...styles.textHighlight }}>
+              <ListItemText
+
+                sx={{
+                  "&muiTypography-root": {
+                    color: "text.secondary",
                     textTransform: "capitalize",
                     fontWeight: (theme) => theme.typography.fontWeightRegular,
-                  }}
-                >
-                  <Link href={route.url}>{route.name}</Link>
-                </Typography>
+                  },
+
+                }}
+              >
+                {/* <Typography
+                  variant="body1"
+                  color="text.secondary"
+                 
+                > */}
+                <Link href={route.url}>{route.name}</Link>
+                {/* </Typography> */}
               </ListItemText>
             </ListItem>
           ))}

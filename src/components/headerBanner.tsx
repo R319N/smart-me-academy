@@ -77,7 +77,8 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
                 fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
                 textTransform: 'capitalize',
                 maxWidth: '600px',
-                color: 'text.secondary',
+                color: 'text.primary',
+                fontWeight: 'bold',
               }}
             >
               {subHeader}

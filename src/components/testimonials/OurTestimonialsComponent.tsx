@@ -25,7 +25,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
             containScroll: "trimSnaps", // 👈 keeps things aligned
             ...options,
         },
-        [Autoplay({ delay: 4000, stopOnInteraction: false })]
+        [Autoplay({ delay: 10000, stopOnInteraction: false })]
     )
 
 
@@ -62,7 +62,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
         usePrevNextButtons(emblaApi, onNavButtonClick)
 
     return (
-        <Stack gap={3} width="100%" sx={{ px: { xs: "0", md: "10rem" }, }}>
+        <Stack gap={0} width="100%" sx={{ px: { xs: "0", md: "10rem" }, }}>
             <HeaderText header="What People Say" subHeader="Testimonials" />
             <div className="embla">
                 <Box
@@ -70,7 +70,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                     ref={emblaRef}
                     sx={{
                         overflow: "hidden",
-                        padding: { xs: "0 10%", md: "0 10%" }, // 👈 centers better on desktop
+                        padding: { xs: "0 8%", md: "0 8%" }, // 👈 centers better on desktop
                     }}
                 >
 
@@ -84,7 +84,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                     sx={{
                                         flex: { xs: "0 0 70%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
                                         pr: "1rem",
-                                        py: "2rem",
+                                        py: "1rem",
                                         cursor: "pointer",
                                         position: "relative",
                                         zIndex: isActive ? 2 : 1,
@@ -109,7 +109,10 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                             justifyContent: "center",
                                             alignItems: "center",
                                             borderRadius: 3,
-                                            backgroundColor: isActive ? "#1976d2" : "rgba(255,255,255,0.08)",
+                                            backgroundColor:
+                                                isActive ?
+                                                    (theme) => theme.palette.primary.main
+                                                    : "rgba(255,255,255,0.08)",
                                             opacity: isActive ? 1 : 0.3,
                                             backdropFilter: "blur(10px)",
                                             color: isActive ? "#fff" : "inherit",
@@ -144,7 +147,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                             top: 0,
                                                             left: 0,
                                                             fontSize: "2rem",
-                                                            color: "grey.500",
+                                                            color: "grey.900",
                                                         }}
                                                     >
                                                         &ldquo;
@@ -158,6 +161,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                             lineHeight: 1.6,
                                                             p: 2,
                                                             fontStyle: "italic",
+                                                            fontWeight:"bold",
                                                             overflow: "hidden",
                                                         }}
                                                     >
@@ -172,7 +176,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                                                             bottom: -30,
                                                             right: 0,
                                                             fontSize: "2rem",
-                                                            color: "grey.500",
+                                                            color: "grey.900",
                                                         }}
                                                     >
                                                         &rdquo;

@@ -8,10 +8,10 @@ const divider = {
   styleOverrides: {
     root: {
       backgroundColor: transparent.main,
-      backgroundImage: `linear-gradient(to right, ${rgba(light.main, 0.2)}, ${rgba(
-        light.main,
+      backgroundImage: `linear-gradient(to right, ${rgba(dark.main, 0.2)}, ${rgba(
+        dark.main,
         1
-      )}, ${rgba(light.main, 0.2)}) !important`,
+      )}, ${rgba(dark.main, 0.2)}) !important`,
       height: pxToRem(1),
       margin: `${pxToRem(4)} 0`,
       borderBottom: "none",

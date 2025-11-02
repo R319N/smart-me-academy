@@ -8,7 +8,7 @@ const link = {
     styleOverrides: {
         root: {
             textDecoration: "none",
-            color: text.primary,
+            color: text.secondary,
             fontWeight: fontWeightRegular,
 
             '&:hover': {

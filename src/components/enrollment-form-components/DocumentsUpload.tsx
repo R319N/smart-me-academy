@@ -1,6 +1,9 @@
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography, Button, Box } from "@mui/material";
 import React, { useRef } from "react";
 import { EnrollmentFormData } from "../../../types";
+import { styles } from "@/styles/styles";
+import GlowingButton from "../glowingButton";
+import GlowingButtonOutlined from "../glowingButtonOutlined";
 
 interface DocumentInputProps {
   label: string;
@@ -14,24 +17,41 @@ const DocumentInput: React.FC<DocumentInputProps> = ({ label, name, file, onChan
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <Grid size={{ xs: 12, md: 6 }} sx={{ py: 1 }}>
-      <Typography variant="subtitle1">{label}</Typography>
+    <Grid size={{ xs: 12, md: 6 }} sx={{ py: 1 , }} >
+      <Typography
+        textTransform="capitalize"
+        variant="body1"
+        textAlign="left"
+        m="0.5rem"
+      // color={error.image ? "error.main" : "text.primary"} // Conditionally set color
+      >{label}</Typography>
+      <Box sx={{
+        ...styles.center_flex,
+        borderRadius: 1,
+        height: "200px",
+        width: "100%",
+        cursor: "pointer",
+        border: "1px dashed",
 
-      <input
-        type="file"
-        name={name}
-        ref={inputRef}
-        style={{ display: "none" }}
-        onChange={onChange}
-        accept="image/*,.pdf"
-      />
+      }} >
 
-      <Button variant="contained" onClick={() => inputRef.current?.click()}>
-        Upload {label}
-      </Button>
 
-      {file && <Typography variant="body2" color="green">{file.name}</Typography>}
-      {error && <Typography variant="body2" color="error">{error}</Typography>}
+        <input
+          type="file"
+          name={name}
+          ref={inputRef}
+          style={{ display: "none" }}
+          onChange={onChange}
+          accept="image/*,.pdf"
+        />
+
+        <GlowingButton onClick={() => inputRef.current?.click()}>
+          Upload {label}
+        </GlowingButton>
+
+        {file && <Typography variant="body2" color="green">{file.name}</Typography>}
+        {error && <Typography variant="body2" color="error">{error}</Typography>}
+      </Box>
     </Grid>
   );
 };
@@ -51,7 +71,7 @@ const DocumentsUpload: React.FC<Props> = ({ formData, setFormData, errors }) => 
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} p="0">
       <DocumentInput
         label="ID Image"
         name="idImage"

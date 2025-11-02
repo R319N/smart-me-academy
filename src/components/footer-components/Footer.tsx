@@ -29,7 +29,7 @@ const Footer = () => {
           left: 0,
           width: "100%",
           height: { xs: "90%", md: "75%" },
-          background: "#010203fa",
+          background: "#010b13",
           zIndex: 1,
         }}
       />

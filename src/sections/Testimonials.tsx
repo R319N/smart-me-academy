@@ -12,7 +12,7 @@ const Testimonials = () => {
         position: "relative",
         width: "100%",
         flexDirection: "column",
-        backgroundImage: `linear-gradient(to bottom, #0343c275 30%, transparent  100%)`,
+        // backgroundImage: `linear-gradient(to bottom, #0343c275 30%, transparent  100%)`,
       }}
       id="testimonials"
     >

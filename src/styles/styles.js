@@ -40,7 +40,7 @@ export const styles = {
   glassOutlinedDark: {
     borderRadius: pxToRem(6), // Add border radius for rounded corners
     backdropFilter: "blur(8px)",
-    background: "#000a14e7", // Adjust transparency as needed
+    background: "#010b13", // Adjust transparency as needed
     border: "1px solid rgba(202, 213, 211, 0.5)",
   },
   center_flex: {

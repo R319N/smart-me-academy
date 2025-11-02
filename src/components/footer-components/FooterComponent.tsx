@@ -25,7 +25,7 @@ const FooterComponent = () => {
             sx={{
                 zIndex: 99,
                 width: "100%",
-                 px: { xs: "1rem", md: "10vw" },
+                px: { xs: "1rem", md: "10vw" },
             }}
         >
             <Box
@@ -42,7 +42,7 @@ const FooterComponent = () => {
                     container
                     spacing={4}
                     sx={{
-                       
+
                         // mt: "0.5rem",
                         // mb: "2rem",
                         display: "flex",
@@ -102,7 +102,10 @@ const FooterComponent = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Divider />
+                <Divider sx={{
+
+                    backgroundImage: `linear-gradient(to bottom, #ffffff54, #ffffff55,#ffffff ) !important`
+                }} />
                 <Box>
                     <DeepFooter />
                 </Box>

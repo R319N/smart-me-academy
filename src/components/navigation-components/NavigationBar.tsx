@@ -65,20 +65,22 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         //     xs: trigger ? "0.5rem" : 0,
                         //     lg: trigger ? "1rem 4rem" : "0 4rem"
                         // },
-                        p: { xs: "0.5rem", lg: "1rem 4rem" },
+                        // p: { xs: "0.5rem", lg: "1rem 4rem" },
                     }}
                 >
                     {/* <ElevationScroll> */}
                     <AppBar
                         position="static"
                         sx={{
-                            ...styles.scrolledAppBar,
-                            backgroundColor: trigger ? "#cad5d350" : "none",
-                            border: trigger ? "1px solid #cad5d377" : "none",
+                            // ...styles.scrolledAppBar,
+                            // backgroundColor: trigger ? "#cad5d350" : "none",
+                            // border: trigger ? "1px solid #cad5d377" : "none",
                             // boxShadow: "0 px 1px #cad5d36e",
+                            backgroundColor: "#010B13",
                             backdropFilter: trigger ? "blur(10px)" : "none",
                             overflow: "hidden",
-                            boxShadow: "none"
+                            boxShadow: "none",
+                                // p: { xs: "0.5rem", lg: "1rem 4rem" },
                             // transition:"1s all-ease"
                         }}
                     >
@@ -89,7 +91,8 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                 maxWidth: "100vw",
                                 // minHeight: "40px",
                                 width: "100%",
-                                // p: "0.5rem",
+                                // p: trigger ? "0.5rem" : "0",
+                                transition: "1s padding ease",
                                 m: 0,
                             }}
                         >
@@ -110,38 +113,38 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                             // borderRadius: "10px",
                                             // border: "1px solid",
                                             // borderColor: "textSecondary",
-                                            display: { xs: "flex", xl: "none" },
+                                            display: { xs: "flex", md: "none" },
                                             //  transition:"5s all-ease"
                                         }}
                                     >
                                         {!mobileOpen ? <MenuIcon /> : <CloseIcon />}
                                     </GlowingIconButton>
                                     <Link href="/" sx={{
-                                        display: { xs: "none", xl: "flex" },
+                                        display: { xs: "none", md: "flex" },
                                     }}>
                                         <Logo />
                                     </Link>
                                 </Box>
                                 <Box
                                     sx={{
-                                        display: { xs: "none", xl: "flex" },
+                                        display: { xs: "none", md: "flex" },
                                         alignItems: "center",
                                     }}
                                 >
                                     <NavTabs />
                                 </Box>
                                 <Box gap={2} display="flex" alignItems="center">
-                                    <GlowingButtonOutlined size='small' href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
+                                    <GlowingButton size='small' href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
                                         contact us
-                                    </GlowingButtonOutlined>
-                                    <GlowingButton href='#contact_us' size='small'>
-                                        enroll now
                                     </GlowingButton>
+                                    {/* <GlowingButton href='#contact_us' size='small'>
+                                        enroll now
+                                    </GlowingButton> */}
                                     {/* <ContactBar /> */}
                                 </Box>
                             </Box>
                         </Toolbar>
-                        <Divider sx={{ display: trigger ? "none" : "flex", margin: 0 }} />
+                        {/* <Divider sx={{ display: trigger ? "none" : "flex", margin: 0 }} /> */}
                     </AppBar>
 
                 </Box>
@@ -155,7 +158,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         keepMounted: true,
                     }}
                     sx={{
-                        display: { xs: "flex", xl: "none" },
+                        display: { xs: "flex", md: "none" },
                         "& .MuiDrawer-paper": {
                             boxSizing: "border-box",
                             width: 260,

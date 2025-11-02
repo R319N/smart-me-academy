@@ -7,8 +7,8 @@ import GlowingButton from '../glowingButton';
 const SubscribeForm = () => {
     return (
         <Stack gap={2}>
-            <Typography variant="body1" textTransform="capitalize" gutterBottom>
-            &quot;Subscribe to our newsletter for web design and development tips, industry insights, and updates on our services.&quot; </Typography>
+            <Typography color="text.secondary" variant="body1" textTransform="capitalize" gutterBottom>
+            &ldquo;Subscribe to our newsletter for web design and development tips, industry insights, and updates on our services.&rdquo; </Typography>
             <TextField placeholder='Enter Your Email' variant="standard" fullWidth />
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <GlowingButton

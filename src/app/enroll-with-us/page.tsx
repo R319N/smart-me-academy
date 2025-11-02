@@ -5,6 +5,7 @@ import { Paper } from '@mui/material'
 import EnrollmentPage from '@/components/enrollment-form-components/EnrollmentPage'
 import NavigationBar from '@/components/navigation-components/NavigationBar'
 import ServerLayout from '../serverLayout'
+import Footer from '@/components/footer-components/Footer'
 
 const RegisterWithUs = () => {
     return (
@@ -24,6 +25,7 @@ const RegisterWithUs = () => {
                 >
                     <NavigationBar />
                     <EnrollmentPage />
+                    <Footer />
                 </Paper>
             </RootLayout>
         </ServerLayout>

@@ -37,7 +37,7 @@ const Address = () => {
               textTransform="capitalize"
               px="1rem"
               sx={{
-                color: "textPrimary",
+                color: "text.secondary",
                 cursor: "pointer",
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
@@ -51,7 +51,7 @@ const Address = () => {
               variant="body1"
               px="1rem"
               sx={{
-                color: "textPrimary",
+                color: "text.secondary",
                 cursor: "pointer",
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
@@ -67,7 +67,7 @@ const Address = () => {
               textTransform="lowercase"
               px="1rem"
               sx={{
-                color: "textPrimary",
+                color: "text.secondary",
                 cursor: "pointer",
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}

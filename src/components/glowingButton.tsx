@@ -6,8 +6,9 @@ const GlowingButton = styled(Button)`
   background-color: ${({ theme }) => theme.palette.primary.main};
   padding: ${({ theme }) => `${theme.spacing(1.25)} ${theme.spacing(2)}`};
   color: ${({ theme }) => theme.palette.text.primary};
-  font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
-  transition: all 0.2s ease;
+  font-weight: ${({ theme }) => theme.typography.fontWeightMedium};
+  border-radius: 10px;
+  transition: all 0.5s ease;
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.light};

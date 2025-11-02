@@ -35,7 +35,7 @@ const NavTabs = () => {
               color:
                 pageTab === index
                   ? (theme) => theme.palette.primary.dark
-                  : (theme) => theme.palette.text.primary,
+                  : (theme) => theme.palette.text.secondary,
               fontWeight: pageTab === index ? "bolder" : "regular ",
             }}
           />

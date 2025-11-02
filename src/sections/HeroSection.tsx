@@ -6,7 +6,7 @@ import Hero from "@/components/hero-section-components/Hero";
 
 const HeroSection = () => {
   return (
-   <section style={{ position: "relative",minHeight:"100vh", zIndex: 10 }} id="home">
+    <section style={{ position: "relative", minHeight: "100vh", zIndex: 10 }} id="home">
       <motion.div
         variants={staggerContainer}
         initial="hidden"

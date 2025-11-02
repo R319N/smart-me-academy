@@ -28,12 +28,12 @@ export default function Home() {
             overflow: "hidden",
             borderRadius: "0",
             margin: 0,
-            bgcolor: "#000A14",
+            bgcolor: "#E6E4CE",
           }}
         >
           <NavigationBar />
           <HeroSection />
-          {/* <div className="gradient-03" /> */}
+          <div className="gradient-03" />
           <CurriculumSection />
           <Box sx={{
             position: "relative",
@@ -48,7 +48,7 @@ export default function Home() {
           <ContactUs />
           <Footer />
           <ContactIcon />
-          <PromoPopup />
+          {/* <PromoPopup /> */}
         </Paper>
       </RootLayout>
     </ServerLayout>
