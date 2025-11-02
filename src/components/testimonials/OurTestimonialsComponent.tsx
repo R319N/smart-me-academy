@@ -63,14 +63,14 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
 
     return (
         <Stack gap={0} width="100%" sx={{ px: { xs: "0", md: "10rem" }, }}>
-            <HeaderText header="What People Say" subHeader="Testimonials" />
+            <HeaderText header="What People Say" subHeader="Testimonials" color1="text.primary" />
             <div className="embla">
                 <Box
                     className="embla__viewport"
                     ref={emblaRef}
                     sx={{
                         overflow: "hidden",
-                        padding: { xs: "0 8%", md: "0 8%" }, // 👈 centers better on desktop
+                        padding: { xs: "0 15%", md: "0 8%" }, // 👈 centers better on desktop
                     }}
                 >
 
