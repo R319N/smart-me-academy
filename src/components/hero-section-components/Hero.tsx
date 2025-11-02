@@ -58,7 +58,7 @@ const Hero = () => {
         height: "100%",
         zIndex: 1, // make sure it sits above images but below text
         backgroundBlendMode: "multiply",
-        background: "#010b131c"
+        backgroundImage:"linear-gradient(to bottom , rgba(0, 10, 20, 0.2) 0%, rgba(0, 10, 20, 0.08) 50%, rgba(0, 10, 20) 100%)",
     });
 
     return (

@@ -27,7 +27,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
 
     return (
         <Stack gap={4}>
-            <HeadingText header="Our Subjects" subHeader="Explore our comprehensive curriculum" />
+            <HeadingText header="Our Subjects" subHeader="Explore our comprehensive curriculum" color1="text.secondary" />
             <CurriculumCarousel />
         </Stack >
     )

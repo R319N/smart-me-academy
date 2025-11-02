@@ -6,6 +6,7 @@ const GlowingButtonOutlined = styled(Button)`
   color: ${({ theme }) => theme.palette.text.secondary};
   padding: ${({ theme }) => `${theme.spacing(1.25)} ${theme.spacing(2)}`};
   border: 1px solid ${({ theme }) => alpha(theme.palette.text.secondary, 0.3)};
+   font-weight: ${({ theme }) => theme.typography.fontWeightMedium};
   backdrop-filter: blur(7px);
   border-radius: 10px;
   transition: all 1s ease;

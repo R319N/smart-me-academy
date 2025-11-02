@@ -13,7 +13,8 @@ const CurriculumSection = () => {
                 width: "100%",
                 height: "100%",
                 flexDirection: "column",
-                backgroundSize: "cover"
+                backgroundSize: "cover",
+                backgroundImage: "linear-gradient(180deg, #010b13 10%, #E6E4CE 50%, #010b13 100%)",
             }}
             id="curriculum"
         >

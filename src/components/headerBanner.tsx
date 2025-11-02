@@ -7,6 +7,7 @@ import { Caveat_Brush } from 'next/font/google';
 interface HeaderBannerProps {
   header: string;
   subHeader?: string;
+  color1: string;
 }
 
 const caveatBrush = Caveat_Brush({
@@ -22,7 +23,7 @@ const caveatBrush = Caveat_Brush({
 //     // fallback:'roboto',
 // });
 
-const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
+const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1 }) => {
   const words = header.trim().split(' ');
   const firstWord = words[0];
   const remaining = words.slice(1).join(' ');
@@ -54,7 +55,7 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader }) => {
             lineHeight: 1,
           }}
         >
-          <Box component="span" sx={{ color: (theme) => theme.palette.text.primary }}>
+          <Box component="span" sx={{ color: `${color1}` }}>
             {firstWord}
           </Box>{' '}
           <Box component="span" sx={{ color: (theme) => theme.palette.primary.main }}>

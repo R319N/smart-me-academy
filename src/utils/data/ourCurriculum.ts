@@ -17,33 +17,33 @@ const ourSubjects: SubjectProps[] = [
   {
     key: "1",
     name: "Mathematics",
-    imgURL: "/maths.png",
+    imgURL: "/curriculum/math.jpg",
   },
   {
     key: "2",
     name: "English",
-    imgURL: "/eng.png",
+    imgURL: "/curriculum/eng.jpg",
   },
   {
     key: "3",
     name: "Physical Science",
-    imgURL: "/ps.png",
+    imgURL: "/curriculum/ps.jpg",
   },
   {
     key: "4",
     name: "Math Literacy",
-    imgURL: "/math-lit.png",
+    imgURL: "/curriculum/matlit.jpg",
   },
   {
     key: "5",
     name: "Afrikaans",
-    imgURL: "/afrikaans.png",
+    imgURL: "/curriculum/afrikaans.jpg",
 
   },
   {
     key: "5",
     name: "Life Science",
-    imgURL: "/ls.png",
+    imgURL: "/curriculum/ls.jpg",
 
   },
 ];

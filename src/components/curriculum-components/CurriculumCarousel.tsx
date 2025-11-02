@@ -19,6 +19,7 @@ import ourSubjects from '@/utils/data/ourCurriculum'
 import Image from 'next/image'
 import pxToRem from '@/utils/darkTheme/functions/pxToRem'
 import EduSaHandFontWrapper from '@/layouts/wrappers/EduSAHandWrapper'
+import { ExoFontWrapper } from '@/layouts/wrappers/PoppinsWrapper'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -83,9 +84,9 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                 <Box
                   key={index}
                   sx={{
-                    flex: { xs: "0 0 100%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
+                    flex: { xs: "0 0 90%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
                     pr: { xs: 0, sm: "1rem" },//slide spacing
-                    mb: "2rem",
+                    // mb: "2rem",
                     cursor: "pointer",
                     position: "relative",
                     zIndex: isActive ? 2 : 1,
@@ -93,10 +94,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                     // height: "364px",
                     transition: "transform 0.4s ease, z-index 0.4s ease",
                     overflow: "visible",
-                    // display: "flex",
-                    // flexDirection: "column",
-                    // justifyContent: "center",
-                    // alignItems: "center",
+
 
                   }}
 
@@ -130,6 +128,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                       // width={100}
                       // height={100}
                       style={{
+
                         objectFit: "cover",
                         // width: "100%",
                         // height: "100%"
@@ -142,11 +141,20 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        backgroundColor: isActive ? "transparent" : "rgba(0, 10, 20, 0.77)",
-                        zIndex: 1,
+                        backgroundColor: "#010b13ee",
+                        zIndex: 99,
                         transition: "background-color 0.5s ease",
+                        ...styles.center_flex
                       }}
-                    />
+                    >
+                      <ExoFontWrapper>
+                        <Typography variant='h3' color='text.secondary' sx={{
+                          fontWeight: (theme) => theme.typography.fontWeightBold,
+                        }}>
+                          {service.name}
+                        </Typography>
+                      </ExoFontWrapper>
+                    </Box>
                   </Box>
                   <Box position="relative" py="1.5rem" >
                     <Box
@@ -161,7 +169,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                       }}
 
                     >
-                      {
+                      {/* {
                         isActive ?
                           <EduSaHandFontWrapper>
                             <Typography
@@ -182,7 +190,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                           </EduSaHandFontWrapper>
                           :
                           ""
-                      }
+                      } */}
                     </Box>
                   </Box>
                 </Box>
