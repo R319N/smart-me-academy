@@ -80,7 +80,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                             backdropFilter: trigger ? "blur(10px)" : "none",
                             overflow: "hidden",
                             boxShadow: "none",
-                                // p: { xs: "0.5rem", lg: "1rem 4rem" },
+                            // p: { xs: "0.5rem", lg: "1rem 4rem" },
                             // transition:"1s all-ease"
                         }}
                     >
@@ -114,10 +114,11 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                             // border: "1px solid",
                                             // borderColor: "textSecondary",
                                             display: { xs: "flex", md: "none" },
+                                            color:"white"
                                             //  transition:"5s all-ease"
                                         }}
                                     >
-                                        {!mobileOpen ? <MenuIcon /> : <CloseIcon />}
+                                        {!mobileOpen ? <MenuIcon sx={{color:"#E6E4CE"}} /> : <CloseIcon />}
                                     </GlowingIconButton>
                                     <Link href="/" sx={{
                                         display: { xs: "none", md: "flex" },
@@ -134,7 +135,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                                     <NavTabs />
                                 </Box>
                                 <Box gap={2} display="flex" alignItems="center">
-                                    <GlowingButton size='small' href='#contact_us' sx={{ display: { xs: "none", sm: "flex" } }}>
+                                    <GlowingButton size='small' href='#contact_us'>
                                         contact us
                                     </GlowingButton>
                                     {/* <GlowingButton href='#contact_us' size='small'>

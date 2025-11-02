@@ -3,7 +3,7 @@ import { alpha, IconButton, styled } from "@mui/material";
 const GlowingIconButton = styled(IconButton)`
   color: ${({ theme }) => theme.palette.text.primary};
   padding: ${({ theme }) => `${theme.spacing(1)} ${theme.spacing(1)}`};
-  border: 1px solid ${({ theme }) => alpha(theme.palette.text.primary, 0.3)};
+  border: 1px solid ${({ theme }) => alpha(theme.palette.text.secondary, 0.3)};
   // backdrop-filter: blur(5px);
   transition: all 1s ease;
 

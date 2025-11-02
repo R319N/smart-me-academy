@@ -1,16 +1,22 @@
-// import colors from '../base/colors'
+import colors from '../base/colors'
 import pxToRem from '../functions/pxToRem'
-// const { text } = colors
+const { text } = colors
 
 const icon = {
   defaultProps: {
     baseClassName: 'material-icons-round',
-    fontSize: 'inherit'
+    fontSize: 'inherit',
+    color: text.secondary
   },
 
   styleOverrides: {
+    root: {
+      color: text.secondary,
+    },
+
     fontSizeInherit: {
-      fontSize: 'inherit !important'
+      fontSize: 'inherit !important',
+
     },
 
     fontSizeSmall: {

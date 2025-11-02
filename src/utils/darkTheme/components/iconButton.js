@@ -10,7 +10,7 @@ const iconButton = {
     root: {
       boxShadow: boxShadows.lg,
       borderRadius: borderRadius.md,
-      color: text.primary,
+      color: text.secondary,
       backgroundColor: transparent.main,
 
 
