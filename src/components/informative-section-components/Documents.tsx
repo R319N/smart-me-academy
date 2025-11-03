@@ -4,16 +4,19 @@ import { Box, CardHeader, Container, Grid, IconButton, Stack, Typography } from 
 import DownloadIcon from '@mui/icons-material/FileDownload';
 import React from 'react'
 import Heading4 from '../UI/Heading4';
+import HeaderText from '../headerBanner';
 
 const Documents = () => {
   return (
     <Container
       sx={{
-        ...styles.container
+        ...styles.container,
+        py: "2rem"
       }}
     >
       <Stack gap={4}>
-        <Heading4 title='policy documents & forms' subTitle='download our policy documents' />
+        <HeaderText
+          header='help & information' subHeader='download our policy documents' subHeaderColor='text.secondary' color1='text.secondary' />
         <Grid container spacing={2}>
           {
             DocumentsData.map((document, index) => (

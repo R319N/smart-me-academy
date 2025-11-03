@@ -22,7 +22,9 @@ export default function BusinessMap() {
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       /> */}
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228375.20986804474!2d27.858365439061586!3d-26.57273556282467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8be6524626a683cf%3A0x63b9dcfd6b67ad45!2sSmart%20Me%20Academy!5e0!3m2!1sen!2sza!4v1759822096325!5m2!1sen!2sza" width="600" height="450" style={{border:0}} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+
+
+      <iframe src="https://www.google.com/maps/place/6+Loerie+St,+Meyerton+Park+(Farms),+Meyerton,+1961/@-26.5457187,27.9932279,15z/data=!3m1!4b1!4m6!3m5!1s0x1e94feaebb433051:0x4f15650d6c28904d!8m2!3d-26.5457391!4d28.011682!16s%2Fg%2F11hht3j2p2?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D"></iframe>
     </Paper>
   );
 }

@@ -19,6 +19,8 @@ const ContactUsComponent = () => {
         <HeadingText
           header={headerText}
           subHeader={header}
+          color1='text.secondary'
+          subHeaderColor='text.secondary'
         />
       </Grid>
       <Grid size={12}>

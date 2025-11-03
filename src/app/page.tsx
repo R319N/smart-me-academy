@@ -42,7 +42,7 @@ export default function Home() {
           <div className="gradient-04" />
           <OurProgramsSection />
           {/* </Box> */}
-          {/* <AboutUsSection /> */}
+          <AboutUsSection />
           <Testimonials />
           <InformativeSection />
           <ContactUs />

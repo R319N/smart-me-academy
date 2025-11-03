@@ -6,6 +6,7 @@ import Phone from "@mui/icons-material/Phone";
 import WhatsApp from "@mui/icons-material/WhatsApp";
 import LocationIcon from '@mui/icons-material/LocationCity'
 import { ReactNode } from "react";
+import { address } from "./constants";
 
 interface Contact {
   name: string,
@@ -41,7 +42,7 @@ const contactDetailsdata: Contact[] = [
   },
     {
     name: "address",
-    details: "84 Gourlay Street, Meyerton 1961",
+    details: `${address}`,
     icon: <LocationIcon />,
     color: "grey",
     link: " https://wa.me/27612023165?text=Hie%20wilfred%20reign",

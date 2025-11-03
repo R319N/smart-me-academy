@@ -8,6 +8,7 @@ interface HeaderBannerProps {
   header: string;
   subHeader?: string;
   color1?: string;
+  subHeaderColor?: string;
 }
 
 const caveatBrush = Exo({
@@ -23,7 +24,7 @@ const caveatBrush = Exo({
 //     // fallback:'roboto',
 // });
 
-const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1 }) => {
+const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1, subHeaderColor }) => {
   const words = header.trim().split(' ');
   const firstWord = words[0];
   const remaining = words.slice(1).join(' ');
@@ -78,7 +79,7 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1 }) 
                 fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
                 textTransform: 'capitalize',
                 maxWidth: '600px',
-                color: 'text.primary',
+                color: `${subHeaderColor}`,
                 fontWeight: 'bold',
               }}
             >
