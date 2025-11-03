@@ -8,6 +8,7 @@ const FooterSection = () => {
         <motion.footer
             style={{
                 position: 'relative',
+                  background: "#010b13",
             }}
             variants={footerVariants}
             initial='hidden'

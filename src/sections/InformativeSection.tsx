@@ -10,7 +10,7 @@ const InformativeSection = () => {
       width: "100%",
       height: "100%",
       flexDirection: "column",
-      backgroundImage: "linear-gradient(180deg, #010b13 5%, #0341f8ff 100%)",
+      backgroundImage: "linear-gradient(180deg, #010b13 5%, #121d3bff 100%)",
     }}
       id="documents"
     >
