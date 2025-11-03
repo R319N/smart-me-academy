@@ -19,8 +19,8 @@ const RegisterWithUs = () => {
                         overflow: "hidden",
                         borderRadius: "0",
                         margin: 0,
-                        bgcolor: "#040C10",
-                        // backgroundImage: `linear-gradient( to bottom left,rgba(95, 171, 233, 1),rgba(25, 1, 67, 1))`,
+                        // bgcolor: "#3a4254ff",
+                        backgroundImage: `linear-gradient( to bottom,#3a4254ff,rgba(8, 12, 40, 1))`,
                     }}
                 >
                     <NavigationBar />

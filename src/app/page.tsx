@@ -19,8 +19,8 @@ import { Box } from "@mui/material";
 export default function Home() {
   return (
     <ServerLayout>
-     <RootLayout>
-         <Paper
+      <RootLayout>
+        <Paper
           sx={{
             minHeight: "100vh",
             height: "100%",
@@ -35,13 +35,13 @@ export default function Home() {
           <HeroSection />
           <div className="gradient-03" />
           <CurriculumSection />
-          <Box sx={{
+          {/* <Box sx={{
             position: "relative",
-          }}>
+          }}> */}
 
-            <div className="gradient-04" />
-            <OurProgramsSection />
-          </Box>
+          <div className="gradient-04" />
+          <OurProgramsSection />
+          {/* </Box> */}
           <AboutUsSection />
           <Testimonials />
           <InformativeSection />

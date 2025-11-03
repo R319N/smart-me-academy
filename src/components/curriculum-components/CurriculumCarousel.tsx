@@ -66,14 +66,14 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
     usePrevNextButtons(emblaApi, onNavButtonClick)
 
   return (
-    <Box>
+    <Stack gap={3}>
       <div className="embla">
         <Box
           className="embla__viewport"
           ref={emblaRef}
           sx={{
             // overflow: "hidden",
-            padding: { xs: "0 0%", md: "0 10%" },
+        padding: { xs: " 0%", sm: "0 10%", md: "0 8%" }, 
             // height // 👈 centers better on desktop
           }}
         >
@@ -84,7 +84,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                 <Box
                   key={index}
                   sx={{
-                    flex: { xs: "0 0 90%", sm: "0 0 70%", md: "0 0 50%" }, // balanced sizing
+                   flex: { xs: "0 0 80%", sm: "0 0 70%", md: "0 0 50%" },  // balanced sizing
                     pr: { xs: 0, sm: "1rem" },//slide spacing
                     // mb: "2rem",
                     cursor: "pointer",
@@ -105,7 +105,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                     sx={{
                       minWidth: { xs: "100%", md: isActive ? "400px" : "120px" },
                       overflow: "hidden",
-                      width: "100%",
+                      width: "90%",
                       // minHeight: { xs: "364px", md: isActive ? "100px" : "150px" },
                       height: { xs: "364px", md: isActive ? "224px" : "200px" },
 
@@ -156,43 +156,6 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                       </ExoFontWrapper>
                     </Box>
                   </Box>
-                  <Box position="relative" py="1.5rem" >
-                    <Box
-                      sx={{
-                        // position: "absolute",
-                        // bottom: "-10vh",
-                        // right: "-200px",
-
-                        // width: "800px",
-                        // display: "flex",
-                        // alignItems: "flex-start"
-                      }}
-
-                    >
-                      {/* {
-                        isActive ?
-                          <EduSaHandFontWrapper>
-                            <Typography
-                              variant='h6'
-                              // className={eduSAHand.className}
-                              color='secondary'
-                              sx={{
-                                // ...eduSAHand.style,
-                                fontSize: { xs: pxToRem(38), lg: pxToRem(64) },
-                                textAlign: "right",
-                                // textWrap:"nowrap",
-                                whiteSpace: "nowrap"
-
-                              }}
-                            >
-                              {service.name}
-                            </Typography>
-                          </EduSaHandFontWrapper>
-                          :
-                          ""
-                      } */}
-                    </Box>
-                  </Box>
                 </Box>
               );
             })}
@@ -236,7 +199,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
           ))}
         </Box>
       </Box>
-    </Box >
+    </Stack>
   )
 }
 

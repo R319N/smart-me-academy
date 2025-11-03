@@ -47,7 +47,7 @@ const HeroDetails = () => {
                                     <Typography
                                         color="white"
                                         sx={{
-                                            fontSize: { xs: "32px", sm: "64px", md: "48px" },
+                                            fontSize: { xs: "32px", sm: "36px", xl: "42px" },
                                             fontWeight: (theme) => theme.typography.fontWeightBold,
                                             lineHeight: 1.1,
                                             textTransform: "capitalize",
