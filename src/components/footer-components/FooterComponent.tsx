@@ -43,7 +43,7 @@ const FooterComponent = () => {
                     spacing={4}
                     sx={{
 
-                        // mt: "0.5rem",
+                        mt: "0.5rem",
                         // mb: "2rem",
                         display: "flex",
                         position: "relative",

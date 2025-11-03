@@ -10,10 +10,11 @@ const InformativeSection = () => {
       width: "100%",
       height: "100%",
       flexDirection: "column",
+      backgroundImage: "linear-gradient(180deg, #010b13 5%, #0341f8ff 100%)",
     }}
       id="documents"
     >
-      <div className="gradient-01" />
+      {/* <div className="gradient-01" /> */}
       <Box >
         <Documents />
       </Box>

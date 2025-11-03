@@ -14,7 +14,7 @@ const FooterSection = () => {
             whileInView='show'
             viewport={{ once: false, amount: 0.25 }}
         >
-            <div className="footer-gradient" />
+            {/* <div className="footer-gradient" /> */}
             <Footer />
         </motion.footer>
     )

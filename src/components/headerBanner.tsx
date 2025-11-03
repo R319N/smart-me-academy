@@ -2,7 +2,7 @@
 import EduSaHandFontWrapper from '@/layouts/wrappers/EduSAHandWrapper';
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
 import { Box, Divider, Typography } from '@mui/material';
-import { Caveat_Brush } from 'next/font/google';
+import { Caveat_Brush, Exo } from 'next/font/google';
 
 interface HeaderBannerProps {
   header: string;
@@ -10,7 +10,7 @@ interface HeaderBannerProps {
   color1?: string;
 }
 
-const caveatBrush = Caveat_Brush({
+const caveatBrush = Exo({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -48,7 +48,7 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1 }) 
           className={caveatBrush.className}
           sx={{
             ...caveatBrush.style,
-            fontSize: { xs: pxToRem(38), lg: pxToRem(64) },
+            fontSize: { xs: pxToRem(38), lg: pxToRem(52) },
             textTransform: 'uppercase',
             // letterSpacing: 2,
             fontWeight: 'bold',

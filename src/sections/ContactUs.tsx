@@ -14,10 +14,11 @@ const ContactUs = () => {
         width: "100%",
         minHeight: "100vh",
         flexDirection: "column",
+        backgroundImage: `linear-gradient(to bottom, #0341f8ff 10%, #010b13  100%)`,
       }}
       id="contact_us"
     >
-      <div className="gradient-04" />
+      {/* <div className="gradient-04" /> */}
       <Container sx={{
         ...styles.container,
         width: "100%",

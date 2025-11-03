@@ -14,11 +14,12 @@ const Footer = () => {
       sx={{
         overflow: "hidden",
         height: "100%",
-        marginTop: "10vh",
+        paddingTop: "10vh",
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "column",
         position: "relative",
+        // py:"1rem"
       }}
       gap={4}
     >
@@ -28,7 +29,7 @@ const Footer = () => {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: { xs: "90%", md: "75%" },
+          height: { xs: "90%", md: "100%" },
           background: "#010b13",
           zIndex: 1,
         }}
@@ -39,7 +40,7 @@ const Footer = () => {
           bottom: 0,
           left: 0,
           width: "100%",
-          height: { xs: "80%", lg: "75%" },
+          height: { xs: "80%", lg: "80%" },
           zIndex: 0,
         }}
       >
@@ -53,10 +54,10 @@ const Footer = () => {
           priority
         />
       </Box>
-      <Box sx={{ zIndex: 2, px: { xs: 2, sm: 4, md: "16rem" } }}>
+      {/* <Box sx={{ zIndex: 2, px: { xs: 2, sm: 4, md: "16rem" } }}>
         <SubscribeComponent />
-      </Box>
-      <Box sx={{ zIndex: 2 }}>
+      </Box> */}
+      <Box sx={{ zIndex: 2, }}>
         <FooterComponent />
       </Box>
     </Box>
