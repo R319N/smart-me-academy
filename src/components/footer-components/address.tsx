@@ -12,6 +12,7 @@ import PhoneCallButton from "../contact-components/phoneButton";
 import EmailButton from "../contact-components/emailButton";
 import RotatingCard from "../RotatingCard/RotatingCard";
 import { GpsFixed, LocationPin } from "@mui/icons-material";
+import { address } from "@/utils/data/constants";
 
 
 
@@ -42,7 +43,7 @@ const Address = () => {
                 "&:hover": { color: (theme) => theme.palette.primary.main },
               }}
             >
-              84 Gourlay Street, Meyerton 1961
+            {address}
             </Typography>
           </Box>
           <Box display="flex" alignItems="center">
