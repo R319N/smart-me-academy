@@ -141,12 +141,12 @@ const OurPrograms = () => {
   }
 
   return (
-    <Container>
-      <Box sx={{ mt: "4rem" }}>
+    <Container sx={{ ...styles.container, py:"4rem"}} >
+      <Box sx={{ py: "4rem" }}>
         <HeadingText
           header="Our Programs"
           subHeader="Explore our comprehensive curriculum"
-          subHeaderColor="text.secondary"
+          subHeaderColor="text.primary"
           color1="text.primary"
         />
       </Box>
@@ -226,7 +226,7 @@ const OurPrograms = () => {
                     sx={{
                       // color: "white",
                       textTransform: "capitalize",
-                      fontWeight: "500",
+                      fontWeight: "bold",
                     }}
                   >
                     {program.name}

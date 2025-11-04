@@ -13,7 +13,7 @@ const Testimonials = () => {
         width: "100%",
         flexDirection: "column",
         // backgroundColor:"#010b13",
-        backgroundImage: `linear-gradient(to bottom, #E6e4ce 10%, #010b13  100%)`,
+        backgroundImage: `linear-gradient(to bottom, #E6e4ce 10%, #121d3bff 100%)`,
       }}
       id="testimonials"
     >

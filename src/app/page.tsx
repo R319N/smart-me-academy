@@ -44,7 +44,7 @@ export default function Home() {
           {/* </Box> */}
           <AboutUsSection />
           <Testimonials />
-          <InformativeSection />
+          {/* <InformativeSection /> */}
           <ContactUs />
           <Footer />
           <ContactIcon />

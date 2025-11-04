@@ -1,6 +1,7 @@
 import Documents from '@/components/informative-section-components/Documents'
 import { styles } from '@/styles/styles'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import Link from 'next/link'
 import React from 'react'
 
 const InformativeSection = () => {
@@ -16,7 +17,14 @@ const InformativeSection = () => {
     >
       {/* <div className="gradient-01" /> */}
       <Box >
-        <Documents />
+        <Typography>
+          download enrollment form
+          <Link href="">
+            download
+          </Link>
+        </Typography>
+
+        {/* <Documents /> */}
       </Box>
     </section>
   )

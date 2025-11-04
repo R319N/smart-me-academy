@@ -49,9 +49,9 @@ const AboutUs = () => {
     return (
         <Stack gap={5}>
             <Box>
-                <HeadingText header="get to know us" subHeader='about us' />
+                <HeadingText header="get to know us" subHeader='about us' subHeaderColor='text.secondary' />
             </Box>
-            <MasonryImageList />
+            {/* <MasonryImageList />
             <Stack gap={3} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
 
                 <Typography variant='body1' width="100%" textAlign='center' maxWidth={{ xs: "100%", md: "70%" }}>
@@ -98,7 +98,7 @@ const AboutUs = () => {
                         </Box>
                         <Box sx={{ width: "100%" }}>
                             <CardContent sx={{ p: "1rem", }}>
-                                {/* <Stack gap={1} > */}
+                            
                                 <Typography variant='h6'
                                     width="100%" color='secondary' textTransform={"capitalize"}
                                     fontWeight={(theme) => theme.typography.fontWeightMedium} >
@@ -109,7 +109,7 @@ const AboutUs = () => {
                                     who saw a gap in her child’s academics because of COVID 19.
 
                                 </Typography>
-                                {/* </Stack> */}
+                                
                             </CardContent>
                             <Box sx={{ width: "100%", display: "flex", justifyContent: "right", p: "0 1rem 1rem" }}>
                                 <Box
@@ -157,10 +157,10 @@ const AboutUs = () => {
                 </Card>
             </Stack>
             <Box sx={{ width: "100%", display: "flex", justifyContent: "right" }}>
-                <GlowingButton>
+                <GlowingButton href='/about'>
                     More About Us
                 </GlowingButton>
-            </Box>
+            </Box> */}
 
         </Stack>
 

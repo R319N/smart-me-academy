@@ -24,10 +24,10 @@ export default function MasonryImageList() {
 
 const itemData = [
 
-    {
-        img: '/gallery/gallery1.jpg',
-        title: 'Books',
-    },
+    // {
+    //     img: '/gallery/gallery1.jpg',
+    //     title: 'Books',
+    // },
 
     {
         img: '/gallery/gallery3.jpg',
@@ -42,10 +42,10 @@ const itemData = [
         img: '/gallery/entrance1.jpg',
         title: 'Doors',
     },
-    {
-        img: '/gallery/gallery4.jpg',
-        title: 'Chairs',
-    },
+    // {
+    //     img: '/gallery/gallery4.jpg',
+    //     title: 'Chairs',
+    // },
     {
         img: '/gallery/playground1.jpg',
         title: 'Coffee',
@@ -59,10 +59,10 @@ const itemData = [
         title: 'Laptop',
 
     },
-    {
-        img: '/gallery/gallery2.jpg',
-        title: 'Kitchen',
-    },
+    // {
+    //     img: '/gallery/gallery2.jpg',
+    //     title: 'Kitchen',
+    // },
      {
         img: '/gallery/playground2.jpg',
         title: 'Kitchen',

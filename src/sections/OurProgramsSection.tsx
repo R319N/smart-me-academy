@@ -13,7 +13,7 @@ const OurProgramsSection = () => {
                 minHeight: "100vh",
                 flexDirection: "column",
                 backgroundSize: "cover",
-                backgroundImage: "linear-gradient(180deg,#E6E4CE 10%, #101b13 100%)",
+                backgroundImage: "linear-gradient(180deg,#E6E4CE 10%, #010b13cc 100%)",
 
             }}
             id="programs"

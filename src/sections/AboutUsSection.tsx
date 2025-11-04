@@ -12,7 +12,7 @@ const AboutUsSection = () => {
                 width: "100%",
                 minHeight: "100vh",
                 flexDirection: "column",
-                backgroundImage: `linear-gradient(to bottom, transparent 30%, #0343c275 100%)`,
+                backgroundImage: `linear-gradient(to bottom, #010b13cc 30%, #0343c275 50%, #E6E4CE 100%)`,
             }}
             id="about-us"
         >
@@ -21,6 +21,7 @@ const AboutUsSection = () => {
                 width: "100%",
                 height: "100%",
                 backgroundRepeat: "no-repeat",
+                py:"4rem"
             }}>
                 <motion.div
                     variants={staggerContainer}

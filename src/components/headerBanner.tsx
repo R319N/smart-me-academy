@@ -49,7 +49,7 @@ const HeaderText: React.FC<HeaderBannerProps> = ({ header, subHeader, color1, su
           className={caveatBrush.className}
           sx={{
             ...caveatBrush.style,
-            fontSize: { xs: pxToRem(38), lg: pxToRem(52) },
+            fontSize: { xs: pxToRem(38), lg: pxToRem(42) },
             textTransform: 'uppercase',
             // letterSpacing: 2,
             fontWeight: 'bold',
