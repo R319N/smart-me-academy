@@ -25,7 +25,7 @@ const FooterComponent = () => {
             sx={{
                 zIndex: 99,
                 width: "100%",
-                px: { xs: "1rem", md: "10vw", xl: "10vw" },
+                px: { xs: "1rem", md: "2rem", xl: "8rem" },
             }}
         >
             <Box
@@ -52,8 +52,8 @@ const FooterComponent = () => {
                     <Grid size={{ xs: 12, sm: 4 }}>
                         <FinalStatement />
                     </Grid>
-                    <Grid container size={{ xs: 12, sm: 8 }} >
-                        <Grid size={{ xs: 6, sm: 5, xl: 7 }} sx={{display:{ xs:"flex", sm:"block" }}}>
+                    <Grid container size={{ xs: 12, sm: 8 }} sx={{ display: "flex", justifyContent: "space-between" }}>
+                        <Grid size={{ xs: 12, sm: 6}} sx={{display:"flex", gap:"2rem", flexWrap:"wrap"}}>
                             <Stack width="fit-content" gap={1}>
                                 <Typography
                                     variant="h6"
@@ -84,8 +84,8 @@ const FooterComponent = () => {
                         {/* <Grid size={{ xs: 12, sm: 5 }} >
                            
                         </Grid> */}
-                        <Grid size={{ xs: 6, sm: 4 }}>
-                            <Stack width="fit-content" gap={1}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
+                            <Stack gap={1}>
                                 <Typography
                                     variant="h6"
                                     textTransform="capitalize"
