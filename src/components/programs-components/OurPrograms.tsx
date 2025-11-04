@@ -130,7 +130,7 @@ import { programData } from "@/utils/data/programsData"
 import Image from "next/image"
 import { styles } from "@/styles/styles"
 import GlowingButtonOutlined from "../glowingButtonOutlined"
-import { InfoOutlined, Close } from "@mui/icons-material"
+import { InfoOutlined, Close, ArrowDownward, ArrowUpward } from "@mui/icons-material"
 
 const OurPrograms = () => {
   // Track which card is open
@@ -146,6 +146,8 @@ const OurPrograms = () => {
         <HeadingText
           header="Our Programs"
           subHeader="Explore our comprehensive curriculum"
+          subHeaderColor="text.secondary"
+          color1="text.primary"
         />
       </Box>
 
@@ -179,7 +181,7 @@ const OurPrograms = () => {
                   ...styles.glassOutlinedDark,
                   position: "relative",
                   width: "100%",
-                  height: { xs: 240, sm: "40vh" },
+                  height: { xs: 280, },
                   overflow: "hidden",
                   borderRadius: 2,
                 }}
@@ -197,7 +199,7 @@ const OurPrograms = () => {
                   sx={{
                     position: "absolute",
                     inset: 0,
-                    bgcolor: "rgba(0, 0, 0, 0.65)",
+                    bgcolor: "#010b13cc",
                     zIndex: 1,
                   }}
                 />
@@ -220,8 +222,9 @@ const OurPrograms = () => {
                 >
                   <Typography
                     variant="body1"
+                    color="secondary.main"
                     sx={{
-                      color: "white",
+                      // color: "white",
                       textTransform: "capitalize",
                       fontWeight: "500",
                     }}
@@ -232,14 +235,14 @@ const OurPrograms = () => {
                     size="small"
                     endIcon={
                       openIndex === index ? (
-                        <Close sx={{ width: 16, height: 16 }} />
+                        <ArrowDownward sx={{ width: 16, height: 16 }} />
                       ) : (
-                        <InfoOutlined sx={{ width: 16, height: 16 }} />
+                        <ArrowUpward sx={{ width: 16, height: 16 }} />
                       )
                     }
                     onClick={() => handleToggle(index)}
                   >
-                    {openIndex === index ? "Close" : "More Info"}
+                    {openIndex === index ? "Less Info" : "More Info"}
                   </GlowingButtonOutlined>
                 </Box>
 
@@ -254,26 +257,26 @@ const OurPrograms = () => {
                       style={{
                         position: "absolute",
                         inset: 0,
-                        backgroundColor: "rgba(0,0,0,0.9)",
+                        backgroundColor: "#010b13ff)",
+                        backdropFilter: "blur(5px)",
                         color: "white",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "1.5rem",
-                        zIndex: 4,
+                        marginBottom: "3.5rem",
+                        zIndex: 2,
                       }}
                     >
                       <Typography
-                        variant="h6"
-                        sx={{ mb: 1, textTransform: "capitalize" }}
-                      >
-                        {program.name}
-                      </Typography>
-                      <Typography
                         variant="body2"
-                        color="textSecondary"
-                        sx={{ maxWidth: 300, textAlign: "center" }}
+                        color="text.secondary"
+                        sx={{
+                          maxWidth: 300,
+                          textAlign: "left",
+                          fontWeight: (theme) => theme.typography.fontWeightRegular
+                        }}
                       >
                         {program.description || "Detailed info coming soon..."}
                       </Typography>
@@ -286,9 +289,9 @@ const OurPrograms = () => {
         ))}
       </Grid>
 
-      <Box my={4} display="flex" justifyContent="flex-end" width="100%">
+      {/* <Box my={4} display="flex" justifyContent="flex-end" width="100%">
         <Button variant="contained">View All Programs</Button>
-      </Box>
+      </Box> */}
     </Container>
   )
 }

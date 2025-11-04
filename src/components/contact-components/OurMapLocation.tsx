@@ -23,8 +23,7 @@ export default function BusinessMap() {
         referrerPolicy="no-referrer-when-downgrade"
       /> */}
 
-
-      <iframe src="https://www.google.com/maps/place/6+Loerie+St,+Meyerton+Park+(Farms),+Meyerton,+1961/@-26.5457187,27.9932279,15z/data=!3m1!4b1!4m6!3m5!1s0x1e94feaebb433051:0x4f15650d6c28904d!8m2!3d-26.5457391!4d28.011682!16s%2Fg%2F11hht3j2p2?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D"></iframe>
-    </Paper>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14276.792282458837!2d28.01155038829236!3d-26.54590409538259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94feaebb433051%3A0x4f15650d6c28904d!2s6%20Loerie%20St%2C%20Meyerton%20Park%20(Farms)%2C%20Meyerton%2C%201961!5e0!3m2!1sen!2sza!4v1762222635560!5m2!1sen!2sza" width="600" height="450" style={{border:0}} loading="lazy" ></iframe>
+     </Paper>
   );
 }
