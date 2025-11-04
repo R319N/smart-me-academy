@@ -6,6 +6,9 @@ import { styles } from '@/styles/styles'
 import GlowingButton from '../glowingButton'
 import Image from 'next/image'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DownloadIcon from '@mui/icons-material/FileDownload';
+import Heading4 from '../UI/Heading4'
+import { ExoFontWrapper } from '@/layouts/wrappers/PoppinsWrapper'
 
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -51,8 +54,49 @@ const AboutUs = () => {
             <Box>
                 <HeadingText header="get to know us" subHeader='about us' subHeaderColor='text.secondary' />
             </Box>
-            {/* <MasonryImageList />
-            <Stack gap={3} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
+            <Stack gap={4} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
+                <Typography variant='body2' width="100%" color='text.secondary' textAlign='center' sx={{ fontWeight: "fontWeightMedium" }} maxWidth={{ xs: "100%", md: "70%" }}>
+                    Every learner has the potential to succeed, and at Smart Me Academy, we provide the tools and support to unlock that potential.
+                    With a strong foundation and a passion for learning, our students are equipped to achieve their dreams.
+                </Typography>
+                <MasonryImageList />
+                <Box
+                    sx={{ width: "100%", display: "flex", justifyContent: "start", my: "2rem" }}
+                >
+
+
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            cursor: "pointer",
+                            p: "1rem 4rem",
+                            ...styles.glassOutlinedDark,
+                            width: { xs: "100%", md: "50vw" }
+                            // height: "100px",
+                        }}
+                        gap={1}
+                    >
+                        <Typography
+                            variant='body1'
+                            textTransform={"capitalize"}
+                            color="text.secondary"
+                        >
+                            download enrollment form
+                        </Typography>
+                        <IconButton size="small" sx={{ borderRadius: "50%" }} component="a"
+                            href="/enrollment-form.pdf" // file in /public
+                            download // ensures the browser downloads instead of opening
+                            color="primary"
+                            aria-label="download">
+                            <DownloadIcon fontSize="small" />
+                        </IconButton>
+                    </Box>
+                </Box>
+            </Stack>
+            {/*
+           
 
                 <Typography variant='body1' width="100%" textAlign='center' maxWidth={{ xs: "100%", md: "70%" }}>
                     Every learner has the potential to succeed, and at Smart Me Academy, we provide the tools and support to unlock that potential.
