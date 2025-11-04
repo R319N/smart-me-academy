@@ -105,19 +105,7 @@ const ContactForm = () => {
                             sx={{ width: "300px" }}
                         />
                     </Box>
-                    <Box sx={{ py: "1rem" }}>
-                        <InputLabel htmlFor="fullname">company name</InputLabel>
-                        <TextField
-                            variant="standard"
-                            type="text"
-                            // margin="normal"
-                            name="from_company"
-                            placeholder="yourname/company name/ brand name ..."
-                            id="company"
-                            required
-                            sx={{ width: "300px", pt: "1px" }}
-                        />
-                    </Box>
+                  
                     <Box sx={{ py: "1rem" }}>
                         <InputLabel htmlFor="email">email/phone</InputLabel>
                         <TextField

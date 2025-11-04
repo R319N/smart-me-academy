@@ -7,7 +7,7 @@ const { text } = colors
 const formLabel = {
   styleOverrides: {
     root: {
-      color: text.primary,
+      color: text.seconadry,
       textTransform: 'capitalize'
     }
   }

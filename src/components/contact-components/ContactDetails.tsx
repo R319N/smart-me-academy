@@ -53,8 +53,8 @@ export default function ContactDetails() {
                                         <ListItemText
                                             primary={item.name}
                                             secondary={item.details}
-                                            color="secondary"
-                                            sx={{ mx: "2rem", align: "left" }}
+                                            // color="secondary"
+                                            sx={{ mx: "2rem", align: "left", color: "text.secondary" }}
                                         />
                                     </MenuItem>
                                 </Box>

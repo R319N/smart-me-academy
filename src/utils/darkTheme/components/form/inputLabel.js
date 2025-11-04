@@ -8,7 +8,7 @@ const inputLabel = {
   styleOverrides: {
     root: {
       fontSize: size.xs,
-      color: text.primary,
+      color: text.secondary,
       lineHeight: 0.9,
 
       "&.Mui-focused": {
