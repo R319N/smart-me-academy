@@ -224,8 +224,8 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                     width: "95%",
                     display: "flex", justifyContent: "space-between", alignItems: "center",
                    // position: "absolute",
-                    //bottom: "30vh",
-                    transform: "translateY(-50%, 50%)",
+                    top: "30vh",
+                    //transform: "translateY(-50%, 50%)",
                     zIndex: 99
                 }}
                 >
