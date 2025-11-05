@@ -53,7 +53,7 @@ const FooterComponent = () => {
                         <FinalStatement />
                     </Grid>
                     <Grid container size={{ xs: 12, sm: 8 }} sx={{ display: "flex", justifyContent: "space-between" }}>
-                        <Grid size={{ xs: 12, sm: 6}} sx={{display:"flex", gap:"2rem", flexWrap:"wrap"}}>
+                        <Grid size={{ xs: 12, sm: 6}} sx={{display:{xs:"block", xl:"flex"} , gap:"2rem", flexWrap:"wrap"}}>
                             <Stack width="fit-content" gap={1}>
                                 <Typography
                                     variant="h6"
