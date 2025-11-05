@@ -64,6 +64,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
   const { scrollSnaps, onDotButtonClick } = useDotButton(emblaApi, onNavButtonClick)
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
     usePrevNextButtons(emblaApi, onNavButtonClick)
+const dotColors = ["#ff4b5c", "#ffcd3c", "#4bb543", "#3498db"];
 
   return (
     <Stack gap={3}>
@@ -191,11 +192,19 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
         <Box className="embla__dots" gap={0.5}>
           {scrollSnaps.map((_, index) => (
             <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              className={`embla__dot ${index === activeIndex ? "embla__dot--selected" : ""
-                }`}
-            />
+  key={index}
+  onClick={() => onDotButtonClick(index)}
+  style={{
+    backgroundColor:
+      index === activeIndex ? dotColors[index % dotColors.length] : "#ccc",
+    width: 10,
+    height: 10,
+    borderRadius: "50%",
+    margin: 4,
+    transition: "background-color 0.3s ease",
+  }}
+/>
+
           ))}
         </Box>
       </Box>
