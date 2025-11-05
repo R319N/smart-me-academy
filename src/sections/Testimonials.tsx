@@ -23,7 +23,7 @@ const Testimonials = () => {
         <OurTestimonialsComponent />
         <Stack gap={2} py={"4rem"}>
           <ExoFontWrapper>
-            <Typography variant='h4' textAlign="center" fontWeight={"bold"} color='text.primary'>
+            <Typography variant='h4' textAlign="center" fontWeight={"bold"} color='text.secondary'>
               have any questions?
             </Typography>
 
