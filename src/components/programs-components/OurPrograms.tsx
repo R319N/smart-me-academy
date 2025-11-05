@@ -131,6 +131,9 @@ import Image from "next/image"
 import { styles } from "@/styles/styles"
 import GlowingButtonOutlined from "../glowingButtonOutlined"
 import { InfoOutlined, Close, ArrowDownward, ArrowUpward } from "@mui/icons-material"
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+
 
 const OurPrograms = () => {
   // Track which card is open
@@ -235,9 +238,9 @@ const OurPrograms = () => {
                     size="small"
                     endIcon={
                       openIndex === index ? (
-                        <ArrowDownward sx={{ width: 16, height: 16 }} />
+                        <ExapandLessIcon sx={{ width: 16, height: 16 }} />
                       ) : (
-                        <ArrowUpward sx={{ width: 16, height: 16 }} />
+                        <ExpandMoreIcon sx={{ width: 16, height: 16 }} />
                       )
                     }
                     onClick={() => handleToggle(index)}
