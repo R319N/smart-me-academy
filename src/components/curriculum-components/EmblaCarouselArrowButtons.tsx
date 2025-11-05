@@ -64,14 +64,10 @@ export const PrevButton: React.FC<PropType> = (props) => {
   return (
     <IconButton
       sx={{
-        ...styles.glassOutlined,
-        borderRadius: "50%",
-         padding: "0.2rem",
-        height: "2rem",
-        width: "2rem",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        ...styles.glassOutlinedDark,
+        borderRadius: "10px",
+        height: "32px",
+        width :"32px",
 
       }}
     >
