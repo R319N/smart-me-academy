@@ -71,7 +71,7 @@ const AboutUs = () => {
                             alignItems: "center",
                             justifyContent: "space-between",
                             cursor: "pointer",
-                            p: "1rem 4rem",
+                            p: "1rem 2rem",
                             ...styles.glassOutlinedDark,
                             width: { xs: "100%", md: "50vw" }
                             // height: "100px",
