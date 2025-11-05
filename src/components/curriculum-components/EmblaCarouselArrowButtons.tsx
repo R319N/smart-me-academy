@@ -95,8 +95,8 @@ export const NextButton: React.FC<PropType> = (props) => {
       sx={{
         ...styles.glassOutlinedDark,
         borderRadius: "10px",
-        height: "18px",
-        width :"18px",
+        height: "32px",
+        width :"32px",
       }}
     >
       <span
