@@ -86,19 +86,19 @@ const ContactForm = () => {
                     }}
                 >
                     <Box mb="1rem">
-                        <Typography variant="h4" sx={{ textTransform: "capitalize" }}>
+                        <Typography variant="h4" sx={{ textTransform: "capitalize", color: "text.secondary}}>
                             fill in form
                         </Typography>
                         <Divider />
                     </Box>
 
                     <Box sx={{ py: "1rem" }}>
-                        <InputLabel htmlFor="fullname">name</InputLabel>
+                        <InputLabel htmlFor="full Name">Name</InputLabel>
                         <TextField
                             variant="standard"
                             // margin="normal"
                             name="from_name"
-                            placeholder="fullname"
+                            placeholder="full name"
                             id="name"
                             required
                             fullWidth
