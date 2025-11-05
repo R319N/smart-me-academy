@@ -217,7 +217,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                // position: "relative",
+                position: "relative",
                 height: "100%"
             }}>
                 <div style={{
