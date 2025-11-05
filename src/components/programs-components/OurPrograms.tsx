@@ -278,7 +278,7 @@ const OurPrograms = () => {
                         sx={{
                           maxWidth: 300,
                           textAlign: "left",
-                          fontWeight: (theme) => theme.typography.fontWeightRegular
+                          fontWeight: (theme) => theme.typography.fontWeightMedium
                         }}
                       >
                         {program.description || "Detailed info coming soon..."}
