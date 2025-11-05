@@ -73,7 +73,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
           ref={emblaRef}
           sx={{
             // overflow: "hidden",
-        padding: { xs: "10% 0 10% 0", sm: "0 10%", md: "0 8%" }, 
+        padding: { xs: "0", sm: "0 10%", md: "0 8%" }, 
             // height // 👈 centers better on desktop
           }}
         >
@@ -85,7 +85,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                   key={index}
                   sx={{
                    flex: { xs: "0 0 80%", sm: "0 0 70%", md: "0 0 50%" },  // balanced sizing
-                    pr: { xs: 0, sm: "1rem" },//slide spacing
+                    pr: { xs: "1rem", sm: "1rem" },//slide spacing
                     // mb: "2rem",
                     cursor: "pointer",
                     position: "relative",
