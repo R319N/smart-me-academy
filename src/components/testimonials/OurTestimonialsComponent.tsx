@@ -62,7 +62,7 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
         usePrevNextButtons(emblaApi, onNavButtonClick)
 
     return (
-        <Stack gap={0} width="100%" sx={{ px: { xs: "0", md: "10rem" }, }}>
+        <Stack gap={0} width="100%" sx={{ px: { xs: "0", md: "10rem" }, position:"relative" }}>
             <HeaderText header="What People Say" subHeader="Testimonials" color1="text.primary" />
             <div className="embla">
                 <Box
@@ -217,13 +217,13 @@ const OurTestimonials: React.FC<PropType> = ({ options }) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                position: "relative",
+                position: "absolute",
                 height: "100%"
             }}>
                 <div style={{
                     width: "95%",
                     display: "flex", justifyContent: "space-between", alignItems: "center",
-                    position: "absolute",
+                   // position: "absolute",
                     bottom: "50%",
                     transform: "translateY(-50%, 50%)",
                     zIndex: 99
