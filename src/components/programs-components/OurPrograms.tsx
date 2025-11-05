@@ -238,9 +238,9 @@ const OurPrograms = () => {
                     size="small"
                     endIcon={
                       openIndex === index ? (
-                        <ExpandLessIcon sx={{ width: 16, height: 16 }} />
-                      ) : (
                         <ExpandMoreIcon sx={{ width: 16, height: 16 }} />
+                      ) : (
+                        <ExpandLessIcon sx={{ width: 16, height: 16 }} />
                       )
                     }
                     onClick={() => handleToggle(index)}
