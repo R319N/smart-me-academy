@@ -86,7 +86,7 @@ const ContactForm = () => {
                     }}
                 >
                     <Box mb="1rem">
-                        <Typography variant="h4" sx={{ textTransform: "capitalize", color: "text.secondary}}>
+                        <Typography variant="h4" sx={{ textTransform: "capitalize", color: "text.secondary"}}>
                             fill in form
                         </Typography>
                         <Divider />
