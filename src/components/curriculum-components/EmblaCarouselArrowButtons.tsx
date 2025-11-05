@@ -93,10 +93,10 @@ export const NextButton: React.FC<PropType> = (props) => {
   return (
     <IconButton
       sx={{
-        ...styles.glassOutlined,
-        borderRadius: "50%",
-        height: "2rem",
-        width: "2rem",
+        ...styles.glassOutlinedDark,
+        borderRadius: "10px",
+        height: "18px",
+        width :"18px",
       }}
     >
       <span
