@@ -238,7 +238,7 @@ const OurPrograms = () => {
                     size="small"
                     endIcon={
                       openIndex === index ? (
-                        <ExapandLessIcon sx={{ width: 16, height: 16 }} />
+                        <ExpandLessIcon sx={{ width: 16, height: 16 }} />
                       ) : (
                         <ExpandMoreIcon sx={{ width: 16, height: 16 }} />
                       )
