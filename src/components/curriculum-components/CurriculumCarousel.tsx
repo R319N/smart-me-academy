@@ -84,7 +84,7 @@ const Curriculum: React.FC<PropType> = ({ options }) => {
                 <Box
                   key={index}
                   sx={{
-                   flex: { xs: "0 0 80%", sm: "0 0 70%", md: "0 0 50%" },  // balanced sizing
+                   flex: { xs: "0 0 90%", sm: "0 0 70%", md: "0 0 50%" },  // balanced sizing
                     pr: { xs: "1rem", sm: "1rem" },//slide spacing
                     // mb: "2rem",
                     cursor: "pointer",
