@@ -1,4 +1,4 @@
-Joimport HeadingText from '../headerBanner'
+import HeadingText from '../headerBanner'
 import SlidingText from '../CustomizedComponents/SlidingText'
 import { styles } from '@/styles/styles'
 import CurriculumCarousel from './CurriculumCarousel'
