@@ -17,18 +17,25 @@ export interface IStudent extends Document {
   monthlyTuition: string;
   paymentDay: string;
   year: string;
+  
+  // optional file fields (schema does not mark these as required)
+  idImage?: string;
+  proofOfResidence?: string;
+  birthCertificate?: string;
+  latestCardReport?: string;
+
   extraLessons: string;
   agreeTerms: boolean;
   agreePayment: boolean;
   registrationFeeAgreed: boolean;
-  enrolmentType: "enrolment" | "re-enrolment";
+  enrolmentType: "enrollment" | "re-enrollment";
 }
 
 const StudentSchema = new Schema<IStudent>(
   {
     firstName: String,
     surname: String,
-    enrolmentType: { type: String, enum: ["enrolment", "re-enrolment"], required: true },
+    enrolmentType: { type: String, enum: ["enrollment", "re-enrollment"], required: true },
     gender: String,
     dob: String,
     grade: String,
@@ -43,6 +50,10 @@ const StudentSchema = new Schema<IStudent>(
     monthlyTuition: String,
     paymentDay: String,
     year: String,
+    idImage: { type: String },
+    proofOfResidence: { type: String },
+    birthCertificate: { type: String },
+    latestCardReport: { type: String },
     extraLessons: String,
     agreeTerms: Boolean,
     agreePayment: Boolean,
