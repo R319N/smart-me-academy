@@ -16,7 +16,7 @@ const stepIcon = {
       width: pxToRem(22),
       height: pxToRem(22),
       borderRadius: '50%',
-      zIndex: 99,
+      zIndex: 2,
       transition: 'all 200ms linear',
 
       '&.Mui-active': {

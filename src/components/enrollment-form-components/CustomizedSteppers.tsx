@@ -7,8 +7,11 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 import { StepContent, Typography, useMediaQuery } from '@mui/material';
 import { formSteps } from '@/utils/data/formSteps';
 interface Props {
-    activeStep: number
+  
+    activeStep: number;
+    formSteps: { title: string; detail: string }[];
 }
+
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -36,41 +39,12 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
   },
 }));
 
-const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-        top: "22%",
-    },
-    [`&.${stepConnectorClasses.active}`]: {
-        [`& .${stepConnectorClasses.line}`]: {
-            backgroundColor: theme.palette.primary.main,
-            backgroundImage:
-                'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-        },
-    },
-    [`&.${stepConnectorClasses.completed}`]: {
-        [`& .${stepConnectorClasses.line}`]: {
-            // backgroundImage:
-            //     'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-            // backgroundColor: theme.palette.text.primary,
-            backgroundColor: theme.palette.primary.main,
-        },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-        height: 3,
-        width: 2,
-        border: 0,
-        backgroundColor: theme.palette.text.primary,
-        borderRadius: 1,
-        ...theme.applyStyles('dark', {
-            backgroundColor: theme.palette.grey[800],
-        }),
-    },
-}));
 
 
-export default function CustomizedSteppers({ activeStep }: Props) {
+export default function CustomizedSteppers({ formSteps, activeStep }: Props) {
     const theme = useTheme();
     const phone = useMediaQuery(theme.breakpoints.down("sm"));
+    // const REformSteps = formSteps.filter(step => step.title !== "Documents Upload");
 
     return (
         <>

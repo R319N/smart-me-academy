@@ -1,5 +1,6 @@
 // types.ts
 export interface EnrollmentFormData {
+  formType?: string;
   firstName: string;
   surname: string;
   gender: string;

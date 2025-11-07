@@ -54,7 +54,7 @@ const HeroDetails = () => {
                                             textWrap: "balance",
                                         }}
                                     >
-                                        Smart Me. Bright Me.<br/>
+                                        Smart Me. Bright Me.<br />
                                         Bright Future.
                                     </Typography>
                                 </ExoFontWrapper>
@@ -95,7 +95,7 @@ const HeroDetails = () => {
                                         variant="contained"
                                         color='primary'
                                         type="button"
-                                        href='/enroll-with-us'
+                                        href="/enroll-with-us?type=enrollment"
                                         size="medium"
                                         fullWidth
                                         sx={{ width: { xs: "50%", sm: "150px", xl: "150px" } }}
@@ -105,7 +105,7 @@ const HeroDetails = () => {
                                     <GlowingButtonOutlined
                                         variant="outlined"
                                         type="button"
-                                        href='/enroll-with-us'
+                                        href="/enroll-with-us?type=reenrollment"
                                         size="medium"
                                         fullWidth
                                         sx={{ width: { xs: "50%", sm: "150px", xl: "150px" } }}                         // sx={{ width: { xs: "50%", md: "100%" } }}
@@ -124,7 +124,7 @@ const HeroDetails = () => {
                 size={{ xs: 12, md: 6 }}
                 sx={{
                     display: { xs: "none", xl: "flex" },
-                    appearance:"none",
+                    appearance: "none",
                     alignItems: "center",
                     justifyContent: "flex-end",
                     height: "100%",

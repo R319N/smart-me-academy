@@ -15,7 +15,7 @@ import StudentDetails from "./StudentDetails";
 import CustodianDetails from "./CustodianDetails";
 import DocumentsUpload from "./DocumentsUpload";
 import ConsentAndSubmit from "./ConsentAndSubmit";
-import { EnrollmentFormHeading } from "./EnrollmentFormHeading";
+import { ReEnrollmentFormHeading } from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import { EnrollmentFormData } from "../../../types";
@@ -24,46 +24,41 @@ import { styles } from "@/styles/styles";
 import GlowingButton from "../glowingButton";
 import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
-
-// const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
+ 
 interface Props {
     formSteps: { title: string; detail: string }[];
 }
-const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
+
+const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
     const [activeStep, setActiveStep] = useState(0);
     const [openModal, setOpenModal] = useState(false);
-    const [formData, setFormData] = useState({
-        // Step 1
-        
-        firstName: "",
-        surname: "",
-        gender: "",
-        dob: "",
-        grade: "",
-        idOrPassport: "",
-        // Step 2
-        custodianFullName: "",
-        email: "",
-        contactNumber: "",
-        whatsappNumber: "",
-        relationshipToStudent: "",
-        maritalStatus: "",
-        address: "",
-        // Step 3
-        idImage: null as File | null,
-        proofOfResidence: null as File | null,
-        birthCertificate: null as File | null,
-        latestCardReport: null as File | null,
-        // Step 4
-        monthlyTuition: "",
-        paymentDay: "",
-        year: "",
-        extraLessons: "",
-        agreeTerms: false,
-        agreePayment: false,
-        //Step 5
-        registrationFeeAgreed: false,
-    });
+   const [formData, setFormData] = useState<EnrollmentFormData>({
+  formType: "reenrollment",
+  firstName: "",
+  surname: "",
+  gender: "",
+  dob: "",
+  grade: "",
+  idOrPassport: "",
+  custodianFullName: "",
+  email: "",
+  contactNumber: "",
+  whatsappNumber: "",
+  relationshipToStudent: "",
+  maritalStatus: "",
+  address: "",
+  idImage: null,
+  proofOfResidence: null,
+  birthCertificate: null,
+  latestCardReport: null,
+  monthlyTuition: "",
+  paymentDay: "",
+  year: "",
+  extraLessons: "",
+  agreeTerms: false,
+  agreePayment: false,
+  registrationFeeAgreed: false,
+});
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -89,14 +84,8 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
             if (!formData.address.trim()) newErrors.address = "Address is required";
         }
 
-        if (activeStep === 2) {
-            if (!formData.idImage) newErrors.idImage = "ID Image is required";
-            if (!formData.proofOfResidence) newErrors.proofOfResidence = "Proof of Residence is required";
-            if (!formData.birthCertificate) newErrors.birthCertificate = "Birth Certificate is required";
-            if (!formData.latestCardReport) newErrors.latestCardReport = "Latest Card Report is required";
-        }
 
-        if (activeStep === 3) {
+        if (activeStep === 2) {
             if (!formData.grade) newErrors.grade = "Grade is required";
             if (!formData.paymentDay) newErrors.paymentDay = "Payment day is required";
             if (!formData.year) newErrors.year = "Year is required";
@@ -123,21 +112,6 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
 
         try {
             const payload: EnrollmentFormData = { ...formData };
-
-            // Upload files...
-            if (formData.idImage) {
-                payload.idImage = await uploadToCloudinary(formData.idImage);
-            }
-            if (formData.proofOfResidence) {
-                payload.proofOfResidence = await uploadToCloudinary(formData.proofOfResidence);
-            }
-            if (formData.birthCertificate) {
-                payload.birthCertificate = await uploadToCloudinary(formData.birthCertificate);
-            }
-            if (formData.latestCardReport) {
-                payload.latestCardReport = await uploadToCloudinary(formData.latestCardReport);
-            }
-
             // Send to API
             const res = await fetch("/api/students", {
                 method: "POST",
@@ -167,7 +141,7 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <EnrollmentFormHeading />
+            <ReEnrollmentFormHeading />
             <Grid container sx={styles.center_flex} spacing={2}>
                 <Grid size={{ xs: 12, sm: 4 }}>
                     <CustomizedSteppers activeStep={activeStep} formSteps={formSteps} />
@@ -180,9 +154,6 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
                         <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} />
                     )}
                     {activeStep === 2 && (
-                        <DocumentsUpload formData={formData} setFormData={setFormData} errors={errors} />
-                    )}
-                    {activeStep === 3 && (
                         <ConsentAndSubmit formData={formData} setFormData={setFormData} errors={errors} />
                     )}
                 </Grid>
@@ -241,4 +212,4 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
     );
 };
 
-export default EnrollmentForm;
+export default ReEnrollmentForm;

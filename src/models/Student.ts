@@ -21,12 +21,14 @@ export interface IStudent extends Document {
   agreeTerms: boolean;
   agreePayment: boolean;
   registrationFeeAgreed: boolean;
+  enrolmentType: "enrolment" | "re-enrolment";
 }
 
 const StudentSchema = new Schema<IStudent>(
   {
     firstName: String,
     surname: String,
+    enrolmentType: { type: String, enum: ["enrolment", "re-enrolment"], required: true },
     gender: String,
     dob: String,
     grade: String,
