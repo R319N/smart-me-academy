@@ -52,7 +52,7 @@ const AboutUs = () => {
     return (
         <Stack gap={5}>
             <Box>
-                <HeadingText header="get to know us" subHeader='about us' subHeaderColor='text.secondary' />
+                <HeadingText header="get to know us" subHeader='about us' subHeaderColor='text.secondary' color1="text.secondary" />
             </Box>
             <Stack gap={4} sx={{ ...styles.center_flex, flexDirection: "column", height: "100%", width: "100%" }} >
                 <Typography variant='body2' width="100%" color='text.secondary' textAlign='center' sx={{ fontWeight: "fontWeightMedium" }} maxWidth={{ xs: "100%", md: "70%" }}>
