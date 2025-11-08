@@ -11,7 +11,7 @@ const SuccessScreen = () => {
 
     useEffect(() => {
         setWindowSize({
-            width: window.innerWidth,
+            width: 300,
             height: window.innerHeight,
         });
     }, []);
@@ -25,8 +25,8 @@ const SuccessScreen = () => {
         >
             {/* Confetti explosion */}
             <Confetti
-                width={windowSize.width}
-                height={windowSize.height} 
+                width={300}
+                height={windowSize.height}
                 numberOfPieces={220}
                 gravity={0.25}
                 recycle={false}
@@ -52,11 +52,11 @@ const SuccessScreen = () => {
                     ✅
                 </motion.div>
 
-                <Typography variant="h4" sx={{ mt: 2, mb: 2, fontWeight: 700 }}>
+                <Typography variant="h4" color="text.secondary" sx={{ mt: 2, mb: 2, fontWeight: 700 }}>
                     your form has been submitted!
                 </Typography>
 
-                <Typography sx={{ maxWidth: 480, mb: 4 }}>
+                <Typography sx={{ maxWidth: 480, mb: 4 }} color="text.secondary">
                     Your form has been successfully submitted.
                     Our admissions team will contact you soon.
                 </Typography>
