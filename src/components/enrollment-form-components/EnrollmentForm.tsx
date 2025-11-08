@@ -126,12 +126,11 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
         // Payload starts as EnrollmentFormData but file fields will become strings
         const payload: Partial<EnrollmentFormData> = { ...formData };
 
-
         const fileFields: (keyof EnrollmentFormData)[] = [
             "idImage",
             "proofOfResidence",
             "birthCertificate",
-            "latestCardReport"
+            "latestCardReport",
         ];
 
         for (const field of fileFields) {
@@ -139,9 +138,13 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
 
             if (value instanceof File) {
                 const url = await uploadToCloudinary(value);
-                (payload as any)[field] = url;
+
+                // ✅ No undefined, no any, no errors
+                (payload as Record<string, File | string | null>)[field] = url;
             }
         }
+
+
 
         const res = await fetch("/api/students", {
             method: "POST",
@@ -149,7 +152,7 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
             body: JSON.stringify(payload),
         });
 
-       const data = (await res.json()) as StudentResponse;
+        const data = (await res.json()) as StudentResponse;
 
 
         if (data.success) {

@@ -18,39 +18,38 @@ import { Box } from "@mui/material";
 
 export default function Home() {
   return (
-    <ServerLayout>
-      <RootLayout>
-        <Paper
-          sx={{
-            minHeight: "100vh",
-            height: "100%",
-            width: "100%",
-            overflow: "hidden",
-            borderRadius: "0",
-            margin: 0,
-            bgcolor: "#E6E4CE",
-          }}
-        >
-          <NavigationBar />
-          <HeroSection />
-          <div className="gradient-03" />
-          <CurriculumSection />
-          {/* <Box sx={{
+    // <ServerLayout>
+    <RootLayout>
+      <Paper
+        sx={{
+          minHeight: "100vh",
+          height: "100%",
+          width: "100%",
+          overflow: "hidden",
+          borderRadius: "0",
+          margin: 0,
+          bgcolor: "#E6E4CE",
+        }}
+      >
+        <NavigationBar />
+        <HeroSection />
+        <div className="gradient-03" />
+        <CurriculumSection />
+        {/* <Box sx={{
             position: "relative",
           }}> */}
 
-          <div className="gradient-04" />
-          <OurProgramsSection />
-          {/* </Box> */}
-          <AboutUsSection />
-          <Testimonials />
-          {/* <InformativeSection /> */}
-          <ContactUs />
-          <Footer />
-          <ContactIcon />
-          {/* <PromoPopup /> */}
-        </Paper>
-      </RootLayout>
-    </ServerLayout>
+        <div className="gradient-04" />
+        <OurProgramsSection />
+        {/* </Box> */}
+        <AboutUsSection />
+        <Testimonials />
+        {/* <InformativeSection /> */}
+        <ContactUs />
+        <Footer />
+        <ContactIcon />
+        {/* <PromoPopup /> */}
+      </Paper>
+    </RootLayout>
   );
 }    

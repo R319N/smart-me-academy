@@ -10,11 +10,21 @@ import gene20DarkTheme from '@/utils/darkTheme/gene20DarkTheme'
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
   return (
-    <AppRouterCacheProvider options={{ key: "css" }} {...props}>
-      <ThemeProvider theme={gene20DarkTheme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
-    </AppRouterCacheProvider>
+    <html>
+      <head>
+        <title>Smart Me Academy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body
+      >
+        <AppRouterCacheProvider options={{ key: "css" }} {...props}>
+          <ThemeProvider theme={gene20DarkTheme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
+    </html>
+
   );
 }
