@@ -95,7 +95,7 @@ const HeroDetails = () => {
                                         variant="contained"
                                         color='primary'
                                         type="button"
-                                        href="/enroll-with-us?type=enrollment"
+                                        href="/enroll-with-us?type=enrolment"
                                         size="medium"
                                         fullWidth
                                         sx={{ width: { xs: "50%", sm: "150px", xl: "150px" } }}
@@ -105,7 +105,7 @@ const HeroDetails = () => {
                                     <GlowingButtonOutlined
                                         variant="outlined"
                                         type="button"
-                                        href="/enroll-with-us?type=reenrollment"
+                                        href="/enroll-with-us?type=reenrolment"
                                         size="medium"
                                         fullWidth
                                         sx={{ width: { xs: "50%", sm: "150px", xl: "150px" } }}                         // sx={{ width: { xs: "50%", md: "100%" } }}

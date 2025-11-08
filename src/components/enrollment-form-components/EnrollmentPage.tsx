@@ -9,7 +9,7 @@ const EnrollmentPage = () => {
     const searchParams = useSearchParams();
     const mode = searchParams.get("type");
 
-    const isReEnrolment = mode === "re-enrollment" || mode === "reenrollment";
+    const isReEnrolment = mode === "re-enrolment" || mode === "reenrolment";
 
     // remove "Documents Upload" (index 2)
     const steps = isReEnrolment
@@ -19,7 +19,7 @@ const EnrollmentPage = () => {
         <Box my="14vh">
             <Container>
                 <>
-                    {mode === "reenrollment" ? (
+                    {mode === "reenrolment" ? (
                         <ReEnrollmentForm formSteps={steps} />
                     ) : (
                         <EnrollmentForm formSteps={steps} />

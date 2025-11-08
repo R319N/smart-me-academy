@@ -8,7 +8,7 @@ import GlowingButtonOutlined from "../glowingButtonOutlined";
 interface DocumentInputProps {
   label: string;
   name: string;
-  file?: File | null;
+  file?: File | string | null;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
 }
@@ -49,7 +49,11 @@ const DocumentInput: React.FC<DocumentInputProps> = ({ label, name, file, onChan
           Upload {label}
         </GlowingButton>
 
-        {file && <Typography variant="body2" color="green">{file.name}</Typography>}
+        {file && (
+          <Typography variant="body2" color="green">
+            {typeof file === "string" ? file : file.name}
+          </Typography>
+        )}
         {error && <Typography variant="body2" color="error">{error}</Typography>}
       </Box>
     </Grid>

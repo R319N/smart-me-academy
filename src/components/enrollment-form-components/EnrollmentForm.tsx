@@ -17,31 +17,30 @@ import DocumentsUpload from "./DocumentsUpload";
 import ConsentAndSubmit from "./ConsentAndSubmit";
 import { EnrollmentFormHeading } from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
-import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import { EnrollmentFormData } from "../../../types";
 import CustomizedSteppers from "./CustomizedSteppers";
 import { styles } from "@/styles/styles";
 import GlowingButton from "../glowingButton";
 import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
+import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
+import SuccessScreen from "./SuccessScreen";
 
 // const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
 interface Props {
     formSteps: { title: string; detail: string }[];
 }
-const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
+const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [openModal, setOpenModal] = useState(false);
-    const [formData, setFormData] = useState({
-        // Step 1
-        
+    const [formData, setFormData] = useState<EnrollmentFormData>({
+        enrolmentType: "enrollment",
         firstName: "",
         surname: "",
         gender: "",
         dob: "",
         grade: "",
         idOrPassport: "",
-        // Step 2
         custodianFullName: "",
         email: "",
         contactNumber: "",
@@ -49,23 +48,21 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
         relationshipToStudent: "",
         maritalStatus: "",
         address: "",
-        // Step 3
-        idImage: null as File | null,
-        proofOfResidence: null as File | null,
-        birthCertificate: null as File | null,
-        latestCardReport: null as File | null,
-        // Step 4
+        idImage: null,
+        proofOfResidence: null,
+        birthCertificate: null,
+        latestCardReport: null,
         monthlyTuition: "",
         paymentDay: "",
         year: "",
         extraLessons: "",
         agreeTerms: false,
         agreePayment: false,
-        //Step 5
         registrationFeeAgreed: false,
     });
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
+    const [showSuccess, setShowSuccess] = useState(false);
 
     // Step validation
     const validateStep = () => {
@@ -104,8 +101,6 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
             if (!formData.agreeTerms) newErrors.agreeTerms = "You must agree to terms";
             if (!formData.agreePayment) newErrors.agreePayment = "You must agree to payment policy";
         }
-
-
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -116,57 +111,59 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
 
     const handleBack = () => setActiveStep((prev) => prev - 1);
 
-    // Submit to API
+    // import { uploadToCloudinary } from "@/lib/uploadToCloudinary";
+
     const handleSubmit = async (e?: React.FormEvent) => {
-        e?.preventDefault(); // only if event exists
-        if (!validateStep()) return;
+        if (e) e.preventDefault();
 
-        try {
-            const payload: EnrollmentFormData = { ...formData };
+        const payload: any = { ...formData };
 
-            // Upload files...
-            if (formData.idImage) {
-                payload.idImage = await uploadToCloudinary(formData.idImage);
-            }
-            if (formData.proofOfResidence) {
-                payload.proofOfResidence = await uploadToCloudinary(formData.proofOfResidence);
-            }
-            if (formData.birthCertificate) {
-                payload.birthCertificate = await uploadToCloudinary(formData.birthCertificate);
-            }
-            if (formData.latestCardReport) {
-                payload.latestCardReport = await uploadToCloudinary(formData.latestCardReport);
-            }
+        const fileFields: (keyof EnrollmentFormData)[] = [
+            "idImage",
+            "proofOfResidence",
+            "birthCertificate",
+            "latestCardReport",
+        ];
 
-            // Send to API
-            const res = await fetch("/api/students", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
-            });
+        for (const field of fileFields) {
+            const value = formData[field];
 
-            const data = await res.json();
-            if (data.success) {
-                alert("Student saved successfully!");
-                console.log("Saved student:", data.student);
-            } else {
-                alert("Error: " + data.error);
+            // Upload only if it's a File object
+            if (value instanceof File) {
+                const url = await uploadToCloudinary(value);
+                payload[field] = url; // ✅ Replace File with URL string
             }
-        } catch (err) {
-            console.error(err);
-            alert("Something went wrong!");
         }
+
+        const res = await fetch("/api/students", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            setShowSuccess(true);  // ✅ Show success screen
+            console.log("Saved student:", data.student);
+        } else {
+            console.error("Error:", data.error);
+        }
+
+        return data;
     };
 
-    const handleFinalSubmit = () => {
+    const handleFinalSubmit = async () => {
         if (formData.registrationFeeAgreed) {
-            handleSubmit(); // ✅ no fake event needed
-            setOpenModal(false);
+            const result = await handleSubmit();
+            if (result?.success) setOpenModal(false);
         }
     };
 
+    if (showSuccess) return <SuccessScreen />;
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
+
             <EnrollmentFormHeading />
             <Grid container sx={styles.center_flex} spacing={2}>
                 <Grid size={{ xs: 12, sm: 4 }}>
@@ -204,7 +201,14 @@ const EnrollmentForm : React.FC<Props> = ({formSteps}) => {
                     </GlowingButton>
                 )}
             </Box>
-            <Dialog open={openModal} onClose={() => setOpenModal(false)}>
+            <Dialog 
+            open={openModal} 
+            onClose={() => setOpenModal(false)} 
+            sx={{ 
+                "& .MuiDialog-paper": {
+                    ...styles.glassOutlinedDark,
+                }
+            }}>
                 <DialogTitle>Registration Fee Agreement</DialogTitle>
                 <DialogContent>
                     <Typography>

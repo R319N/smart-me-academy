@@ -13,54 +13,57 @@ import {
 import React, { useState } from "react";
 import StudentDetails from "./StudentDetails";
 import CustodianDetails from "./CustodianDetails";
-import DocumentsUpload from "./DocumentsUpload";
 import ConsentAndSubmit from "./ConsentAndSubmit";
 import { ReEnrollmentFormHeading } from "./EnrollmentFormHeading";
 import BpCheckbox from "../CustomizedComponents/GeneCheckbox";
-import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import { EnrollmentFormData } from "../../../types";
 import CustomizedSteppers from "./CustomizedSteppers";
 import { styles } from "@/styles/styles";
 import GlowingButton from "../glowingButton";
 import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
- 
+import SuccessScreen from "./SuccessScreen";
+
 interface Props {
     formSteps: { title: string; detail: string }[];
 }
 
-const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
+const ReEnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [openModal, setOpenModal] = useState(false);
-   const [formData, setFormData] = useState<EnrollmentFormData>({
-  formType: "reenrollment",
-  firstName: "",
-  surname: "",
-  gender: "",
-  dob: "",
-  grade: "",
-  idOrPassport: "",
-  custodianFullName: "",
-  email: "",
-  contactNumber: "",
-  whatsappNumber: "",
-  relationshipToStudent: "",
-  maritalStatus: "",
-  address: "",
-  idImage: null,
-  proofOfResidence: null,
-  birthCertificate: null,
-  latestCardReport: null,
-  monthlyTuition: "",
-  paymentDay: "",
-  year: "",
-  extraLessons: "",
-  agreeTerms: false,
-  agreePayment: false,
-  registrationFeeAgreed: false,
-});
+
+    const [showSuccess, setShowSuccess] = useState(false);
+
+    const [formData, setFormData] = useState<EnrollmentFormData>({
+        enrolmentType: "reenrolment",
+        firstName: "",
+        surname: "",
+        gender: "",
+        dob: "",
+        grade: "",
+        idOrPassport: "",
+        custodianFullName: "",
+        email: "",
+        contactNumber: "",
+        whatsappNumber: "",
+        relationshipToStudent: "",
+        maritalStatus: "",
+        address: "",
+        idImage: null,
+        proofOfResidence: null,
+        birthCertificate: null,
+        latestCardReport: null,
+        monthlyTuition: "",
+        paymentDay: "",
+        year: "",
+        extraLessons: "",
+        agreeTerms: false,
+        agreePayment: false,
+        registrationFeeAgreed: false,
+    });
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
 
     // Step validation
     const validateStep = () => {
@@ -84,7 +87,6 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
             if (!formData.address.trim()) newErrors.address = "Address is required";
         }
 
-
         if (activeStep === 2) {
             if (!formData.grade) newErrors.grade = "Grade is required";
             if (!formData.paymentDay) newErrors.paymentDay = "Payment day is required";
@@ -93,7 +95,6 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
             if (!formData.agreeTerms) newErrors.agreeTerms = "You must agree to terms";
             if (!formData.agreePayment) newErrors.agreePayment = "You must agree to payment policy";
         }
-
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -107,12 +108,15 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
 
     // Submit to API
     const handleSubmit = async (e?: React.FormEvent) => {
-        e?.preventDefault(); // only if event exists
+        e?.preventDefault();
         if (!validateStep()) return;
 
         try {
-            const payload: EnrollmentFormData = { ...formData };
-            // Send to API
+            const payload = {
+                ...formData,
+                enrolmentType: "re-enrollment",
+            };
+
             const res = await fetch("/api/students", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -120,9 +124,9 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
             });
 
             const data = await res.json();
+
             if (data.success) {
-                alert("Student saved successfully!");
-                console.log("Saved student:", data.student);
+                setShowSuccess(true);  // ✅ Show success screen
             } else {
                 alert("Error: " + data.error);
             }
@@ -134,10 +138,15 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
 
     const handleFinalSubmit = () => {
         if (formData.registrationFeeAgreed) {
-            handleSubmit(); // ✅ no fake event needed
+            handleSubmit();
             setOpenModal(false);
         }
     };
+
+
+
+    // ✅ If success, show success screen instead of form
+    if (showSuccess) return <SuccessScreen />;
 
     return (
         <form onSubmit={handleSubmit}>
@@ -158,6 +167,7 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
                     )}
                 </Grid>
             </Grid>
+
             <Box width="100%" display="flex" justifyContent="right" sx={{ mt: 3 }}>
                 {activeStep > 0 && (
                     <GlowingButtonOutlined variant="outlined" onClick={handleBack} sx={{ mr: 1 }}>
@@ -175,12 +185,19 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
                     </GlowingButton>
                 )}
             </Box>
-            <Dialog open={openModal} onClose={() => setOpenModal(false)}>
-                <DialogTitle>Registration Fee Agreement</DialogTitle>
+
+            {/* Registration Fee Agreement Modal */}
+            <Dialog open={openModal} onClose={() => setOpenModal(false)}
+                sx={{
+                    "& .MuiDialog-paper": {
+                        ...styles.glassOutlinedDark,
+                    }
+                }}
+            >
+                <DialogTitle color="text.secondary">Registration Fee Agreement</DialogTitle>
                 <DialogContent>
-                    <Typography>
-                        By submitting, you agree to pay a non-refundable registration fee of{" "}
-                        <strong>R500</strong>.
+                    <Typography color="text.secondary">
+                        By submitting, you agree to pay a non-refundable registration fee of <strong>R500</strong>.
                     </Typography>
                     <div style={{ marginTop: "1rem" }}>
                         <BpCheckbox
@@ -192,22 +209,20 @@ const ReEnrollmentForm : React.FC<Props> = ({formSteps}) => {
                                 }))
                             }
                         />
-                        <span style={{ marginLeft: 8 }}>I agree to pay the registration fee.</span>
+                        <span style={{ marginLeft: 8, color: "#E6e4ce" }}>I agree to the school payment policy.</span>
                     </div>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => setOpenModal(false)}>Cancel</Button>
-                    <Button
+                    <GlowingButtonOutlined onClick={() => setOpenModal(false)}>Cancel</GlowingButtonOutlined>
+                    <GlowingButton
                         variant="contained"
                         onClick={handleFinalSubmit}
                         disabled={!formData.registrationFeeAgreed}
                     >
                         Confirm & Submit
-                    </Button>
+                    </GlowingButton>
                 </DialogActions>
             </Dialog>
-
-
         </form>
     );
 };

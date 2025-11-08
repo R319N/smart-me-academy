@@ -1,6 +1,9 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IStudent extends Document {
+  enrolmentType: "enrollment" | "re-enrollment";
+
+  // required for enrollment
   firstName: string;
   surname: string;
   gender: string;
@@ -14,50 +17,62 @@ export interface IStudent extends Document {
   relationshipToStudent: string;
   maritalStatus: string;
   address: string;
-  monthlyTuition: string;
-  paymentDay: string;
-  year: string;
-  
-  // optional file fields (schema does not mark these as required)
+
+  // optional for re-enrollment, required for enrollment
   idImage?: string;
   proofOfResidence?: string;
   birthCertificate?: string;
   latestCardReport?: string;
 
+  // ALWAYS required for enrollment only
+  monthlyTuition: string;
+  paymentDay: string;
+  year: string;
   extraLessons: string;
   agreeTerms: boolean;
   agreePayment: boolean;
   registrationFeeAgreed: boolean;
-  enrolmentType: "enrollment" | "re-enrollment";
 }
+
+const isEnrollment = function (this: IStudent) {
+  return this.enrolmentType === "enrollment";
+};
 
 const StudentSchema = new Schema<IStudent>(
   {
-    firstName: String,
-    surname: String,
-    enrolmentType: { type: String, enum: ["enrollment", "re-enrollment"], required: true },
-    gender: String,
-    dob: String,
-    grade: String,
-    idOrPassport: String,
-    custodianFullName: String,
-    email: String,
-    contactNumber: String,
-    whatsappNumber: String,
-    relationshipToStudent: String,
-    maritalStatus: String,
-    address: String,
-    monthlyTuition: String,
-    paymentDay: String,
-    year: String,
-    idImage: { type: String },
-    proofOfResidence: { type: String },
-    birthCertificate: { type: String },
-    latestCardReport: { type: String },
-    extraLessons: String,
-    agreeTerms: Boolean,
-    agreePayment: Boolean,
-    registrationFeeAgreed: Boolean,
+    enrolmentType: {
+      type: String,
+      enum: ["enrollment", "re-enrollment"],
+      required: true,
+    },
+
+    firstName: { type: String, required: isEnrollment },
+    surname: { type: String, required: isEnrollment },
+    gender: { type: String, required: isEnrollment },
+    dob: { type: String, required: isEnrollment },
+    grade: { type: String, required: isEnrollment },
+    idOrPassport: { type: String, required: isEnrollment },
+    custodianFullName: { type: String, required: isEnrollment },
+    email: { type: String, required: isEnrollment },
+    contactNumber: { type: String, required: isEnrollment },
+    whatsappNumber: { type: String, required: isEnrollment },
+    relationshipToStudent: { type: String, required: isEnrollment },
+    maritalStatus: { type: String, required: isEnrollment },
+    address: { type: String, required: isEnrollment },
+
+    // FILES — required only for enrollment
+    idImage: { type: String, required: isEnrollment },
+    proofOfResidence: { type: String, required: isEnrollment },
+    birthCertificate: { type: String, required: isEnrollment },
+    latestCardReport: { type: String, required: isEnrollment },
+
+    monthlyTuition: { type: String, required: isEnrollment },
+    paymentDay: { type: String, required: isEnrollment },
+    year: { type: String, required: isEnrollment },
+    extraLessons: { type: String, required: isEnrollment },
+    agreeTerms: { type: Boolean, required: isEnrollment },
+    agreePayment: { type: Boolean, required: isEnrollment },
+    registrationFeeAgreed: { type: Boolean, required: isEnrollment },
   },
   { timestamps: true }
 );

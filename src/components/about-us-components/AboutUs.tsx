@@ -83,10 +83,10 @@ const AboutUs = () => {
                             textTransform={"capitalize"}
                             color="text.secondary"
                         >
-                            download enrollment form
+                            download enrolment form
                         </Typography>
                         <IconButton size="small" sx={{ borderRadius: "50%" }} component="a"
-                            href="/enrollment-form.pdf" // file in /public
+                            href="/enrolment-form.pdf" // file in /public
                             download // ensures the browser downloads instead of opening
                             color="primary"
                             aria-label="download">

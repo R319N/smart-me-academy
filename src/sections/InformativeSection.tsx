@@ -18,7 +18,7 @@ const InformativeSection = () => {
       {/* <div className="gradient-01" /> */}
       <Box >
         <Typography>
-          download enrollment form
+          download enrolment form
           <Link href="">
             download
           </Link>

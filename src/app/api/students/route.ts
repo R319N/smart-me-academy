@@ -8,9 +8,9 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    if (!body.formType) {
+    if (!body.enrolmentType) {
       return NextResponse.json(
-        { success: false, error: "formType is required" },
+        { success: false, error: "enrolmentType is required" },
         { status: 400 }
       );
     }

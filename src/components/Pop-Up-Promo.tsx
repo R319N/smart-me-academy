@@ -45,7 +45,7 @@ export default function PromoPopup() {
 
                 "& .MuiDialog-paper": {
                     ...styles.glassOutlinedDark,
-                    width: "100vw",
+                    width: "100%",
                     // p: 1,
                     // height: "100% "
                 },

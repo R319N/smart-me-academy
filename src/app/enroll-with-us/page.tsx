@@ -2,10 +2,10 @@
 import React from 'react'
 import RootLayout from '../layout'
 import { Paper } from '@mui/material'
-import EnrollmentPage from '@/components/enrollment-form-components/EnrollmentPage'
 import NavigationBar from '@/components/navigation-components/NavigationBar'
 import ServerLayout from '../serverLayout'
 import Footer from '@/components/footer-components/Footer'
+import EnrollmentPage from '@/components/enrollment-form-components/EnrollmentPage'
 
 const RegisterWithUs = () => {
     return (

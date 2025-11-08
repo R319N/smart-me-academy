@@ -12,7 +12,7 @@ const breadcrumbsEN = [
     <Link underline="hover" key="1" color="inherit" href="/">
         Home
     </Link>,
-    <Link underline="hover" key="1" color="inherit" href="/enroll-with-us?type=reenrollment">
+    <Link underline="hover" key="1" color="inherit" href="/enroll-with-us?type=reenrolment">
         Re Enrollment
     </Link>,
     <Typography key="3" sx={{ color: 'secondary.main' }}>
@@ -23,7 +23,7 @@ const breadcrumbsRE = [
     <Link underline="hover" key="1" color="inherit" href="/">
         Home
     </Link>,
-    <Link underline="hover" key="1" color="inherit" href="/enroll-with-us?type=enrollment">
+    <Link underline="hover" key="1" color="inherit" href="/enroll-with-us?type=enrolment">
         New Enrollment
     </Link>,
     <Typography key="3" sx={{ color: 'secondary.main' }}>

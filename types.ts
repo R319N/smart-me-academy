@@ -1,6 +1,6 @@
 // types.ts
 export interface EnrollmentFormData {
-  formType?: string;
+  enrolmentType?: string;
   firstName: string;
   surname: string;
   gender: string;
@@ -14,10 +14,10 @@ export interface EnrollmentFormData {
   relationshipToStudent: string;
   maritalStatus: string;
   address: string;
-  idImage: File | null;
-  proofOfResidence: File | null;
-  birthCertificate: File | null;
-  latestCardReport: File | null;
+  idImage: File | string | null;
+  proofOfResidence: File | string | null;
+  birthCertificate: File | string | null;
+  latestCardReport: File | string | null;
   monthlyTuition: string;
   paymentDay: string;
   year: string;

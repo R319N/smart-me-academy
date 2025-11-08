@@ -9,16 +9,6 @@ import gene20DarkTheme from '@/utils/darkTheme/gene20DarkTheme'
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
-  useEffect(() => {
-    const blankaFont = new FontFace("Blanka", "url(/fonts/Blanka.otf)");
-    blankaFont.load().then(() => {
-      document.fonts.add(blankaFont);
-      document.querySelectorAll(".blanka-font").forEach((element) => {
-        (element as HTMLElement).style.fontFamily = "Blanka, Arial, sans-serif";
-      });
-    });
-  }, []);
-
   return (
     <AppRouterCacheProvider options={{ key: "css" }} {...props}>
       <ThemeProvider theme={gene20DarkTheme}>
