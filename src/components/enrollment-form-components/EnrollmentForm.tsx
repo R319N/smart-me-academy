@@ -113,45 +113,47 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
 
     // import { uploadToCloudinary } from "@/lib/uploadToCloudinary";
 
-    const handleSubmit = async (e?: React.FormEvent) => {
-        if (e) e.preventDefault();
+   const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
 
-        const payload: any = { ...formData };
+    // Payload starts as EnrollmentFormData
+    const payload: EnrollmentFormData & Record<string, string> = { ...formData };
 
-        const fileFields: (keyof EnrollmentFormData)[] = [
-            "idImage",
-            "proofOfResidence",
-            "birthCertificate",
-            "latestCardReport",
-        ];
+    const fileFields: (keyof EnrollmentFormData)[] = [
+        "idImage",
+        "proofOfResidence",
+        "birthCertificate",
+        "latestCardReport",
+    ];
 
-        for (const field of fileFields) {
-            const value = formData[field];
+    for (const field of fileFields) {
+        const value = formData[field];
 
-            // Upload only if it's a File object
-            if (value instanceof File) {
-                const url = await uploadToCloudinary(value);
-                payload[field] = url; // ✅ Replace File with URL string
-            }
+        // Upload only if it's a File object
+        if (value instanceof File) {
+            const url = await uploadToCloudinary(value);
+            payload[field] = url; // ✅ Replace File with URL string
         }
+    }
 
-        const res = await fetch("/api/students", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
+    const res = await fetch("/api/students", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+    });
 
-        const data = await res.json();
+    const data = await res.json();
 
-        if (data.success) {
-            setShowSuccess(true);  // ✅ Show success screen
-            console.log("Saved student:", data.student);
-        } else {
-            console.error("Error:", data.error);
-        }
+    if (data.success) {
+        setShowSuccess(true);  // ✅ Show success screen
+        console.log("Saved student:", data.student);
+    } else {
+        console.error("Error:", data.error);
+    }
 
-        return data;
-    };
+    return data;
+};
+
 
     const handleFinalSubmit = async () => {
         if (formData.registrationFeeAgreed) {
@@ -201,45 +203,42 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
                     </GlowingButton>
                 )}
             </Box>
-            <Dialog 
-            open={openModal} 
-            onClose={() => setOpenModal(false)} 
-            sx={{ 
-                "& .MuiDialog-paper": {
-                    ...styles.glassOutlinedDark,
-                }
-            }}>
-                <DialogTitle>Registration Fee Agreement</DialogTitle>
-                <DialogContent>
-                    <Typography>
-                        By submitting, you agree to pay a non-refundable registration fee of{" "}
-                        <strong>R500</strong>.
-                    </Typography>
-                    <div style={{ marginTop: "1rem" }}>
-                        <BpCheckbox
-                            checked={formData.registrationFeeAgreed}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                setFormData((prev) => ({
-                                    ...prev,
-                                    registrationFeeAgreed: e.target.checked,
-                                }))
-                            }
-                        />
-                        <span style={{ marginLeft: 8 }}>I agree to pay the registration fee.</span>
-                    </div>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => setOpenModal(false)}>Cancel</Button>
-                    <Button
-                        variant="contained"
-                        onClick={handleFinalSubmit}
-                        disabled={!formData.registrationFeeAgreed}
-                    >
-                        Confirm & Submit
-                    </Button>
-                </DialogActions>
-            </Dialog>
-
+            <Dialog open={openModal} onClose={() => setOpenModal(false)}
+                           sx={{
+                               "& .MuiDialog-paper": {
+                                   ...styles.glassOutlinedDark,
+                               }
+                           }}
+                       >
+                           <DialogTitle color="text.secondary">Registration Fee Agreement</DialogTitle>
+                           <DialogContent>
+                               <Typography color="text.secondary">
+                                   By submitting, you agree to pay a non-refundable registration fee of <strong>R500</strong>.
+                               </Typography>
+                               <div style={{ marginTop: "1rem" }}>
+                                   <BpCheckbox
+                                       checked={formData.registrationFeeAgreed}
+                                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                           setFormData((prev) => ({
+                                               ...prev,
+                                               registrationFeeAgreed: e.target.checked,
+                                           }))
+                                       }
+                                   />
+                                   <span style={{ marginLeft: 8, color: "#E6e4ce" }}>I agree to the school payment policy.</span>
+                               </div>
+                           </DialogContent>
+                           <DialogActions>
+                               <GlowingButtonOutlined onClick={() => setOpenModal(false)}>Cancel</GlowingButtonOutlined>
+                               <GlowingButton
+                                   variant="contained"
+                                   onClick={handleFinalSubmit}
+                                   disabled={!formData.registrationFeeAgreed}
+                               >
+                                   Confirm & Submit
+                               </GlowingButton>
+                           </DialogActions>
+                       </Dialog>
 
         </form>
     );
