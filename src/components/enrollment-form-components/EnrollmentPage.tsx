@@ -1,4 +1,7 @@
-"use client"
+"use client";
+
+export const dynamic = "force-dynamic";
+
 import { Box, Container } from '@mui/material'
 import React from 'react'
 import EnrollmentForm from './EnrollmentForm'
@@ -12,10 +15,10 @@ const EnrollmentPage = () => {
 
     const isReEnrolment = mode === "re-enrolment" || mode === "reenrolment";
 
-    // remove "Documents Upload" (index 2)
     const steps = isReEnrolment
         ? formSteps.filter((_, index) => index !== 2)
         : formSteps;
+
     return (
         <Box my="14vh">
             <Container>
@@ -27,9 +30,8 @@ const EnrollmentPage = () => {
                     )}
                 </>
             </Container>
-
         </Box>
     )
 }
 
-export default EnrollmentPage
+export default EnrollmentPage;
