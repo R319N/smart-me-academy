@@ -30,6 +30,12 @@ import SuccessScreen from "./SuccessScreen";
 interface Props {
     formSteps: { title: string; detail: string }[];
 }
+
+interface StudentResponse {
+    success: boolean;
+    student?: unknown; // change to your actual Student type if you have one
+    error?: string;
+}
 const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [openModal, setOpenModal] = useState(false);
@@ -116,23 +122,22 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
    const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    // Payload starts as EnrollmentFormData (mutable object for file uploads)
-    const payload: Record<string, any> = { ...formData };
+    // Payload starts as EnrollmentFormData but file fields will become strings
+    const payload: Record<string, unknown> = { ...formData };
 
     const fileFields: (keyof EnrollmentFormData)[] = [
         "idImage",
         "proofOfResidence",
         "birthCertificate",
-        "latestCardReport",
+        "latestCardReport"
     ];
 
     for (const field of fileFields) {
         const value = formData[field];
 
-        // Upload only if it's a File object
         if (value instanceof File) {
             const url = await uploadToCloudinary(value);
-            payload[field] = url; // ✅ Replace File with URL string
+            payload[field] = url;
         }
     }
 
@@ -142,10 +147,11 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
         body: JSON.stringify(payload),
     });
 
-    const data = await res.json();
+    // ✅ No more implicit ANY
+    const data: StudentResponse = await res.json();
 
     if (data.success) {
-        setShowSuccess(true);  // ✅ Show success screen
+        setShowSuccess(true);
         console.log("Saved student:", data.student);
     } else {
         console.error("Error:", data.error);
