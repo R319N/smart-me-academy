@@ -116,8 +116,8 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
    const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    // Payload starts as EnrollmentFormData
-    const payload: EnrollmentFormData & Record<string, string> = { ...formData };
+    // Payload starts as EnrollmentFormData (mutable object for file uploads)
+    const payload: Record<string, any> = { ...formData };
 
     const fileFields: (keyof EnrollmentFormData)[] = [
         "idImage",
