@@ -9,7 +9,7 @@ const inputBase = {
   styleOverrides: {
     root: {
       backgroundColor: "transparent",
-      fontSize: size.sm,
+      fontSize: size.md,
       color: grey.light,
       borderColor: primary.main,
       padding: "0.3rem 1rem",

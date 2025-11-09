@@ -15,51 +15,63 @@ import { styles } from "@/styles/styles";
 import GlowingButton from "../glowingButton";
 
 import emailjs from "@emailjs/browser";
+import { Stack } from "@mui/material";
+import { ExoFontWrapper } from "@/layouts/wrappers/PoppinsWrapper";
+import ScrollIndicator from "../UI/ScrollIndicator";
+import Head from "next/head";
+import HeaderText from "../headerBanner";
+import Heading4 from "../UI/Heading4";
+import Heading2 from "../UI/heading2";
 
 const ContactForm = () => {
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const sendEmail = (e) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = e.currentTarget;
+
         emailjs
             .sendForm(
-                "service_a06gldt", // Service ID
-                "template_1vlkclz", // Template ID
-                e.target,
-                {
-                    publicKey: "xFJhzQ3lJTLtNGmiN",
-                }
+                "service_a06gldt",
+                "template_1vlkclz",
+                form,
+                { publicKey: "xFJhzQ3lJTLtNGmiN" }
             )
             .then(
-                (result) => {
+                () => {
                     setSuccess(true);
-                    setError(false); // Reset error state on success
-                    console.log("SUCCESS!", result.text);
+                    setError(false);
                 },
-                (error) => {
+                () => {
                     setError(true);
-                    setSuccess(false); // Reset success state on error
-                    console.log("FAILED...", error.text);
+                    setSuccess(false);
                 }
             );
+
+        setLoading(true);
         setTimeout(() => {
             setLoading(false);
             setSuccess(true);
         }, 3000);
-        // Clear form fields after submission
-        e.target.reset();
+
+        form.reset();
     };
 
     return (
         <Box
             sx={{
                 ...styles.center_flex,
+                borderRadius: "8px", // Add border radius for rounded corners
+                backdropFilter: { xs: "none", lg: "blur(8px)" },
+                background: { xs: "transparent", lg: "#cad5d32c" }, // Adjust transparency as needed
+                border: "1px solid rgb",
                 flexDirection: "column",
                 p: "2rem 0rem",
                 height: "100%",
-                width:"100%"
+                width: "100%"
             }}
         >
             {loading ? (
@@ -80,55 +92,72 @@ const ContactForm = () => {
                     style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: "100%",
+                        // justifyContent: "center",
+                        // alignItems: "center",
+
                     }}
                 >
-                    <Box mb="1rem">
-                        <Typography variant="h4" sx={{ textTransform: "capitalize", color: "text.secondary"}}>
-                            fill in form
-                        </Typography>
-                        <Divider />
+                    <Box sx={{ display: { xs: "block", lg: "none" } }} >
+                        <Stack gap={4} py={"2rem"} alignItems="center" display="flex">
+                            <Heading2
+                                title="have any questions?"
+                                subTitle="send us a message and we'll get back to you as soon as possible. fill out the form below to get started."
+                            />
+                            <ScrollIndicator />
+                        </Stack>
                     </Box>
 
                     <Box sx={{ py: "1rem" }}>
-                        <InputLabel htmlFor="full Name">Name</InputLabel>
                         <TextField
                             variant="standard"
-                            // margin="normal"
+                            margin="normal"
                             name="from_name"
-                            placeholder="full name"
+                            placeholder="Name"
                             id="name"
                             required
                             fullWidth
-                            sx={{ width: "300px" }}
+                        // sx={{ width: "100%" }}
                         />
                     </Box>
-                  
+
                     <Box sx={{ py: "1rem" }}>
-                        <InputLabel htmlFor="email">email/phone</InputLabel>
+                        {/* <InputLabel htmlFor="email">email/phone</InputLabel> */}
                         <TextField
                             variant="standard"
                             type="text"
                             name="from_email"
                             id="email"
-                            placeholder="email address or phone number"
+                            placeholder="Email"
                             required
-                            sx={{ width: "300px" }}
+                            fullWidth
+                        // sx={{ width: "340px" }}
                         />
                     </Box>
                     <Box sx={{ py: "1rem" }}>
-                        <InputLabel htmlFor="message">message</InputLabel>
+                        {/* <InputLabel htmlFor="email">email/phone</InputLabel> */}
+                        <TextField
+                            variant="standard"
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            placeholder="Phone"
+                            required
+                            fullWidth
+                        // sx={{ width: "340px" }}
+                        />
+                    </Box>
+                    <Box sx={{ py: "1rem" }}>
+                        {/* <InputLabel htmlFor="message">message</InputLabel> */}
                         <TextField
                             variant="standard"
                             type="text"
                             name="message"
                             id="message"
-                            placeholder="write your message here"
+                            placeholder="Message"
                             multiline
                             rows={3}
-                            sx={{ width: "300px", pt: "0.5rem" }}
+                            // fullWidth
+                            sx={{ width: { xs: "100%", lg: "320px" }, pt: "0.5rem" }}
                             required
                         />
                     </Box>
@@ -137,7 +166,7 @@ const ContactForm = () => {
                             width: "100%",
                             display: "flex ",
                             // flexDirection: "column",
-                            justifyContent: "right",
+                            justifyContent: "center",
                             // alignItems: "right",
                         }}
                     // alignSelf="right"
@@ -146,10 +175,10 @@ const ContactForm = () => {
                             variant="contained"
 
                             type="submit"
-                            sx={{ m: "2vh", fontWeight: "lighter", width: "104px", align: "right" }}
+                            sx={{ my: "0.5rem", width: { xs: "100%", xl: "100%" }, align: "right" }}
                             endIcon={<Send />}
                         >
-                            send
+                            send Message
                         </GlowingButton>
                         {error && (
                             <Typography

@@ -80,7 +80,7 @@ const ContactUsComponent = () => {
         </Grid>
         <Grid size={{ xs: 12, sm: 5 }}
           sx={{
-            ...styles.glassOutlined,
+            // ...styles.glassOutlined,
             width: "100%",
           }}
         >

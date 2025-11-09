@@ -7,8 +7,8 @@ const ScrollIndicator = () => {
   return (
     <Box
       sx={{
-        position: 'absolute',
-        bottom: '2rem',
+        // position: 'absolute',
+        // bottom: '2rem',
         left: '50%',
         transform: 'translateX(-50%)',
         animation: 'bounce 2s infinite',
@@ -36,7 +36,7 @@ const ScrollIndicator = () => {
             height: 12,
             bgcolor: 'white',
             borderRadius: '9999px',
-            mt: '0.5rem',
+            // mt: '0.5rem',
           }}
         />
       </Box>
