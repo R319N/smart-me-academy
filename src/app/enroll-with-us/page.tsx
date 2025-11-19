@@ -12,8 +12,10 @@ export default function RegisterWithUs() {
       sx={{
         minHeight: "100vh",
         width: "100%",
+        background: "#0C81D4", 
         backgroundImage:
-          "linear-gradient(to bottom, rgba(22, 22, 23, 0.87),   rgba(8, 12, 40, 1))",
+"radial-gradient(circle, rgba(12, 129, 212, 1) 0%, rgba(1, 11, 19, 1) 100%)", 
+       
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
       }}
