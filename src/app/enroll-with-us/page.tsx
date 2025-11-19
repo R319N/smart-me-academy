@@ -13,8 +13,7 @@ export default function RegisterWithUs() {
         minHeight: "100vh",
         width: "100%",
         background: "#0C81D4", 
-        backgroundImage:
-"radial-gradient(circle, rgba(12, 129, 212, 1) 0%, rgba(1, 11, 19, 1) 100%)", 
+        backgroundImage:"linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%)", 
        
           backgroundRepeat: "no-repeat",
       }}
