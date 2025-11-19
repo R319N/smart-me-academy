@@ -64,7 +64,14 @@ const ReEnrollmentForm: React.FC<Props> = ({ formSteps }) => {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+const handleFormDataChange = (name: string, value: unknown) => {
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+        }));
 
+        validateField(name, value);
+    };
     // Step validation
     const validateStep = () => {
         const newErrors: { [key: string]: string } = {};
@@ -157,10 +164,10 @@ const ReEnrollmentForm: React.FC<Props> = ({ formSteps }) => {
                 </Grid>
                 <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "2rem" }}>
                     {activeStep === 0 && (
-                        <StudentDetails formData={formData} setFormData={setFormData} errors={errors} />
+                        <StudentDetails formData={formData} setFormData={setFormData} errors={errors} onFieldChange={handleFormDataChange} />
                     )}
                     {activeStep === 1 && (
-                        <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} />
+                        <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} onFieldChange={handleFormDataChange} />
                     )}
                     {activeStep === 2 && (
                         <ConsentAndSubmit formData={formData} setFormData={setFormData} errors={errors} />
