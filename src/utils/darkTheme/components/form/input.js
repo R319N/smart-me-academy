@@ -1,7 +1,7 @@
 import colors from "../../base/colors";
 import typography from "../../base/typography";
 
-const { grey, primary, success } = colors;
+const { grey, primary, success, error} = colors;
 const { size } = typography;
 
 const inputTheme = {
@@ -40,10 +40,10 @@ const inputTheme = {
       },
       // Error label
       "& .MuiFormLabel-root.Mui-error": {
-        color: "red !important",
+        color: `${error.main} !important`,
       },
       "& .MuiFormLabel-root.Mui-focused.Mui-error": {
-        color: "red !important",
+        color: `${error.main} !important`,
       },
       // Success label
       "&.Mui-success .MuiFormLabel-root": {
@@ -68,13 +68,13 @@ const inputTheme = {
 
       // Error underline
       "&.Mui-error:before": {
-        borderBottomColor: "red !important",
+        borderBottomColor: `${error.main} !important`,
       },
       "&.Mui-error:after": {
-        borderBottomColor: "red !important",
+        borderBottomColor: `${error.main} !important`,
       },
       "&.Mui-error:hover:not(.Mui-disabled):before": {
-        borderBottomColor: "red !important",
+        borderBottomColor: `${error.main} !important`,
       },
 
       // Success underline
@@ -101,8 +101,8 @@ const inputTheme = {
         borderBottomColor: `${primary.focus} !important`,
       },
       // Error
-      "&.Mui-error:before": { borderBottomColor: "red !important" },
-      "&.Mui-error:after": { borderBottomColor: "red !important" },
+      "&.Mui-error:before": { borderBottomColor: `${error.main} !important` },
+      "&.Mui-error:after": { borderBottomColor: ` ${error.main} !important` },
       "&.Mui-error:hover:not(.Mui-disabled):before": { borderBottomColor: "red !important" },
       // Success
       "&.Mui-success:before": { borderBottomColor: `${success.main} !important` },
