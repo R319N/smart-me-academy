@@ -176,7 +176,7 @@ const handleFormDataChange = (name: string, value: unknown) => {
                 <Grid size={{ xs: 12, sm: 4 }}>
                     <CustomizedSteppers activeStep={activeStep} formSteps={formSteps} />
                 </Grid>
-                <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "2rem" }}>
+                <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "1rem" }}>
                     {activeStep === 0 && (
                         <StudentDetails formData={formData} setFormData={setFormData} errors={errors} onFieldChange={handleFormDataChange} />
                     )}
