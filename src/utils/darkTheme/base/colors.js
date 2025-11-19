@@ -58,7 +58,7 @@ const colors = {
   },
 
   error: {
-    main: "#F44335",
+    main: "#FF9E9E",
     focus: "#f65f53",
   },
 
