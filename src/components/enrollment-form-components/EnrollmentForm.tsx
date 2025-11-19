@@ -26,6 +26,7 @@ import GlowingButtonOutlined from "../glowingButtonOutlined";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import SuccessScreen from "./SuccessScreen";
 import { enrollmentSchema } from "@/validation/enrollmentSchema";
+import { ValidationError } from "yup";
 
 interface Props {
     formSteps: { title: string; detail: string }[];
@@ -70,13 +71,18 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [showSuccess, setShowSuccess] = useState(false);
     const validateField = async (name: string, value: unknown) => {
-        try {
-            await enrollmentSchema.validateAt(name, { [name]: value });
-            setErrors(prev => ({ ...prev, [name]: "" }));
-        } catch (err: unknown) {
+    try {
+        await enrollmentSchema.validateAt(name, { [name]: value });
+        setErrors(prev => ({ ...prev, [name]: "" }));
+    } catch (err: unknown) {
+
+        if (err instanceof ValidationError) {
             setErrors(prev => ({ ...prev, [name]: err.message }));
+        } else {
+            setErrors(prev => ({ ...prev, [name]: "An unknown error occurred" }));
         }
-    };
+    }
+};
 
     // Step validation
     const validateStep = () => {
