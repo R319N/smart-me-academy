@@ -65,7 +65,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                         //     xs: trigger ? "0.5rem" : 0,
                         //     lg: trigger ? "1rem 4rem" : "0 4rem"
                         // },
-                        // p: { xs: "0.5rem", lg: "1rem 4rem" },
+                        p: { xs: "1rem", lg: "1rem 4rem" },
                     }}
                 >
                     {/* <ElevationScroll> */}
