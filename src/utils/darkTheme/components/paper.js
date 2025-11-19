@@ -12,7 +12,7 @@ const paper = {
       position: 'relative',
       minWidth: 0,
       wordWrap: 'break-word',
-      backgroundColor: background.default,
+      backgroundColor: "grey",
       backgroundClip: 'border-box',
       boxShadow: md,
       padding: '0',

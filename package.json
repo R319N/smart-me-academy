@@ -15,11 +15,13 @@
     "@emotion/styled": "^11.14.1",
     "@hookform/resolvers": "^5.2.1",
     "@mui/icons-material": "^7.3.2",
-    "@mui/material": "^7.3.2",
+    "@mui/material": "^7.3.5",
     "@mui/material-nextjs": "^7.3.2",
+    "@mui/x-date-pickers": "^8.18.0",
     "@types/react-slick": "^0.23.13",
     "chroma-js": "^3.1.2",
     "cloudinary": "^2.7.0",
+    "dayjs": "^1.11.19",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
@@ -32,7 +34,8 @@
     "react-dropzone": "^14.3.8",
     "react-redux": "^9.2.0",
     "react-slick": "^0.31.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

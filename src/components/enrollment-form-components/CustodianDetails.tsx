@@ -1,4 +1,4 @@
-import { Grid, InputLabel, TextField, FormControl, Select, MenuItem, SelectChangeEvent, Stack } from "@mui/material";
+import { Grid, InputLabel, TextField, FormControl, Select, MenuItem, SelectChangeEvent, Stack, FormHelperText } from "@mui/material";
 import React from "react";
 import { EnrollmentFormData } from "../../../types";
 
@@ -9,6 +9,9 @@ interface Props {
 }
 
 const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
+
+  const [showCustodianPH, setShowCustodianPH] = React.useState(false);
+  const [showMaritalPH, setShowMaritalPH] = React.useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
   ) => {
@@ -23,13 +26,13 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Full Name</InputLabel>
+    <Grid container spacing={4}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <TextField
           variant="standard"
           fullWidth
           name="custodianFullName"
+          label="Full Name"
           placeholder="Custodian/Parent Fullname"
           value={formData.custodianFullName}
           onChange={handleChange}
@@ -38,13 +41,14 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Email</InputLabel>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <TextField
           variant="standard"
           fullWidth
           type="email"
           name="email"
+          label="Email Address"
+          placeholder="Enter Your Email Address"
           value={formData.email}
           onChange={handleChange}
           error={!!errors.email}
@@ -52,10 +56,10 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Phone Number</InputLabel>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <TextField
           variant="standard"
+          label="Phone Number"
           placeholder="Enter Your Phone Number"
           fullWidth
           name="contactNumber"
@@ -66,10 +70,10 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Whatsapp Number</InputLabel>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <TextField
           variant="standard"
+          label="WhatsApp Number"
           placeholder="Enter Your WhatsApp Number"
           fullWidth
           name="whatsappNumber"
@@ -80,42 +84,78 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
         />
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
-        <FormControl fullWidth error={!!errors.relationshipToStudent}>
-          <InputLabel>Relationship to Student</InputLabel>
-          <Select
+      <Grid size={{ xs: 12, sm: 6 }}>
+        <FormControl fullWidth  variant="standard" error={!!errors.relationshipToStudent}>
+          <InputLabel id="gender-label">Relationship to Student</InputLabel>
+          <Select          
             name="relationshipToStudent"
             value={formData.relationshipToStudent}
             onChange={handleChange}
+            label="Relationship to Student"
+            labelId="relationship-to-student-label"
+            onOpen={() => setShowCustodianPH(true)}
+            onClose={() => setShowCustodianPH(false)}
+            renderValue={(selected) => {
+              // Show placeholder ONLY when the menu is open
+              if (selected === "" && showCustodianPH) {
+                return <em>Relationship to Student</em>;
+              }
+
+              // Closed + empty → Show empty string so label floats
+              if (selected === "") {
+                return "";
+              }
+              return selected;
+            }}
           >
             <MenuItem value="Parent">Parent</MenuItem>
             <MenuItem value="Guardian">Guardian</MenuItem>
             <MenuItem value="Sibling">Sibling</MenuItem>
             <MenuItem value="Other">Other</MenuItem>
           </Select>
+          <FormHelperText>{!!errors ? errors.relationshipToStudent : ""}</FormHelperText>
         </FormControl>
       </Grid>
 
-      <Grid size={{ xs: 12, sm: 6 }} sx={{ py: "1rem" }}>
+      <Grid size={{ xs: 12, sm: 6 }}>
         <FormControl fullWidth error={!!errors.maritalStatus}>
           <InputLabel>Marital Status</InputLabel>
           <Select
             name="maritalStatus"
             value={formData.maritalStatus}
+            variant="standard"
             onChange={handleChange}
+            label="Relationship to Student"
+            labelId="relationship-to-student-label"
+            onOpen={() => setShowMaritalPH(true)}
+            onClose={() => setShowMaritalPH(false)}
+            renderValue={(selected) => {
+              // Show placeholder ONLY when the menu is open
+              if (selected === "" && showMaritalPH) {
+                return <em>Marital Status</em>;
+              }
+
+              // Closed + empty → Show empty string so label floats
+              if (selected === "") {
+                return "";
+              }
+              return selected;
+            }}
           >
             <MenuItem value="Single">Single</MenuItem>
             <MenuItem value="Married">Married</MenuItem>
             <MenuItem value="Divorced">Divorced</MenuItem>
             <MenuItem value="Widowed">Widowed</MenuItem>
           </Select>
+          <FormHelperText>{!!errors ? errors.maritalStatus : ""}</FormHelperText>
         </FormControl>
       </Grid>
 
-      <Grid size={12} sx={{ py: "1rem" }}>
-        <Stack gap={1}>
-          <InputLabel>Address</InputLabel>
+      <Grid size={12}>
+        {/* <Stack gap={1}> */}
           <TextField
+            variant="standard"
+            label="Address"
             fullWidth
             placeholder="Enter Your Address"
             multiline
@@ -126,7 +166,6 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
             error={!!errors.address}
             helperText={errors.address}
           />
-        </Stack>
 
       </Grid>
     </Grid>

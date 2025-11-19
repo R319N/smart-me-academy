@@ -25,8 +25,8 @@ import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import SuccessScreen from "./SuccessScreen";
+import { studentDetailsSchema } from "@/validation/enrollmentSchema";
 
-// const steps = ["Student Details", "Custodian Details", "Documents", "Consent & Submit"];
 interface Props {
     formSteps: { title: string; detail: string }[];
 }
@@ -69,6 +69,14 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [showSuccess, setShowSuccess] = useState(false);
+    const validateField = async (name: string, value: any) => {
+        try {
+            await studentDetailsSchema.validateAt(name, { [name]: value });
+            setErrors(prev => ({ ...prev, [name]: "" }));
+        } catch (err: any) {
+            setErrors(prev => ({ ...prev, [name]: err.message }));
+        }
+    };
 
     // Step validation
     const validateStep = () => {
@@ -80,8 +88,8 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
             if (!formData.dob) newErrors.dob = "Date of birth is required";
             if (!formData.gender) newErrors.gender = "Gender is required";
             if (!formData.idOrPassport.trim()) newErrors.idOrPassport = "ID/Passport is required";
+            if (!formData.grade) newErrors.grade = "Grade is required";
         }
-
         if (activeStep === 1) {
             if (!formData.custodianFullName.trim()) newErrors.custodianFullName = "Full name is required";
             if (!formData.email.trim()) newErrors.email = "Email is required";
@@ -91,16 +99,14 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
             if (!formData.maritalStatus) newErrors.maritalStatus = "Marital status is required";
             if (!formData.address.trim()) newErrors.address = "Address is required";
         }
-
         if (activeStep === 2) {
             if (!formData.idImage) newErrors.idImage = "ID Image is required";
             if (!formData.proofOfResidence) newErrors.proofOfResidence = "Proof of Residence is required";
             if (!formData.birthCertificate) newErrors.birthCertificate = "Birth Certificate is required";
             if (!formData.latestCardReport) newErrors.latestCardReport = "Latest Card Report is required";
         }
-
         if (activeStep === 3) {
-            if (!formData.grade) newErrors.grade = "Grade is required";
+            if (!formData.grade) newErrors.monthlyTuition = "Grade is required";
             if (!formData.paymentDay) newErrors.paymentDay = "Payment day is required";
             if (!formData.year) newErrors.year = "Year is required";
             if (!formData.extraLessons) newErrors.extraLessons = "Please select an option";
@@ -118,6 +124,14 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const handleBack = () => setActiveStep((prev) => prev - 1);
 
     // import { uploadToCloudinary } from "@/lib/uploadToCloudinary";
+    const handleFormDataChange = (name: string, value: any) => {
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+        }));
+
+        validateField(name, value);
+    };
 
     const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
 

@@ -1,29 +1,57 @@
-// import borders from "../../base/borders";
+import { Height } from "@mui/icons-material";
 import colors from "../../base/colors";
-// import typography from "../../base/typography";
+import typography from "../../base/typography";
+const { size } = typography;
 
-// Material Kit 2 React Base Styles
-
-const { info, inputBorderColor, dark, primary} = colors;
-// const { size } = typography;
-// const { borderWidth } = borders;
+const { primary, text } = colors;
 
 const input = {
   styleOverrides: {
     root: {
-      "&& .MuiInput-root:hover::before ": {
-        borderColor: "red",
+      // Hover underline for standard variant
+      "&.MuiInput-root:hover:not(.Mui-disabled):before": {
+        borderBottomColor: primary.focus,
+      },
+
+      // Input text color
+      "& .MuiInputBase-input": {
+        color: "#e6e4ce",
+        height: "20px"
+      },
+
+      // Label color
+      "& .MuiFormLabel-root": {
+        color: "#e6e4ce",
+      },
+      "& .MuiFormLabel-root.Mui-focused": {
+        color: primary.main,
+      },
+
+      // Calendar / icon color (optional)
+      "& .MuiSvgIcon-root": {
+        color: text.secondary,
+        // height: "4px",
+        fontSize:"18px"
       },
     },
+
     underline: {
+      // Default underline
       "&:before": {
-        borderBottom: `2px solid ${primary.main}`,
-      
+        borderBottom: `1.5px solid ${primary.main} !important`,
       },
-      "&:hover": {
-        borderBottom: `2px solid ${primary.focus}`,
+
+      // Hover underline
+      "&:hover:not(.Mui-disabled):before": {
+        borderBottomColor: `${primary.focus} !important`,
+      },
+
+      // Focused underline
+      "&:after": {
+        borderBottomColor: `${primary.focus} !important`,
       },
     },
   },
 };
+
 export default input;

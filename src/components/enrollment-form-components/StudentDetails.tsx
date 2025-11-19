@@ -1,51 +1,51 @@
-import { Grid, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent } from "@mui/material";
-import React from "react";
+import { Grid, TextField, InputLabel, Select, MenuItem, FormControl, SelectChangeEvent, FormHelperText } from "@mui/material";
+import React, { Dispatch, SetStateAction } from "react";
 import { EnrollmentFormData } from "../../../types";
-import CustomSelect from "../CustomizedComponents/custom-select";
-import { Female } from "@mui/icons-material";
+import DatePickerInput from "../UI/DatePicker";
 
 interface Props {
   formData: EnrollmentFormData;
-  setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
+  setFormData: Dispatch<SetStateAction<EnrollmentFormData>>;
   errors: Record<string, string>;
 }
+
 const grades = Array.from({ length: 12 }, (_, i) => i + 1)
+
 const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
+  const [showGenderPH, setShowGenderPH] = React.useState(false);
+  const [showGradePH, setShowGradePH] = React.useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
-  ) => {
-    const target = e.target as (HTMLInputElement & { name?: string; value: string }) | { name?: string; value: unknown };
-    if (!target.name) return;
-
-    // Strict type assertion based on EnrollmentFormData
-    setFormData((prev) => ({
-      ...prev,
-      [target.name as string]: target.value,
-    }));
+  ): void => {
+    const target = e.target as HTMLInputElement;
+    if (!target || !target.name) return;
+    setFormData((prev) => ({ ...prev, [target.name]: target.value }));
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>First Name</InputLabel>
+    <Grid container spacing={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <TextField
           variant="standard"
           fullWidth
+          label="first name"
           name="firstName"
-          placeholder="Please Enter Student's First Name"
+          placeholder="Student's First Name"
           value={formData.firstName}
-          onChange={handleChange}
+          onChange={(e) =>
+            setFormData(prev => ({ ...prev, firstName: e.target.value }))
+          }
           error={!!errors.firstName}
           helperText={errors.firstName}
         />
       </Grid>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Surname</InputLabel>
+      <Grid size={{ xs: 12, md: 6 }} >
         <TextField
           variant="standard"
           fullWidth
           name="surname"
-          placeholder="Please Enter Student's Last Name"
+          label="last name"
+          placeholder="Student's Last Name"
           value={formData.surname}
           onChange={handleChange}
           error={!!errors.surname}
@@ -53,27 +53,23 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>Date of Birth</InputLabel>
-        <TextField
-          variant="standard"
-          fullWidth
-          type="date"
-          name="dob"
+      <Grid size={{ xs: 12, md: 6 }}>
+        <DatePickerInput
+          label="date of birth"
           value={formData.dob}
-          onChange={handleChange}
-          error={!!errors.dob}
-          helperText={errors.dob}
-          InputLabelProps={{ shrink: true }}
+          onChange={(value) =>
+            setFormData(prev => ({ ...prev, dob: value }))
+          }
+          error={errors.dob}
         />
       </Grid>
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <InputLabel>ID / Passport</InputLabel>
+      <Grid size={{ xs: 12, md: 6 }}>
         <TextField
           variant="standard"
           fullWidth
           name="idOrPassport"
-          placeholder="Enter ID or Passport Number"
+          label="ID or passport number"
+          placeholder="ID or Passport Number"
           value={formData.idOrPassport}
           onChange={handleChange}
           error={!!errors.idOrPassport}
@@ -81,30 +77,80 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         />
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <FormControl fullWidth error={!!errors.gender}>
-          <InputLabel>Gender</InputLabel>
-          <Select variant="standard" name="gender" value={formData.gender} onChange={handleChange}>
+      <Grid size={{ xs: 12, md: 6 }} >
+        <FormControl fullWidth variant="standard" error={!!errors.gender}>
+          <InputLabel id="gender-label">Gender</InputLabel>
+          <Select
+            name="gender"
+            label="Gender"
+            labelId="gender-label"
+            value={formData.gender}
+            onChange={handleChange}
+            variant="standard"
+            onOpen={() => setShowGenderPH(true)}
+            onClose={() => setShowGenderPH(false)}
+            error={!!errors.gender}
+            // helperText={errors.idOrPassport}
+            renderValue={(selected) => {
+              // Show placeholder ONLY when the menu is open
+              if (selected === "" && showGenderPH) {
+                return <em>Select gender</em>;
+              }
+
+              // Closed + empty → Show empty string so label floats
+              if (selected === "") {
+                return "";
+              }
+              return selected;
+            }}
+          >
             <MenuItem value="Male">Male</MenuItem>
             <MenuItem value="Female">Female</MenuItem>
           </Select>
+          <FormHelperText>{!!errors ? errors.gender : formData.gender}</FormHelperText>
         </FormControl>
-      </Grid>
+      </Grid >
 
-      <Grid size={{ xs: 12, md: 6 }} sx={{ py: "1rem" }}>
-        <FormControl fullWidth error={!!errors.grade}>
-          <InputLabel>Grade</InputLabel>
-          <Select name="grade" value={formData.grade} onChange={handleChange}>
-            <MenuItem>R</MenuItem>
+      <Grid size={{ xs: 12, md: 6 }}>
+        <FormControl fullWidth variant="standard" error={!!errors.grade}>
+          <InputLabel id="grade-label">Grade</InputLabel>
+
+          <Select
+            labelId="grade-label"
+            name="grade"
+            label="grade"
+            value={formData.grade}
+            onChange={handleChange}
+            // variant="standard"
+            displayEmpty
+            onOpen={() => setShowGradePH(true)}
+            onClose={() => setShowGradePH(false)}
+            renderValue={(selected) => {
+              // Show placeholder ONLY when the menu is open
+              if (selected === "" && showGradePH) {
+                return <em>Select your grade</em>;
+              }
+
+              // Closed + empty → Show empty string so label floats
+              if (selected === "") {
+                return "";
+              }
+
+              // Otherwise show selected value
+              return selected;
+            }}
+          >
+            <MenuItem value="R">R</MenuItem>
             {grades.map((num) => (
-              <MenuItem key={num} value={num}>
+              <MenuItem key={num} value={String(num)}>
                 {num}
               </MenuItem>
             ))}
           </Select>
+          <FormHelperText>{!!errors ? errors.grade : formData.grade}</FormHelperText>
         </FormControl>
       </Grid>
-    </Grid>
+    </Grid >
   );
 };
 

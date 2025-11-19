@@ -60,6 +60,7 @@ import formHelperText from "./components/form/formHelperText";
 import formControlLabel from "./components/form/formControlLabel";
 import inputOutlined from "./components/form/inputOutlined";
 import input from "./components/form/input";
+import pickerInputBase from "./components/form/pickerInputBase";
 // 
 
 const gene20DarkTheme = createTheme({
@@ -77,14 +78,24 @@ const gene20DarkTheme = createTheme({
   },
 
   components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          ...globals,
-          // ...container,
+    MuiCssBaseline: {
+      styleOverrides: {
+        ...globals,
+        // ...container,
+      },
+    },
+    MuiDatePicker: {
+      styleOverrides: {
+        textField: {
+          "& .MuiInput-underline:before": { borderBottom: "2px solid red" },
+          "& .MuiInput-underline:after": { borderBottom: "2px solid green" },
+          "& .MuiInputBase-input": { color: "#e6e4ce" },
         },
       },
-      MuiModal: { ...modal },
-    MuiLink:{...link},
+    },
+    MuiPickersInputBase: { ...pickerInputBase },
+    MuiModal: { ...modal },
+    MuiLink: { ...link },
     MuiIconButton: { ...iconButton },
     MuiPaper: { ...paper },
     MuiList: { ...list },
