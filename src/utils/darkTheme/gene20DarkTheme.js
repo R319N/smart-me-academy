@@ -94,7 +94,7 @@ const gene20DarkTheme = createTheme({
         },
       },
     },
-    MuiPickersInputBase: { ...inputTheme },
+    MuiPickersInputBase: { ...pickerInputBase },
     MuiModal: { ...modal },
     MuiLink: { ...link },
     MuiIconButton: { ...iconButton },
