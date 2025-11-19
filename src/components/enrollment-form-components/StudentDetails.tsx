@@ -10,7 +10,7 @@ interface Props {
   formData: EnrollmentFormData;
   setFormData: Dispatch<SetStateAction<EnrollmentFormData>>;
   errors: Record<string, string>;
-  onFieldChange: (name: string, value: any) => void;
+  onFieldChange: (name: string, value: unknown) => void;
 }
 
 
