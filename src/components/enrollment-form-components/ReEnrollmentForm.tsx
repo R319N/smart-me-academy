@@ -23,6 +23,8 @@ import GlowingButton from "../glowingButton";
 import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
 import SuccessScreen from "./SuccessScreen";
+import { enrollmentSchema } from "@/validation/enrollmentSchema";
+import { ValidationError } from "yup";
 
 interface Props {
     formSteps: { title: string; detail: string }[];
