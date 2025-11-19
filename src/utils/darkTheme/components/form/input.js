@@ -1,57 +1,115 @@
-import { Height } from "@mui/icons-material";
 import colors from "../../base/colors";
 import typography from "../../base/typography";
+
+const { grey, primary, success } = colors;
 const { size } = typography;
 
-const { primary, text } = colors;
-
-const input = {
+const inputTheme = {
   styleOverrides: {
     root: {
-      // Hover underline for standard variant
-      "&.MuiInput-root:hover:not(.Mui-disabled):before": {
-        borderBottomColor: primary.focus,
-      },
+      backgroundColor: "transparent",
+      fontSize: size.md,
+      color: grey.light,
+      padding: "0 1rem",
 
-      // Input text color
+      // Input text
       "& .MuiInputBase-input": {
         color: "#e6e4ce",
-        height: "20px"
       },
 
-      // Label color
+      // Icon button (calendar / picker)
+      "& .MuiIconButton-root": {
+        padding: "0.5rem",
+        height: "2rem",
+        width: "2rem",
+      },
+
+      // Adornment spacing
+      "& .MuiInputAdornment-root": {
+        marginBottom: "6px",
+      },
+
+      /* -----------------------
+       *  Label Styles
+       * ----------------------*/
       "& .MuiFormLabel-root": {
         color: "#e6e4ce",
       },
       "& .MuiFormLabel-root.Mui-focused": {
-        color: primary.main,
+        color: `${primary.focus} !important`,
+      },
+      // Error label
+      "& .MuiFormLabel-root.Mui-error": {
+        color: "red !important",
+      },
+      "& .MuiFormLabel-root.Mui-focused.Mui-error": {
+        color: "red !important",
+      },
+      // Success label
+      "&.Mui-success .MuiFormLabel-root": {
+        color: `${success.main} !important`,
+      },
+      "&.Mui-success .MuiFormLabel-root.Mui-focused": {
+        color: `${success.main} !important`,
       },
 
-      // Calendar / icon color (optional)
-      "& .MuiSvgIcon-root": {
-        color: text.secondary,
-        // height: "4px",
-        fontSize:"18px"
-      },
-    },
-
-    underline: {
-      // Default underline
+      /* -----------------------
+       *  Underline / Borders
+       * ----------------------*/
       "&:before": {
         borderBottom: `1.5px solid ${primary.main} !important`,
       },
-
-      // Hover underline
+      "&:after": {
+        borderBottom: `2px solid ${primary.focus} !important`,
+      },
       "&:hover:not(.Mui-disabled):before": {
         borderBottomColor: `${primary.focus} !important`,
       },
 
-      // Focused underline
+      // Error underline
+      "&.Mui-error:before": {
+        borderBottomColor: "red !important",
+      },
+      "&.Mui-error:after": {
+        borderBottomColor: "red !important",
+      },
+      "&.Mui-error:hover:not(.Mui-disabled):before": {
+        borderBottomColor: "red !important",
+      },
+
+      // Success underline
+      "&.Mui-success:before": {
+        borderBottomColor: `${success.main} !important`,
+      },
+      "&.Mui-success:after": {
+        borderBottomColor: `${success.main} !important`,
+      },
+      "&.Mui-success:hover:not(.Mui-disabled):before": {
+        borderBottomColor: `${success.main} !important`,
+      },
+    },
+
+    underline: {
+      // Just to ensure standard variant works consistently
+      "&:before": {
+        borderBottom: `1.5px solid ${primary.main} !important`,
+      },
       "&:after": {
+        borderBottom: `2px solid ${primary.focus} !important`,
+      },
+      "&:hover:not(.Mui-disabled):before": {
         borderBottomColor: `${primary.focus} !important`,
       },
+      // Error
+      "&.Mui-error:before": { borderBottomColor: "red !important" },
+      "&.Mui-error:after": { borderBottomColor: "red !important" },
+      "&.Mui-error:hover:not(.Mui-disabled):before": { borderBottomColor: "red !important" },
+      // Success
+      "&.Mui-success:before": { borderBottomColor: `${success.main} !important` },
+      "&.Mui-success:after": { borderBottomColor: `${success.main} !important` },
+      "&.Mui-success:hover:not(.Mui-disabled):before": { borderBottomColor: `${success.main} !important` },
     },
   },
 };
 
-export default input;
+export default inputTheme;

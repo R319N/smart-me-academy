@@ -13,7 +13,9 @@ export default function RegisterWithUs() {
         minHeight: "100vh",
         width: "100%",
         backgroundImage:
-          `linear-gradient(to bottom,#3a4254ff,rgba(8, 12, 40, 1))`
+          "linear-gradient(to bottom, rgba(22, 22, 23, 0.87),   rgba(8, 12, 40, 1))",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
       }}
     >
       <NavigationBar />

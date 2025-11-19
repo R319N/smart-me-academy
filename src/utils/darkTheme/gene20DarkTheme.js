@@ -61,6 +61,7 @@ import formControlLabel from "./components/form/formControlLabel";
 import inputOutlined from "./components/form/inputOutlined";
 import input from "./components/form/input";
 import pickerInputBase from "./components/form/pickerInputBase";
+import inputTheme from "./components/form/input";
 // 
 
 const gene20DarkTheme = createTheme({
@@ -137,7 +138,7 @@ const gene20DarkTheme = createTheme({
     MuiFormControlLabel: { ...formControlLabel },
     MuiTextField: { ...textField },
     MuiInputBase: { ...inputBase },
-    MuiInput: { ...input },
+    MuiInput: { ...inputTheme },
   },
 });
 export default gene20DarkTheme;

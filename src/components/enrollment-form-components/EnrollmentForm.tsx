@@ -69,11 +69,11 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [showSuccess, setShowSuccess] = useState(false);
-    const validateField = async (name: string, value: any) => {
+    const validateField = async (name: string, value: unknown) => {
         try {
             await enrollmentSchema.validateAt(name, { [name]: value });
             setErrors(prev => ({ ...prev, [name]: "" }));
-        } catch (err: any) {
+        } catch (err: unknown) {
             setErrors(prev => ({ ...prev, [name]: err.message }));
         }
     };
@@ -124,7 +124,7 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const handleBack = () => setActiveStep((prev) => prev - 1);
 
     // import { uploadToCloudinary } from "@/lib/uploadToCloudinary";
-    const handleFormDataChange = (name: string, value: any) => {
+    const handleFormDataChange = (name: string, value: unknown) => {
         setFormData(prev => ({
             ...prev,
             [name]: value,
