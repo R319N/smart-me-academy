@@ -13,7 +13,8 @@ const { colored } = boxShadows
 const stepper = {
   styleOverrides: {
     root: {
-      padding: `${pxToRem(24)} 0 ${pxToRem(0)}`,
+      width : "100%",
+      padding: `${pxToRem(24)} ${pxToRem(0)}`,
       borderRadius: borderRadius.lg,
       boxShadow: primary.main,
 
