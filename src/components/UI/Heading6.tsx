@@ -37,7 +37,7 @@ const Heading6: React.FC<HeaderBannerProps> = ({ title, subTitle }) => {
                             lineHeight: 1,
                         }}
                     >
-                        <Box component="span" sx={{ color: (theme) => theme.palette.text.primary }}>
+                        <Box component="span" sx={{ color: (theme) => theme.palette.text.secondary }}>
                             {firstWord}
                         </Box>{' '}
                         <Box component="span" sx={{ color: (theme) => theme.palette.primary.main }}>
