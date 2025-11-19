@@ -2,25 +2,28 @@ import { Grid, TextField, InputLabel, Select, MenuItem, FormControl, SelectChang
 import React, { Dispatch, SetStateAction } from "react";
 import { EnrollmentFormData } from "../../../types";
 import DatePickerInput from "../UI/DatePicker";
+import { on } from "events";
 
 interface Props {
   formData: EnrollmentFormData;
   setFormData: Dispatch<SetStateAction<EnrollmentFormData>>;
   errors: Record<string, string>;
+  onFieldChange: (name: string, value: any) => void;
 }
+
 
 const grades = Array.from({ length: 12 }, (_, i) => i + 1)
 
-const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
+const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors, onFieldChange }) => {
   const [showGenderPH, setShowGenderPH] = React.useState(false);
   const [showGradePH, setShowGradePH] = React.useState(false);
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
-  ): void => {
-    const target = e.target as HTMLInputElement;
-    if (!target || !target.name) return;
-    setFormData((prev) => ({ ...prev, [target.name]: target.value }));
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
+  // ): void => {
+  //   const target = e.target as HTMLInputElement;
+  //   if (!target || !target.name) return;
+  //   setFormData((prev) => ({ ...prev, [target.name]: target.value }));
+  // };
 
   return (
     <Grid container spacing={6}>
@@ -32,9 +35,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           name="firstName"
           placeholder="Student's First Name"
           value={formData.firstName}
-          onChange={(e) =>
-            setFormData(prev => ({ ...prev, firstName: e.target.value }))
-          }
+          onChange={(e) => onFieldChange("firstName", e.target.value)}
           error={!!errors.firstName}
           helperText={errors.firstName}
         />
@@ -47,7 +48,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           label="last name"
           placeholder="Student's Last Name"
           value={formData.surname}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("surname", e.target.value)}
           error={!!errors.surname}
           helperText={errors.surname}
         />
@@ -57,9 +58,15 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
         <DatePickerInput
           label="date of birth"
           value={formData.dob}
-          onChange={(value) =>
-            setFormData(prev => ({ ...prev, dob: value }))
-          }
+          onChange={(value) => {
+            Promise.resolve(onFieldChange("dob", value))
+              .then(() => {
+                setFormData(prev => ({ ...prev, dob: value }));
+              })
+              .catch(error => {
+                // handle error
+              });
+          }}
           error={errors.dob}
         />
       </Grid>
@@ -71,7 +78,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
           label="ID or passport number"
           placeholder="ID or Passport Number"
           value={formData.idOrPassport}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("idOrPassport", e.target.value)}
           error={!!errors.idOrPassport}
           helperText={errors.idOrPassport}
         />
@@ -85,7 +92,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
             label="Gender"
             labelId="gender-label"
             value={formData.gender}
-            onChange={handleChange}
+            onChange={(e) => onFieldChange("gender", e.target.value)}
             variant="standard"
             onOpen={() => setShowGenderPH(true)}
             onClose={() => setShowGenderPH(false)}
@@ -120,8 +127,7 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
             name="grade"
             label="grade"
             value={formData.grade}
-            onChange={handleChange}
-            // variant="standard"
+            onChange={(e) => onFieldChange("grade", e.target.value)}
             displayEmpty
             onOpen={() => setShowGradePH(true)}
             onClose={() => setShowGradePH(false)}

@@ -25,7 +25,7 @@ import NextIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import GlowingButtonOutlined from "../glowingButtonOutlined";
 import { uploadToCloudinary } from "@/utils/cloudinaryUpload";
 import SuccessScreen from "./SuccessScreen";
-import { studentDetailsSchema } from "@/validation/enrollmentSchema";
+import { enrollmentSchema } from "@/validation/enrollmentSchema";
 
 interface Props {
     formSteps: { title: string; detail: string }[];
@@ -71,7 +71,7 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     const [showSuccess, setShowSuccess] = useState(false);
     const validateField = async (name: string, value: any) => {
         try {
-            await studentDetailsSchema.validateAt(name, { [name]: value });
+            await enrollmentSchema.validateAt(name, { [name]: value });
             setErrors(prev => ({ ...prev, [name]: "" }));
         } catch (err: any) {
             setErrors(prev => ({ ...prev, [name]: err.message }));
@@ -198,10 +198,19 @@ const EnrollmentForm: React.FC<Props> = ({ formSteps }) => {
                 </Grid>
                 <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "2rem" }}>
                     {activeStep === 0 && (
-                        <StudentDetails formData={formData} setFormData={setFormData} errors={errors} />
+                        <StudentDetails
+                            formData={formData}
+                            setFormData={setFormData}
+                            errors={errors}
+                            onFieldChange={handleFormDataChange}
+                        />
                     )}
                     {activeStep === 1 && (
-                        <CustodianDetails formData={formData} setFormData={setFormData} errors={errors} />
+                        <CustodianDetails
+                            formData={formData}
+                            setFormData={setFormData}
+                            onFieldChange={handleFormDataChange}
+                            errors={errors} />
                     )}
                     {activeStep === 2 && (
                         <DocumentsUpload formData={formData} setFormData={setFormData} errors={errors} />

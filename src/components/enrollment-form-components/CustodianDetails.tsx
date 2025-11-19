@@ -6,9 +6,10 @@ interface Props {
   formData: EnrollmentFormData;
   setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
   errors: Record<string, string>;
+onFieldChange: (name: string, value: any) => void
 }
 
-const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) => {
+const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors, onFieldChange }) => {
 
   const [showCustodianPH, setShowCustodianPH] = React.useState(false);
   const [showMaritalPH, setShowMaritalPH] = React.useState(false);
@@ -35,7 +36,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           label="Full Name"
           placeholder="Custodian/Parent Fullname"
           value={formData.custodianFullName}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("custodianFullName", e.target.value)}
           error={!!errors.custodianFullName}
           helperText={errors.custodianFullName}
         />
@@ -50,7 +51,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           label="Email Address"
           placeholder="Enter Your Email Address"
           value={formData.email}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("email", e.target.value)}
           error={!!errors.email}
           helperText={errors.email}
         />
@@ -64,7 +65,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           fullWidth
           name="contactNumber"
           value={formData.contactNumber}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("contactNumber", e.target.value)}
           error={!!errors.contactNumber}
           helperText={errors.contactNumber}
         />
@@ -78,7 +79,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           fullWidth
           name="whatsappNumber"
           value={formData.whatsappNumber}
-          onChange={handleChange}
+          onChange={(e) => onFieldChange("whatsappNumber", e.target.value)}
           error={!!errors.whatsappNumber}
           helperText={errors.whatsappNumber}
         />
@@ -90,7 +91,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
           <Select          
             name="relationshipToStudent"
             value={formData.relationshipToStudent}
-            onChange={handleChange}
+            onChange={(e) => onFieldChange("relationshipToStudent", e.target.value)}
             label="Relationship to Student"
             labelId="relationship-to-student-label"
             onOpen={() => setShowCustodianPH(true)}
@@ -124,7 +125,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
             name="maritalStatus"
             value={formData.maritalStatus}
             variant="standard"
-            onChange={handleChange}
+            onChange={(e) => onFieldChange("maritalStatus", e.target.value)}
             label="Relationship to Student"
             labelId="relationship-to-student-label"
             onOpen={() => setShowMaritalPH(true)}
@@ -162,7 +163,7 @@ const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors }) =>
             rows={3}
             name="address"
             value={formData.address}
-            onChange={handleChange}
+            onChange={(e) => onFieldChange("address", e.target.value)}
             error={!!errors.address}
             helperText={errors.address}
           />
