@@ -1,7 +1,7 @@
 import colors from "../../base/colors";
 import typography from "../../base/typography";
 
-const { inputBorderColor, grey, primary, success } = colors; // success color added
+const { inputBorderColor, grey, primary, success, error} = colors; // success color added
 const { size } = typography;
 
 const pickerInputBase = {
@@ -53,23 +53,23 @@ const pickerInputBase = {
        *  ❌ ERROR STATE
        * ----------------------*/
       "& .MuiFormLabel-root.Mui-error": {
-        color: "red !important",
+        color: ` ${error.main} !important`,
       },
 
       "& .MuiFormLabel-root.Mui-focused.Mui-error": {
-        color: "red !important",
+        color:`${error.main} !important` ,
       },
 
       "&.Mui-error:before": {
-        borderBottomColor: "red !important",
+        borderBottomColor:`${error.main} !important`,
       },
 
       "&.Mui-error:after": {
-        borderBottomColor: "red !important",
+        borderBottomColor: `${error.main} !important`,
       },
 
       "&.Mui-error:hover:not(.Mui-disabled):before": {
-        borderBottomColor: "red !important",
+        borderBottomColor: `${error.main} !important`,
       },
 
       /* -----------------------
