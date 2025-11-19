@@ -12,7 +12,7 @@ const stepLabel = {
       marginTop: `${pxToRem(8)} !important`,
       fontWeight: fontWeightRegular,
       fontSize: size.xs,
-      color: text.main,
+      color: text.secondary,
 
       '&.Mui-active': {
         fontWeight: `${fontWeightBold} !important`,
