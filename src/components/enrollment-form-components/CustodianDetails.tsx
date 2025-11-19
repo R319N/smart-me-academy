@@ -6,7 +6,7 @@ interface Props {
   formData: EnrollmentFormData;
   setFormData: React.Dispatch<React.SetStateAction<EnrollmentFormData>>;
   errors: Record<string, string>;
-onFieldChange: (name: string, value: any) => void
+onFieldChange: (name: string, value: unknown) => void
 }
 
 const CustodianDetails: React.FC<Props> = ({ formData, setFormData, errors, onFieldChange }) => {
