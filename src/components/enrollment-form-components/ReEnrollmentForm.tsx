@@ -63,7 +63,19 @@ const ReEnrollmentForm: React.FC<Props> = ({ formSteps }) => {
     });
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
+const validateField = async (name: string, value: unknown) => {
+    try {
+        await enrollmentSchema.validateAt(name, { [name]: value });
+        setErrors(prev => ({ ...prev, [name]: "" }));
+    } catch (err: unknown) {
 
+        if (err instanceof ValidationError) {
+            setErrors(prev => ({ ...prev, [name]: err.message }));
+        } else {
+            setErrors(prev => ({ ...prev, [name]: "An unknown error occurred" }));
+        }
+    }
+};
 const handleFormDataChange = (name: string, value: unknown) => {
         setFormData(prev => ({
             ...prev,
