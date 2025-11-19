@@ -17,7 +17,6 @@ export default function RegisterWithUs() {
 "radial-gradient(circle, rgba(12, 129, 212, 1) 0%, rgba(1, 11, 19, 1) 100%)", 
        
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
       }}
     >
       <NavigationBar />
