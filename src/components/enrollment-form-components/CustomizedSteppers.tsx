@@ -30,7 +30,7 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
-    borderColor: 'textSecondary',
+    borderColor: 'text.secondary',
     borderTopWidth: 3,
     borderRadius: 1,
     ...theme.applyStyles('dark', {
@@ -61,7 +61,7 @@ export default function CustomizedSteppers({ formSteps, activeStep }: Props) {
                         {/* Only show detail inside StepContent on desktop */}
                         {!phone && (
                             <StepContent>
-                                <Typography variant="body2" color='textSecondary'>{step.detail}</Typography>
+                                <Typography variant="body2" color='text.secondary'>{step.detail}</Typography>
                             </StepContent>
                         )}
                     </Step>
@@ -72,6 +72,7 @@ export default function CustomizedSteppers({ formSteps, activeStep }: Props) {
             {phone && (
                 <Typography
                     variant="body2"
+                  color="text.secondary" 
                     sx={{
                         mt: 2,
                         display: "flex",
