@@ -2,7 +2,7 @@ export const formSteps = [
   {
     title: "Student's Details",
     detail:
-      "Provide the student's full name, date of birth, gender, nationality, current grade/class, previous school information, and contact details."
+      "Provide the student's full name, date of birth, gender, current grade/class, previous school information, and contact details."
   },
   {
     title: "Parent/Guardian Details",

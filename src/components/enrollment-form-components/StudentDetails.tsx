@@ -242,10 +242,10 @@ const StudentDetails: React.FC<Props> = ({ formData, setFormData, errors, onFiel
           {!errors.grade && formData.grade && (
             <CheckCircleIcon
               sx={{
-                color: green[800],
+                color: green[600],
                 fontSize: 20,
                 position: "absolute",
-                right: 0,
+                right: 20,
                 top: "50%",
                 transform: "translateY(-50%)",
               }}

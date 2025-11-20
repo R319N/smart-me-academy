@@ -80,7 +80,7 @@ const NavigationBar: React.FC<DashBoardNavigationProps> = ({
                             backdropFilter: trigger ? "blur(10px)" : "none",
                             overflow: "hidden",
                             boxShadow: "none",
-                             p: { xs: "0.5rem 0", lg: "1rem 4rem" },
+                             p: { xs: "0.5rem 0", lg: "0rem 4rem" },
                             // transition:"1s all-ease"
                         }}
                     >

@@ -20,7 +20,7 @@ const EnrollmentPage = () => {
         : formSteps;
 
     return (
-        <Box my="14vh">
+        <Box my="10vh">
             <Container>
                 <>
                     {mode === "reenrolment" ? (

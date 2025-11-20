@@ -10,8 +10,8 @@ const colors = {
   },
 
   text: {
-    primary: "#010B13",
-    secondary: "#E6E4CE",
+    primary: "#E6E4CE",
+    secondary: "#BBBBB4",
   },
 
   transparent: {
@@ -37,7 +37,7 @@ const colors = {
   },
 
   secondary: {
-    main: "#427AA1",
+    main: "#FFBA08",
     light: "#427AA1",
     dark: "#427AA1",
   },

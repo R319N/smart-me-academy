@@ -11,7 +11,7 @@ export const enrollmentSchema = Yup.object().shape({
   idOrPassport: Yup.string().required("ID / Passport is required"),
   gender: Yup.string().required("Gender is required"),
   grade: Yup.string().required("Grade is required"),
-   custodianFullName: Yup.string().required("your name is required"),
+  custodianFullName: Yup.string().required("your name is required"),
   email: Yup.string().required("Email is required"),
   contactNumber: Yup.string().required("contact number is required"),
   whatsappNumber: Yup.string().required("whatsapp number is required"),

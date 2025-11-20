@@ -96,6 +96,7 @@ const handleFormDataChange = (name: string, value: unknown) => {
             if (!formData.dob) newErrors.dob = "Date of birth is required";
             if (!formData.gender) newErrors.gender = "Gender is required";
             if (!formData.idOrPassport.trim()) newErrors.idOrPassport = "ID/Passport is required";
+             if (!formData.grade) newErrors.grade = "Grade is required";
         }
 
         if (activeStep === 1) {
@@ -172,11 +173,11 @@ const handleFormDataChange = (name: string, value: unknown) => {
     return (
         <form onSubmit={handleSubmit}>
             <ReEnrollmentFormHeading />
-            <Grid container sx={styles.center_flex} spacing={2}>
+            <Grid container sx={styles.center_flex} spacing={2} my="3rem">
                 <Grid size={{ xs: 12, sm: 4 }}>
                     <CustomizedSteppers activeStep={activeStep} formSteps={formSteps} />
                 </Grid>
-                <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "1rem" }}>
+                <Grid container spacing={2} size={{ xs: 12, sm: 8 }} sx={{ ...styles.glassOutlined, p: "2rem 1rem" }}>
                     {activeStep === 0 && (
                         <StudentDetails formData={formData} setFormData={setFormData} errors={errors} onFieldChange={handleFormDataChange} />
                     )}

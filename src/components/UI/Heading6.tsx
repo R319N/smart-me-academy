@@ -3,6 +3,7 @@ import React from 'react'
 import pxToRem from '@/utils/darkTheme/functions/pxToRem';
 import { Box, Divider, Typography } from '@mui/material';
 import { ExoFontWrapper } from '@/layouts/wrappers/PoppinsWrapper';
+import { grey } from '@mui/material/colors';
 
 interface HeaderBannerProps {
     title: string;
@@ -31,23 +32,23 @@ const Heading6: React.FC<HeaderBannerProps> = ({ title, subTitle }) => {
                     <Typography
                         variant="h2"
                         sx={{
-                            fontSize: { xs: pxToRem(16), lg: pxToRem(32) },
+                            fontSize: { xs: pxToRem(24), lg: pxToRem(32) },
                             textTransform: 'uppercase',
-                            fontWeight: 'bold',
+                            fontWeight: 'medium',
                             lineHeight: 1,
                         }}
                     >
-                        <Box component="span" sx={{ color: (theme) => theme.palette.text.secondary }}>
+                        <Box component="span" sx={{ color: (theme) => theme.palette.primary.main }}>
                             {firstWord}
                         </Box>{' '}
-                        <Box component="span" sx={{ color: (theme) => theme.palette.primary.main }}>
+                        <Box component="span" sx={{ color: (theme) => theme.palette.text.secondary }}>
                             {remaining}
                         </Box>
                     </Typography>
                 </ExoFontWrapper>
-                <Box width={"100%"}>
+                {/* <Box width={"100%"}>
                     <Divider />
-                </Box>
+                </Box> */}
 
 
                 {subTitle && (
@@ -55,10 +56,11 @@ const Heading6: React.FC<HeaderBannerProps> = ({ title, subTitle }) => {
                         variant="body2"
                         sx={{
                             whiteSpace: 'pre-line',
-                            fontSize: { xs: pxToRem(14), lg: pxToRem(12) },
+                            // fontSize: { xs: pxToRem(12), lg: pxToRem(12) },
                             textTransform: 'capitalize',
                             maxWidth: '600px',
-                            color: 'text.secondary',
+                            // color: grey[400],
+                            fontWeight: "regular"
                         }}
                     >
                         {subTitle}
